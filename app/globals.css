@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.circle2 {
+  height: 300px;
+  background: linear-gradient(
+    to right,
+    #ffffff22, #ffffff33, #ffffff44);
+  aspect-ratio: 1;
+  position: absolute;
+  translate: -50% -50%;
+  border-radius: 50%;
+  position: fixed; 
+  pointer-events: none;
+  animation: rotate 10s infinite;
+  filter:blur(120px)
+}
