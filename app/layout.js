@@ -18,14 +18,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} relative bg-[#1c0c06]`}>
-        <div className="absolute w-screen h-screen">
-          <Image
-            src="/bg3.png"
-            layout="fill"
-            objectFit="cover"
-            className="opacity-10"
-          />
-        </div>
         <Navbar />
         {children}
       </body>
