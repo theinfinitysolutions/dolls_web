@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Transition from "@/components/Transition";
 import { usePathname } from "next/navigation";
+import Footer from "@/components/Footer";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <Transition>
           <div className="z-0 min-h-screen">{children}</div>
         </Transition>
+        <Footer />
       </body>
     </html>
   );

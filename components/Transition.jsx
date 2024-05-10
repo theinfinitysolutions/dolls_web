@@ -10,9 +10,9 @@ const Transition = ({ children }) => {
       <motion.div>
         <motion.div
           className="slide-in"
-          initial={{ scaleX: 1 }}
-          animate={{ scaleX: [0, 1, 1, 0] }}
-          exit={{ scaleX: 0 }}
+          initial={{ scaleY: 1 }}
+          animate={{ scaleY: [0, 1, 1, 0] }}
+          exit={{ scaleY: 0 }}
           transition={{
             duration: 3,
 

@@ -10,6 +10,11 @@ import Transition from "@/components/Transition";
 import { animate, motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { SiApplemusic } from "react-icons/si";
+import { AiFillYoutube } from "react-icons/ai";
+import { FaSpotify } from "react-icons/fa";
+import { FaSoundcloud } from "react-icons/fa";
 
 let list = ["Music", "Gallery", "Media", "Contact"];
 
@@ -19,6 +24,25 @@ const images = [
   "/dolls3.jpeg",
   "/dolls4.jpeg",
   "/dolls5.jpeg",
+];
+
+let songlist = [
+  {
+    title: "OCD",
+    artist: "Meraki",
+  },
+  {
+    title: "Tere Aankhon Se",
+    artist: "Abhisehk Nirwan",
+  },
+  {
+    title: "Kya Karu",
+    artist: "Param",
+  },
+  {
+    title: "Maula",
+    artist: "Ajay Tewari",
+  },
 ];
 
 const FAST_DURATION = 25;
@@ -106,28 +130,95 @@ const Home = () => {
             "  max-h-[100vh] min-h-[100vh] h-[100vh] w-screen overflow-hidden"
           }
         >
-          <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[5vh] ">
-            <RevealOnScroll
-              addedClasses={
-                "flex flex-col items-start justify-center w-full p-8 animate-slideInLeft"
-              }
-            >
-              <h2
-                className={`${alfa.className} text-white text-[4rem] leading-[4rem] font-bold `}
-              >
-                MUSIC
-              </h2>
-              <p className="text-white text-sm">
-                {
-                  " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
-                }
-              </p>
-            </RevealOnScroll>
-            <div className="flex flex-row w-full justify-between items-center">
-              <div className="flex w-1/2 flex-col items-center">
-                <div className="h-[40vh] w-[40vh] relative">
-                  <Image src="/dolls1.jpeg" layout="fill" objectFit="cover" />
+          <div className="flex flex-col w-full h-full items-start relative justify-start  bg-black py-[5vh] ">
+            <div className="flex flex-row w-full justify-between items-start">
+              <div className="circle left-1/3 bottom-0 absolute" />
+              <div className="circle right-0 top-0 absolute" />
+              <div className="flex w-1/2 flex-col items-start">
+                <RevealOnScroll
+                  addedClasses={
+                    "flex flex-col items-start justify-center w-full p-8 animate-slideInLeft"
+                  }
+                >
+                  <h2
+                    className={`${alfa.className} text-white text-[4rem] leading-[4rem] font-bold `}
+                  >
+                    MUSIC
+                  </h2>
+                  <p className="text-white text-sm">
+                    {
+                      " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
+                    }
+                  </p>
+                </RevealOnScroll>
+                <div className="flex flex-row items-center justify-start px-8">
+                  <p className="text-xl text-white ">Upcoming Music</p>
+                  <FaArrowRightLong className="text-white ml-4" />
                 </div>
+                <div className="flex flex-col items-center w-[40vh] mx-[10vw]">
+                  <div className="h-[40vh] w-[40vh] group mt-4 relative">
+                    <div className="h-[40vh] w-[40vh]  mt-4 absolute z-20">
+                      <Image
+                        src="/song0.jpeg"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <div className="h-[40vh] w-[40vh] z-10 absolute transition-all group-hover:translate-x-[10vw] group-hover:duration-200  mt-4 ">
+                      <Image
+                        src="/asset1.png"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rotate-45"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col mt-8 w-full items-center">
+                    <p className="text-2xl font-semibold">Kiddies</p>
+                    <p className="text-base font-semibold text-red-500 ">
+                      FAT GUYY
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col w-1/2 items-start p-8">
+                {songlist.map((item, index) => {
+                  return (
+                    <div className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full">
+                      <div className="flex flex-row items-center">
+                        <div className="h-[15vh] w-[15vh] relative">
+                          <Image src={`/song${index + 1}.jpeg`} layout="fill" />
+                        </div>
+                        <div className="flex flex-col items-start justify-center ml-8">
+                          <h3 className="text-white text-xl">{item.title}</h3>
+                          <p className="text-white text-sm">{item.artist}</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-row items-center w-3/12">
+                        <div className="flex flex-row justify-around items-center w-full ">
+                          <a
+                            onClick={() => {
+                              router.push("/");
+                            }}
+                          >
+                            <SiApplemusic className="text-sm " />
+                          </a>
+                          <a onClick={() => {}}>
+                            <AiFillYoutube className="text-sm" />
+                          </a>
+
+                          <a onClick={() => {}}>
+                            <FaSpotify className="text-sm" />
+                          </a>
+
+                          <a onClick={() => {}}>
+                            <FaSoundcloud className="text-sm" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -138,6 +229,8 @@ const Home = () => {
           }
         >
           <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[5vh] ">
+            <div className="circle absolute  right-0 bottom-0" />
+            <div className="circle -bottom-1/2 -right-1/2 absolute" />
             <RevealOnScroll
               addedClasses={
                 "flex flex-col items-start justify-center w-full p-8 animate-slideInLeft"
