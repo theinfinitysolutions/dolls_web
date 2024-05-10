@@ -13,11 +13,11 @@ import { easing } from "maath";
 import "./_util";
 
 const CarouselComponent = () => (
-  <div className="flex flex-col items-start max-h-[80vh] w-[80vw] ">
+  <div className="flex flex-col items-start max-h-[80vh] w-[60vw] ">
     <Canvas
       camera={{ position: [0, 0, 100], fov: 15 }}
-      className="w-[60vw] h-[80vh] bg-transparent "
-      style={{ height: "80vh" }}
+      className="w-[60vw] h-[70vh] bg-transparent "
+      style={{ height: "70vh" }}
     >
       <fog attach="fog" args={["#a79", 8.5, 12]} />
       <ScrollControls pages={4} infinite>
@@ -75,7 +75,7 @@ function Card({ url, ...props }) {
     easing.damp(
       ref.current.material,
       "radius",
-      hovered ? 0.25 : 0.1,
+      hovered ? 0.05 : 0.01,
       0.2,
       delta
     );
