@@ -16,7 +16,7 @@ const CarouselComponent = () => (
   <div className="flex flex-col items-start max-h-[80vh] w-[60vw] ">
     <Canvas
       camera={{ position: [0, 0, 100], fov: 15 }}
-      className="w-[60vw] h-[70vh] bg-transparent "
+      className="w-[65vw] h-[75vh] bg-transparent "
       style={{ height: "70vh" }}
     >
       <fog attach="fog" args={["#a79", 8.5, 12]} />
@@ -54,7 +54,7 @@ function Carousel({ radius = 1.4, count = 8 }) {
   return Array.from({ length: count }, (_, i) => (
     <Card
       key={i}
-      url={`/dolls${Math.floor(i % 5) + 1}.jpeg`}
+      url={`/song${Math.floor(i % 8) + 1}.jpeg`}
       position={[
         Math.sin((i / count) * Math.PI * 2) * radius,
         0,

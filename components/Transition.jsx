@@ -5,7 +5,7 @@ const title = "DOLE'S MUSIC";
 
 const Transition = ({ children }) => {
   return (
-    <main className="h-screen w-screen flex">
+    <main className="min-h-screen w-screen flex">
       {children}
       <motion.div>
         <motion.div
@@ -14,7 +14,7 @@ const Transition = ({ children }) => {
           animate={{ scaleY: [0, 1, 1, 0] }}
           exit={{ scaleY: 0 }}
           transition={{
-            duration: 3,
+            duration: 1,
 
             times: [0, 0.2, 0.7, 1],
           }}
