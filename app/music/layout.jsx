@@ -2,11 +2,7 @@ import Transition from "@/components/Transition";
 import React from "react";
 
 const layout = ({ children }) => {
-  return (
-    <div>
-      <Transition>{children}</Transition>
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default layout;
