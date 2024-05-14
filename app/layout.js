@@ -1,5 +1,5 @@
 "use client";
-import { Cutive_Mono } from "next/font/google";
+import { Cutive_Mono, Abril_Fatface } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -20,19 +20,22 @@ export const alfa = Alfa_Slab_One({
   weight: ["400"],
 });
 
+export const abril = Abril_Fatface({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 let title = "DOLE'S MUSIC";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative min-h-screen bg-black/95`}>
+      <body className={`${abril.className} relative min-h-screen bg-black/95`}>
         <div className="fixed top-0 left-0 h-screen w-screen -z-10">
           <Image src={"/bgimg.jpeg"} layout="fill" className=" opacity-10" />
         </div>
         <Navbar />
-        <Transition>
-          <div className="z-0 min-h-screen">{children}</div>
-        </Transition>
+        <div className="z-0 min-h-screen max-w-screen">{children}</div>
         <Footer />
       </body>
     </html>
