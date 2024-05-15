@@ -102,14 +102,16 @@ export const songsAtrangi = [
 
 export const songsSSD = [
   {
-    song: "Gulabi - Param & Hahrshita Banker",
+    song: "Gulabi",
+    artist: "Param & Hahrshita Banker",
     Spotify:
       "https://open.spotify.com/track/1hS0Ku3Jmc0yfiI5LGpPWA?si=a48088c917d8459a",
     AppleMusic: "https://music.apple.com/in/album/gulabi-single/1717239805",
     Youtube: "https://youtu.be/N62dhG9vsyE?si=1_2F2Q_5LhFfCGl_",
   },
   {
-    song: "Saajan bairiya - Priyanshh Srivavstava, Namish Narayan",
+    song: "Saajan bairiya",
+    artist: "Priyanshh Srivavstava, Namish Narayan",
     Spotify:
       "https://open.spotify.com/track/34ioU8r6HO4z8w2FMQ8ne8?si=59e8cebc767a4fbd",
     AppleMusic:
@@ -117,7 +119,8 @@ export const songsSSD = [
     Youtube: "https://youtu.be/bqjSLqeu0PI?si=APEX2dfdx2POsqpK",
   },
   {
-    song: "Nasha Zindagi - Mayyank solanki",
+    song: "Nasha Zindagi",
+    artist: "Mayyank Solanki",
     Spotify:
       "https://open.spotify.com/track/4CmvIikZB6Rs0kClZXa3e4?si=a3f960bfc35f47db",
     AppleMusic:
@@ -125,7 +128,8 @@ export const songsSSD = [
     Youtube: "https://youtu.be/E2qH08K2fds?si=6YExpU9t0lv9U2D0",
   },
   {
-    song: "Ulfat Ka Dariya - Mayyank Solankki",
+    song: "Ulfat Ka Dariya",
+    artist: "Mayyank Solanki",
     Spotify:
       "https://open.spotify.com/track/1xRdztEhpLdQF2toubUmyw?si=c4b6cc41661c4c3f",
     AppleMusic:
@@ -133,7 +137,8 @@ export const songsSSD = [
     Youtube: "https://youtu.be/dm_P35Xtp44?si=iSWJNjP4xLPQtxTK",
   },
   {
-    song: "Maula - Ajay Tewari",
+    song: "Maula",
+    artist: "Ajay Tewari",
     Spotify:
       "https://open.spotify.com/track/3Uv8wd1cEMxSZ1aPZxaEIZ?si=01290a03bbb64bbe",
     AppleMusic:
@@ -141,7 +146,8 @@ export const songsSSD = [
     Youtube: "https://youtu.be/M28doogxUuQ?si=bur761KwkSRHN554",
   },
   {
-    song: "Tu Paas Hai - Diptanshu Tiwari",
+    song: "Tu Paas Hai",
+    artist: "Diptanshu Tiwari",
     Spotify:
       "https://open.spotify.com/track/16o2ASTSiJOpHp225xHvPI?si=77f254d1864f4ffd",
     AppleMusic:
@@ -149,7 +155,8 @@ export const songsSSD = [
     Youtube: "https://youtu.be/CkNT3cKcjBs?si=34NWJFa624Glmzqs",
   },
   {
-    song: "Tu Paas Hai  (Reprise)",
+    song: "Tu Paas Hai ",
+    artist: "Diptanshu Tiwari",
     Spotify:
       "https://open.spotify.com/track/2j5ISZp3eceysF1qLg3wGO?si=93c07d4cb1da4a87",
     AppleMusic: "",
