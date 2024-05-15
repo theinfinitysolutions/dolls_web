@@ -16,6 +16,7 @@ import { AiFillYoutube } from "react-icons/ai";
 import { FaSpotify } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
 import { FaAnglesDown } from "react-icons/fa6";
+import { dollsImages } from "@/utils/consts";
 
 let list = ["Music", "Gallery", "Media", "Contact"];
 

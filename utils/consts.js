@@ -301,3 +301,18 @@ export const songsMAMA = [
     Youtube: "",
   },
 ];
+
+export const dollsImages = [
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls1.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls10.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls12.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls14.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls3.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls6.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls5.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls4.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls2.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls13.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls11.jpeg",
+  "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls1.jpeg",
+];
