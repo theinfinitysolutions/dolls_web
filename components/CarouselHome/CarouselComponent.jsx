@@ -13,11 +13,10 @@ import { easing } from "maath";
 import "./_util";
 
 const CarouselComponent = () => (
-  <div className="flex flex-col items-start max-h-[80vh] w-[60vw] ">
+  <div className="flex flex-col items-start max-h-[50vh] h-[80vh] w-[50vw] ">
     <Canvas
       camera={{ position: [0, 0, 100], fov: 15 }}
-      className="w-[65vw] h-[75vh] bg-transparent "
-      style={{ height: "70vh" }}
+      className="w-[50vw] h-[80vh] bg-transparent items-start "
     >
       <fog attach="fog" args={["#a79", 8.5, 12]} />
       <ScrollControls pages={4} infinite>
@@ -41,7 +40,7 @@ function Rig(props) {
     state.events.update(); // Raycasts every frame rather than on pointer-move
     easing.damp3(
       state.camera.position,
-      [-state.pointer.x * 2, state.pointer.y + 1.5, 10],
+      [-state.pointer.x * 2, state.pointer.y + 1.5, 9],
       0.3,
       delta
     ); // Move camera
@@ -54,7 +53,7 @@ function Carousel({ radius = 1.4, count = 8 }) {
   return Array.from({ length: count }, (_, i) => (
     <Card
       key={i}
-      url={`/song${Math.floor(i % 8) + 1}.jpeg`}
+      url={`/dolls${Math.floor(i % 5) + 1}.jpeg`}
       position={[
         Math.sin((i / count) * Math.PI * 2) * radius,
         0,

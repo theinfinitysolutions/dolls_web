@@ -5,11 +5,15 @@ const title = "DOLE'S MUSIC";
 
 const Transition = ({ children }) => {
   return (
-    <main className="min-h-screen w-screen flex">
+    <main className="min-h-screen w-full flex">
       {children}
-      <motion.div>
+      <motion.div
+        style={{
+          zIndex: 1000,
+        }}
+      >
         <motion.div
-          className="slide-in"
+          className="slide-in "
           initial={{ scaleY: 1 }}
           animate={{ scaleY: [0, 1, 1, 0] }}
           exit={{ scaleY: 0 }}
