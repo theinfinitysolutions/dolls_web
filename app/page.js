@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
 import { CardStack } from "@/components/CardStack";
@@ -18,7 +19,7 @@ import { FaSoundcloud } from "react-icons/fa";
 import { FaAnglesDown } from "react-icons/fa6";
 import { dollsImages } from "@/utils/consts";
 
-let list = ["Music", "Gallery", "Media", "Contact"];
+let list = ["Music", "Media", "Contact"];
 
 const images = [
   "/dolls1.jpeg",
@@ -50,10 +51,24 @@ let songlist = [
 const FAST_DURATION = 25;
 const SLOW_DURATION = 75;
 
+let navbarClass =
+  "relative text-white text-sm md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-pointer";
+
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const Home = () => {
   const [duration, setDuration] = useState(FAST_DURATION);
+  const [selectedHover, setSelectedHover] = React.useState(0);
   let [ref, { width }] = useMeasure();
 
   const xTranslation = useMotionValue(0);
@@ -69,22 +84,28 @@ const Home = () => {
     clearInterval(interval);
 
     interval = setInterval(() => {
-      doc.innerText = doc.innerText
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return doc.dataset.value[index];
-          }
-
-          return letters[Math.floor(Math.random() * 16)];
-        })
-        .join("");
-
-      if (iteration >= doc.dataset.value.length) {
+      if (!doc) {
         clearInterval(interval);
+        return;
       }
+      if (doc.inertText) {
+        doc.innerText = doc.innerText
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration) {
+              return doc.dataset.value[index];
+            }
 
-      iteration += 1 / 3;
+            return letters[Math.floor(Math.random() * 16)];
+          })
+          .join("");
+
+        if (iteration >= doc.dataset.value.length) {
+          clearInterval(interval);
+        }
+
+        iteration += 1 / 3;
+      }
     }, 30);
   };
 
@@ -94,7 +115,7 @@ const Home = () => {
         TextEffect(item);
       });
     }, [2000]);
-  });
+  }, []);
 
   useEffect(() => {
     let controls;
@@ -122,10 +143,27 @@ const Home = () => {
     return controls?.stop;
   }, [rerender, xTranslation, duration, width]);
 
+  const serviceList = [
+    {
+      title: "Music",
+    },
+    {
+      title: "Gallery",
+    },
+    {
+      title: "Media",
+    },
+    {
+      title: "Contact",
+    },
+  ];
+
+  let text1 = "Dole's Music";
+
   return (
     <Transition>
       <main className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between">
-        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[50vw] z-0 ">
+        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[55vw] z-0 ">
           <Image
             src="/asset1.png"
             layout="fill"
@@ -144,31 +182,68 @@ const Home = () => {
             <FaAnglesDown className="text-white text-[2rem]" />
           </div>
           <div className="flex flex-row items-center justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
-            <div className="flex flex-row items-center relative justify-between w-full  ">
-              <div className="flex flex-col absolute  top-0 left-0 items-start justify-center w-1/2 p-8">
-                <h1
-                  className={`${abril.className} text-white text-[5rem] leading-[4rem] font-bold `}
-                >
-                  Dole's Music
+            <div className="flex flex-row items-center justify-between relative  w-5/12  ">
+              <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-start justify-center w-full">
+                <h1 className="overflow-hidden text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]">
+                  {text1.split("").map((char, index) => (
+                    <span
+                      className={`animate-slideUp inline-block  [animation-fill-mode:backwards] ${
+                        char == "'" ? "text-[#ff0000]" : ""
+                      }`}
+                      key={`${char}-${index}`}
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
                 </h1>
-                <div className="flex flex-row justify-between w-[25vw] mt-4">
+                <div className="flex flex-row justify-between w-[17.5vw] mt-4">
                   {list.map((item, index) => (
                     <Link
                       href={"/music"}
                       key={index}
                       id={item}
                       data-value={item}
-                      className="flex flex-col items-start justify-center cursor-pointer transition-colors duration-300 hover:text-[#7a180f]"
+                      className="flex flex-col items-start justify-center cursor-pointer transition-colors duration-300 hover:text-[#7a180f] "
                     >
-                      <h2 className="text-white text-lg">{item}</h2>
+                      <h2 className={navbarClass}>{item}</h2>
                     </Link>
                   ))}
                 </div>
-              </div>
-              <div className=" md:ml-[30%] md:mt-[10%]">
-                <CarouselComponent />
-              </div>
+              </RevealOnScroll>
             </div>
+            <div className=" -ml-[5%] w-7/12 overflow-hidden">
+              <CarouselComponent />
+            </div>
+            {/* <div className="flex flex-col items-start  w-4/12">
+              <div
+                onMouseLeave={() => {}}
+                className="flex flex-col w-full md:w-[70%] group items-center justify-center"
+              >
+                {serviceList.map((item, index) => {
+                  return (
+                    <a
+                      key={item.index}
+                      onMouseEnter={() => {
+                        debounce(() => {
+                          setSelectedHover(index);
+                        }, 300)();
+                      }}
+                      className="flex cursor-pointer text-primaryText group-hover:text-[#c7c7c755] justify-start w-full mb-4  border-b-[1px] border-[#ffffff22] hover:border-[#ffffff44] transition-all duration-300 ease-in-out"
+                    >
+                      <div className="hover:text-primaryText flex group/text flex-row items-start space-x-4 py-1">
+                        <p className="text-[0.75rem] text-red-700">
+                          0{index + 1}
+                        </p>
+                        <h1 className=" text-[2.25rem] leading-[4rem]  group-hover/text:translate-x-[20px] hover:text-white duration-200">
+                          {item.title}
+                        </h1>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div> */}
           </div>
         </div>
         <RevealOnScroll
