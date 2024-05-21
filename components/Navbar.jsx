@@ -4,14 +4,51 @@ import { SiApplemusic } from "react-icons/si";
 import { AiFillYoutube } from "react-icons/ai";
 import { FaSpotify } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+
+const navbarItems = [
+  {
+    title: "Home",
+    link: "/",
+  },
+  {
+    title: "Music",
+    link: "/music",
+  },
+  {
+    title: "Media",
+    link: "/media",
+  },
+  {
+    title: "Exclusive",
+    link: "/exclusive",
+  },
+  {
+    title: "Contact",
+    link: "/contact",
+  },
+];
 
 const Navbar = () => {
   const router = useRouter();
+  const path = usePathname();
+
   return (
-    <nav className="flex flex-row max-w-screen w-screen h-[5vh] fixed z-0  text-white ">
-      <div className="w-full flex flex-row justify-end items-center px-8 py-8">
-        {/* <p className="text-3xl text-white italic">Dole's Music</p> */}
+    <nav className="flex flex-row max-w-screen w-full h-[5vh] fixed z-50  text-white ">
+      <div className="w-full flex flex-row justify-between items-center px-8 py-8">
+        <div className="flex flex-row items-baseline">
+          <a
+            onClick={() => {
+              router.push("/");
+            }}
+            className="text-xl text-white cursor-pointer"
+          >
+            Dole's Music /
+          </a>
+          <p className="text-sm text-red-500 ml-1">
+            {navbarItems.find((item) => item.link == path).title}
+          </p>
+        </div>
         <div className="flex flex-row justify-around items-center w-2/12">
           <a
             onClick={() => {

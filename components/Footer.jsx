@@ -58,7 +58,7 @@ const webItems = [
 
 const Footer = () => {
   return (
-    <footer class="bg-[#fff] h-[5vh]">
+    <footer class="bg-black">
       <div class=" max-w-screen bg-black px-4 pt-8 sm:px-6 lg:px-[5%]">
         <div className="border-t-[1px] border-[#c7c7c7]/30 mt-6 py-4 flex flex-col-reverse items-center  md:flex-row md:justify-between">
           <div className="w-3/12" />
