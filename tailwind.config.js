@@ -76,6 +76,15 @@ module.exports = {
             transform: "rotate(380deg)",
           },
         },
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        wave: {
+          "0%": { transform: "rotate(-30deg)" },
+          "50%": { transform: "rotate(-15deg)" },
+          "100%": { transform: "rotate(-30deg)" },
+        },
       },
       animation: {
         rotate: "rotate 6s linear infinite",
@@ -90,6 +99,9 @@ module.exports = {
         rotate1: "rotate1 18s linear infinite",
         slideInLeft: "slideInLeft 1.5s ease-in-out forwards",
         slideInRight: "slideInRight 1.5s ease-in-out forwards",
+        infinitescroll: "infinite-scroll 25s linear infinite",
+        infinitescrollFast: "infinite-scroll 5s linear infinite",
+        wave: "wave 2s infinite",
       },
     },
   },
