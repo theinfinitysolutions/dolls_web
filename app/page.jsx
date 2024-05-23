@@ -4,7 +4,7 @@ import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
 import { CardStack } from "@/components/CardStack";
 import { IoIosMenu } from "react-icons/io";
-import { abril, alfa, orbitron } from "./layout";
+import { abril, alfa, calistoga, orbitron } from "./layout";
 import CarouselComponent from "@/components/CarouselHome/CarouselComponent";
 import Link from "next/link";
 import Transition from "@/components/Transition";
@@ -186,7 +186,9 @@ const Home = () => {
           <div className="flex flex-row items-center justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
             <div className="flex flex-row items-center justify-between relative  w-5/12  ">
               <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-start justify-center w-full">
-                <h1 className="overflow-hidden text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]">
+                <h1
+                  className={`overflow-hidden ${calistoga.className} text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
+                >
                   {text1.split("").map((char, index) => (
                     <span
                       className={`animate-slideUp inline-block  [animation-fill-mode:backwards] ${

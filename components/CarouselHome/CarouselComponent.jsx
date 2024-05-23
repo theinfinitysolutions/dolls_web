@@ -13,14 +13,14 @@ import { easing } from "maath";
 import "./util";
 
 const CarouselComponent = () => (
-  <div className="flex flex-col items-start max-h-[50vh] h-[80vh] w-[50vw] ">
+  <div className="flex flex-col items-start max-h-[70vh] h-[70vh] w-[50vw] ">
     <Canvas
       camera={{ position: [0, 0, 100], fov: 15 }}
-      className="w-[50vw] h-[80vh] bg-transparent items-start "
+      className="w-[50vw] h-[70vh] bg-transparent items-start "
     >
       <fog attach="fog" args={["#a79", 8.5, 12]} />
       <ScrollControls pages={4} infinite>
-        <Rig rotation={[0, 0, 0.15]}>
+        <Rig rotation={[0, 0, 0.25]}>
           <Carousel />
         </Rig>
         <Banner position={[0, -0.15, 0]} />
@@ -40,7 +40,7 @@ function Rig(props) {
     state.events.update(); // Raycasts every frame rather than on pointer-move
     easing.damp3(
       state.camera.position,
-      [-state.pointer.x * 2, state.pointer.y + 1.5, 9],
+      [-state.pointer.x * 2, state.pointer.y + 1.5, 11],
       0.3,
       delta
     ); // Move camera
@@ -49,7 +49,7 @@ function Rig(props) {
   return <group ref={ref} {...props} />;
 }
 
-function Carousel({ radius = 1.4, count = 8 }) {
+function Carousel({ radius = 1.3, count = 8 }) {
   return Array.from({ length: count }, (_, i) => (
     <Card
       key={i}
@@ -75,7 +75,7 @@ function Card({ url, ...props }) {
       ref.current.material,
       "radius",
       hovered ? 0.05 : 0.01,
-      0.2,
+      0.22,
       delta
     );
     easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.5, 0.2, delta);
@@ -106,7 +106,7 @@ function Banner(props) {
   });
   return (
     <mesh ref={ref} {...props}>
-      <cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
+      <cylinderGeometry args={[1.6, 1.6, 0.13, 128, 16, true]} />
       <meshSineMaterial
         map={texture}
         map-anisotropy={16}

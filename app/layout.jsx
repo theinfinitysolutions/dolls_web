@@ -1,5 +1,5 @@
 "use client";
-import { Cutive_Mono, Abril_Fatface } from "next/font/google";
+import { Cutive_Mono, Abril_Fatface, Calistoga } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -33,6 +33,11 @@ export const dancing = Dancing_Script({
 });
 
 export const shadows = Shadows_Into_Light({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export const calistoga = Calistoga({
   subsets: ["latin"],
   weight: ["400"],
 });

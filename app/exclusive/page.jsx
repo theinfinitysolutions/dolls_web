@@ -17,25 +17,25 @@ const ExlcusiveMusic = () => {
   return (
     <Transition>
       <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden">
-        <div className="w-[80vw] flex flex-row justify-between items-start mt-[5vh]">
-          <div className="w-1/2 flex flex-col items-center">
+        <div className="w-[90vw] flex flex-row justify-between items-start mt-[10vh]">
+          <div className="w-1/2 flex flex-col items-start">
             <h2 className="text-white text-[4rem] leading-[4rem] font-bold ">
               EXCLUSIVE MUSIC
             </h2>
-            <p className="text-white text-sm">
+            <p className="text-white text-sm items-start">
               {
                 " Reach out to us for any collorations or queries. We are always here to help you."
               }
             </p>
           </div>
         </div>
-        <div className="w-[80vw] flex flex-row justify-between items-start mt-[5vh]">
+        <div className="w-[90vw] flex flex-row justify-between items-start mt-[5vh]">
           <div className="w-1/2 flex flex-col items-center max-h-[70vh] overflow-y-scroll">
             {songsAtrangi.map((song, index) => {
               return (
                 <div
                   key={index}
-                  className="flex flex-row items-center justify-between border-[0.5px] p-4 border-[#c7c7c799] w-full mt-4 mb-6"
+                  className="flex flex-row items-center justify-between border-[0.5px] px-4 py-2 border-[#c7c7c799] w-full mt-4"
                 >
                   <div className="flex flex-row items-center">
                     <div className="h-[12.5vh] bg-pink-50 w-[12.5vh] relative">
