@@ -10,7 +10,7 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { easing } from "maath";
-import "./_util";
+import "./util";
 
 const CarouselComponent = () => (
   <div className="flex flex-col items-start max-h-[50vh] h-[80vh] w-[50vw] ">

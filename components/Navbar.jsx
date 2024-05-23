@@ -43,10 +43,10 @@ const Navbar = () => {
             }}
             className="text-xl text-white cursor-pointer"
           >
-            Dole's Music /
+            {"Dole's Music /"}
           </a>
           <p className="text-sm text-red-500 ml-1">
-            {navbarItems.find((item) => item.link == path).title}
+            {navbarItems.find((item) => item.link == path)?.title}
           </p>
         </div>
         <div className="flex flex-row justify-around items-center w-2/12">

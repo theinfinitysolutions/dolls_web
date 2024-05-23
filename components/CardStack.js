@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { render } from "react-dom";
 import { motion } from "framer-motion";
 import move from "lodash-move";
 import Image from "next/image";
