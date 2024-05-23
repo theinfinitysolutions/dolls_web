@@ -4,7 +4,7 @@ import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
 import { CardStack } from "@/components/CardStack";
 import { IoIosMenu } from "react-icons/io";
-import { abril, alfa } from "./layout";
+import { abril, alfa, orbitron } from "./layout";
 import CarouselComponent from "@/components/CarouselHome/CarouselComponent";
 import Link from "next/link";
 import Transition from "@/components/Transition";
@@ -18,6 +18,7 @@ import { FaSpotify } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
 import { FaAnglesDown } from "react-icons/fa6";
 import { dollsImages } from "@/utils/consts";
+import { RiArrowRightDownLine } from "react-icons/ri";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -178,8 +179,9 @@ const Home = () => {
 
         <div className="flex flex-col w-screen items-center relative justify-center max-h-screen min-h-[100vh] h-[100vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
-          <div className="  absolute left-1/2 bottom-8 animate-bounce z-50">
-            <FaAnglesDown className="text-white text-[2rem]" />
+          <div className="  absolute left-[47.5%] flex flex-row items-center bottom-8 animate-bounce z-50">
+            <p className={`text-sm ${orbitron.className}`}>Scroll Down</p>
+            <RiArrowRightDownLine className="text-white" />
           </div>
           <div className="flex flex-row items-center justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
             <div className="flex flex-row items-center justify-between relative  w-5/12  ">
@@ -200,7 +202,7 @@ const Home = () => {
                 <div className="flex flex-row justify-between w-[17.5vw] mt-4">
                   {list.map((item, index) => (
                     <Link
-                      href={"/music"}
+                      href={"/" + item.toLowerCase()}
                       key={index}
                       id={item}
                       data-value={item}
@@ -265,7 +267,7 @@ const Home = () => {
                   <h2
                     className={`${abril.className} text-white text-[4rem] leading-[4rem] font-bold `}
                   >
-                    WHAT'S NEW
+                    {"WHAT'S NEW"}
                   </h2>
                   <p className="text-white text-sm">
                     {
@@ -306,7 +308,10 @@ const Home = () => {
               <div className="flex flex-col w-1/2 items-start p-8">
                 {songlist.map((item, index) => {
                   return (
-                    <div className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full">
+                    <div
+                      key={index}
+                      className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full"
+                    >
                       <div className="flex flex-row items-center">
                         <div className="h-[15vh] w-[15vh] relative">
                           <Image src={`/song${index + 1}.jpeg`} layout="fill" />
