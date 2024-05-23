@@ -3,11 +3,13 @@ import { Cutive_Mono, Abril_Fatface } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { Alfa_Slab_One } from "next/font/google";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
-import Transition from "@/components/Transition";
-import { usePathname } from "next/navigation";
+import {
+  Alfa_Slab_One,
+  Dancing_Script,
+  Shadows_Into_Light,
+  Jacquard_12_Charted,
+  Orbitron,
+} from "next/font/google";
 import Footer from "@/components/Footer";
 
 const inter = Cutive_Mono({
@@ -21,6 +23,26 @@ export const alfa = Alfa_Slab_One({
 });
 
 export const abril = Abril_Fatface({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export const dancing = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export const shadows = Shadows_Into_Light({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export const jacquard = Jacquard_12_Charted({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+export const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400"],
 });
