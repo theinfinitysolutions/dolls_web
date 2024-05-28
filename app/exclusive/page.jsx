@@ -1,13 +1,14 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Transition from "@/components/Transition";
-import { songsAtrangi } from "@/utils/consts";
+import { secretPlaylist } from "@/utils/consts";
 import Image from "next/image";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { LuPlay } from "react-icons/lu";
 
 const ExlcusiveMusic = () => {
+  const [selected, setSelected] = useState(0);
   const audioRef = useRef();
 
   const playAudio = () => {
@@ -31,7 +32,7 @@ const ExlcusiveMusic = () => {
         </div>
         <div className="w-[90vw] flex flex-row justify-between items-start mt-[5vh]">
           <div className="w-1/2 flex flex-col items-center max-h-[70vh] overflow-y-scroll">
-            {songsAtrangi.map((song, index) => {
+            {secretPlaylist.map((song, index) => {
               return (
                 <div
                   key={index}
@@ -46,11 +47,16 @@ const ExlcusiveMusic = () => {
                       />
                     </div>
                     <div className="flex flex-col items-start justify-center ml-8">
-                      <p className="text-xl text-white ">{song.song}</p>
-                      <p className="text-xsml text-red-700 ">{song.artist}</p>
+                      <p className="text-xl text-white ">{song.title}</p>
+                      <p className="text-xsml text-red-700 ">{song.songName}</p>
                     </div>
                   </div>
-                  <a className="flex flex-col cursor-pointer items-center justify-center mx-4">
+                  <a
+                    onClick={() => {
+                      setSelected(index);
+                    }}
+                    className="flex flex-col cursor-pointer items-center justify-center mx-4"
+                  >
                     <LuPlay className="text-white  text-2xl" />
                   </a>
                 </div>
@@ -74,11 +80,15 @@ const ExlcusiveMusic = () => {
             <div className="flex flex-row justify-between items-center mt-[5vh] w-[25vw] ml-[10vw]">
               <div className="flex flex-col items-start">
                 <p className="text-base text-red-700">Song</p>
-                <p className="text-xl text-white">{songsAtrangi[0].song}</p>
+                <p className="text-xl text-white">
+                  {secretPlaylist[selected].title}
+                </p>
               </div>
               <div className="flex flex-col items-start">
                 <p className="text-base text-red-700">Artist</p>
-                <p className="text-xl text-white">{songsAtrangi[0].artist}</p>
+                <p className="text-xl text-white">
+                  {secretPlaylist[selected].songName}
+                </p>
               </div>
             </div>
             <div className="flex flex-row justify-center mt-[2.5vh] ml-[11.5vw] w-[30vw] relative items-center z-10">
@@ -90,7 +100,7 @@ const ExlcusiveMusic = () => {
                   backgroundColor: "black",
                   color: "white",
                 }}
-                src="/rename.mp3"
+                src={secretPlaylist[selected].url}
                 onPlay={(e) => console.log("onPlay")}
               />
             </div>
