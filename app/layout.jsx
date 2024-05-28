@@ -11,6 +11,7 @@ import {
   Orbitron,
 } from "next/font/google";
 import Footer from "@/components/Footer";
+import { useEffect, useRef } from "react";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -55,9 +56,32 @@ export const orbitron = Orbitron({
 let title = "DOLE'S MUSIC";
 
 export default function RootLayout({ children }) {
+  const cursorRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const cursor = cursorRef.current;
+      if (cursor) {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY + window.scrollY}px `;
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("scroll", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <html lang="en">
       <body className={`${abril.className} relative min-h-screen bg-black/95`}>
+        <div
+          ref={cursorRef}
+          className="cursor-alt absolute bg-pink-500 h-8 w-8 rounded-full -translate-x-1/2 -translate-y-1/2 "
+        ></div>
         <div className="fixed top-0 left-0 h-screen w-screen -z-10">
           <Image src={"/bgimg.jpeg"} layout="fill" className=" opacity-10" />
         </div>

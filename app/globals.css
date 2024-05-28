@@ -32,6 +32,7 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
+  cursor: none;
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -46,6 +47,13 @@ body {
   }
 }
 
+/* textarea:focus, input:focus{
+  outline: none;
+} */
+
+*:focus {
+  outline: none;
+}
 
 .circle {
   height: 300px;
