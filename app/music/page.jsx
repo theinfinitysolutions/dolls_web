@@ -121,11 +121,20 @@ const Music = () => {
                     >
                       <div className="h-[10vw] w-[10vw] group mt-4 relative">
                         <div className="h-[10vw] w-[10vw]  mt-4 absolute z-20">
-                          <Image
-                            src={`/song${(songIndex + 3) % 8}.jpeg`}
-                            layout="fill"
-                            objectFit="cover"
-                          />
+                          {song.imageUrl.toString().length > 0 ? (
+                            <Image
+                              src={song.imageUrl.toString()}
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                          ) : (
+                            <Image
+                              src={"/song1.jpeg"}
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                          )}
+
                           <div className="h-[10vw] pointer-events-none w-[10vw] -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
                             <div className="flex flex-col items-center justify-center h-full w-full">
                               <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
@@ -449,7 +458,15 @@ const Music = () => {
         >
           <div className="flex flex-col items-center px-4 py-2">
             <div className="h-[7.5vw] w-[7.5vw] relative">
-              <Image src={`/song${3 % 8}.jpeg`} layout="fill" />
+              {currentSong.imageUrl?.toString().length > 0 ? (
+                <Image
+                  src={currentSong.imageUrl.toString()}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              ) : (
+                <Image src={"/song1.jpeg"} layout="fill" objectFit="cover" />
+              )}
             </div>
             <div className="flex flex-col items-start mt-4 mb-2">
               <div className="flex flex-col items-start ">
