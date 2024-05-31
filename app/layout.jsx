@@ -15,6 +15,7 @@ import { useEffect, useRef } from "react";
 import useStore from "@/utils/store";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { MdOutlineCameraAlt } from "react-icons/md";
+import JoinUsModal from "@/components/secretPlaylistModal";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -104,6 +105,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div className="z-0 min-h-screen max-w-screen">{children}</div>
         <Footer />
+        <JoinUsModal />
       </body>
     </html>
   );

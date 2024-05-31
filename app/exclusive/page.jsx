@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Transition from "@/components/Transition";
 import { secretPlaylist } from "@/utils/consts";
 import Image from "next/image";
@@ -12,11 +12,16 @@ const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
   const audioRef = useRef();
 
-  const { currentPointer, setCurrentPointer } = useStore();
+  const { currentPointer, setCurrentPointer, showModal, setShowModal } =
+    useStore();
 
   const playAudio = () => {
     audioRef.current.play();
   };
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
 
   return (
     <Transition>
