@@ -12,15 +12,17 @@ const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
   const audioRef = useRef();
 
-  const { currentPointer, setCurrentPointer, showModal, setShowModal } =
-    useStore();
+  const { currentPointer, setCurrentPointer } = useStore();
+  const { showModal, setShowModal } = useStore();
 
   const playAudio = () => {
     audioRef.current.play();
   };
 
   useEffect(() => {
-    setShowModal(true);
+    setTimeout(() => {
+      useStore.setState({ showModal: true });
+    }, 3000);
   }, []);
 
   return (
