@@ -55,11 +55,11 @@ const Navbar = () => {
           >
             {"Dole's Music /"}
           </a>
-          <p className="text-sm text-red-500 ml-1">
+          <p className=" text-sm text-red-500 ml-1">
             {navbarItems.find((item) => item.link == path)?.title}
           </p>
         </div>
-        <div className="flex flex-row justify-around items-center w-2/12">
+        <div className="flex flex-row justify-around items-center w-4/12 md:w-2/12">
           <a
             onMouseEnter={() => {
               setCurrentPointer("a");
@@ -74,7 +74,7 @@ const Navbar = () => {
               );
             }}
           >
-            <SiApplemusic className="text-xl " />
+            <SiApplemusic className=" text-sm md:text-xl " />
           </a>
           <a
             onMouseEnter={() => {
@@ -87,7 +87,7 @@ const Navbar = () => {
               window.open("https://www.youtube.com/c/AtrangiFunkaar", "_blank");
             }}
           >
-            <AiFillYoutube className="text-xl" />
+            <AiFillYoutube className=" text-sm md:text-xl " />
           </a>
 
           <a
@@ -104,7 +104,7 @@ const Navbar = () => {
               );
             }}
           >
-            <FaSpotify className="text-xl" />
+            <FaSpotify className=" text-sm md:text-xl " />
           </a>
 
           <a
@@ -121,7 +121,12 @@ const Navbar = () => {
               );
             }}
           >
-            <Image src="/wynk.png" width={20} height={20} />
+            <Image
+              src="/wynk.png"
+              height={12}
+              width={12}
+              className=" h-4 w-4 md:h-6 md:w-6 "
+            />
           </a>
         </div>
       </div>

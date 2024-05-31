@@ -53,9 +53,9 @@ const Transition = ({ children }) => {
           }}
         >
           <div className="flex flex-col w-full h-full bg-black justify-center items-center">
-            <motion.div className="overflow-hidden relative ">
+            <motion.div className="overflow-hidden relative  ">
               <h1
-                className={`text-[5rem] text-white ${fonts[currentIndex].className}`}
+                className={` text-[3rem] md:text-[5rem] text-white ${fonts[currentIndex].className}`}
               >
                 {title}
               </h1>
