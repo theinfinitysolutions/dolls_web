@@ -52,7 +52,7 @@ const FAST_DURATION = 25;
 const SLOW_DURATION = 75;
 
 let navbarClass =
-  "relative text-white text-sm md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
+  "relative text-white text-base md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
 
 function debounce(func, timeout = 300) {
   let timer;
@@ -199,21 +199,21 @@ const Home = () => {
           />
         </div>
 
-        <div className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[15vh] h-[15vh]   ">
+        <div className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] md:w-[15vh] md:h-[15vh]   ">
           <Image src={"/asset2.png"} objectFit="contain" layout="fill" />
         </div>
 
-        <div className="flex flex-col w-screen items-center relative justify-center max-h-screen min-h-[100vh] h-[100vh] overflow-hidden">
+        <div className="flex flex-col w-screen items-center relative justify-center md:max-h-screen min-h-[100vh] md:h-[100vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
-          <div className="  absolute left-[47.5%] flex flex-row items-center bottom-8 animate-bounce z-50">
+          <div className="  absolute left-[40%] md:left-[47.5%] flex flex-row items-center bottom-4 md:bottom-8 animate-bounce z-50">
             <p className={`text-sm ${orbitron.className}`}>Scroll Down</p>
             <RiArrowRightDownLine className="text-white" />
           </div>
-          <div className="flex flex-row items-center justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
-            <div className="flex flex-row items-center justify-between relative  w-5/12  ">
-              <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-start justify-center w-full">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
+            <div className="flex flex-row items-center justify-between relative w-full  md:w-5/12  ">
+              <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-center md:items-start justify-center w-full">
                 <h1
-                  className={`overflow-hidden ${calistoga.className} text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
+                  className={`overflow-hidden ${calistoga.className} text-[4rem] md:text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
                 >
                   {text1.split("").map((char, index) => (
                     <span
@@ -227,7 +227,7 @@ const Home = () => {
                     </span>
                   ))}
                 </h1>
-                <div className="flex flex-row justify-between w-[17.5vw] mt-4">
+                <div className="flex flex-row justify-between w-9/12 md:w-[17.5vw] mt-4">
                   {list.map((item, index) => (
                     <Link
                       onMouseEnter={() => {
@@ -248,7 +248,7 @@ const Home = () => {
                 </div>
               </RevealOnScroll>
             </div>
-            <div className=" -ml-[5%] w-7/12 overflow-hidden">
+            <div className=" md:-ml-[5%] w-full md:w-7/12 overflow-hidden">
               <CarouselComponent />
             </div>
             {/* <div className="flex flex-col items-start  w-4/12">
@@ -285,25 +285,25 @@ const Home = () => {
         <RevealOnScroll
           threshold={0.2}
           addedClasses={
-            "  max-h-[100vh] min-h-[100vh] h-[100vh] w-screen overflow-hidden"
+            "  md:max-h-[100vh] min-h-[100vh] md:h-[100vh] w-screen overflow-hidden"
           }
         >
           <div className="flex flex-col w-full h-full items-start relative justify-start  bg-black py-[5vh] ">
-            <div className="flex flex-row w-full justify-between items-start">
+            <div className="flex flex-col md:flex-row w-full justify-between items-start">
               <div className="circle left-1/3 bottom-0 absolute" />
               <div className="circle right-0 top-0 absolute" />
-              <div className="flex w-1/2 flex-col items-start">
+              <div className="flex w-full md:w-1/2 flex-col items-center md:items-start">
                 <RevealOnScroll
                   addedClasses={
-                    "flex flex-col items-start justify-center w-full p-8 animate-slideInLeft"
+                    "flex flex-col items-center md:items-start justify-center w-full p-4 md:p-8 animate-slideInLeft"
                   }
                 >
                   <h2
-                    className={`${abril.className} text-white text-[4rem] leading-[4rem] font-bold `}
+                    className={`${abril.className} text-white text-[3rem] md:text-[4rem] leading-[4rem] font-bold `}
                   >
                     {"WHAT'S NEW"}
                   </h2>
-                  <p className="text-white text-sm">
+                  <p className="text-white text-center md:text-start text-sm">
                     {
                       " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
                     }
@@ -314,15 +314,15 @@ const Home = () => {
                   <FaArrowRightLong className="text-white ml-4" />
                 </div>
                 <div className="flex flex-col items-center w-[40vh] mx-[10vw]">
-                  <div className="h-[40vh] w-[40vh] group mt-4 relative">
-                    <div className="h-[40vh] w-[40vh]  mt-4 absolute z-20">
+                  <div className=" h-[60vw] w-[60vw] md:h-[40vh] md:w-[40vh] group mt-4 relative">
+                    <div className=" w-[60vw] h-[60vw] md:h-[40vh] md:w-[40vh]  mt-4 absolute z-20">
                       <Image
                         src="/song0.jpeg"
                         layout="fill"
                         objectFit="cover"
                       />
                     </div>
-                    <div className="h-[40vh] w-[40vh] z-10 absolute transition-all group-hover:translate-x-[10vw] group-hover:duration-200  mt-4 ">
+                    <div className=" w-[60vw] h-[60vw] md:h-[40vh] md:w-[40vh] z-10 absolute transition-all group-hover:translate-x-[10vw] group-hover:duration-200  mt-4 ">
                       <Image
                         src="/asset1.png"
                         layout="fill"
@@ -339,7 +339,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col w-1/2 items-start p-8">
+              <div className="flex flex-col w-full md:w-1/2 items-start mt-8 md:mt-0 p-8">
                 {songlist.map((item, index) => {
                   return (
                     <div
@@ -347,15 +347,19 @@ const Home = () => {
                       className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full"
                     >
                       <div className="flex flex-row items-center">
-                        <div className="h-[15vh] w-[15vh] relative">
+                        <div className=" h-[10vh] w-[10vh] md:h-[15vh] md:w-[15vh] relative">
                           <Image src={`/song${index + 1}.jpeg`} layout="fill" />
                         </div>
                         <div className="flex flex-col items-start justify-center ml-8">
-                          <h3 className="text-white text-xl">{item.title}</h3>
-                          <p className="text-white text-sm">{item.artist}</p>
+                          <h3 className="text-white text-sm md:text-xl">
+                            {item.title}
+                          </h3>
+                          <p className="text-white text-xs md:text-sm">
+                            {item.artist}
+                          </p>
                         </div>
                       </div>
-                      <div className="flex flex-row items-center w-3/12">
+                      <div className="flex flex-row items-center w-5/12 md:w-3/12">
                         <div className="flex flex-row justify-around items-center w-full ">
                           <a
                             onMouseEnter={() => {
@@ -416,7 +420,7 @@ const Home = () => {
         </RevealOnScroll>
         <div
           className={
-            "  max-h-[70vh] min-h-[70vh] h-[70vh] w-screen overflow-hidden"
+            "  md:max-h-[70vh] md:min-h-[70vh] md:h-[70vh] w-screen overflow-hidden"
           }
         >
           <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[5vh] ">
@@ -424,22 +428,22 @@ const Home = () => {
             <div className="circle -bottom-1/2 -right-1/2 absolute" />
             <RevealOnScroll
               addedClasses={
-                "flex flex-col items-start justify-center w-full p-8 animate-slideInLeft"
+                "flex flex-col items-center md:items-start justify-center w-full p-8 animate-slideInLeft"
               }
             >
               <h2
-                className={`${alfa.className} text-white text-[4rem] leading-[4rem] font-bold `}
+                className={`${alfa.className} text-white text-[3rem] md:text-[4rem] leading-[4rem] font-bold `}
               >
                 Gallery
               </h2>
-              <p className="text-white text-sm">
+              <p className="text-white text-center md:text-start text-sm">
                 {
                   " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
                 }
               </p>
             </RevealOnScroll>
             <motion.div
-              className="h-[35vh] mt-[5vh] left-0 flex gap-4"
+              className="h-[25vh] md:h-[35vh] mt-[5vh] left-0 flex gap-4"
               style={{ x: xTranslation }}
               ref={ref}
               onHoverStart={() => {
@@ -454,7 +458,7 @@ const Home = () => {
               {[...images, ...images].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  className="w-[30vh] h-[30vh] relative"
+                  className=" w-[20vh] h-[20vh] md:w-[30vh] md:h-[30vh] relative"
                   whileHover={{ scale: 1.1 }}
                 >
                   <Image
@@ -483,15 +487,15 @@ const Home = () => {
             <div className="circle -bottom-1/2 -right-1/2 absolute" />
             <RevealOnScroll
               addedClasses={
-                "flex flex-col items-center justify-center w-full p-8 animate-animateSlideUp"
+                "flex flex-col items-center md:items-center justify-center w-full p-8 animate-animateSlideUp"
               }
             >
               <h2
-                className={`${alfa.className} text-white text-[4rem] leading-[4rem] font-bold `}
+                className={`${alfa.className} text-white text-[3rem] md:text-[4rem] leading-[4rem] font-bold `}
               >
                 CONTACT
               </h2>
-              <p className="text-white text-sm">
+              <p className="text-white text-center md:text-start text-sm">
                 {
                   " Reach out to us for any collorations or queries. We are always here to help you."
                 }
@@ -500,7 +504,7 @@ const Home = () => {
             <div className=" flex flex-col items-center w-full mt-[5vh]">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className=" w-[40%] flex flex-col items-center justify-center"
+                className=" w-[80vw] md:w-[40%] flex flex-col items-center justify-center"
               >
                 <div className="flex flex-col items-center w-full">
                   <input

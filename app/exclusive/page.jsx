@@ -28,20 +28,20 @@ const ExlcusiveMusic = () => {
   return (
     <Transition>
       <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden">
-        <div className="w-[90vw] flex flex-row justify-between items-start mt-[10vh]">
-          <div className="w-1/2 flex flex-col items-start">
-            <h2 className="text-white text-[4rem] leading-[4rem] font-bold ">
+        <div className="w-[90vw] flex flex-row justify-between items-center md:items-start mt-[10vh]">
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
+            <h2 className="text-white text-[2.5rem] md:text-[4rem] leading-[4rem] font-bold ">
               EXCLUSIVE MUSIC
             </h2>
-            <p className="text-white text-sm items-start">
+            <p className="text-white text-sm text-center md:text-start">
               {
                 " Reach out to us for any collorations or queries. We are always here to help you."
               }
             </p>
           </div>
         </div>
-        <div className="w-[90vw] flex flex-row justify-between items-start mt-[5vh]">
-          <div className="w-1/2 flex flex-col items-center max-h-[70vh] overflow-y-scroll">
+        <div className="w-[90vw] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center md:items-start mt-[5vh]">
+          <div className="w-full mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:max-h-[70vh] overflow-y-scroll">
             {secretPlaylist.map((song, index) => {
               return (
                 <div
@@ -79,7 +79,7 @@ const ExlcusiveMusic = () => {
               );
             })}
           </div>
-          <div className="w-1/2 flex flex-col items-center max-h-[70vh] justify-center">
+          <div className=" w-full md:w-1/2 flex flex-col items-center max-h-[70vh] justify-center">
             <div className="h-[30vh] w-[30vh] group mt-4 relative">
               <div className="h-[30vh] w-[30vh]  mt-4 absolute z-20">
                 <Image
@@ -103,7 +103,7 @@ const ExlcusiveMusic = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-row justify-between items-center mt-[5vh] w-[25vw] ml-[10vw]">
+            <div className="flex flex-row justify-between items-center mt-[5vh] w-10/12 md:w-[25vw] md:ml-[10vw]">
               <div className="flex flex-col items-start">
                 <p className="text-base text-red-700">Song</p>
                 <p className="text-xl text-white">
@@ -117,7 +117,7 @@ const ExlcusiveMusic = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row justify-center mt-[2.5vh] ml-[11.5vw] w-[30vw] relative items-center z-10">
+            <div className="flex flex-row justify-center mt-[2.5vh] md:ml-[11.5vw] w-10/12 md:w-[30vw] relative items-center z-10">
               <AudioPlayer
                 autoPlay
                 className="w-full"

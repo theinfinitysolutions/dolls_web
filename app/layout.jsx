@@ -87,7 +87,7 @@ export default function RootLayout({ children }) {
         <div
           ref={cursorRef}
           style={{ zIndex: 100, pointerEvents: "none" }}
-          className={`cursor-alt absolute  border-[1px] ${
+          className={`hidden md:flex cursor-alt absolute  border-[1px] ${
             currentPointer != ""
               ? "border-white bg-white h-12 w-12"
               : "border-red-400 bg-red-600/30 h-8 w-8"
