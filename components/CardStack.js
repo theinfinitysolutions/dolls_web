@@ -50,7 +50,17 @@ export const CardStack = () => {
               onDragEnd={() => moveToEnd(index)}
             >
               <div className="relative h-full w-full">
-                <Image src={`/dolls${color}.jpeg`} className="" layout="fill" />
+                <Image
+                  onMouseEnter={() => {
+                    setCurrentPointer("i");
+                  }}
+                  onMouseLeave={() => {
+                    setCurrentPointer("");
+                  }}
+                  src={`/dolls${color}.jpeg`}
+                  className=""
+                  layout="fill"
+                />
               </div>
             </motion.li>
           );

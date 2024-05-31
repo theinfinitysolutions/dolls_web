@@ -35,7 +35,7 @@ const Transition = ({ children }) => {
   }, []);
 
   return (
-    <main className="min-h-screen w-full flex">
+    <main id="main-div" className="min-h-screen w-full flex">
       {showContent ? children : <div></div>}
       <motion.div
         style={{

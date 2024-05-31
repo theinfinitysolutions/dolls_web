@@ -11,24 +11,35 @@ import {
 } from "@react-three/drei";
 import { easing } from "maath";
 import "./util";
+import useStore from "@/utils/store";
 
-const CarouselComponent = () => (
-  <div className="flex flex-col items-start max-h-[70vh] h-[70vh] w-[50vw] ">
-    <Canvas
-      camera={{ position: [0, 0, 100], fov: 15 }}
-      className="w-[50vw] h-[70vh] bg-transparent items-start "
-    >
-      <fog attach="fog" args={["#a79", 8.5, 12]} />
-      <ScrollControls pages={4} infinite>
-        <Rig rotation={[0, 0, 0.25]}>
-          <Carousel />
-        </Rig>
-        <Banner position={[0, -0.15, 0]} />
-      </ScrollControls>
-      {/* <Environment preset="dawn" background blur={0.5} /> */}
-    </Canvas>
-  </div>
-);
+const CarouselComponent = () => {
+  const { currentPointer, setCurrentPointer } = useStore();
+
+  return (
+    <div className="flex flex-col items-start max-h-[70vh] h-[70vh] w-[50vw] ">
+      <Canvas
+        onMouseEnter={() => {
+          setCurrentPointer("i");
+        }}
+        onMouseLeave={() => {
+          setCurrentPointer("");
+        }}
+        camera={{ position: [0, 0, 100], fov: 15 }}
+        className="w-[50vw] h-[70vh] bg-transparent items-start "
+      >
+        <fog attach="fog" args={["#a79", 8.5, 12]} />
+        <ScrollControls pages={4} infinite>
+          <Rig rotation={[0, 0, 0.25]}>
+            <Carousel />
+          </Rig>
+          <Banner position={[0, -0.15, 0]} />
+        </ScrollControls>
+        {/* <Environment preset="dawn" background blur={0.5} /> */}
+      </Canvas>
+    </div>
+  );
+};
 
 export default CarouselComponent;
 
