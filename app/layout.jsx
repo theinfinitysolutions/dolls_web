@@ -12,6 +12,9 @@ import {
 } from "next/font/google";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
+import useStore from "@/utils/store";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { MdOutlineCameraAlt } from "react-icons/md";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -57,13 +60,15 @@ let title = "DOLE'S MUSIC";
 
 export default function RootLayout({ children }) {
   const cursorRef = useRef(null);
+  const currentPointer = useStore((state) => state.currentPointer);
+  const setCurrentPointer = useStore((state) => state.setCurrentPointer);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
       const cursor = cursorRef.current;
       if (cursor) {
         cursor.style.left = `${event.clientX}px`;
-        cursor.style.top = `${event.clientY + window.scrollY}px `;
+        cursor.style.top = `${event.clientY + window.scrollY}px`;
       }
     };
 
@@ -80,8 +85,19 @@ export default function RootLayout({ children }) {
       <body className={`${abril.className} relative min-h-screen bg-black/95`}>
         <div
           ref={cursorRef}
-          className="cursor-alt absolute bg-pink-500 h-8 w-8 rounded-full -translate-x-1/2 -translate-y-1/2 "
-        ></div>
+          style={{ zIndex: 100, pointerEvents: "none" }}
+          className={`cursor-alt absolute  border-[1px] ${
+            currentPointer != ""
+              ? "border-white bg-white h-12 w-12"
+              : "border-red-400 bg-red-600/30 h-8 w-8"
+          } border-red-400 bg-red-600/30  flex justify-center items-center rounded-full -translate-x-1/2 -translate-y-1/2 `}
+        >
+          {currentPointer == "a" ? (
+            <MdOutlineArrowOutward color="black" className="text-xl" />
+          ) : currentPointer == "i" ? (
+            <MdOutlineCameraAlt color="black" className="text-xl" />
+          ) : null}
+        </div>
         <div className="fixed top-0 left-0 h-screen w-screen -z-10">
           <Image src={"/bgimg.jpeg"} layout="fill" className=" opacity-10" />
         </div>

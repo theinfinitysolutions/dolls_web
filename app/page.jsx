@@ -2,8 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
-import { CardStack } from "@/components/CardStack";
-import { IoIosMenu } from "react-icons/io";
 import { abril, alfa, calistoga, orbitron } from "./layout";
 import CarouselComponent from "@/components/CarouselHome/CarouselComponent";
 import Link from "next/link";
@@ -16,9 +14,10 @@ import { SiApplemusic } from "react-icons/si";
 import { AiFillYoutube } from "react-icons/ai";
 import { FaSpotify } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
-import { FaAnglesDown } from "react-icons/fa6";
-import { dollsImages } from "@/utils/consts";
 import { RiArrowRightDownLine } from "react-icons/ri";
+import useStore from "@/utils/store";
+import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -53,7 +52,7 @@ const FAST_DURATION = 25;
 const SLOW_DURATION = 75;
 
 let navbarClass =
-  "relative text-white text-sm md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-pointer";
+  "relative text-white text-sm md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
 
 function debounce(func, timeout = 300) {
   let timer;
@@ -71,11 +70,38 @@ const Home = () => {
   const [duration, setDuration] = useState(FAST_DURATION);
   const [selectedHover, setSelectedHover] = React.useState(0);
   let [ref, { width }] = useMeasure();
+  const { currentPointer, setCurrentPointer } = useStore();
+  const [emailSent, setEmailSent] = React.useState(false);
+
+  const { register, handleSubmit, formState, reset } = useForm();
 
   const xTranslation = useMotionValue(0);
 
   const [mustFinish, setMustFinish] = useState(false);
   const [rerender, setRerender] = useState(false);
+
+  const onSubmit = (data) => {
+    emailjs
+      .send(
+        "service_vyc3aph",
+        "template_vw3o9zp",
+        {
+          from_name: "anirudh",
+          from_email: "test@gmail.com",
+          from_message: "abcddefgh",
+        },
+        {
+          publicKey: "8SoO2AD_OUoRwAQ7_ntbU",
+        }
+      )
+      .then((res) => {
+        setEmailSent(true);
+        reset();
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
 
   const TextEffect = (id) => {
     let interval = null;
@@ -204,11 +230,17 @@ const Home = () => {
                 <div className="flex flex-row justify-between w-[17.5vw] mt-4">
                   {list.map((item, index) => (
                     <Link
+                      onMouseEnter={() => {
+                        setCurrentPointer("a");
+                      }}
+                      onMouseLeave={() => {
+                        setCurrentPointer("");
+                      }}
                       href={"/" + item.toLowerCase()}
                       key={index}
                       id={item}
                       data-value={item}
-                      className="flex flex-col items-start justify-center cursor-pointer transition-colors duration-300 hover:text-[#7a180f] "
+                      className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
                     >
                       <h2 className={navbarClass}>{item}</h2>
                     </Link>
@@ -233,7 +265,7 @@ const Home = () => {
                           setSelectedHover(index);
                         }, 300)();
                       }}
-                      className="flex cursor-pointer text-primaryText group-hover:text-[#c7c7c755] justify-start w-full mb-4  border-b-[1px] border-[#ffffff22] hover:border-[#ffffff44] transition-all duration-300 ease-in-out"
+                      className="flex text-primaryText group-hover:text-[#c7c7c755] justify-start w-full mb-4  border-b-[1px] border-[#ffffff22] hover:border-[#ffffff44] transition-all duration-300 ease-in-out"
                     >
                       <div className="hover:text-primaryText flex group/text flex-row items-start space-x-4 py-1">
                         <p className="text-[0.75rem] text-red-700">
@@ -251,7 +283,7 @@ const Home = () => {
           </div>
         </div>
         <RevealOnScroll
-          threshold={0.4}
+          threshold={0.2}
           addedClasses={
             "  max-h-[100vh] min-h-[100vh] h-[100vh] w-screen overflow-hidden"
           }
@@ -326,22 +358,52 @@ const Home = () => {
                       <div className="flex flex-row items-center w-3/12">
                         <div className="flex flex-row justify-around items-center w-full ">
                           <a
+                            onMouseEnter={() => {
+                              setCurrentPointer("a");
+                            }}
+                            onMouseLeave={() => {
+                              setCurrentPointer("");
+                            }}
                             onClick={() => {
                               router.push("/");
                             }}
                           >
                             <SiApplemusic className="text-sm " />
                           </a>
-                          <a onClick={() => {}}>
+                          <a
+                            onMouseEnter={() => {
+                              setCurrentPointer("a");
+                            }}
+                            onMouseLeave={() => {
+                              setCurrentPointer("");
+                            }}
+                            onClick={() => {}}
+                          >
                             <AiFillYoutube className="text-sm" />
                           </a>
 
-                          <a onClick={() => {}}>
+                          <a
+                            onMouseEnter={() => {
+                              setCurrentPointer("a");
+                            }}
+                            onMouseLeave={() => {
+                              setCurrentPointer("");
+                            }}
+                            onClick={() => {}}
+                          >
                             <FaSpotify className="text-sm" />
                           </a>
 
-                          <a onClick={() => {}}>
-                            <FaSoundcloud className="text-sm" />
+                          <a
+                            onMouseEnter={() => {
+                              setCurrentPointer("a");
+                            }}
+                            onMouseLeave={() => {
+                              setCurrentPointer("");
+                            }}
+                            onClick={() => {}}
+                          >
+                            <Image src="/wynk.png" width={12} height={12} />
                           </a>
                         </div>
                       </div>
@@ -395,7 +457,17 @@ const Home = () => {
                   className="w-[30vh] h-[30vh] relative"
                   whileHover={{ scale: 1.1 }}
                 >
-                  <Image src={item} layout="fill" objectFit="cover" />
+                  <Image
+                    onMouseEnter={() => {
+                      setCurrentPointer("i");
+                    }}
+                    onMouseLeave={() => {
+                      setCurrentPointer("");
+                    }}
+                    src={item}
+                    layout="fill"
+                    objectFit="cover"
+                  />
                 </motion.div>
               ))}
             </motion.div>
@@ -426,11 +498,15 @@ const Home = () => {
               </p>
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-[5vh]">
-              <form className=" w-[40%] flex flex-col items-center justify-center">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className=" w-[40%] flex flex-col items-center justify-center"
+              >
                 <div className="flex flex-col items-center w-full">
                   <input
                     type="text"
                     placeholder="Name"
+                    {...register("name", { required: true })}
                     className="mb-4 w-full placeholder:text-white/70 text-white  bg-black text-xl border-b-[1px] border-red-800"
                   />
                 </div>
@@ -438,21 +514,39 @@ const Home = () => {
                   <input
                     type="email"
                     placeholder="Email"
+                    {...register("email", { required: true })}
                     className="mb-4 w-full placeholder:text-white/70 text-white  bg-black text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <textarea
                     placeholder="Message"
+                    {...register("message", { required: true })}
                     className="mb-4 w-full placeholder:text-white/70 text-white  h-[10vh] bg-black text-xl border-b-[1px] border-red-800"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="bg-red-800 text-white px-8 py-2 mt-8 "
-                >
-                  Submit
-                </button>
+                {emailSent ? (
+                  <button
+                    type="submit"
+                    disabled
+                    className="bg-green-400 text-white px-8 py-2 mt-8 "
+                  >
+                    Email Sent
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    onMouseEnter={() => {
+                      setCurrentPointer("a");
+                    }}
+                    onMouseLeave={() => {
+                      setCurrentPointer("");
+                    }}
+                    className="bg-red-800 text-white px-8 py-2 mt-8 "
+                  >
+                    Submit
+                  </button>
+                )}
               </form>
             </div>
           </div>
