@@ -6,10 +6,13 @@ import Image from "next/image";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { LuPlay } from "react-icons/lu";
+import useStore from "@/utils/store";
 
 const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
   const audioRef = useRef();
+
+  const { currentPointer, setCurrentPointer } = useStore();
 
   const playAudio = () => {
     audioRef.current.play();
@@ -55,7 +58,13 @@ const ExlcusiveMusic = () => {
                     onClick={() => {
                       setSelected(index);
                     }}
-                    className="flex flex-col cursor-pointer items-center justify-center mx-4"
+                    onMouseEnter={() => {
+                      setCurrentPointer("a");
+                    }}
+                    onMouseLeave={() => {
+                      setCurrentPointer("");
+                    }}
+                    className="flex flex-col items-center justify-center mx-4"
                   >
                     <LuPlay className="text-white  text-2xl" />
                   </a>
@@ -66,7 +75,17 @@ const ExlcusiveMusic = () => {
           <div className="w-1/2 flex flex-col items-center max-h-[70vh] justify-center">
             <div className="h-[30vh] w-[30vh] group mt-4 relative">
               <div className="h-[30vh] w-[30vh]  mt-4 absolute z-20">
-                <Image src="/song0.jpeg" layout="fill" objectFit="cover" />
+                <Image
+                  onMouseEnter={() => {
+                    setCurrentPointer("i");
+                  }}
+                  onMouseLeave={() => {
+                    setCurrentPointer("");
+                  }}
+                  src="/song0.jpeg"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
               <div className="h-[30vh] w-[30vh] z-10 absolute transition-all translate-x-[10vw]   mt-4 ">
                 <Image
