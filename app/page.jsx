@@ -213,7 +213,7 @@ const Home = () => {
             <div className="flex flex-row items-center justify-between relative w-full  md:w-5/12  ">
               <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-center md:items-start justify-center w-full">
                 <h1
-                  className={`overflow-hidden ${calistoga.className} text-[4rem] md:text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
+                  className={`overflow-hidden text-[4rem] md:text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
                 >
                   {text1.split("").map((char, index) => (
                     <span
