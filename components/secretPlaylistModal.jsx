@@ -13,7 +13,7 @@ export default function JoinUsModal() {
 
   useEffect(() => {
     console.log("showmodal", showModal);
-    // setOpen(showModal);
+    setOpen(showModal);
   }, [showModal]);
 
   const onSubmit = (data) => {

@@ -1013,23 +1013,26 @@ export const secretPlaylist = [
 
 export const blogRef = [
   {
-    imageURl:
+    imageURL:
       "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/atrangi-funkaar-dropped-the-marwadi-language-track-supermario-in-2022-as-a-rajasthani-twist-to-mario-and-princess-peach-collage-dailyo070423032201.webp",
     title:
       "There was a Rajasthani Super Mario before the Super Mario Bros Movie",
+    source: "Dailyo",
     link: "https://www.dailyo.in/entertainment/there-was-a-rajasthani-super-mario-before-the-super-mario-bros-movie-39408",
   },
   {
     imageURL:
-      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls3.jpeg",
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls15.jpeg",
     title:
       "Doleshwar Raj, a Guitarist and Composer Who Experiences a Sort of Happiness & Internal Rush After Writing Excellent Music",
+    source: "Work Mob",
     link: "https://stories.workmob.com/doleshwar-raj-arts-entertainment",
   },
   {
     imageURL:
       "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/gogomusic.jpeg",
-    title: "ATRANGI FUNKAAR – THE INDIE ROCK BAND",
+    title: "ATRANGI FUNKAAR - THE INDIE ROCK BAND",
+    source: "GOGO Magazine",
     link: "https://gogomagazine.in/atrangi-funkaar-the-indie-rock-band/",
   },
   {
@@ -1037,6 +1040,7 @@ export const blogRef = [
       "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/SmartSelect_20240505_153538_YouTube_Music.jpg",
     title:
       "New Music: Hip-Hop from Kolkata, Alt-Rock, Tribal Trance from Jaipur",
+    source: "Rolling Stone India",
     link: "https://rollingstoneindia.com/tag/atrangi-funkaar/",
   },
 ];

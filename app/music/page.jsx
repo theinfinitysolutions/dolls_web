@@ -4,7 +4,14 @@ import { abril } from "../layout";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
-import { songsAtrangi, songsMAMA, songsSSD } from "@/utils/consts";
+import {
+  songsAtrangi,
+  songsMAMA,
+  songsSSD,
+  pop,
+  rock,
+  hiphop,
+} from "@/utils/consts";
 import { FaSpotify } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 import { SiYoutubemusic } from "react-icons/si";
@@ -13,22 +20,23 @@ import useStore from "@/utils/store";
 
 const music = [
   {
+    genre: "POP",
+    streams: "7M +",
+    artists: "10",
+    songs: pop,
+  },
+  {
     genre: "ROCK",
     streams: "13M +",
     artists: "6",
-    songs: songsAtrangi,
+    songs: rock,
   },
+
   {
-    genre: "RnB",
-    streams: "7M +",
-    artists: "10",
-    songs: songsSSD,
-  },
-  {
-    genre: "RAP & HIP HOP",
+    genre: "HIP HOP",
     streams: "1M +",
     artists: "2",
-    songs: songsMAMA,
+    songs: hiphop,
   },
 ];
 
@@ -69,9 +77,9 @@ const Music = () => {
                 key={index}
                 className="flex flex-col md:flex-row w-full h-[40vh] mt-[5vh] md:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
-                <div className="px-4 py-2 absolute right-0 top-0 bg-white">
+                {/* <div className="px-4 py-2 absolute right-0 top-0 bg-white">
                   <p className="text-black text-sm">View All</p>
-                </div>
+                </div> */}
                 <div className=" md:w-[40vh] md:h-[40vh] z-50 md:absolute bg-white flex flex-col justify-between items-center px-4 pt-4">
                   <div className="flex flex-row  w-full justify-between items-center border-t-[1px] border-black"></div>
                   <div className="flex flex-col items-start">
@@ -200,7 +208,7 @@ const Music = () => {
                         <p className=" text-sm md:text-md text-center font-semibold">
                           {song.song}
                         </p>
-                        <p className=" text-xs md:text-sm font-semibold text-red-500 ">
+                        <p className=" text-xs md:text-xs text-center font-semibold text-red-500 ">
                           {song.artist}
                         </p>
                       </div>
@@ -295,18 +303,31 @@ const Music = () => {
                   {currentSong.artist}
                 </p>
               </div>
-              <div className="flex flex-col items-start mb-1">
-                <p className=" text-red-700 text-xs ">Mix</p>
-                <p className=" text-white text-sm -mt-1">
-                  {currentSong?.mix || "Hardik Keshan"}
-                </p>
-              </div>
-              <div className="flex flex-col items-start">
-                <p className=" text-red-700 text-xs ">Production</p>
-                <p className=" text-white text-sm -mt-1">
-                  {currentSong?.prod || "Current day studios"}
-                </p>
-              </div>
+              {currentSong.Producer ? (
+                <div className="flex flex-col items-start mb-1">
+                  <p className=" text-red-700 text-xs ">Producer</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Producer}
+                  </p>
+                </div>
+              ) : null}
+              {currentSong.Mix ? (
+                <div className="flex flex-col items-start mb-1">
+                  <p className=" text-red-700 text-xs ">Mix</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Mix}
+                  </p>
+                </div>
+              ) : null}
+
+              {currentSong.Master ? (
+                <div className="flex flex-col items-start">
+                  <p className=" text-red-700 text-xs ">Master</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Master}
+                  </p>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
