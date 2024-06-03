@@ -41,7 +41,7 @@ const ExlcusiveMusic = () => {
           </div>
         </div>
         <div className="w-[90vw] flex flex-col-reverse md:flex-row justify-center md:justify-between items-center md:items-start mt-[5vh]">
-          <div className="w-full mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:max-h-[70vh] overflow-y-scroll">
+          <div className="w-full mt-2 md:mt-0 md:w-1/2 flex flex-col items-center md:max-h-[70vh] overflow-y-scroll">
             {secretPlaylist.map((song, index) => {
               return (
                 <div
@@ -103,7 +103,7 @@ const ExlcusiveMusic = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-row justify-between items-center mt-[5vh] w-10/12 md:w-[25vw] md:ml-[10vw]">
+            <div className="flex flex-row justify-between items-center mt-[5vh] w-full md:w-[25vw] md:ml-[10vw]">
               <div className="flex flex-col items-start">
                 <p className="text-base text-red-700">Song</p>
                 <p className="text-xl text-white">

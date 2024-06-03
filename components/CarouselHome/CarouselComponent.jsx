@@ -17,7 +17,7 @@ const CarouselComponent = () => {
   const { currentPointer, setCurrentPointer } = useStore();
 
   return (
-    <div className="flex flex-col items-start md:max-h-[70vh] h-[50vh] md:h-[70vh] w-full md:w-[50vw] ">
+    <div className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-full md:w-[50vw] ">
       <Canvas
         onMouseEnter={() => {
           setCurrentPointer("i");
@@ -26,7 +26,7 @@ const CarouselComponent = () => {
           setCurrentPointer("");
         }}
         camera={{ position: [0, 0, 100], fov: 15 }}
-        className="w-10/12 md:w-[50vw] h-[40vh] md:h-[70vh] bg-transparent items-start "
+        className="w-10/12 md:w-[50vw] h-[50vh] md:h-[80vh] bg-transparent items-start "
       >
         <fog attach="fog" args={["#a79", 8.5, 12]} />
         <ScrollControls pages={4} infinite>
