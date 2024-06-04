@@ -7,9 +7,9 @@ let cursorClass = "text-2xl text-white";
 
 const RandomCursor = () => {
   const icons = [
-    <IoIosMusicalNotes className={cursorClass} />,
-    <GiMusicalNotes className={cursorClass} />,
-    <PiMusicNoteFill className={cursorClass} />,
+    <IoIosMusicalNotes key={0} className={cursorClass} />,
+    <GiMusicalNotes key={1} className={cursorClass} />,
+    <PiMusicNoteFill key={2} className={cursorClass} />,
   ];
   const [currentIconIndex, setCurrentIconIndex] = useState(0);
 
