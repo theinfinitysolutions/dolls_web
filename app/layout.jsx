@@ -16,6 +16,8 @@ import useStore from "@/utils/store";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { MdOutlineCameraAlt } from "react-icons/md";
 import JoinUsModal from "@/components/secretPlaylistModal";
+import { IoIosMusicalNotes } from "react-icons/io";
+import RandomCursor from "@/components/RandomCursor";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -87,20 +89,29 @@ export default function RootLayout({ children }) {
         <div
           ref={cursorRef}
           style={{ zIndex: 100, pointerEvents: "none" }}
-          className={`hidden md:flex cursor-alt absolute  border-[1px] ${
+          className={`hidden md:flex cursor-alt absolute  ${
             currentPointer != ""
-              ? "border-white bg-white h-12 w-12"
-              : "border-red-400 bg-red-600/30 h-8 w-8"
-          } border-red-400 bg-red-600/30  flex justify-center items-center rounded-full -translate-x-1/2 -translate-y-1/2 `}
+              ? "border-[1px] border-white bg-white h-12 w-12  "
+              : " border-[1px] border-white  h-12 w-12"
+          }   flex justify-center items-center rounded-full -translate-x-1/2 -translate-y-1/2 `}
         >
           {currentPointer == "a" ? (
             <MdOutlineArrowOutward color="black" className="text-xl" />
           ) : currentPointer == "i" ? (
             <MdOutlineCameraAlt color="black" className="text-xl" />
-          ) : null}
+          ) : (
+            <RandomCursor />
+          )}
         </div>
         <div className="fixed top-0 left-0 h-screen w-screen -z-10">
-          <Image src={"/bgimg.jpeg"} layout="fill" className=" opacity-10" />
+          <Image
+            src={
+              "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls.gif"
+            }
+            unoptimized
+            layout="fill"
+            className=" opacity-50"
+          />
         </div>
         <Navbar />
         <div className="z-0 min-h-screen max-w-screen">{children}</div>

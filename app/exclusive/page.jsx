@@ -7,6 +7,7 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { LuPlay } from "react-icons/lu";
 import useStore from "@/utils/store";
+import { resolve } from "styled-jsx/css";
 
 const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
@@ -19,10 +20,28 @@ const ExlcusiveMusic = () => {
     audioRef.current.play();
   };
 
+  const checkIfMailSent = () => {
+    return new Promise(async (resolve, reject) => {
+      let item = localStorage.getItem("email");
+      console.log("item  a", item);
+      if (item) {
+        reject();
+      } else {
+        resolve();
+      }
+    });
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      useStore.setState({ showModal: true });
-    }, 3000);
+    checkIfMailSent()
+      .then(() => {
+        setTimeout(() => {
+          useStore.setState({ showModal: true });
+        }, 2500);
+      })
+      .catch((err) => {
+        console.log("err items", err);
+      });
   }, []);
 
   return (
@@ -119,7 +138,6 @@ const ExlcusiveMusic = () => {
             </div>
             <div className="flex flex-row justify-center mt-[2.5vh] md:ml-[11.5vw] w-10/12 md:w-[30vw] relative items-center z-10">
               <AudioPlayer
-                autoPlay
                 className="w-full"
                 style={{
                   width: "100%",
