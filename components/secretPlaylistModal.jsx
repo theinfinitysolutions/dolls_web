@@ -33,6 +33,7 @@ export default function JoinUsModal() {
       )
       .then((res) => {
         console.log("email send res", res);
+        localStorage.setItem("email", "mail sent");
         setShowModal(false);
         setLoading(false);
       })
