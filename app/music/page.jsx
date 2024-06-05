@@ -4,14 +4,7 @@ import { abril } from "../layout";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  songsAtrangi,
-  songsMAMA,
-  songsSSD,
-  pop,
-  rock,
-  hiphop,
-} from "@/utils/consts";
+import { pop, rock, hiphop } from "@/utils/consts";
 import { FaSpotify } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 import { SiYoutubemusic } from "react-icons/si";

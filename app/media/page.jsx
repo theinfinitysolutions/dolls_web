@@ -10,6 +10,15 @@ import useMeasure from "react-use-measure";
 import useStore from "@/utils/store";
 import { blogRef } from "@/utils/consts";
 import { GoLinkExternal } from "react-icons/go";
+import { InstagramEmbed } from "react-social-media-embed";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination, Autoplay } from "swiper/modules";
 
 const images = [
   "/dolls1.jpeg",
@@ -21,6 +30,17 @@ const images = [
 
 const FAST_DURATION = 15;
 const SLOW_DURATION = 40;
+
+const socialLinks = [
+  "https://www.instagram.com/p/CoB621KrzMo/",
+  "https://www.instagram.com/p/CgjYWVhhtHe/",
+  "https://www.instagram.com/p/CcIUOvdhIdV/",
+  "https://www.instagram.com/p/Ca4l11jBeGj/",
+  "https://www.instagram.com/p/CW0SW7FMa27/",
+  "https://www.instagram.com/p/CWlBNSth1W2/",
+  "https://www.instagram.com/p/C0UJQvox27L/?utm_source=ig_embed&utm_campaign=invalid&ig_rid=8db9eac1-8056-49f9-aee2-dc37cee24bc8",
+  "https://www.instagram.com/p/CyYG6_VRJ79/?utm_source=ig_embed&utm_campaign=invalid&ig_rid=60e0903c-5dae-4574-8e31-abef0f017593",
+];
 
 const Media = () => {
   const xTranslation = useMotionValue(0);
@@ -57,15 +77,23 @@ const Media = () => {
     return controls?.stop;
   }, [rerender, xTranslation, duration, width]);
 
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.setAttribute("src", "//www.instagram.com/embed.js");
+    s.setAttribute("async", "true");
+    document.head.appendChild(s);
+  }, []);
+
   return (
     <Transition>
       <div className="flex flex-col max-w-screen min-h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden">
         <div className="circle absolute  right-0 bottom-0" />
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
         <div className="circle -bottom-1/3 left-0 absolute" />
+        <div className="circle -bottom-1/4 right-0 absolute" />
         <div className="flex flex-col w-[90vw] h-full items-start relative justify-start  pt-[5vh] ">
-          <h2 className="text-white text-[4rem] leading-[4rem] font-bold ">
-            MEDIA
+          <h2 className="text-white text-[2rem] md:text-[4rem] md:leading-[4rem] font-bold ">
+            Press Release
           </h2>
           <p className="text-white text-sm">
             {
@@ -74,7 +102,7 @@ const Media = () => {
           </p>
         </div>
 
-        <div className="flex flex-col items-start w-[90vw] ">
+        <div className="flex flex-col items-start w-[90vw] mt-8">
           <div className="flex flex-col md:flex-row w-full justify-between items-center">
             <div
               onMouseEnter={() => {
@@ -86,7 +114,11 @@ const Media = () => {
               className=" w-full md:w-[57.5%] flex flex-row justify-between items-center bg-[#c7c7c7]/70 px-2 py-2"
             >
               <div className="h-[30vh] w-1/2 relative bg-slate-800">
-                <Image src={blogRef[1].imageURL} layout="fill" />
+                <Image
+                  src={blogRef[1].imageURL}
+                  className=" object-contain md:object-cover "
+                  layout="fill"
+                />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4">
                 <h2 className="text-white text-base md:text-xl font-medium ">
@@ -116,7 +148,11 @@ const Media = () => {
               className=" w-full  mt-8 md:mt-0  md:w-[40%] flex flex-row justify-between items-center bg-cyan-800 px-2 py-2"
             >
               <div className="h-[30vh] w-1/2 relative bg-cyan-800">
-                <Image src={blogRef[3].imageURL} layout="fill" />
+                <Image
+                  src={blogRef[3].imageURL}
+                  className=" object-contain md:object-cover "
+                  layout="fill"
+                />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4">
                 <h2 className="text-white text-base md:text-xl font-medium ">
@@ -148,7 +184,11 @@ const Media = () => {
               className="w-full md:w-[48.5%] flex flex-row justify-between items-center bg-lime-800 px-2 py-2"
             >
               <div className="h-[30vh] w-1/2 relative bg-lime-800">
-                <Image src={blogRef[0].imageURL} layout="fill" />
+                <Image
+                  src={blogRef[0].imageURL}
+                  className=" object-contain md:object-cover "
+                  layout="fill"
+                />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4">
                 <h2 className="text-white text-base md:text-xl font-medium ">
@@ -178,7 +218,11 @@ const Media = () => {
               className=" w-full  mt-8 md:mt-0  md:w-[48.5%] flex flex-row justify-between items-center bg-rose-800 px-2 py-2"
             >
               <div className="h-[30vh] w-1/2 relative bg-cyan-800">
-                <Image src={blogRef[2].imageURL} layout="fill" />
+                <Image
+                  src={blogRef[2].imageURL}
+                  className=" object-contain md:object-cover "
+                  layout="fill"
+                />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4">
                 <h2 className="text-white text-base md:text-xl font-medium ">
@@ -200,45 +244,139 @@ const Media = () => {
             </div>
           </div>
         </div>
-        <div
-          className={
-            "  py-8 min-h-[50vh] w-screen overflow-hidden bg-transparent"
-          }
-        >
-          <div className="flex flex-col w-full h-full items-start relative justify-start py-[5vh] ">
-            <motion.div
-              className="h-[35vh] mt-[5vh] left-0 flex gap-4"
-              style={{ x: xTranslation }}
-              ref={ref}
-              onHoverStart={() => {
-                setMustFinish(true);
-                setDuration(SLOW_DURATION);
+        <div className=" flex flex-col items-center w-[90vw] mt-[10vh]">
+          <h2 className="text-white text-[2rem] md:text-[4rem] md:leading-[4rem] font-bold ">
+            Social Media
+          </h2>
+          <p className="text-white text-sm text-center mt-2 w-11/12 md:w-6/12">
+            {
+              " Dive into our social scene! Here are few posts from our recent work. Join the groove and explore the beat. Don't miss out – follow us now! "
+            }
+          </p>
+          <div className="hidden w-full md:flex flex-row gap-x-4 mt-[5vh]">
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={30}
+              pagination={{
+                clickable: true,
               }}
-              onHoverEnd={() => {
-                setMustFinish(true);
-                setDuration(FAST_DURATION);
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
               }}
+              modules={[Pagination, Autoplay]}
+              className="mySwiper"
             >
-              {[...images, ...images].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="w-[30vh] h-[30vh] relative"
-                  whileHover={{ scale: 1.1 }}
+              {socialLinks.map((item) => {
+                return (
+                  <SwiperSlide>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        zIndex: 10,
+                      }}
+                      onMouseEnter={() => {
+                        setCurrentPointer("a");
+                      }}
+                      onMouseLeave={() => {
+                        setCurrentPointer("");
+                      }}
+                    >
+                      <InstagramEmbed height={600} width={330} url={item} />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+          <div className=" w-full flex md:hidden flex-row gap-x-4 mt-[5vh]">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              pagination={{
+                clickable: true,
+              }}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Pagination, Autoplay]}
+              className="mySwiper"
+            >
+              {socialLinks.map((item) => {
+                return (
+                  <SwiperSlide>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        zIndex: 10,
+                      }}
+                      onMouseEnter={() => {
+                        setCurrentPointer("a");
+                      }}
+                      onMouseLeave={() => {
+                        setCurrentPointer("");
+                      }}
+                    >
+                      <InstagramEmbed height={600} width={330} url={item} />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+          {/* <div className=" w-full flex flex-row gap-x-4 mt-8">
+            {socialLinks.map((item) => {
+              return (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    zIndex: 10,
+                  }}
                 >
-                  <Image
+                  <InstagramEmbed width={350} url={item} />
+                </div>
+              );
+            })}
+          </div> */}
+        </div>
+        <div className="flex flex-col items-start w-[90vw] mt-[10vh]">
+          <h2 className="text-white text-[2rem] md:text-[4rem] md:leading-[4rem] font-bold ">
+            Gallery
+          </h2>
+          <p className="text-white text-sm">
+            {
+              "Discover our vibrant gallery! Immerse yourself in stunning visuals from our shows and performances. Explore the rhythm and experience the magic. Dive in now!"
+            }
+          </p>
+          <div className=" grid grid-cols-2 md:grid-cols-4 gap-8 mt-[5vh]">
+            {Array(12)
+              .fill(1)
+              .map((item, idx) => {
+                return (
+                  <div
                     onMouseEnter={() => {
                       setCurrentPointer("i");
                     }}
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}
-                    src={item}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+                    className=" w-[40vw] h-[40vw] border-[0.15px] border-[#c7c7c7]/30 md:h-[20vw] md:w-[20vw] relative bg-black/80"
+                  >
+                    <Image
+                      src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls${
+                        idx + 1
+                      }.jpeg`}
+                      layout="fill"
+                      objectFit="contain"
+                      className=" transition-all duration-300 hover:scale-110"
+                    />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
