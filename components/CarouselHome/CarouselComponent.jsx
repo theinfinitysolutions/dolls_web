@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import * as THREE from "three";
 import { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -16,8 +17,24 @@ import useStore from "@/utils/store";
 const CarouselComponent = () => {
   const { currentPointer, setCurrentPointer } = useStore();
 
+  const [isHeightGreaterThanWidth, setIsHeightGreaterThanWidth] = useState(
+    window.innerHeight > window.innerWidth
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsHeightGreaterThanWidth(window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-full md:w-[50vw] ">
+    <div className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-[90vw] md:w-[50vw] ">
       <Canvas
         onMouseEnter={() => {
           setCurrentPointer("i");
@@ -25,7 +42,10 @@ const CarouselComponent = () => {
         onMouseLeave={() => {
           setCurrentPointer("");
         }}
-        camera={{ position: [0, 0, 100], fov: 15 }}
+        camera={{
+          position: [0, 0, 100],
+          fov: isHeightGreaterThanWidth ? 17 : 15,
+        }}
         className="w-10/12 md:w-[50vw] h-[50vh] md:h-[80vh] bg-transparent items-start "
       >
         <fog attach="fog" args={["#a79", 8.5, 12]} />
