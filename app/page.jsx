@@ -96,6 +96,9 @@ const Home = () => {
       )
       .then((res) => {
         setEmailSent(true);
+        setTimeout(() => {
+          setEmailSent(false);
+        }, 1500);
         reset();
       })
       .catch((err) => {
@@ -546,9 +549,11 @@ const Home = () => {
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}
-                    className="bg-red-800 text-white px-8 py-2 mt-8 "
+                    className={` ${
+                      emailSent ? "bg-red-400" : "bg-red-800"
+                    }  text-white px-8 py-2 mt-8`}
                   >
-                    Submit
+                    {emailSent ? "Submit" : "Sent"}
                   </button>
                 )}
               </form>

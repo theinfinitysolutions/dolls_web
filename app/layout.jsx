@@ -18,6 +18,7 @@ import { MdOutlineCameraAlt } from "react-icons/md";
 import JoinUsModal from "@/components/secretPlaylistModal";
 import { IoIosMusicalNotes } from "react-icons/io";
 import RandomCursor from "@/components/RandomCursor";
+import { usePathname } from "next/navigation";
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export const orbitron = Orbitron({
 let title = "DOLE'S MUSIC";
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
   const cursorRef = useRef(null);
   const currentPointer = useStore((state) => state.currentPointer);
   const setCurrentPointer = useStore((state) => state.setCurrentPointer);
@@ -86,6 +88,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${abril.className} relative min-h-screen bg-black/95`}>
+        {pathname == "/" ? (
+          <div class="bg-animation z-0">
+            {/* <div id="stars"></div> */}
+            {/* <div id="stars2"></div> */}
+            <div id="stars3"></div>
+            <div id="stars4"></div>
+          </div>
+        ) : null}
+
         <div
           ref={cursorRef}
           style={{ zIndex: 100, pointerEvents: "none" }}
@@ -105,12 +116,10 @@ export default function RootLayout({ children }) {
         </div>
         <div className="fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
-            src={
-              "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls.gif"
-            }
+            src={"/bgimg.jpeg"}
             unoptimized
             layout="fill"
-            className=" opacity-50"
+            className=" opacity-10"
           />
         </div>
         <Navbar />
