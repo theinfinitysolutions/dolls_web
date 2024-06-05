@@ -267,9 +267,9 @@ const Media = () => {
               modules={[Pagination, Autoplay]}
               className="mySwiper"
             >
-              {socialLinks.map((item) => {
+              {socialLinks.map((item, index) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div
                       style={{
                         display: "flex",
@@ -304,9 +304,9 @@ const Media = () => {
               modules={[Pagination, Autoplay]}
               className="mySwiper"
             >
-              {socialLinks.map((item) => {
+              {socialLinks.map((item, index) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={index}>
                     <div
                       style={{
                         display: "flex",
@@ -358,6 +358,7 @@ const Media = () => {
               .map((item, idx) => {
                 return (
                   <div
+                    key={idx}
                     onMouseEnter={() => {
                       setCurrentPointer("i");
                     }}
