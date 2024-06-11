@@ -111,16 +111,17 @@ const Media = () => {
               onMouseLeave={() => {
                 setCurrentPointer("");
               }}
-              className=" w-full md:w-[57.5%] flex flex-row justify-between items-center bg-[#c7c7c7]/70 px-2 py-2"
+              className=" w-full md:w-[57.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
-              <div className="h-[30vh] w-1/2 relative bg-slate-800">
+              <div className="circle -bottom-1/2 -right-1/2 absolute" />
+              <div className="h-[30vh] w-1/2 relative bg-black">
                 <Image
                   src={blogRef[1].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
                 />
               </div>
-              <div className="flex flex-col items-start w-1/2 px-4">
+              <div className="flex flex-col items-start w-1/2 px-4 py-2">
                 <h2 className="text-white text-base md:text-xl font-medium ">
                   {blogRef[1].title}
                 </h2>
@@ -145,16 +146,17 @@ const Media = () => {
               onMouseLeave={() => {
                 setCurrentPointer("");
               }}
-              className=" w-full  mt-8 md:mt-0  md:w-[40%] flex flex-row justify-between items-center bg-cyan-800 px-2 py-2"
+              className=" w-full  mt-8 md:mt-0  md:w-[40%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
-              <div className="h-[30vh] w-1/2 relative bg-cyan-800">
+              <div className="circle -bottom-1/2 -right-1/2 absolute" />
+              <div className="h-[30vh] w-1/2 relative bg-black">
                 <Image
                   src={blogRef[3].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
                 />
               </div>
-              <div className="flex flex-col items-start w-1/2 px-4">
+              <div className="flex flex-col items-start w-1/2 px-4 py-2">
                 <h2 className="text-white text-base md:text-xl font-medium ">
                   {blogRef[3].title}
                 </h2>
@@ -181,16 +183,17 @@ const Media = () => {
               onMouseLeave={() => {
                 setCurrentPointer("");
               }}
-              className="w-full md:w-[48.5%] flex flex-row justify-between items-center bg-lime-800 px-2 py-2"
+              className="w-full md:w-[48.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
-              <div className="h-[30vh] w-1/2 relative bg-lime-800">
+              <div className="circle -bottom-1/2 -right-1/2 absolute" />
+              <div className="h-[30vh] w-1/2 relative bg-black">
                 <Image
                   src={blogRef[0].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
                 />
               </div>
-              <div className="flex flex-col items-start w-1/2 px-4">
+              <div className="flex flex-col items-start w-1/2 px-4 py-2">
                 <h2 className="text-white text-base md:text-xl font-medium ">
                   {blogRef[0].title}
                 </h2>
@@ -215,16 +218,17 @@ const Media = () => {
               onMouseLeave={() => {
                 setCurrentPointer("");
               }}
-              className=" w-full  mt-8 md:mt-0  md:w-[48.5%] flex flex-row justify-between items-center bg-rose-800 px-2 py-2"
+              className=" w-full  mt-8 md:mt-0  md:w-[48.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
-              <div className="h-[30vh] w-1/2 relative bg-cyan-800">
+              <div className="circle -bottom-1/2 -right-1/2 absolute" />
+              <div className="h-[30vh] w-1/2 relative bg-black">
                 <Image
                   src={blogRef[2].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
                 />
               </div>
-              <div className="flex flex-col items-start w-1/2 px-4">
+              <div className="flex flex-col items-start w-1/2 px-4 py-2">
                 <h2 className="text-white text-base md:text-xl font-medium ">
                   {blogRef[2].title}
                 </h2>

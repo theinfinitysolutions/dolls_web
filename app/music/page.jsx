@@ -41,6 +41,7 @@ const Music = () => {
   // const { x, y } = useMousePosition();
   const location = useRef(null);
   const { setCurrentPointer } = useStore();
+  const { showSongsModal, setShowSongsModal } = useStore();
 
   const handleMouseMove = (e) => {
     if (location.current) {
@@ -58,8 +59,9 @@ const Music = () => {
   };
 
   useEffect(() => {
-    console.log("location 1", location);
-  }, []);
+    console.log("location 1", location, showSongsModal);
+  }, [showSongsModal]);
+
   return (
     <Transition>
       <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden">
@@ -70,9 +72,24 @@ const Music = () => {
                 key={index}
                 className="flex flex-col md:flex-row w-full h-[40vh] mt-[5vh] md:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
-                {/* <div className="px-4 py-2 absolute right-0 top-0 bg-white">
+                <a
+                  onMouseEnter={() => {
+                    setCurrentPointer("a");
+                  }}
+                  onMouseLeave={() => {
+                    setCurrentPointer("");
+                  }}
+                  onClick={() => {
+                    setShowSongsModal({
+                      open: true,
+                      song: index,
+                    });
+                    console.log("showSongsModal");
+                  }}
+                  className="px-4 py-2 absolute right-0 top-0 z-40 bg-white"
+                >
                   <p className="text-black text-sm">View All</p>
-                </div> */}
+                </a>
                 <div className=" md:w-[40vh] md:h-[40vh] z-50 md:absolute bg-white flex flex-col justify-between items-center px-4 pt-4">
                   <div className="flex flex-row  w-full justify-between items-center border-t-[1px] border-black"></div>
                   <div className="flex flex-col items-start">
@@ -133,12 +150,14 @@ const Music = () => {
                               src={song.imageUrl.toString()}
                               layout="fill"
                               objectFit="cover"
+                              alt={song.song}
                             />
                           ) : (
                             <Image
                               src={"/song1.jpeg"}
                               layout="fill"
                               objectFit="cover"
+                              alt="song1"
                             />
                           )}
 
@@ -194,6 +213,7 @@ const Music = () => {
                             layout="fill"
                             objectFit="cover"
                             className="rotate-45"
+                            alt="asset1"
                           />
                         </div>
                       </div>
