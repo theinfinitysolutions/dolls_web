@@ -68,6 +68,19 @@ body {
   filter:blur(180px)
 }
 
+.circlea {
+  height: 100px;
+  background: linear-gradient(
+    to right,
+    #eb4034aa, #eb4034ee, #eb4034);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rotate 10s infinite;
+  filter:blur(180px)
+}
+
 .slide-in {
   position: absolute;
   top: 0;
