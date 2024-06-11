@@ -13,8 +13,10 @@ import {
 import { easing } from "maath";
 import "./util";
 import useStore from "@/utils/store";
+import { useRouter } from "next/navigation";
 
 const CarouselComponent = () => {
+  const router = useRouter();
   const { currentPointer, setCurrentPointer } = useStore();
 
   const [isHeightGreaterThanWidth, setIsHeightGreaterThanWidth] = useState(
@@ -34,7 +36,12 @@ const CarouselComponent = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-[90vw] md:w-[50vw] ">
+    <div
+      onClick={() => {
+        router.push("/media");
+      }}
+      className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-[90vw] md:w-[50vw] "
+    >
       <Canvas
         onMouseEnter={() => {
           setCurrentPointer("i");
@@ -67,7 +74,8 @@ function Rig(props) {
   const ref = useRef();
   const scroll = useScroll();
   useFrame((state, delta) => {
-    ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
+    ref.current.rotation.y += delta * 0.5; // Add rotation based on time
+    // ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
     state.events.update(); // Raycasts every frame rather than on pointer-move
     easing.damp3(
       state.camera.position,
