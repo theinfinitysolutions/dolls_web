@@ -18,6 +18,7 @@ import { RiArrowRightDownLine } from "react-icons/ri";
 import useStore from "@/utils/store";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import { gazpacho_black } from "./layout";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -216,7 +217,7 @@ const Home = () => {
             <div className="flex flex-row items-center justify-between relative w-full  md:w-5/12  ">
               <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-center md:items-start justify-center w-full">
                 <h1
-                  className={`overflow-hidden text-[4rem] md:text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
+                  className={` ${gazpacho_black.className} overflow-hidden text-[3.5rem] md:text-[5rem] text3d text-center font-bold leading-[5rem] text-[#ffffff]`}
                 >
                   {text1.split("").map((char, index) => (
                     <span
@@ -224,7 +225,10 @@ const Home = () => {
                         char == "'" ? "text-[#ff0000]" : ""
                       }`}
                       key={`${char}-${index}`}
-                      style={{ animationDelay: `${index * 0.05}s` }}
+                      style={{
+                        animationDelay: `${index * 0.05}s`,
+                        transitionDelay: 3,
+                      }}
                     >
                       {char === " " ? "\u00A0" : char}
                     </span>
@@ -251,7 +255,7 @@ const Home = () => {
                 </div>
               </RevealOnScroll>
             </div>
-            <div className=" md:-ml-[5%] w-full md:w-7/12 overflow-hidden">
+            <div className=" md:-ml-[5%] w-full md:w-7/12 overflow-hidden ">
               <CarouselComponent />
             </div>
             {/* <div className="flex flex-col items-start  w-4/12">

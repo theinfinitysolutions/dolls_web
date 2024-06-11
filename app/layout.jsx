@@ -19,6 +19,12 @@ import JoinUsModal from "@/components/secretPlaylistModal";
 import { IoIosMusicalNotes } from "react-icons/io";
 import RandomCursor from "@/components/RandomCursor";
 import { usePathname } from "next/navigation";
+import localFont from "next/font/local";
+import ViewProductModal from "@/components/ViewProductModal";
+
+export const gazpacho_black = localFont({
+  src: "../public/gazpacho_black.ttf",
+});
 
 const inter = Cutive_Mono({
   subsets: ["latin"],
@@ -126,6 +132,7 @@ export default function RootLayout({ children }) {
         <div className="z-0 min-h-screen max-w-screen">{children}</div>
         <Footer />
         <JoinUsModal />
+        <ViewProductModal />
       </body>
     </html>
   );
