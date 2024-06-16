@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { gazpacho_black } from "./layout";
 import { upcoming } from "@/utils/consts";
+import { useRouter } from "next/navigation";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -76,7 +77,7 @@ const Home = () => {
   const [emailSent, setEmailSent] = React.useState(false);
 
   const { register, handleSubmit, formState, reset } = useForm();
-
+  const router = useRouter();
   const xTranslation = useMotionValue(0);
 
   const [mustFinish, setMustFinish] = useState(false);
@@ -205,14 +206,25 @@ const Home = () => {
           />
         </div>
 
-        <div className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh]   ">
+        <a
+          onClick={() => {
+            router.push("/contact");
+          }}
+          onMouseEnter={() => {
+            setCurrentPointer("a");
+          }}
+          onMouseLeave={() => {
+            setCurrentPointer("");
+          }}
+          className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh]   "
+        >
           <Image
             src={"/asset2.png"}
             alt={"asset2"}
             objectFit="contain"
             layout="fill"
           />
-        </div>
+        </a>
 
         <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[100vh] lg:h-[100vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
@@ -317,11 +329,11 @@ const Home = () => {
                   >
                     {"WHAT'S NEW"}
                   </h2>
-                  <p className="text-white text-center lg:text-start text-sm">
+                  {/* <p className="text-white text-center lg:text-start text-sm">
                     {
                       " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
                     }
-                  </p>
+                  </p> */}
                 </RevealOnScroll>
                 <div className="flex flex-row items-center justify-start mt-[5vh] px-8">
                   <p className="text-xl text-white ">Upcoming Music</p>
@@ -392,7 +404,7 @@ const Home = () => {
                                 setCurrentPointer("");
                               }}
                               onClick={() => {
-                                router.push("/");
+                                window.open(item.AppleMusic, "_blank");
                               }}
                             >
                               <SiApplemusic className="text-sm " />
@@ -404,7 +416,9 @@ const Home = () => {
                               onMouseLeave={() => {
                                 setCurrentPointer("");
                               }}
-                              onClick={() => {}}
+                              onClick={() => {
+                                window.open(item.Youtube, "_blank");
+                              }}
                             >
                               <AiFillYoutube className="text-sm" />
                             </a>
@@ -416,19 +430,23 @@ const Home = () => {
                               onMouseLeave={() => {
                                 setCurrentPointer("");
                               }}
-                              onClick={() => {}}
+                              onClick={() => {
+                                window.open(item.Spotify, "_blank");
+                              }}
                             >
                               <FaSpotify className="text-sm" />
                             </a>
 
-                            <a
+                            {/* <a
                               onMouseEnter={() => {
                                 setCurrentPointer("a");
                               }}
                               onMouseLeave={() => {
                                 setCurrentPointer("");
                               }}
-                              onClick={() => {}}
+                              onClick={() => {
+                                window.open(item.Soundcloud, "_blank");
+                              }}
                             >
                               <Image
                                 src="/wynk.png"
@@ -436,7 +454,7 @@ const Home = () => {
                                 width={12}
                                 height={12}
                               />
-                            </a>
+                            </a> */}
                           </div>
                         ) : (
                           <div className="flex flex-row justify-around items-center  w-full ">
@@ -471,11 +489,11 @@ const Home = () => {
               >
                 Gallery
               </h2>
-              <p className="text-white text-center lg:text-start text-sm">
+              {/* <p className="text-white text-center lg:text-start text-sm">
                 {
                   " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
                 }
-              </p>
+              </p> */}
             </RevealOnScroll>
             <motion.div
               className="h-[25vh] lg:h-[35vh] mt-[5vh] left-0 flex gap-4"

@@ -73,6 +73,7 @@ export default function RootLayout({ children }) {
   const cursorRef = useRef(null);
   const currentPointer = useStore((state) => state.currentPointer);
   const setCurrentPointer = useStore((state) => state.setCurrentPointer);
+  const { showModal, setShowModal } = useStore();
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -90,6 +91,14 @@ export default function RootLayout({ children }) {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
+  useEffect(() => {
+    if (showModal) {
+      if (pathname != "/exclusive") {
+        useStore.setState({ showModal: false });
+      }
+    }
+  }, [pathname]);
 
   return (
     <html lang="en">
