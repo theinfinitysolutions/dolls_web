@@ -242,6 +242,7 @@ const Music = () => {
               <Image
                 src={"/arrow.png"}
                 layout="fill"
+                alt="arrow"
                 objectFit="contain"
                 className="opacity-80"
               />
@@ -256,12 +257,17 @@ const Music = () => {
               tabindex="0"
             >
               <div className="door w-full h-full z-10 rounded-md">
-                <Image src={"/door.png"} layout="fill" />
+                <Image src={"/door.png"} alt="door" layout="fill" />
               </div>
               <div className=" w-full h-full bg-black absolute flex flex-col items-end justify-center z-0">
                 <div className="circle -z-10"></div>
                 <div className="w-[10vh] h-[15vh] mb-[10vh]  relative rotate-45 translate-x-[15vw] group-hover:translate-x-6 group-hover:rotate-[-30deg]  duration-150 rounded-md">
-                  <Image src={"/arm.png"} layout="fill" objectFit="contain" />
+                  <Image
+                    src={"/arm.png"}
+                    alt={"arm"}
+                    layout="fill"
+                    objectFit="contain"
+                  />
                 </div>
               </div>
             </a>
@@ -291,6 +297,7 @@ const Music = () => {
                   src={currentSong.imageUrl.toString()}
                   layout="fill"
                   objectFit="cover"
+                  alt={currentSong.song}
                 />
               ) : (
                 <Image

@@ -13,8 +13,8 @@ const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
   const audioRef = useRef();
 
-  const { currentPointer, setCurrentPointer } = useStore();
-  const { showModal, setShowModal } = useStore();
+  const { showModal, setShowModal, setCurrentPointer, currentPointer } =
+    useStore();
 
   const playAudio = () => {
     audioRef.current.play();
@@ -70,8 +70,11 @@ const ExlcusiveMusic = () => {
                   <div className="flex flex-row items-center">
                     <div className="h-[12.5vh] bg-pink-50 w-[12.5vh] relative">
                       <Image
-                        src={`/song${index % 5}.jpeg`}
+                        src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${
+                          (index % 3) + 1
+                        }.jpeg`}
                         layout="fill"
+                        alt={`exclusive music ${song.title}`}
                         objectFit="contain"
                       />
                     </div>
@@ -108,7 +111,7 @@ const ExlcusiveMusic = () => {
                   onMouseLeave={() => {
                     setCurrentPointer("");
                   }}
-                  src="/song0.jpeg"
+                  src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${2}.jpeg`}
                   layout="fill"
                   objectFit="cover"
                 />

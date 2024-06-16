@@ -119,6 +119,7 @@ const Media = () => {
                   src={blogRef[1].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
+                  alt={`blog image ${blogRef[1].title}`}
                 />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4 py-2">
@@ -154,6 +155,7 @@ const Media = () => {
                   src={blogRef[3].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
+                  alt={`blog image ${blogRef[3].title}`}
                 />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4 py-2">
@@ -191,6 +193,7 @@ const Media = () => {
                   src={blogRef[0].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
+                  alt={`blog image ${blogRef[0].title}`}
                 />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4 py-2">
@@ -226,6 +229,7 @@ const Media = () => {
                   src={blogRef[2].imageURL}
                   className=" object-contain md:object-cover "
                   layout="fill"
+                  alt={`blog image ${blogRef[2].title}`}
                 />
               </div>
               <div className="flex flex-col items-start w-1/2 px-4 py-2">
@@ -351,13 +355,13 @@ const Media = () => {
           <h2 className="text-white text-[2rem] md:text-[4rem] md:leading-[4rem] font-bold ">
             Gallery
           </h2>
-          <p className="text-white text-sm">
+          <p className="text-white text-sm mt-2">
             {
               "Discover our vibrant gallery! Immerse yourself in stunning visuals from our shows and performances. Explore the rhythm and experience the magic. Dive in now!"
             }
           </p>
           <div className=" grid grid-cols-2 md:grid-cols-4 gap-8 mt-[5vh]">
-            {Array(12)
+            {Array(39)
               .fill(1)
               .map((item, idx) => {
                 return (
