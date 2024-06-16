@@ -10,6 +10,8 @@ export const useStore = create((set) => ({
     song: 0,
   },
   setShowSongsModal: (modal) => set({ showSongsModal: modal }),
+  hoverCarousel: false,
+  setHoverCarousel: (hover) => set(hover),
 }));
 
 export default useStore;
