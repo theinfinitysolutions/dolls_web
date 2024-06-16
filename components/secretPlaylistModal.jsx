@@ -47,9 +47,13 @@ export default function JoinUsModal() {
     <div>
       {open ? (
         <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center ">
-          <div className="h-[85vh] lg:h-[50vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row">
-            <div className=" w-full lg:w-1/2 h-[50vh] lg:h-full relative">
-              <Image src="/dolls3.jpeg" layout="fill" className=" opacity-50" />
+          <div className="h-[77.5vh] lg:h-[50vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row">
+            <div className=" w-full lg:w-1/2 h-[40vh] lg:h-full relative">
+              <Image
+                src="https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dollsbgalt.jpeg"
+                layout="fill"
+                className=" opacity-50"
+              />
             </div>
             <div className="w-full lg:w-1/2 h-[35vh] lg:h-full relative flex flex-col p-8 justify-center items-start">
               <h2 className="text-4xl">Join Us</h2>
@@ -60,14 +64,20 @@ export default function JoinUsModal() {
               <form onSubmit={handleSubmit(onSubmit)} className="mt-6 w-full">
                 <input
                   placeholder="Name"
-                  {...register("name")}
+                  {...register("name", { required: true })}
                   className="w-full border-[1px] placeholder:text-[#c7c7c7]/60 bg-black p-2 border-[#ababab]  text-white"
                 />
+                {formState.errors.name && (
+                  <span className="text-red-500">Name is required</span>
+                )}
                 <input
                   placeholder="Email"
-                  {...register("email")}
+                  {...register("email", { required: true })}
                   className="w-full mt-4 border-[1px] placeholder:text-[#c7c7c7]/60 bg-black p-2 border-[#ababab]  text-white"
                 />
+                {formState.errors.email && (
+                  <span className="text-red-500">Email is required</span>
+                )}
               </form>
               <div className="w-full flex flex-row items-center justify-end mt-4">
                 <button

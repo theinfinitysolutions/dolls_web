@@ -7,6 +7,7 @@ import { FaSoundcloud } from "react-icons/fa";
 import { useRouter, usePathname } from "next/navigation";
 import useStore from "@/utils/store";
 import Image from "next/image";
+import { IoMdArrowBack } from "react-icons/io";
 
 const navbarItems = [
   {
@@ -40,7 +41,23 @@ const Navbar = () => {
   return (
     <nav className="flex flex-row max-w-screen w-full h-[5vh] fixed z-50  text-white ">
       <div className="w-full flex flex-row justify-between items-center px-8 py-8">
-        <div className="flex flex-row items-baseline">
+        <div className="flex flex-row items-center">
+          {path != "/" ? (
+            <a
+              onMouseEnter={() => {
+                setCurrentPointer("a");
+              }}
+              onMouseLeave={() => {
+                setCurrentPointer("");
+              }}
+              onClick={() => {
+                router.push("/");
+              }}
+              className="text-xl  mr-2  text-white "
+            >
+              <IoMdArrowBack className="text-xl" />
+            </a>
+          ) : null}
           <a
             onMouseEnter={() => {
               setCurrentPointer("a");
@@ -49,13 +66,13 @@ const Navbar = () => {
               setCurrentPointer("");
             }}
             onClick={() => {
-              router.push("/");
+              router.push(path == "exclusive" ? "/" : "/music");
             }}
             className="text-xl text-white "
           >
             {"Dole's Music /"}
           </a>
-          <p className=" text-sm text-red-500 ml-1">
+          <p className=" text-sm text-red-500 ml-1 mt-1">
             {navbarItems.find((item) => item.link == path)?.title}
           </p>
         </div>
