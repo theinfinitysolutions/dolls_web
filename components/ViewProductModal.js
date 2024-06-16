@@ -36,9 +36,11 @@ export default function ViewProductModal() {
 
   useEffect(() => {
     console.log("esaing", showSongsModal);
-    setOpen(showSongsModal.open);
-    setCurrentSong(showSongsModal.song);
-  }, [showSongsModal.open]);
+    if (showSongsModal) {
+      setOpen(showSongsModal.open);
+      setCurrentSong(showSongsModal.song);
+    }
+  }, [showSongsModal?.open]);
 
   return (
     <div>
@@ -82,12 +84,14 @@ export default function ViewProductModal() {
                           <Image
                             src={song.imageUrl.toString()}
                             layout="fill"
+                            alt={`song ${song.song}`}
                             objectFit="cover"
                           />
                         ) : (
                           <Image
                             src={"/song1.jpeg"}
                             layout="fill"
+                            alt={"alt"}
                             objectFit="cover"
                           />
                         )}

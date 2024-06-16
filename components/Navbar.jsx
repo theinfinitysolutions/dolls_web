@@ -35,7 +35,7 @@ const Navbar = () => {
   const router = useRouter();
   const path = usePathname();
 
-  const setCurrentPointer = useStore((state) => state.setCurrentPointer);
+  const { setCurrentPointer } = useStore();
 
   return (
     <nav className="flex flex-row max-w-screen w-full h-[5vh] fixed z-50  text-white ">
@@ -99,7 +99,7 @@ const Navbar = () => {
             }}
             onClick={() => {
               window.open(
-                "https://open.spotify.com/artist/1uvi7MKXfrVYQITj0VTIdf",
+                "https://open.spotify.com/playlist/6iehjmMgDPjf9v0NeS3iJW?si=pDWOhU8DToKmfi_1S9Ma0w",
                 "_blank"
               );
             }}
