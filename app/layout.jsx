@@ -125,6 +125,7 @@ export default function RootLayout({ children }) {
             src={"/bgimg.jpeg"}
             unoptimized
             layout="fill"
+            alt="bg image"
             className=" opacity-10"
           />
         </div>

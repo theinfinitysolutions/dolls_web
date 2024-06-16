@@ -19,6 +19,7 @@ import useStore from "@/utils/store";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { gazpacho_black } from "./layout";
+import { upcoming } from "@/utils/consts";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -49,8 +50,8 @@ let songlist = [
   },
 ];
 
-const FAST_DURATION = 25;
-const SLOW_DURATION = 75;
+const FAST_DURATION = 50;
+const SLOW_DURATION = 120;
 
 let navbarClass =
   "relative text-white text-base md:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
@@ -199,12 +200,18 @@ const Home = () => {
             src="/asset1.png"
             layout="fill"
             objectFit="contain"
+            alt="asset1"
             className="rounded-3xl animate-rotate1 opacity-70"
           />
         </div>
 
         <div className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] md:w-[15vh] md:h-[15vh]   ">
-          <Image src={"/asset2.png"} objectFit="contain" layout="fill" />
+          <Image
+            src={"/asset2.png"}
+            alt={"asset2"}
+            objectFit="contain"
+            layout="fill"
+          />
         </div>
 
         <div className="flex flex-col w-screen items-center relative justify-center md:max-h-screen min-h-[100vh] md:h-[100vh] overflow-hidden">
@@ -324,9 +331,10 @@ const Home = () => {
                   <div className=" h-[60vw] w-[60vw] md:h-[40vh] md:w-[40vh] group mt-4 relative">
                     <div className=" w-[60vw] h-[60vw] md:h-[40vh] md:w-[40vh]  mt-4 absolute z-20">
                       <Image
-                        src="/song0.jpeg"
+                        src={upcoming[0].imageUrl}
                         layout="fill"
                         objectFit="cover"
+                        alt={upcoming[0].song + "music"}
                       />
                     </div>
                     <div className=" w-[60vw] h-[60vw] md:h-[40vh] md:w-[40vh] z-10 absolute transition-all group-hover:translate-x-[10vw] group-hover:duration-200  mt-4 ">
@@ -339,15 +347,18 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="flex flex-col mt-8 w-full items-center">
-                    <p className="text-2xl font-semibold">Kiddies</p>
+                    <p className="text-2xl font-semibold">{upcoming[0].song}</p>
                     <p className="text-base font-semibold text-red-500 ">
-                      FAT GUYY
+                      {upcoming[0].artist}
+                    </p>
+                    <p className="text-sm font-semibold text-red-500 ">
+                      Prod. {upcoming[0].Producer}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col w-full md:w-1/2 items-start mt-8 md:mt-0 p-8">
-                {songlist.map((item, index) => {
+                {upcoming.slice(1, 5).map((item, index) => {
                   return (
                     <div
                       key={index}
@@ -355,68 +366,85 @@ const Home = () => {
                     >
                       <div className="flex flex-row items-center">
                         <div className=" h-[10vh] w-[10vh] md:h-[15vh] md:w-[15vh] relative">
-                          <Image src={`/song${index + 1}.jpeg`} layout="fill" />
+                          <Image
+                            src={item.imageUrl}
+                            layout="fill"
+                            alt={`song ${item.song}`}
+                          />
                         </div>
                         <div className="flex flex-col items-start justify-center ml-8">
                           <h3 className="text-white text-sm md:text-xl">
-                            {item.title}
+                            {item.song}
                           </h3>
-                          <p className="text-white text-xs md:text-sm">
+                          <p className="text-red-500 text-xs md:text-sm">
                             {item.artist}
                           </p>
                         </div>
                       </div>
                       <div className="flex flex-row items-center w-5/12 md:w-3/12">
-                        <div className="flex flex-row justify-around items-center w-full ">
-                          <a
-                            onMouseEnter={() => {
-                              setCurrentPointer("a");
-                            }}
-                            onMouseLeave={() => {
-                              setCurrentPointer("");
-                            }}
-                            onClick={() => {
-                              router.push("/");
-                            }}
-                          >
-                            <SiApplemusic className="text-sm " />
-                          </a>
-                          <a
-                            onMouseEnter={() => {
-                              setCurrentPointer("a");
-                            }}
-                            onMouseLeave={() => {
-                              setCurrentPointer("");
-                            }}
-                            onClick={() => {}}
-                          >
-                            <AiFillYoutube className="text-sm" />
-                          </a>
+                        {item.released ? (
+                          <div className="flex flex-row justify-around items-center w-full ">
+                            <a
+                              onMouseEnter={() => {
+                                setCurrentPointer("a");
+                              }}
+                              onMouseLeave={() => {
+                                setCurrentPointer("");
+                              }}
+                              onClick={() => {
+                                router.push("/");
+                              }}
+                            >
+                              <SiApplemusic className="text-sm " />
+                            </a>
+                            <a
+                              onMouseEnter={() => {
+                                setCurrentPointer("a");
+                              }}
+                              onMouseLeave={() => {
+                                setCurrentPointer("");
+                              }}
+                              onClick={() => {}}
+                            >
+                              <AiFillYoutube className="text-sm" />
+                            </a>
 
-                          <a
-                            onMouseEnter={() => {
-                              setCurrentPointer("a");
-                            }}
-                            onMouseLeave={() => {
-                              setCurrentPointer("");
-                            }}
-                            onClick={() => {}}
-                          >
-                            <FaSpotify className="text-sm" />
-                          </a>
+                            <a
+                              onMouseEnter={() => {
+                                setCurrentPointer("a");
+                              }}
+                              onMouseLeave={() => {
+                                setCurrentPointer("");
+                              }}
+                              onClick={() => {}}
+                            >
+                              <FaSpotify className="text-sm" />
+                            </a>
 
-                          <a
-                            onMouseEnter={() => {
-                              setCurrentPointer("a");
-                            }}
-                            onMouseLeave={() => {
-                              setCurrentPointer("");
-                            }}
-                            onClick={() => {}}
-                          >
-                            <Image src="/wynk.png" width={12} height={12} />
-                          </a>
-                        </div>
+                            <a
+                              onMouseEnter={() => {
+                                setCurrentPointer("a");
+                              }}
+                              onMouseLeave={() => {
+                                setCurrentPointer("");
+                              }}
+                              onClick={() => {}}
+                            >
+                              <Image
+                                src="/wynk.png"
+                                alt="wynk"
+                                width={12}
+                                height={12}
+                              />
+                            </a>
+                          </div>
+                        ) : (
+                          <div className="flex flex-row justify-around items-center  w-full ">
+                            <p className="text-white border-b-[1px] border-red-500 text-sm">
+                              Coming Soon
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
@@ -462,25 +490,30 @@ const Home = () => {
                 setDuration(FAST_DURATION);
               }}
             >
-              {[...images, ...images].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className=" w-[20vh] h-[20vh] md:w-[30vh] md:h-[30vh] relative"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Image
-                    onMouseEnter={() => {
-                      setCurrentPointer("i");
-                    }}
-                    onMouseLeave={() => {
-                      setCurrentPointer("");
-                    }}
-                    src={item}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </motion.div>
-              ))}
+              {Array(20)
+                .fill(1)
+                .map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    className=" w-[20vh] h-[20vh] md:w-[30vh] md:h-[30vh] relative"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Image
+                      onMouseEnter={() => {
+                        setCurrentPointer("i");
+                      }}
+                      onMouseLeave={() => {
+                        setCurrentPointer("");
+                      }}
+                      src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls${
+                        idx + 10
+                      }.jpeg`}
+                      layout="fill"
+                      alt={`gallery dolls${idx}`}
+                      objectFit="cover"
+                    />
+                  </motion.div>
+                ))}
             </motion.div>
           </div>
         </div>
