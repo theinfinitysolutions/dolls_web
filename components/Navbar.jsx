@@ -59,7 +59,7 @@ const Navbar = () => {
             {navbarItems.find((item) => item.link == path)?.title}
           </p>
         </div>
-        <div className="flex flex-row justify-around items-center w-4/12 md:w-2/12">
+        <div className="flex flex-row justify-around items-center w-4/12 lg:w-2/12">
           <a
             onMouseEnter={() => {
               setCurrentPointer("a");
@@ -74,7 +74,7 @@ const Navbar = () => {
               );
             }}
           >
-            <SiApplemusic className=" text-sm md:text-xl " />
+            <SiApplemusic className=" text-sm lg:text-xl " />
           </a>
           <a
             onMouseEnter={() => {
@@ -87,7 +87,7 @@ const Navbar = () => {
               window.open("https://www.youtube.com/c/AtrangiFunkaar", "_blank");
             }}
           >
-            <AiFillYoutube className=" text-sm md:text-xl " />
+            <AiFillYoutube className=" text-sm lg:text-xl " />
           </a>
 
           <a
@@ -104,7 +104,7 @@ const Navbar = () => {
               );
             }}
           >
-            <FaSpotify className=" text-sm md:text-xl " />
+            <FaSpotify className=" text-sm lg:text-xl " />
           </a>
 
           <a
@@ -125,7 +125,7 @@ const Navbar = () => {
               src="/wynk.png"
               height={12}
               width={12}
-              className=" h-4 w-4 md:h-6 md:w-6 "
+              className=" h-4 w-4 lg:h-6 lg:w-6 "
             />
           </a>
         </div>

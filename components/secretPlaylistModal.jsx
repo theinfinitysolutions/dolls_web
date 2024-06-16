@@ -47,11 +47,11 @@ export default function JoinUsModal() {
     <div>
       {open ? (
         <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center ">
-          <div className="h-[85vh] md:h-[50vh] w-11/12 md:w-[60vw] bg-black flex flex-col md:flex-row">
-            <div className=" w-full md:w-1/2 h-[50vh] md:h-full relative">
+          <div className="h-[85vh] lg:h-[50vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row">
+            <div className=" w-full lg:w-1/2 h-[50vh] lg:h-full relative">
               <Image src="/dolls3.jpeg" layout="fill" className=" opacity-50" />
             </div>
-            <div className="w-full md:w-1/2 h-[35vh] md:h-full relative flex flex-col p-8 justify-center items-start">
+            <div className="w-full lg:w-1/2 h-[35vh] lg:h-full relative flex flex-col p-8 justify-center items-start">
               <h2 className="text-4xl">Join Us</h2>
               <p className="text-sm mt-2">
                 Join our growing community and get access to exclusive music

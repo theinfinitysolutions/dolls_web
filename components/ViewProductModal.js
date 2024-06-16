@@ -46,9 +46,9 @@ export default function ViewProductModal() {
     <div>
       {open ? (
         <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center ">
-          <div className="h-[80vh] md:h-[80vh] w-11/12 md:w-[80vw] overflow-y-scroll bg-black flex flex-col items-start">
+          <div className="h-[80vh] lg:h-[80vh] w-11/12 lg:w-[80vw] overflow-y-scroll bg-black flex flex-col items-start">
             <div className="flex flex-row w-full justify-between items-center px-[5vw] mt-[5vh]">
-              <h3 className=" text-[2rem] md:text-[4rem] leading-[3rem] text-white font-semibold">
+              <h3 className=" text-[2rem] lg:text-[4rem] leading-[3rem] text-white font-semibold">
                 {music[currentSong].genre}
               </h3>
               <a
@@ -70,16 +70,16 @@ export default function ViewProductModal() {
                 <IoClose className="text-white text-3xl" />
               </a>
             </div>
-            <div className=" w-full overflow-y-scroll bg-black grid grid-cols-2 mt-8 md:grid-cols-5 mb-8">
+            <div className=" w-full overflow-y-scroll bg-black grid grid-cols-2 md:grid-cols-3 mt-8 lg:grid-cols-5 mb-8">
               {music[currentSong]?.songs.map((song, songIndex) => {
                 return (
                   <div
                     data-song="Song Name"
                     key={songIndex}
-                    className="flex flex-col items-center overflow-hidden  h-[30vw] w-[20vw] md:h-[17.5vw] md:w-[10vw] ml-[5vw]"
+                    className="flex flex-col items-center overflow-hidden  h-[30vw] w-[20vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
                   >
-                    <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw] group mt-4 relative">
-                      <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw]  mt-4 absolute z-20">
+                    <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
+                      <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
                         {song.imageUrl.toString().length > 0 ? (
                           <Image
                             src={song.imageUrl.toString()}
@@ -96,7 +96,7 @@ export default function ViewProductModal() {
                           />
                         )}
 
-                        <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
+                        <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
                           <div className="flex flex-col items-center justify-center h-full w-full">
                             <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                               <a
@@ -151,11 +151,11 @@ export default function ViewProductModal() {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col mt-[12.5vh] md:mt-8 w-full items-center">
-                      <p className=" text-sm md:text-md text-center font-semibold">
+                    <div className="flex flex-col mt-[12.5vh] lg:mt-8 w-full items-center">
+                      <p className=" text-sm lg:text-md text-center font-semibold">
                         {song.song}
                       </p>
-                      <p className=" text-xs md:text-xs text-center font-semibold text-red-500 ">
+                      <p className=" text-xs lg:text-xs text-center font-semibold text-red-500 ">
                         {song.artist}
                       </p>
                     </div>

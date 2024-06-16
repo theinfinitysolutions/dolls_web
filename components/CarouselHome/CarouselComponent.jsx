@@ -40,7 +40,7 @@ const CarouselComponent = () => {
       onClick={() => {
         router.push("/media");
       }}
-      className="flex flex-col items-start md:max-h-[80vh] h-[50vh] md:h-[80vh] w-[90vw] md:w-[50vw] "
+      className="flex flex-col items-start lg:max-h-[80vh] h-[50vh] lg:h-[80vh] w-[90vw] lg:w-[50vw] "
     >
       <Canvas
         onMouseEnter={() => {
@@ -53,7 +53,7 @@ const CarouselComponent = () => {
           position: [0, 0, 100],
           fov: isHeightGreaterThanWidth ? 17 : 15,
         }}
-        className="w-10/12 md:w-[50vw] h-[50vh] md:h-[80vh] bg-transparent items-start "
+        className="w-10/12 lg:w-[50vw] h-[50vh] lg:h-[80vh] bg-transparent items-start "
       >
         <fog attach="fog" args={["#a79", 8.5, 12]} />
         <ScrollControls pages={4} infinite>
@@ -72,10 +72,12 @@ export default CarouselComponent;
 
 function Rig(props) {
   const ref = useRef();
+  const { hoverCarousel } = useStore();
   const scroll = useScroll();
   useFrame((state, delta) => {
-    ref.current.rotation.y += delta * 0.5; // Add rotation based on time
+    // Add rotation based on time
     // ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
+    ref.current.rotation.y += hoverCarousel ? 0 : delta * 0.5;
     state.events.update(); // Raycasts every frame rather than on pointer-move
     easing.damp3(
       state.camera.position,
@@ -85,7 +87,18 @@ function Rig(props) {
     ); // Move camera
     state.camera.lookAt(0, 0, 0); // Look at center
   });
-  return <group ref={ref} {...props} />;
+  return (
+    <group
+      onPointerOver={() => {
+        setHovered(true);
+      }}
+      onPointerOut={() => {
+        console.log("Pointer out of group element");
+      }}
+      ref={ref}
+      {...props}
+    />
+  );
 }
 
 function Carousel({ radius = 1.3, count = 8 }) {
@@ -106,8 +119,13 @@ function Carousel({ radius = 1.3, count = 8 }) {
 function Card({ url, ...props }) {
   const ref = useRef();
   const [hovered, hover] = useState(false);
-  const pointerOver = (e) => (e.stopPropagation(), hover(true));
-  const pointerOut = () => hover(false);
+
+  const pointerOver = (e) => (
+    e.stopPropagation(), hover(true), useStore.setState({ hoverCarousel: true })
+  );
+  const pointerOut = () => (
+    hover(false), useStore.setState({ hoverCarousel: false })
+  );
   useFrame((state, delta) => {
     easing.damp3(ref.current.scale, hovered ? 1.25 : 1, 0.1, delta);
     easing.damp(
