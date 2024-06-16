@@ -90,7 +90,8 @@ export const pop = [
     AppleMusic:
       "https://music.apple.com/in/album/jiya-jaye-na-single/1497178934",
     Youtube: "https://youtu.be/bqjSLqeu0PI?si=APEX2dfdx2POsqpK",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     song: "Jiya Jaye Na",
@@ -180,21 +181,24 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
   {
     song: "Rascal",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art3.jpeg",
   },
   {
     song: "Piya Nirmohe",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     song: "Rozana",
@@ -204,7 +208,8 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/rozana1500w.jpg",
   },
   {
     song: "2 Lafz",
@@ -212,14 +217,16 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
   {
     song: "Guftagoo",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art3.jpeg",
   },
   {
     song: "Zindagi",
@@ -227,7 +234,8 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     song: "Teri Aankhon Se - Abhishek Nirwan",
@@ -265,7 +273,8 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
 ];
 
@@ -322,7 +331,8 @@ export const rock = [
     AppleMusic:
       "https://music.apple.com/in/album/gangster/1677529455?i=1677529908",
     Youtube: "https://youtu.be/bMMowtwQ8gg?si=-TyZFq6IldtcgwzY",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -349,7 +359,8 @@ export const rock = [
     AppleMusic:
       "https://music.apple.com/in/album/paravasha-from-grey-games/1737907731?i=1737907743",
     Youtube: "https://youtu.be/bjoaiQzCcbI?si=g0J1nX6hC597qjzZ",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art3.jpeg",
   },
   {
     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -372,7 +383,8 @@ export const rock = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -383,7 +395,8 @@ export const rock = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
 ];
 
@@ -409,7 +422,8 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     song: "Zammidar - Meraki",
@@ -420,7 +434,8 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
   {
     song: "Hisaab - Meraki",
@@ -431,7 +446,8 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/meraki2-recovered.jpeg",
   },
   {
     song: "Kiddies - Fat Guyy",
@@ -456,7 +472,8 @@ export const hiphop = [
     AppleMusic: "",
     Producer: "Doleshwar Raj",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
   },
   {
     song: "Chaku - Fat Guyy",
@@ -464,7 +481,8 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art3.jpeg",
   },
   {
     song: "Rage - Fat Guyy",
@@ -473,7 +491,8 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art2.jpeg",
   },
   {
     song: "Game - Cira",
@@ -482,7 +501,77 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/art1.jpeg",
+  },
+];
+
+export const upcoming = [
+  {
+    song: "Hisaab",
+    artist: "Meraki",
+    Producer: "Doleshwar Raj",
+    Mix: "Jos Hermes",
+    Master: "Jos Hermes",
+    Spotify: "",
+    AppleMusic: "",
+    Youtube: "",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/meraki2-recovered.jpeg",
+  },
+  {
+    song: "Mera Kaun",
+    artist: "Fatt Guy",
+    Producer: "Doleshwar Raj",
+    Spotify: "",
+    AppleMusic: "",
+    Youtube: "",
+    released: false,
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/merakaun.jpeg",
+  },
+  {
+    song: "Rozana",
+    artist: "Mayyank Solanki",
+    Producer: "Doleshwar Raj & Mayyank Solanki",
+    Mix: "Shreedhar Sir, TSM Studios",
+    Master: "Shreedhar Sir, TSM Studios",
+    Spotify: "",
+    AppleMusic: "",
+    Youtube: "",
+    released: false,
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/rozana1500w.jpg",
+  },
+  {
+    song: "Kiddies - Fat Guyy",
+    artist: "Fat Guyy",
+    released: true,
+    Spotify:
+      "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
+    Producer: "Doleshwar Raj",
+    Mix: "Gautam Khandelwal",
+    Spotify:
+      "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
+    AppleMusic:
+      "https://music.apple.com/in/album/kiddies/1744394684?i=1744394685",
+    Youtube:
+      "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/SmartSelect_20240505_154021_YouTube_Music.jpg",
+  },
+  {
+    song: "OCD - Meraki",
+    artist: "Meraki",
+    Producer: "Doleshwar Raj",
+    Mix: "Jos Hermes",
+    Master: "Jos Hermes",
+    Spotify: "",
+    AppleMusic: "",
+    Youtube: "",
+    released: true,
+    imageUrl:
+      "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/ocd1.jpg",
   },
 ];
 
