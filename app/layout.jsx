@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
         <div
           ref={cursorRef}
           style={{ zIndex: 100, pointerEvents: "none" }}
-          className={`hidden md:flex cursor-alt absolute  ${
+          className={`hidden lg:flex cursor-alt absolute  ${
             currentPointer != ""
               ? "border-[1px] border-white bg-white h-12 w-12  "
               : " border-[1px] border-white  h-12 w-12"
@@ -120,13 +120,26 @@ export default function RootLayout({ children }) {
             <RandomCursor />
           )}
         </div>
-        <div className="fixed top-0 left-0 h-screen w-screen -z-10">
+        <div className=" hidden md:block fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
             src={"/bgimg.jpeg"}
             unoptimized
             layout="fill"
             alt="bg image"
-            className=" opacity-10"
+            className=" opacity-20"
+          />
+        </div>
+        <div className="block md:hidden fixed top-0 left-0 h-screen w-screen -z-10">
+          <Image
+            src={
+              "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls3.jpeg"
+            }
+            unoptimized
+            layout="fill"
+            objectFit={"cover"}
+            objectPosition={"bottom"}
+            alt="bg image"
+            className=" opacity-20"
           />
         </div>
         <Navbar />

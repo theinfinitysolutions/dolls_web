@@ -66,11 +66,11 @@ const Music = () => {
     <Transition>
       <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden">
         <div className="flex flex-col items-center w-[90vw] ">
-          <div className="flex flex-col items-center w-full mt-[2.5vh] md:mt-[5vh] relative">
+          <div className="flex flex-col items-center w-full mt-[2.5vh] lg:mt-[5vh] relative">
             {music.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row w-full h-[40vh] mt-[5vh] md:mt-[10vh] relative overflow-hidden bg-[#00000055]"
+                className="flex flex-col lg:flex-row w-full h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
                 <a
                   onMouseEnter={() => {
@@ -90,28 +90,28 @@ const Music = () => {
                 >
                   <p className="text-black text-sm">View All</p>
                 </a>
-                <div className=" md:w-[40vh] md:h-[40vh] z-50 md:absolute bg-white flex flex-col justify-between items-center px-4 pt-4">
+                <div className=" lg:w-[40vh] lg:h-[40vh] z-50 lg:absolute bg-white flex flex-col justify-between items-center px-4 pt-4">
                   <div className="flex flex-row  w-full justify-between items-center border-t-[1px] border-black"></div>
                   <div className="flex flex-col items-start">
                     <p className="text-start text-red-700 text-sm">Genre</p>
-                    <h3 className=" text-[2rem] md:text-[4rem] leading-[3rem] text-black font-semibold">
+                    <h3 className=" text-[2rem] lg:text-[4rem] leading-[3rem] text-black font-semibold">
                       {item.genre}
                     </h3>
                   </div>
                   <div className="flex flex-row  w-full justify-between items-center border-t-[1px] border-black">
                     <div className="flex flex-col items-center py-2 w-1/2 border-r-[1px] border-black">
-                      <p className="text-start text-red-700 text-xs md:text-sm">
+                      <p className="text-start text-red-700 text-xs lg:text-sm">
                         Streams
                       </p>
-                      <p className="text-start text-base md:text-xl text-black">
+                      <p className="text-start text-base lg:text-xl text-black">
                         {item.streams}
                       </p>
                     </div>
                     <div className="flex flex-col items-center py-2 w-1/2">
-                      <p className="text-start text-red-700 text-xs md:text-sm">
+                      <p className="text-start text-red-700 text-xs lg:text-sm">
                         Artists
                       </p>
-                      <p className="text-start text-base md:text-xl text-black">
+                      <p className="text-start text-base lg:text-xl text-black">
                         {item.artists}
                       </p>
                     </div>
@@ -141,10 +141,10 @@ const Music = () => {
                       key={songIndex}
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
-                      className="flex flex-col items-center  h-[30vw] w-[20vw] md:h-[17.5vw] md:w-[10vw] ml-[5vw]"
+                      className="flex flex-col items-center  h-[30vw] w-[20vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
                     >
-                      <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw] group mt-4 relative">
-                        <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw]  mt-4 absolute z-20">
+                      <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
+                        <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
                           {song.imageUrl.toString().length > 0 ? (
                             <Image
                               src={song.imageUrl.toString()}
@@ -161,7 +161,7 @@ const Music = () => {
                             />
                           )}
 
-                          <div className=" h-[20vw] w-[20vw] md:h-[10vw] md:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
+                          <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
                             <div className="flex flex-col items-center justify-center h-full w-full">
                               <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                                 <a
@@ -217,11 +217,11 @@ const Music = () => {
                           />
                         </div>
                       </div>
-                      <div className="flex flex-col mt-[12.5vh] md:mt-8 w-full items-center">
-                        <p className=" text-sm md:text-md text-center font-semibold">
+                      <div className="flex flex-col mt-[12.5vh] lg:mt-8 w-full items-center">
+                        <p className=" text-sm lg:text-md text-center font-semibold">
                           {song.song}
                         </p>
-                        <p className=" text-xs md:text-xs text-center font-semibold text-red-500 ">
+                        <p className=" text-xs lg:text-xs text-center font-semibold text-red-500 ">
                           {song.artist}
                         </p>
                       </div>
@@ -234,7 +234,7 @@ const Music = () => {
         </div>
         <div className="flex flex-row w-[90vw] h-[40vh] relative  mt-[5vh] justify-end items-center">
           <div className="flex flex-col items-end w-6/12">
-            <p className="text-white text-xl md:text-3xl text-right">
+            <p className="text-white text-xl lg:text-3xl text-right">
               {" Like our music? Try our exclusive playlist. "}
             </p>
 

@@ -55,7 +55,7 @@ const ContactUs = () => {
               }
             >
               <h2
-                className={`${alfa.className} text-white text-[3rem] md:text-[4rem] leading-[4rem] font-bold `}
+                className={`${alfa.className} text-white text-[3rem] lg:text-[4rem] leading-[4rem] font-bold `}
               >
                 CONTACT
               </h2>
@@ -68,7 +68,7 @@ const ContactUs = () => {
             <div className=" flex flex-col items-center w-full mt-[5vh]">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className=" w-[80vw] md:w-[40%] flex flex-col items-center justify-center"
+                className=" w-[80vw] lg:w-[40%] flex flex-col items-center justify-center"
               >
                 <div className="flex flex-col items-center w-full">
                   <input
