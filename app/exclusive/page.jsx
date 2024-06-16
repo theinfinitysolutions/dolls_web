@@ -7,7 +7,7 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { LuPlay } from "react-icons/lu";
 import useStore from "@/utils/store";
-import { resolve } from "styled-jsx/css";
+import { LuPause } from "react-icons/lu";
 
 const ExlcusiveMusic = () => {
   const [selected, setSelected] = useState(0);
@@ -95,7 +95,11 @@ const ExlcusiveMusic = () => {
                     }}
                     className="flex flex-col items-center justify-center mx-4"
                   >
-                    <LuPlay className="text-white  text-2xl" />
+                    {selected == index ? (
+                      <LuPause className="text-white  text-2xl" />
+                    ) : (
+                      <LuPlay className="text-white  text-2xl" />
+                    )}
                   </a>
                 </div>
               );

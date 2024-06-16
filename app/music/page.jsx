@@ -207,7 +207,7 @@ const Music = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
+                        <div className=" hidden lg:flex h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
                           <Image
                             src="/asset1.png"
                             layout="fill"
