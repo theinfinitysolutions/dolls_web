@@ -216,7 +216,7 @@ const Home = () => {
           onMouseLeave={() => {
             setCurrentPointer("");
           }}
-          className=" fixed  animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh]   "
+          className=" fixed animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] "
         >
           <Image
             src={"/asset2.png"}
@@ -367,6 +367,61 @@ const Home = () => {
                       Prod. {upcoming[0].Producer}
                     </p>
                   </div>
+                  {upcoming[0].released ? (
+                    <div className="flex flex-row justify-around items-center mt-4 w-full ">
+                      {upcoming[0].AppleMusic.length > 0 && (
+                        <a
+                          onMouseEnter={() => {
+                            setCurrentPointer("a");
+                          }}
+                          onMouseLeave={() => {
+                            setCurrentPointer("");
+                          }}
+                          onClick={() => {
+                            window.open(item.AppleMusic, "_blank");
+                          }}
+                        >
+                          <SiApplemusic className="text-base " />
+                        </a>
+                      )}
+                      {upcoming[0].Youtube.length > 0 && (
+                        <a
+                          onMouseEnter={() => {
+                            setCurrentPointer("a");
+                          }}
+                          onMouseLeave={() => {
+                            setCurrentPointer("");
+                          }}
+                          onClick={() => {
+                            window.open(item.Youtube, "_blank");
+                          }}
+                        >
+                          <AiFillYoutube className="text-base" />
+                        </a>
+                      )}
+                      {upcoming[0].Spotify.length > 0 && (
+                        <a
+                          onMouseEnter={() => {
+                            setCurrentPointer("a");
+                          }}
+                          onMouseLeave={() => {
+                            setCurrentPointer("");
+                          }}
+                          onClick={() => {
+                            window.open(item.Spotify, "_blank");
+                          }}
+                        >
+                          <FaSpotify className="text-base" />
+                        </a>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex flex-row justify-around items-center mt-4 w-full ">
+                      <p className="text-white border-b-[1px] border-red-500 text-sm">
+                        Coming Soon
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="flex flex-col w-full lg:w-1/2 items-start mt-8 lg:mt-0 p-8">
@@ -396,46 +451,51 @@ const Home = () => {
                       <div className="flex flex-row items-center w-5/12 lg:w-3/12">
                         {item.released ? (
                           <div className="flex flex-row justify-around items-center w-full ">
-                            <a
-                              onMouseEnter={() => {
-                                setCurrentPointer("a");
-                              }}
-                              onMouseLeave={() => {
-                                setCurrentPointer("");
-                              }}
-                              onClick={() => {
-                                window.open(item.AppleMusic, "_blank");
-                              }}
-                            >
-                              <SiApplemusic className="text-sm " />
-                            </a>
-                            <a
-                              onMouseEnter={() => {
-                                setCurrentPointer("a");
-                              }}
-                              onMouseLeave={() => {
-                                setCurrentPointer("");
-                              }}
-                              onClick={() => {
-                                window.open(item.Youtube, "_blank");
-                              }}
-                            >
-                              <AiFillYoutube className="text-sm" />
-                            </a>
-
-                            <a
-                              onMouseEnter={() => {
-                                setCurrentPointer("a");
-                              }}
-                              onMouseLeave={() => {
-                                setCurrentPointer("");
-                              }}
-                              onClick={() => {
-                                window.open(item.Spotify, "_blank");
-                              }}
-                            >
-                              <FaSpotify className="text-sm" />
-                            </a>
+                            {item.AppleMusic.length > 0 && (
+                              <a
+                                onMouseEnter={() => {
+                                  setCurrentPointer("a");
+                                }}
+                                onMouseLeave={() => {
+                                  setCurrentPointer("");
+                                }}
+                                onClick={() => {
+                                  window.open(item.AppleMusic, "_blank");
+                                }}
+                              >
+                                <SiApplemusic className="text-sm " />
+                              </a>
+                            )}
+                            {item.Youtube.length > 0 && (
+                              <a
+                                onMouseEnter={() => {
+                                  setCurrentPointer("a");
+                                }}
+                                onMouseLeave={() => {
+                                  setCurrentPointer("");
+                                }}
+                                onClick={() => {
+                                  window.open(item.Youtube, "_blank");
+                                }}
+                              >
+                                <AiFillYoutube className="text-sm" />
+                              </a>
+                            )}
+                            {item.Spotify.length > 0 && (
+                              <a
+                                onMouseEnter={() => {
+                                  setCurrentPointer("a");
+                                }}
+                                onMouseLeave={() => {
+                                  setCurrentPointer("");
+                                }}
+                                onClick={() => {
+                                  window.open(item.Spotify, "_blank");
+                                }}
+                              >
+                                <FaSpotify className="text-sm" />
+                              </a>
+                            )}
 
                             {/* <a
                               onMouseEnter={() => {

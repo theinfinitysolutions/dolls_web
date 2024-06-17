@@ -202,7 +202,8 @@ export const pop = [
   },
   {
     song: "Rozana",
-    Producer: "Doleshwar Raj & Mayyank Solanki",
+    artist: "Harish Budhwani, SSD",
+    Producer: "Doleshwar Raj",
     Mix: "Shreedhar Sir, TSM Studios",
     Master: "Shreedhar Sir, TSM Studios",
     Spotify: "",
@@ -443,7 +444,8 @@ export const hiphop = [
     Producer: "Doleshwar Raj",
     Mix: "Jos Hermes",
     Master: "Jos Hermes",
-    Spotify: "",
+    Spotify:
+      "https://open.spotify.com/track/1P1itIFk7FxKvAHn8LrwAe?si=N52LqBzISOicmDfuWAgCwg&context=spotify%3Aalbum%3A0FMCKdK8uD1DsbGQBEsM8R",
     AppleMusic: "",
     Youtube: "",
     imageUrl:
@@ -513,9 +515,11 @@ export const upcoming = [
     Producer: "Doleshwar Raj",
     Mix: "Jos Hermes",
     Master: "Jos Hermes",
-    Spotify: "",
+    Spotify:
+      "https://open.spotify.com/track/1P1itIFk7FxKvAHn8LrwAe?si=N52LqBzISOicmDfuWAgCwg&context=spotify%3Aalbum%3A0FMCKdK8uD1DsbGQBEsM8R",
     AppleMusic: "",
     Youtube: "",
+    released: true,
     imageUrl:
       "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/meraki2-recovered.jpeg",
   },
@@ -532,8 +536,8 @@ export const upcoming = [
   },
   {
     song: "Rozana",
-    artist: "Mayyank Solanki",
-    Producer: "Doleshwar Raj & Mayyank Solanki",
+    artist: "Harish Budhwani, SSD",
+    Producer: "Doleshwar Raj",
     Mix: "Shreedhar Sir, TSM Studios",
     Master: "Shreedhar Sir, TSM Studios",
     Spotify: "",
