@@ -12,7 +12,7 @@ export const pop = [
     Youtube: "https://youtu.be/cSA8gEqgqQE?si=oPVm8strFGKb5va2",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_153651_YouTube_Music.jpg",
+      "/SmartSelect_20240505_153651_YouTube_Music.jpg",
   },
   {
     artist: "Akshay Agarwal, Hardik Keshan",
@@ -40,7 +40,7 @@ export const pop = [
     Youtube: "https://youtu.be/aGRGvS-WKe4?si=E4Egj33mEXGRQcDK",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155607_Spotify.jpg",
+      "/SmartSelect_20240505_155607_Spotify.jpg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -55,7 +55,7 @@ export const pop = [
     Youtube: "https://youtu.be/EC2T86QBvaE?si=CKQgc3vy0NgxgbQY",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155530_Spotify.jpg",
+      "/SmartSelect_20240505_155530_Spotify.jpg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -68,7 +68,7 @@ export const pop = [
     Youtube: "https://youtu.be/XDxrssKdbQ4?si=KJRCUiNsuHBhxL2V",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155645_Spotify.jpg",
+      "/SmartSelect_20240505_155645_Spotify.jpg",
   },
   {
     song: "Gulabi",
@@ -82,7 +82,7 @@ export const pop = [
     Youtube: "https://youtu.be/N62dhG9vsyE?si=1_2F2Q_5LhFfCGl_",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155246_Spotify.jpg",
+      "/SmartSelect_20240505_155246_Spotify.jpg",
   },
   {
     song: "Saajan bairiya",
@@ -95,7 +95,7 @@ export const pop = [
     AppleMusic:
       "https://music.apple.com/in/album/jiya-jaye-na-single/1497178934",
     Youtube: "https://youtu.be/bqjSLqeu0PI?si=APEX2dfdx2POsqpK",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     song: "Jiya Jaye Na",
@@ -110,7 +110,7 @@ export const pop = [
     Youtube: "https://youtu.be/bqjSLqeu0PI?si=APEX2dfdx2POsqpK",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155015_Spotify.jpg",
+      "/SmartSelect_20240505_155015_Spotify.jpg",
   },
   {
     song: "Nasha Zindagi",
@@ -125,7 +125,7 @@ export const pop = [
     Youtube: "https://youtu.be/E2qH08K2fds?si=6YExpU9t0lv9U2D0",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154805_Spotify.jpg",
+      "/SmartSelect_20240505_154805_Spotify.jpg",
   },
   {
     song: "Ulfat Ka Dariya",
@@ -140,7 +140,7 @@ export const pop = [
     Youtube: "https://youtu.be/dm_P35Xtp44?si=iSWJNjP4xLPQtxTK",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155043_Spotify.jpg",
+      "/SmartSelect_20240505_155043_Spotify.jpg",
   },
   {
     song: "Maula",
@@ -155,7 +155,7 @@ export const pop = [
     Youtube: "https://youtu.be/M28doogxUuQ?si=bur761KwkSRHN554",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154933_Spotify.jpg",
+      "/SmartSelect_20240505_154933_Spotify.jpg",
   },
   {
     song: "Tu Paas Hai",
@@ -170,7 +170,7 @@ export const pop = [
     Youtube: "https://youtu.be/CkNT3cKcjBs?si=34NWJFa624Glmzqs",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154836_Spotify.jpg",
+      "/SmartSelect_20240505_154836_Spotify.jpg",
   },
   {
     song: "Tu Paas Hai (Reprise)",
@@ -184,28 +184,28 @@ export const pop = [
     Youtube: "https://youtu.be/7_DIjye3jVY?si=kbJQ8pq9z9N0Ujt9",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_155043_Spotify.jpg",
+      "/SmartSelect_20240505_155043_Spotify.jpg",
   },
   {
     song: "Andhera - P",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
     song: "Rascal",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
   {
     song: "Piya Nirmohe",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     song: "Rozana",
@@ -216,7 +216,7 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /rozana1500w.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/rozana1500w.jpg",
   },
   {
     song: "2 Lafz",
@@ -224,14 +224,14 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
     song: "Guftagoo",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
   {
     song: "Zindagi",
@@ -239,7 +239,7 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     song: "Teri Aankhon Se - Abhishek Nirwan",
@@ -253,7 +253,7 @@ export const pop = [
       "https://music.apple.com/in/album/teri-aankhon-se-single/1743919250",
     Youtube:
       "https://music.youtube.com/watch?v=BybtCP5_Uz0&si=hX6pZ55gw05Vwmej",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /IMG-20240418-WA0000.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/IMG-20240418-WA0000.jpg",
   },
   {
     song: "Another World - Shunyaum",
@@ -269,7 +269,7 @@ export const pop = [
       "https://music.youtube.com/watch?v=JhD_uoAvxfg&si=JjjVMkMvPNf_YlJg",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154106_YouTube_Music.jpg",
+      "/SmartSelect_20240505_154106_YouTube_Music.jpg",
   },
   {
     song: "Paradise - Shunyaum - P",
@@ -277,7 +277,7 @@ export const pop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
 ];
 
@@ -295,7 +295,7 @@ export const rock = [
     Youtube: "https://youtu.be/v5k7XRtM4q4?si=I15oGmtApaaMg4Ro",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_153733_YouTube_Music.jpg",
+      "/SmartSelect_20240505_153733_YouTube_Music.jpg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -310,7 +310,7 @@ export const rock = [
     Youtube: "https://youtu.be/DGdyrkDcfmU?si=ePLZJY4Ogi_XuCNe",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_153538_YouTube_Music.jpg",
+      "/SmartSelect_20240505_153538_YouTube_Music.jpg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -336,7 +336,7 @@ export const rock = [
     AppleMusic:
       "https://music.apple.com/in/album/gangster/1677529455?i=1677529908",
     Youtube: "https://youtu.be/bMMowtwQ8gg?si=-TyZFq6IldtcgwzY",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -351,7 +351,7 @@ export const rock = [
     Youtube: "https://youtu.be/bjoaiQzCcbI?si=g0J1nX6hC597qjzZ",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154722_Spotify.jpg",
+      "/SmartSelect_20240505_154722_Spotify.jpg",
   },
   {
     artist: "Atrangi Funkaar",
@@ -364,7 +364,7 @@ export const rock = [
     AppleMusic:
       "https://music.apple.com/in/album/paravasha-from-grey-games/1737907731?i=1737907743",
     Youtube: "https://youtu.be/bjoaiQzCcbI?si=g0J1nX6hC597qjzZ",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
   {
     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -375,7 +375,7 @@ export const rock = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /IMG-20240410-WA0001.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/IMG-20240410-WA0001.jpg",
   },
   {
     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -386,7 +386,7 @@ export const rock = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -397,7 +397,7 @@ export const rock = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
 ];
 
@@ -411,7 +411,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /ocd1.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/ocd1.jpg",
   },
   {
     song: "Shanti - Meraki",
@@ -422,7 +422,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     song: "Zammidar - Meraki",
@@ -433,7 +433,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
     song: "Hisaab - Meraki",
@@ -445,7 +445,7 @@ export const hiphop = [
       "https://open.spotify.com/track/1P1itIFk7FxKvAHn8LrwAe?si=N52LqBzISOicmDfuWAgCwg&context=spotify%3Aalbum%3A0FMCKdK8uD1DsbGQBEsM8R",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /meraki2-recovered.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/meraki2-recovered.jpeg",
   },
   {
     song: "Kiddies - Fat Guyy",
@@ -462,7 +462,7 @@ export const hiphop = [
       "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154021_YouTube_Music.jpg",
+      "/SmartSelect_20240505_154021_YouTube_Music.jpg",
   },
   {
     song: "Zaalika - Fat Guyy",
@@ -471,7 +471,7 @@ export const hiphop = [
     AppleMusic: "",
     Producer: "Doleshwar Raj",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
     song: "Chaku - Fat Guyy",
@@ -479,7 +479,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
   {
     song: "Rage - Fat Guyy",
@@ -488,7 +488,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art2.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
     song: "Game - Cira",
@@ -497,7 +497,7 @@ export const hiphop = [
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /art1.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
 ];
 
@@ -513,7 +513,7 @@ export const upcoming = [
     AppleMusic: "",
     Youtube: "",
     released: true,
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /meraki2-recovered.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/meraki2-recovered.jpeg",
   },
   {
     song: "Mera Kaun",
@@ -523,7 +523,7 @@ export const upcoming = [
     AppleMusic: "",
     Youtube: "",
     released: false,
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /merakaun.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/merakaun.jpeg",
   },
   {
     song: "Rozana",
@@ -535,7 +535,7 @@ export const upcoming = [
     AppleMusic: "",
     Youtube: "",
     released: false,
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /rozana1500w.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/rozana1500w.jpg",
   },
   {
     song: "Kiddies - Fat Guyy",
@@ -553,7 +553,7 @@ export const upcoming = [
       "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
     imageUrl:
       process.env.NEXT_PUBLIC_API_URL +
-      " /SmartSelect_20240505_154021_YouTube_Music.jpg",
+      "/SmartSelect_20240505_154021_YouTube_Music.jpg",
   },
   {
     song: "OCD - Meraki",
@@ -565,7 +565,7 @@ export const upcoming = [
     AppleMusic: "",
     Youtube: "",
     released: true,
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + " /ocd1.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/ocd1.jpg",
   },
 ];
 
@@ -579,7 +579,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/the-alien-song/1614506887?i=1614506903",
 //     Youtube: "https://youtu.be/cSA8gEqgqQE?si=oPVm8strFGKb5va2",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_153651_YouTube_Music.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_153651_YouTube_Music.jpg",
 //   },
 //   {
 //     artist: "Akshay Agarwal, Hardik Keshan",
@@ -600,7 +600,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/supermario/1607268192?i=1607268249",
 //     Youtube: "https://youtu.be/v5k7XRtM4q4?si=I15oGmtApaaMg4Ro",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_153733_YouTube_Music.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_153733_YouTube_Music.jpg",
 //   },
 //   {
 //     artist: "Atrangi Funkaar",
@@ -611,7 +611,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/uncle-ji/1589233045?i=1589233051",
 //     Youtube: "https://youtu.be/DGdyrkDcfmU?si=ePLZJY4Ogi_XuCNe",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_153538_YouTube_Music.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_153538_YouTube_Music.jpg",
 //   },
 //   {
 //     artist: "Atrangi Funkaar",
@@ -632,7 +632,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/khushboo/1677529455?i=1677529907",
 //     Youtube: "https://youtu.be/aGRGvS-WKe4?si=E4Egj33mEXGRQcDK",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155607_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155607_Spotify.jpg",
 //   },
 //   {
 //     artist: "Atrangi Funkaar",
@@ -643,7 +643,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/tanne-taadu/1648022679?i=1648022680",
 //     Youtube: "https://youtu.be/EC2T86QBvaE?si=CKQgc3vy0NgxgbQY",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155530_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155530_Spotify.jpg",
 //   },
 //   {
 //     artist: "Atrangi Funkaar",
@@ -664,7 +664,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/paravasha-from-grey-games/1737907731?i=1737907743",
 //     Youtube: "https://youtu.be/bjoaiQzCcbI?si=g0J1nX6hC597qjzZ",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154722_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154722_Spotify.jpg",
 //   },
 //   {
 //     artist: "Atrangi Funkaar",
@@ -685,7 +685,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/bam-bam/1719581900?i=1719581901",
 //     Youtube: "https://youtu.be/XDxrssKdbQ4?si=KJRCUiNsuHBhxL2V",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155645_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155645_Spotify.jpg",
 //   },
 //   {
 //     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -694,7 +694,7 @@ export const upcoming = [
 //     AppleMusic: "",
 //     Youtube: "",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /IMG-20240410-WA0001.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/IMG-20240410-WA0001.jpg",
 //   },
 //   {
 //     artist: "Mayyank Solanki ,Doleshwar Raj, Param",
@@ -726,7 +726,7 @@ export const upcoming = [
 //     AppleMusic: "https://music.apple.com/in/album/gulabi-single/1717239805",
 //     Youtube: "https://youtu.be/N62dhG9vsyE?si=1_2F2Q_5LhFfCGl_",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155246_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155246_Spotify.jpg",
 //   },
 //   {
 //     song: "Saajan bairiya",
@@ -753,7 +753,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/jiya-jaye-na-single/1497178934",
 //     Youtube: "https://youtu.be/bqjSLqeu0PI?si=APEX2dfdx2POsqpK",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155015_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155015_Spotify.jpg",
 //   },
 //   {
 //     song: "Nasha Zindagi",
@@ -767,7 +767,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/nasha-zindagi/1689267666?i=1689267667",
 //     Youtube: "https://youtu.be/E2qH08K2fds?si=6YExpU9t0lv9U2D0",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154805_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154805_Spotify.jpg",
 //   },
 //   {
 //     song: "Ulfat Ka Dariya",
@@ -781,7 +781,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/ulfat-ka-dariya-single/1698511084",
 //     Youtube: "https://youtu.be/dm_P35Xtp44?si=iSWJNjP4xLPQtxTK",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155043_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155043_Spotify.jpg",
 //   },
 //   {
 //     song: "Maula",
@@ -795,7 +795,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/maula/1709279896?i=1709279898",
 //     Youtube: "https://youtu.be/M28doogxUuQ?si=bur761KwkSRHN554",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154933_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154933_Spotify.jpg",
 //   },
 //   {
 //     song: "Tu Paas Hai",
@@ -809,7 +809,7 @@ export const upcoming = [
 //       "https://music.apple.com/in/album/tu-paas-hai-single/1727501511",
 //     Youtube: "https://youtu.be/CkNT3cKcjBs?si=34NWJFa624Glmzqs",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154836_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154836_Spotify.jpg",
 //   },
 //   {
 //     song: "Tu Paas Hai (Reprise)",
@@ -822,7 +822,7 @@ export const upcoming = [
 //     AppleMusic: "",
 //     Youtube: "https://youtu.be/7_DIjye3jVY?si=kbJQ8pq9z9N0Ujt9",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_155043_Spotify.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_155043_Spotify.jpg",
 //   },
 //   {
 //     song: "Andhera - P",
@@ -888,7 +888,7 @@ export const upcoming = [
 //     AppleMusic: "",
 //     Youtube: "",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /ocd1.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/ocd1.jpg",
 //   },
 //   {
 //     song: "Shanti - Meraki",
@@ -924,7 +924,7 @@ export const upcoming = [
 //     Youtube:
 //       "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154021_YouTube_Music.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154021_YouTube_Music.jpg",
 //   },
 //   {
 //     song: "Zaalika - Fat Guyy",
@@ -971,7 +971,7 @@ export const upcoming = [
 //     Youtube:
 //       "https://music.youtube.com/watch?v=BybtCP5_Uz0&si=hX6pZ55gw05Vwmej",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /IMG-20240418-WA0000.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/IMG-20240418-WA0000.jpg",
 //   },
 //   {
 //     song: "Another World - Shunyaum",
@@ -986,7 +986,7 @@ export const upcoming = [
 //     Youtube:
 //       "https://music.youtube.com/watch?v=JhD_uoAvxfg&si=JjjVMkMvPNf_YlJg",
 //     imageUrl:
-//       process.env.NEXT_PUBLIC_API_URL  + " /SmartSelect_20240505_154106_YouTube_Music.jpg",
+//       process.env.NEXT_PUBLIC_API_URL  + "/SmartSelect_20240505_154106_YouTube_Music.jpg",
 //   },
 //   {
 //     song: "Paradise - Shunyaum - P",
@@ -999,25 +999,25 @@ export const upcoming = [
 // ];
 
 export const dollsImages = [
-  process.env.NEXT_PUBLIC_API_URL + " /dolls1.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls10.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls12.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls14.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls3.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls6.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls5.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls4.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls2.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls13.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls11.jpeg",
-  process.env.NEXT_PUBLIC_API_URL + " /dolls1.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls1.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls10.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls12.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls14.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls3.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls6.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls5.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls4.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls2.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls13.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls11.jpeg",
+  process.env.NEXT_PUBLIC_API_URL + "/dolls1.jpeg",
 ];
 
 export const secretPlaylist = [
   {
     title: "Ant Shant",
     songName: "SSD",
-    url: process.env.NEXT_PUBLIC_API_URL + " /secretplaylist/Ant-Shant-SSD.mp3",
+    url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Ant-Shant-SSD.mp3",
     imageUrl: "https://example.com/image1.jpg",
   },
   {
@@ -1025,14 +1025,14 @@ export const secretPlaylist = [
     songName: "Param and Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Behte-Rehte-Param-and-Doleshwar-Raj.mp3",
+      "/secretplaylist/Behte-Rehte-Param-and-Doleshwar-Raj.mp3",
     imageUrl: "https://example.com/image1.jpg",
   },
   {
     title: "Chor SSD",
     imageUrl: "https://example.com/image1.jpg",
     songName: "SSD",
-    url: process.env.NEXT_PUBLIC_API_URL + " /secretplaylist/Chor-SSD.mp3",
+    url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Chor-SSD.mp3",
   },
   {
     title: "Deewar",
@@ -1040,7 +1040,7 @@ export const secretPlaylist = [
     songName: "Param & Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/deewar-Param-Doleshwar-Raj.mp3",
+      "/secretplaylist/deewar-Param-Doleshwar-Raj.mp3",
   },
   {
     title: "Dosti",
@@ -1048,7 +1048,7 @@ export const secretPlaylist = [
     songName: "Atrangi Funkaar",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Dosti-Atrangi-Funkaar.mp3",
+      "/secretplaylist/Dosti-Atrangi-Funkaar.mp3",
   },
   {
     title: "Drop",
@@ -1056,7 +1056,7 @@ export const secretPlaylist = [
     songName: "Mama x Meraki x BC",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Drop-MamaxMerakixBC.mp3",
+      "/secretplaylist/Drop-MamaxMerakixBC.mp3",
   },
   {
     title: "Game",
@@ -1064,7 +1064,7 @@ export const secretPlaylist = [
     songName: "Cira x Mama Draft",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Game-CiraxMama-Draft.mp3",
+      "/secretplaylist/Game-CiraxMama-Draft.mp3",
   },
   {
     title: "Gumshuda",
@@ -1072,7 +1072,7 @@ export const secretPlaylist = [
     songName: "Param & Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Gumshuda-Param-Doleshwar-Raj.mp3",
+      "/secretplaylist/Gumshuda-Param-Doleshwar-Raj.mp3",
   },
   {
     title: "ISAQQ KA RANG LAAL",
@@ -1080,7 +1080,7 @@ export const secretPlaylist = [
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/ISAQQ-KA-RANG-LAAL-SSD.mp3",
+      "/secretplaylist/ISAQQ-KA-RANG-LAAL-SSD.mp3",
   },
   {
     title: "IsqFactor2",
@@ -1088,30 +1088,28 @@ export const secretPlaylist = [
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/IsqFactor2-Atrangi-Funkaar.mp3",
+      "/secretplaylist/IsqFactor2-Atrangi-Funkaar.mp3",
   },
   {
     title: "Mora Saiyaan",
     songName: "H202",
     imageUrl: "https://example.com/image1.jpg",
     url:
-      process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/Mora-Saiyaan-H202.mp3",
+      process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Mora-Saiyaan-H202.mp3",
   },
   {
     title: "Paradise",
     songName: "SHUNYAUM",
     imageUrl: "https://example.com/image1.jpg",
     url:
-      process.env.NEXT_PUBLIC_API_URL +
-      " /secretplaylist/PARADISE-SHUNYAUM.mp3",
+      process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/PARADISE-SHUNYAUM.mp3",
   },
   {
     title: "Piya Nirmohe",
     songName: "SSD",
     imageUrl: "https://example.com/image1.jpg",
     url:
-      process.env.NEXT_PUBLIC_API_URL + " /secretplaylist/Piya-Nirmohe-SSD.mp3",
+      process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Piya-Nirmohe-SSD.mp3",
   },
 ];
 
