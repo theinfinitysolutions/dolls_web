@@ -50,7 +50,7 @@ export default function JoinUsModal() {
           <div className="h-[77.5vh] lg:h-[50vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row">
             <div className=" w-full lg:w-1/2 h-[40vh] lg:h-full relative">
               <Image
-                src="https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dollsbgalt.jpeg"
+                src={process.env.NEXT_PUBLIC_API_URL + "/dollsbgalt.jpeg"}
                 layout="fill"
                 className=" opacity-50"
               />

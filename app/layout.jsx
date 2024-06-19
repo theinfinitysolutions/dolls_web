@@ -140,9 +140,7 @@ export default function RootLayout({ children }) {
         </div>
         <div className="block md:hidden fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
-            src={
-              "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls3.jpeg"
-            }
+            src={process.env.NEXT_PUBLIC_API_URL + "/dolls3.jpeg"}
             unoptimized
             layout="fill"
             objectFit={"cover"}

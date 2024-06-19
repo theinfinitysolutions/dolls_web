@@ -378,9 +378,10 @@ const Media = () => {
                         className=" w-[40vw] h-[40vw] border-[0.15px] border-[#c7c7c7]/30 lg:h-[20vw] lg:w-[20vw] relative bg-black/80"
                       >
                         <Image
-                          src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls${
-                            idx + 1
-                          }.jpeg`}
+                          src={
+                            process.env.NEXT_PUBLIC_API_URL +
+                            `/dolls${idx + 1}.jpeg`
+                          }
                           layout="fill"
                           objectFit="contain"
                           className=" transition-all duration-300 hover:scale-110"

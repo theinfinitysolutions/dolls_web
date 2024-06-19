@@ -583,9 +583,10 @@ const Home = () => {
                       onMouseLeave={() => {
                         setCurrentPointer("");
                       }}
-                      src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls${
-                        idx + 10
-                      }.jpeg`}
+                      src={
+                        process.env.NEXT_PUBLIC_API_URL +
+                        `/dolls${idx + 10}.jpeg`
+                      }
                       layout="fill"
                       alt={`gallery dolls${idx}`}
                       objectFit="cover"

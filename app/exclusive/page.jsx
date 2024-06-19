@@ -70,9 +70,10 @@ const ExlcusiveMusic = () => {
                   <div className="flex flex-row items-center">
                     <div className="h-[12.5vh] bg-pink-50 w-[12.5vh] relative">
                       <Image
-                        src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${
-                          (index % 3) + 1
-                        }.jpeg`}
+                        src={
+                          process.env.NEXT_PUBLIC_API_URL +
+                          `/exclusive${(index % 3) + 1}.jpeg`
+                        }
                         layout="fill"
                         alt={`exclusive music ${song.title}`}
                         objectFit="contain"
@@ -115,7 +116,7 @@ const ExlcusiveMusic = () => {
                   onMouseLeave={() => {
                     setCurrentPointer("");
                   }}
-                  src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${2}.jpeg`}
+                  src={process.env.NEXT_PUBLIC_API_URL + `/exclusive${2}.jpeg`}
                   layout="fill"
                   objectFit="cover"
                 />
