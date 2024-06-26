@@ -252,11 +252,11 @@ const Media = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center w-[90vw] mt-[10vh]">
+        <div className=" flex flex-col items-center lg:items-start w-[90vw] mt-[10vh]">
           <h2 className="text-white text-[2rem] lg:text-[4rem] lg:leading-[4rem] font-bold ">
             Social Media
           </h2>
-          <p className="text-white text-sm text-center mt-2 w-11/12 lg:w-6/12">
+          <p className="text-white text-sm text-center lg:text-start mt-2 w-11/12 lg:w-6/12">
             {
               " Dive into our social scene! Here are few posts from our recent work. Join the groove and explore the beat. Don't miss out – follow us now! "
             }
