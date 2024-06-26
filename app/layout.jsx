@@ -102,9 +102,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${abril.className} relative min-h-screen bg-black/95`}>
+      <body
+        className={`${abril.className} relative min-h-screen bg-black/95 ${
+          showModal ? "h-screen overflow-hidden" : ""
+        }`}
+      >
         {pathname == "/" ? (
-          <div class="bg-animation z-0">
+          <div className="bg-animation z-0">
             {/* <div id="stars"></div> */}
             {/* <div id="stars2"></div> */}
             <div id="stars3"></div>
@@ -140,9 +144,7 @@ export default function RootLayout({ children }) {
         </div>
         <div className="block md:hidden fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
-            src={
-              "https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls3.jpeg"
-            }
+            src={process.env.NEXT_PUBLIC_API_URL + "/dolls3.jpeg"}
             unoptimized
             layout="fill"
             objectFit={"cover"}

@@ -46,7 +46,10 @@ const ExlcusiveMusic = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden">
+      <div
+        id="exclusive"
+        className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden"
+      >
         <div className="w-[90vw] flex flex-row justify-between items-center lg:items-start mt-[10vh]">
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
             <h2 className="text-white text-[2.5rem] lg:text-[4rem] leading-[4rem] font-bold ">
@@ -70,9 +73,10 @@ const ExlcusiveMusic = () => {
                   <div className="flex flex-row items-center">
                     <div className="h-[12.5vh] bg-pink-50 w-[12.5vh] relative">
                       <Image
-                        src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${
-                          (index % 3) + 1
-                        }.jpeg`}
+                        src={
+                          process.env.NEXT_PUBLIC_API_URL +
+                          `/exclusive${(index % 3) + 1}.jpeg`
+                        }
                         layout="fill"
                         alt={`exclusive music ${song.title}`}
                         objectFit="contain"
@@ -115,7 +119,7 @@ const ExlcusiveMusic = () => {
                   onMouseLeave={() => {
                     setCurrentPointer("");
                   }}
-                  src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/exclusive${2}.jpeg`}
+                  src={process.env.NEXT_PUBLIC_API_URL + `/exclusive${2}.jpeg`}
                   layout="fill"
                   objectFit="cover"
                 />

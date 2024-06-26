@@ -64,6 +64,7 @@ export default function ViewProductModal() {
                     song: 0,
                   });
                   setOpen(false);
+                  setCurrentPointer("");
                 }}
                 className=""
               >

@@ -86,7 +86,10 @@ const Media = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen min-h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden">
+      <div
+        id="media"
+        className="flex flex-col max-w-screen min-h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden"
+      >
         <div className="circle absolute  right-0 bottom-0" />
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
         <div className="circle -bottom-1/3 left-0 absolute" />
@@ -252,11 +255,11 @@ const Media = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center w-[90vw] mt-[10vh]">
+        <div className=" flex flex-col items-center lg:items-start w-[90vw] mt-[10vh]">
           <h2 className="text-white text-[2rem] lg:text-[4rem] lg:leading-[4rem] font-bold ">
             Social Media
           </h2>
-          <p className="text-white text-sm text-center mt-2 w-11/12 lg:w-6/12">
+          <p className="text-white text-sm text-center lg:text-start mt-2 w-11/12 lg:w-6/12">
             {
               " Dive into our social scene! Here are few posts from our recent work. Join the groove and explore the beat. Don't miss out – follow us now! "
             }
@@ -378,9 +381,10 @@ const Media = () => {
                         className=" w-[40vw] h-[40vw] border-[0.15px] border-[#c7c7c7]/30 lg:h-[20vw] lg:w-[20vw] relative bg-black/80"
                       >
                         <Image
-                          src={`https://mystorage1.blr1.cdn.digitaloceanspaces.com/dolls/dolls${
-                            idx + 1
-                          }.jpeg`}
+                          src={
+                            process.env.NEXT_PUBLIC_API_URL +
+                            `/dolls${idx + 1}.jpeg`
+                          }
                           layout="fill"
                           objectFit="contain"
                           className=" transition-all duration-300 hover:scale-110"

@@ -68,6 +68,14 @@ module.exports = {
             transform: "rotate(360deg)",
           },
         },
+        rotate2: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(-360deg)",
+          },
+        },
         "radar-spin": {
           from: {
             transform: "rotate(20deg)",
@@ -97,6 +105,7 @@ module.exports = {
         marquee: "marquee 25s linear infinite",
         marquee2: "marquee2 25s linear infinite",
         rotate1: "rotate1 18s linear infinite",
+        rotate2: "rotate2 18s linear infinite",
         slideInLeft: "slideInLeft 1.5s ease-in-out forwards",
         slideInRight: "slideInRight 1.5s ease-in-out forwards",
         infinitescroll: "infinite-scroll 25s linear infinite",
