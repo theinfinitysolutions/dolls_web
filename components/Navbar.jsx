@@ -39,8 +39,12 @@ const Navbar = () => {
   const { setCurrentPointer } = useStore();
 
   return (
-    <nav className="flex flex-row max-w-screen w-full h-[5vh] fixed z-50  text-white ">
-      <div className="w-full flex flex-row justify-between items-center px-8 py-8">
+    <nav
+      className={`flex flex-row max-w-screen w-full h-[5vh] z-50 ${
+        path == "/" ? (path == "media" ? "bg-black" : "") : "fixed"
+      } text-white `}
+    >
+      <div className="w-full flex flex-row justify-between items-center px-2 lg:px-8 py-8">
         <div className="flex flex-row items-center">
           {path != "/" ? (
             <a
@@ -66,9 +70,9 @@ const Navbar = () => {
               setCurrentPointer("");
             }}
             onClick={() => {
-              router.push(path == "exclusive" ? "/" : "/music");
+              router.push("/");
             }}
-            className="text-xl text-white "
+            className=" text-lg lg:text-xl text-white "
           >
             {"Dole's Music /"}
           </a>
@@ -76,7 +80,7 @@ const Navbar = () => {
             {navbarItems.find((item) => item.link == path)?.title}
           </p>
         </div>
-        <div className="flex flex-row justify-around items-center w-4/12 lg:w-2/12">
+        <div className="flex flex-row justify-around items-center w-5/12 lg:w-2/12">
           <a
             onMouseEnter={() => {
               setCurrentPointer("a");
@@ -91,7 +95,7 @@ const Navbar = () => {
               );
             }}
           >
-            <SiApplemusic className=" text-sm lg:text-xl " />
+            <SiApplemusic className=" text-base lg:text-xl " />
           </a>
           <a
             onMouseEnter={() => {
@@ -104,7 +108,7 @@ const Navbar = () => {
               window.open("https://www.youtube.com/c/AtrangiFunkaar", "_blank");
             }}
           >
-            <AiFillYoutube className=" text-sm lg:text-xl " />
+            <AiFillYoutube className=" text-base lg:text-xl " />
           </a>
 
           <a
@@ -121,7 +125,7 @@ const Navbar = () => {
               );
             }}
           >
-            <FaSpotify className=" text-sm lg:text-xl " />
+            <FaSpotify className=" text-base lg:text-xl " />
           </a>
 
           <a
