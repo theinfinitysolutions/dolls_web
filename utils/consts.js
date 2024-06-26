@@ -187,7 +187,7 @@ export const pop = [
       "/SmartSelect_20240505_155043_Spotify.jpg",
   },
   {
-    song: "Andhera - P",
+    song: "Andhera",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
@@ -242,9 +242,9 @@ export const pop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
-    song: "Teri Aankhon Se - Abhishek Nirwan",
-    artist: "Mama Beats",
-    Producer: "Doleshwar Raj",
+    song: "Teri Aankhon Se",
+    artist: "Abhishek Nirwan",
+    Producer: "Doleshwar Raj ",
     Mix: "Avnesh Singh",
     Master: "Avnesh Singh",
     Spotify:
@@ -256,8 +256,8 @@ export const pop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/IMG-20240418-WA0000.jpg",
   },
   {
-    song: "Another World - Shunyaum",
-    artist: "Mama Beats",
+    song: "Another World",
+    artist: "Shunyaum",
     Producer: "Doleshwar Raj",
     Mix: "Avnesh Singh",
     Master: "Avnesh Singh",
@@ -272,7 +272,7 @@ export const pop = [
       "/SmartSelect_20240505_154106_YouTube_Music.jpg",
   },
   {
-    song: "Paradise - Shunyaum - P",
+    song: "Paradise",
     artist: "Mama Beats",
     Spotify: "",
     AppleMusic: "",
@@ -403,7 +403,7 @@ export const rock = [
 
 export const hiphop = [
   {
-    song: "OCD - Meraki",
+    song: "OCD",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
     Mix: "Jos Hermes",
@@ -414,7 +414,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/ocd1.jpg",
   },
   {
-    song: "Shanti - Meraki",
+    song: "Shanti",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
     Mix: "Avnesh Singh",
@@ -425,7 +425,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
-    song: "Zammidar - Meraki",
+    song: "Zammidar",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
     Mix: "Avnesh Singh",
@@ -436,7 +436,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
-    song: "Hisaab - Meraki",
+    song: "Hisaab",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
     Mix: "Jos Hermes",
@@ -448,7 +448,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/meraki2-recovered.jpeg",
   },
   {
-    song: "Kiddies - Fat Guyy",
+    song: "Kiddies",
     artist: "Fat Guyy",
     Spotify:
       "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
@@ -465,7 +465,7 @@ export const hiphop = [
       "/SmartSelect_20240505_154021_YouTube_Music.jpg",
   },
   {
-    song: "Zaalika - Fat Guyy",
+    song: "Zaalika",
     artist: "Fat Guyy",
     Spotify: "",
     AppleMusic: "",
@@ -474,7 +474,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
   {
-    song: "Chaku - Fat Guyy",
+    song: "Chaku",
     artist: "Fat Guyy",
     Spotify: "",
     AppleMusic: "",
@@ -482,7 +482,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
   {
-    song: "Rage - Fat Guyy",
+    song: "Rage",
     artist: "Fat Guyy",
     Producer: "Doleshwar Raj",
     Spotify: "",
@@ -491,7 +491,7 @@ export const hiphop = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
   },
   {
-    song: "Game - Cira",
+    song: "Game",
     artist: "Cira",
     Producer: "Doleshwar Raj",
     Spotify: "",
@@ -538,7 +538,7 @@ export const upcoming = [
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/rozana1500w.jpg",
   },
   {
-    song: "Kiddies - Fat Guyy",
+    song: "Kiddies",
     artist: "Fat Guyy",
     released: true,
     Spotify:
@@ -556,7 +556,7 @@ export const upcoming = [
       "/SmartSelect_20240505_154021_YouTube_Music.jpg",
   },
   {
-    song: "OCD - Meraki",
+    song: "OCD",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
     Mix: "Jos Hermes",
