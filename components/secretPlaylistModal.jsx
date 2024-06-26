@@ -48,7 +48,10 @@ export default function JoinUsModal() {
     <div className=" z-50">
       {open ? (
         <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center overflow-hidden justify-center ">
-          <div className="h-[77.5vh] lg:h-[55vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row">
+          <div
+            id="exclusive-modal"
+            className="h-[77.5vh] lg:h-[55vh] w-11/12 lg:w-[60vw] bg-black flex flex-col lg:flex-row"
+          >
             <div className=" w-full lg:w-1/2 h-[40vh] lg:h-full relative">
               <Image
                 src={process.env.NEXT_PUBLIC_API_URL + "/dollsbgalt.jpeg"}
@@ -65,6 +68,7 @@ export default function JoinUsModal() {
               <form onSubmit={handleSubmit(onSubmit)} className="mt-6 w-full">
                 <input
                   placeholder="Name*"
+                  id="name"
                   {...register("name", { required: true })}
                   className="w-full border-[1px] placeholder:text-[#c7c7c7]/60 bg-black p-2 border-[#ababab]  text-white"
                 />
@@ -74,6 +78,7 @@ export default function JoinUsModal() {
 
                 <input
                   placeholder="Email*"
+                  id="email"
                   {...register("email", { required: true })}
                   className="w-full mt-4 border-[1px] placeholder:text-[#c7c7c7]/60 bg-black p-2 border-[#ababab]  text-white"
                 />
@@ -82,6 +87,7 @@ export default function JoinUsModal() {
                 )}
                 <input
                   placeholder="Phone Number"
+                  id="phoneNumber"
                   {...register("phoneNumber")}
                   className="w-full border-[1px] placeholder:text-[#c7c7c7]/60 mt-4 bg-black p-2 border-[#ababab]  text-white"
                 />
@@ -91,6 +97,7 @@ export default function JoinUsModal() {
                   onClick={() => {
                     handleSubmit(onSubmit)();
                   }}
+                  id="submit"
                   className="px-3 py-2 bg-red-500 text-white"
                 >
                   {!loading ? "Submit" : "..."}

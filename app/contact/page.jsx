@@ -60,7 +60,10 @@ const ContactUs = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen max-h-[100vh] h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden">
+      <div
+        id="contact"
+        className="flex flex-col max-w-screen max-h-[100vh] h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden"
+      >
         <div className="circle absolute  right-0 bottom-0" />
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
         <div className="circle -bottom-1/2 left-0 absolute" />
@@ -85,12 +88,14 @@ const ContactUs = () => {
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-4 lg:mt-[5vh]">
               <form
+                id="contact-form"
                 onSubmit={handleSubmit(onSubmit)}
                 className=" w-[80vw] lg:w-[40%] flex flex-col items-center justify-center"
               >
                 <div className="flex flex-col items-center w-full">
                   <input
                     type="text"
+                    id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
                     className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
@@ -103,6 +108,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <input
+                    id="email"
                     type="email"
                     placeholder="Email*"
                     {...register("email", {
@@ -123,6 +129,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <input
+                    id="phoneNumber"
                     type="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
@@ -131,6 +138,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <textarea
+                    id="message"
                     placeholder="Message*"
                     {...register("message", { required: true })}
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
@@ -159,6 +167,7 @@ const ContactUs = () => {
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}
+                    id="submit-button"
                     className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-20 lg:mt-8 "
                   >
                     {loading ? "..." : "Submit"}

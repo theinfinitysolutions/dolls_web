@@ -86,7 +86,10 @@ const Media = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen min-h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden">
+      <div
+        id="media"
+        className="flex flex-col max-w-screen min-h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden"
+      >
         <div className="circle absolute  right-0 bottom-0" />
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
         <div className="circle -bottom-1/3 left-0 absolute" />

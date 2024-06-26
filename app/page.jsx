@@ -211,7 +211,10 @@ const Home = () => {
 
   return (
     <Transition>
-      <main className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between">
+      <main
+        id="home"
+        className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between"
+      >
         <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
             src="/asset1.png"
@@ -294,7 +297,7 @@ const Home = () => {
                       }}
                       href={"/" + item.toLowerCase()}
                       key={index}
-                      id={item}
+                      id={item.toLowerCase()}
                       data-value={item}
                       className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
                     >
@@ -623,9 +626,8 @@ const Home = () => {
               {Array(20)
                 .fill(1)
                 .map((item, idx) => (
-                  <a onClick={() => router.push("/media")}>
+                  <a key={idx} onClick={() => router.push("/media")}>
                     <motion.div
-                      key={idx}
                       className=" w-[20vh] h-[20vh] lg:w-[30vh] lg:h-[30vh] relative"
                       whileHover={{ scale: 1.1 }}
                     >
@@ -672,12 +674,14 @@ const Home = () => {
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-[5vh]">
               <form
+                id="contact-form-home"
                 onSubmit={handleSubmit(onSubmit)}
                 className=" w-[80vw] lg:w-[40%] flex flex-col items-center justify-center"
               >
                 <div className="flex flex-col items-center w-full">
                   <input
                     type="text"
+                    id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
                     className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
@@ -691,6 +695,7 @@ const Home = () => {
                 <div className="flex flex-col items-center w-full mt-4">
                   <input
                     type="email"
+                    id="email"
                     placeholder="Email*"
                     {...register("email", {
                       required: true,
@@ -711,6 +716,7 @@ const Home = () => {
                 <div className="flex flex-col items-center w-full mt-4">
                   <input
                     type="phoneNumber"
+                    id="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
@@ -719,6 +725,7 @@ const Home = () => {
                 <div className="flex flex-col items-center w-full mt-4">
                   <textarea
                     placeholder="Message*"
+                    id="message"
                     {...register("message", { required: true })}
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
@@ -748,6 +755,7 @@ const Home = () => {
                     onMouseEnter={() => {
                       setCurrentPointer("a");
                     }}
+                    id="submit-button"
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}

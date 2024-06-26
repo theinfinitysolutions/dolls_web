@@ -64,7 +64,10 @@ const Music = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden">
+      <div
+        id="music"
+        className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden"
+      >
         <div className="flex flex-col items-center w-[90vw] ">
           <div className="flex flex-col items-center w-full mt-[2.5vh] lg:mt-[5vh] relative">
             {music.map((item, index) => (
@@ -253,6 +256,7 @@ const Music = () => {
               onClick={() => {
                 router.push("/exclusive");
               }}
+              id="exclusive-nav"
               className=" doorframe group h-[30vh] w-[17.5vh] relative border-[0.5px] overflow-hidden border-red-100 rounded-md"
               tabindex="0"
             >

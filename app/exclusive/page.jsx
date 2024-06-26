@@ -46,7 +46,10 @@ const ExlcusiveMusic = () => {
 
   return (
     <Transition>
-      <div className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden">
+      <div
+        id="exclusive"
+        className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-start py-[5vh] overflow-hidden"
+      >
         <div className="w-[90vw] flex flex-row justify-between items-center lg:items-start mt-[10vh]">
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
             <h2 className="text-white text-[2.5rem] lg:text-[4rem] leading-[4rem] font-bold ">
