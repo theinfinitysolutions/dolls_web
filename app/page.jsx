@@ -52,7 +52,7 @@ let songlist = [
 ];
 
 const FAST_DURATION = 50;
-const SLOW_DURATION = 120;
+const SLOW_DURATION = 10000;
 
 let navbarClass =
   "relative text-white text-base lg:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
@@ -73,41 +73,57 @@ const Home = () => {
   const [duration, setDuration] = useState(FAST_DURATION);
   const [selectedHover, setSelectedHover] = React.useState(0);
   let [ref, { width }] = useMeasure();
-  const { currentPointer, setCurrentPointer } = useStore();
-  const [emailSent, setEmailSent] = React.useState(false);
-
-  const { register, handleSubmit, formState, reset } = useForm();
   const router = useRouter();
   const xTranslation = useMotionValue(0);
 
   const [mustFinish, setMustFinish] = useState(false);
   const [rerender, setRerender] = useState(false);
 
+  const [loading, setLoading] = React.useState(false);
+
+  const [emailSent, setEmailSent] = React.useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+  const { currentPointer, setCurrentPointer } = useStore();
+
   const onSubmit = (data) => {
+    setLoading(true);
     emailjs
       .send(
         "service_vyc3aph",
         "template_vw3o9zp",
         {
-          from_name: "anirudh",
-          from_email: "test@gmail.com",
-          from_message: "abcddefgh",
+          from_name: data.name,
+          from_email: data.email,
+          from_phoneNumber: data.phoneNumber,
+          from_message: data.message,
         },
         {
-          publicKey: "8SoO2AD_OUoRwAQ7_ntbU",
+          publicKey: "VV1JBQAmRXz7mALR7",
         }
       )
       .then((res) => {
         setEmailSent(true);
-        setTimeout(() => {
-          setEmailSent(false);
-        }, 1500);
+        setLoading(false);
         reset();
       })
       .catch((err) => {
+        setLoading(false);
         console.log("error", err);
       });
   };
+
+  useEffect(() => {
+    if (emailSent) {
+      setTimeout(() => {
+        setEmailSent(false);
+      }, 2000);
+    }
+  }, [emailSent]);
 
   const TextEffect = (id) => {
     let interval = null;
@@ -196,13 +212,13 @@ const Home = () => {
   return (
     <Transition>
       <main className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between">
-        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[55vw] z-0 ">
+        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
             src="/asset1.png"
             layout="fill"
             objectFit="contain"
             alt="asset1"
-            className="rounded-3xl animate-rotate1 opacity-70"
+            className="rounded-3xl animate-rotate2 opacity-70"
           />
         </div>
 
@@ -216,7 +232,7 @@ const Home = () => {
           onMouseLeave={() => {
             setCurrentPointer("");
           }}
-          className=" fixed animate-rotate1 right-4 z-20 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] "
+          className=" fixed animate-rotate2 right-4 z-50 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] "
         >
           <Image
             src={"/asset2.png"}
@@ -226,12 +242,26 @@ const Home = () => {
           />
         </a>
 
-        <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[100vh] lg:h-[100vh] overflow-hidden">
+        <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[95vh] lg:h-[95vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
-          <div className="  absolute left-[40%] lg:left-[47.5%] flex flex-row items-center bottom-4 lg:bottom-8 animate-bounce z-50">
+          <a
+            onClick={() => {
+              window.scrollTo(0, window.innerHeight, {
+                behavior: "smooth",
+                duration: 1000,
+              });
+            }}
+            onMouseEnter={() => {
+              setCurrentPointer("a");
+            }}
+            onMouseLeave={() => {
+              setCurrentPointer("");
+            }}
+            className="  absolute left-[40%] lg:left-[47.5%] flex flex-row items-center bottom-4 lg:bottom-8 animate-bounce z-50"
+          >
             <p className={`text-sm ${orbitron.className}`}>Scroll Down</p>
             <RiArrowRightDownLine className="text-white" />
-          </div>
+          </a>
           <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
             <div className="flex flex-row items-center justify-between relative w-full  lg:w-5/12  ">
               <RevealOnScroll addedClasses="flex flex-col  top-0 left-0 items-center lg:items-start justify-center w-full">
@@ -274,8 +304,17 @@ const Home = () => {
                 </div>
               </RevealOnScroll>
             </div>
-            <div className=" lg:-ml-[5%] w-full lg:w-7/12 overflow-hidden ">
-              <CarouselComponent />
+            <div className=" hidden lg:flex lg:-ml-[5%] w-full lg:w-7/12 overflow-hidden ">
+              <CarouselComponent eventsDisabled={false} />
+            </div>
+            <div
+              disabled={true}
+              style={{
+                pointerEvents: "none",
+              }}
+              className=" flex lg:hidden lg:-ml-[5%] z-0 w-full lg:w-7/12 overflow-hidden pointer-events-none "
+            >
+              <CarouselComponent eventsDisabled={true} />
             </div>
             {/* <div className="flex flex-col items-start  w-4/12">
               <div
@@ -337,7 +376,6 @@ const Home = () => {
                 </RevealOnScroll>
                 <div className="flex flex-row items-center justify-start mt-[5vh] px-8">
                   <p className="text-xl text-white ">Upcoming Music</p>
-                  <FaArrowRightLong className="text-white ml-4" />
                 </div>
                 <div className="flex flex-col items-center w-[40vh] mx-[10vw]">
                   <div className=" h-[60vw] w-[60vw] lg:h-[40vh] lg:w-[40vh] group mt-4 relative">
@@ -527,6 +565,20 @@ const Home = () => {
                     </div>
                   );
                 })}
+                <div className=" w-full flex mt-4 flex-row justify-end items-center">
+                  <a
+                    onMouseEnter={() => {
+                      setCurrentPointer("a");
+                    }}
+                    onMouseLeave={() => {
+                      setCurrentPointer("");
+                    }}
+                    className=" text-white hover:underline leading-8 text-sm lg:text-base"
+                  >
+                    Check out our comlpete music catalog
+                  </a>
+                  <FaArrowRightLong className=" text-white ml-3 mt-1" />
+                </div>
               </div>
             </div>
           </div>
@@ -571,39 +623,37 @@ const Home = () => {
               {Array(20)
                 .fill(1)
                 .map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    className=" w-[20vh] h-[20vh] lg:w-[30vh] lg:h-[30vh] relative"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <Image
-                      onMouseEnter={() => {
-                        setCurrentPointer("i");
-                      }}
-                      onMouseLeave={() => {
-                        setCurrentPointer("");
-                      }}
-                      src={
-                        process.env.NEXT_PUBLIC_API_URL +
-                        `/dolls${idx + 10}.jpeg`
-                      }
-                      layout="fill"
-                      alt={`gallery dolls${idx}`}
-                      objectFit="cover"
-                    />
-                  </motion.div>
+                  <a onClick={() => router.push("/media")}>
+                    <motion.div
+                      key={idx}
+                      className=" w-[20vh] h-[20vh] lg:w-[30vh] lg:h-[30vh] relative"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <Image
+                        onMouseEnter={() => {
+                          setCurrentPointer("i");
+                        }}
+                        onMouseLeave={() => {
+                          setCurrentPointer("");
+                        }}
+                        src={
+                          process.env.NEXT_PUBLIC_API_URL +
+                          `/dolls${idx + 10}.jpeg`
+                        }
+                        layout="fill"
+                        alt={`gallery dolls${idx}`}
+                        objectFit="cover"
+                      />
+                    </motion.div>
+                  </a>
                 ))}
             </motion.div>
           </div>
         </div>
-        <div
-          className={
-            "  max-h-[70vh] min-h-[70vh] h-[70vh] w-screen overflow-hidden"
-          }
-        >
+        <div className={"  h-[90vh] lg:h-[80vh] w-screen overflow-hidden z-20"}>
           <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[5vh] ">
-            <div className="circle absolute  right-0 bottom-0" />
-            <div className="circle -bottom-1/2 -right-1/2 absolute" />
+            <div className="circle absolute  right-0 bottom-0 z-0" />
+            <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
             <RevealOnScroll
               addedClasses={
                 "flex flex-col items-center lg:items-center justify-center w-full p-8 animate-animateSlideUp"
@@ -628,25 +678,55 @@ const Home = () => {
                 <div className="flex flex-col items-center w-full">
                   <input
                     type="text"
-                    placeholder="Name"
-                    {...register("name", { required: true })}
-                    className="mb-4 w-full placeholder:text-white/70 text-white  bg-black text-xl border-b-[1px] border-red-800"
+                    placeholder="Name*"
+                    {...register("name", { required: true, minLength: 5 })}
+                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
                   />
+                  {errors.name?.message ? (
+                    <p className=" text-xs text-red-500">
+                      {errors.name.message}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <input
                     type="email"
-                    placeholder="Email"
-                    {...register("email", { required: true })}
-                    className="mb-4 w-full placeholder:text-white/70 text-white  bg-black text-xl border-b-[1px] border-red-800"
+                    placeholder="Email*"
+                    {...register("email", {
+                      required: true,
+                      minLength: 5,
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "invalid email address",
+                      },
+                    })}
+                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
+                  />
+                  {errors.email?.message ? (
+                    <p className=" text-xs text-red-500">
+                      {errors.email.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="flex flex-col items-center w-full mt-4">
+                  <input
+                    type="phoneNumber"
+                    placeholder="Phone Number"
+                    {...register("phoneNumber")}
+                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-center w-full mt-4">
                   <textarea
-                    placeholder="Message"
+                    placeholder="Message*"
                     {...register("message", { required: true })}
-                    className="mb-4 w-full placeholder:text-white/70 text-white  h-[10vh] bg-black text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
+                  {errors.message?.message ? (
+                    <p className=" text-xs text-red-500">
+                      {errors.message.message}
+                    </p>
+                  ) : null}
                 </div>
                 {emailSent ? (
                   <button
@@ -658,6 +738,12 @@ const Home = () => {
                   </button>
                 ) : (
                   <button
+                    disabled={
+                      errors.name ||
+                      errors.email ||
+                      errors.message ||
+                      errors.phoneNumber
+                    }
                     type="submit"
                     onMouseEnter={() => {
                       setCurrentPointer("a");
@@ -665,11 +751,9 @@ const Home = () => {
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}
-                    className={` ${
-                      emailSent ? "bg-red-400" : "bg-red-800"
-                    }  text-white px-8 py-2 mt-8`}
+                    className="bg-red-800 z-20 disabled:bg-gray-700 text-white px-8 py-2 mt-8 "
                   >
-                    {emailSent ? "Submit" : "Sent"}
+                    {loading ? "..." : "Submit"}
                   </button>
                 )}
               </form>

@@ -102,9 +102,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${abril.className} relative min-h-screen bg-black/95`}>
+      <body
+        className={`${abril.className} relative min-h-screen bg-black/95 ${
+          showModal ? "h-screen overflow-hidden" : ""
+        }`}
+      >
         {pathname == "/" ? (
-          <div class="bg-animation z-0">
+          <div className="bg-animation z-0">
             {/* <div id="stars"></div> */}
             {/* <div id="stars2"></div> */}
             <div id="stars3"></div>
