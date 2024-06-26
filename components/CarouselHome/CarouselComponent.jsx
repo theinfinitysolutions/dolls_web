@@ -15,7 +15,7 @@ import "./util";
 import useStore from "@/utils/store";
 import { useRouter } from "next/navigation";
 
-const CarouselComponent = () => {
+const CarouselComponent = ({ eventsDisabled }) => {
   const router = useRouter();
   const { currentPointer, setCurrentPointer } = useStore();
 
@@ -56,7 +56,8 @@ const CarouselComponent = () => {
         className="w-10/12 lg:w-[50vw] h-[50vh] lg:h-[80vh] bg-transparent items-start "
       >
         <fog attach="fog" args={["#a79", 8.5, 12]} />
-        <ScrollControls pages={4} infinite>
+
+        <ScrollControls enabled={!eventsDisabled} pages={4} infinite>
           <Rig rotation={[0, 0, 0.25]}>
             <Carousel />
           </Rig>
