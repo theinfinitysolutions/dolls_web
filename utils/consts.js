@@ -1016,13 +1016,13 @@ export const dollsImages = [
 export const secretPlaylist = [
   {
     title: "Ant Shant",
-    songName: "SSD",
+    artist: "SSD",
     url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Ant-Shant-SSD.mp3",
     imageUrl: "https://example.com/image1.jpg",
   },
   {
     title: "Behte Rehte",
-    songName: "Param and Doleshwar Raj",
+    artist: "Param and Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Behte-Rehte-Param-and-Doleshwar-Raj.mp3",
@@ -1031,13 +1031,13 @@ export const secretPlaylist = [
   {
     title: "Chor SSD",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "SSD",
+    artist: "SSD",
     url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Chor-SSD.mp3",
   },
   {
     title: "Deewar",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "Param & Doleshwar Raj",
+    artist: "Param & Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/deewar-Param-Doleshwar-Raj.mp3",
@@ -1045,7 +1045,7 @@ export const secretPlaylist = [
   {
     title: "Dosti",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "Atrangi Funkaar",
+    artist: "Atrangi Funkaar",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Dosti-Atrangi-Funkaar.mp3",
@@ -1053,7 +1053,7 @@ export const secretPlaylist = [
   {
     title: "Drop",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "Mama x Meraki x BC",
+    artist: "Mama x Meraki x BC",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Drop-MamaxMerakixBC.mp3",
@@ -1061,7 +1061,7 @@ export const secretPlaylist = [
   {
     title: "Game",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "Cira x Mama Draft",
+    artist: "Cira x Mama Draft",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Game-CiraxMama-Draft.mp3",
@@ -1069,14 +1069,14 @@ export const secretPlaylist = [
   {
     title: "Gumshuda",
     imageUrl: "https://example.com/image1.jpg",
-    songName: "Param & Doleshwar Raj",
+    artist: "Param & Doleshwar Raj",
     url:
       process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Gumshuda-Param-Doleshwar-Raj.mp3",
   },
   {
     title: "ISAQQ KA RANG LAAL",
-    songName: "SSD",
+    artist: "SSD",
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL +
@@ -1084,7 +1084,7 @@ export const secretPlaylist = [
   },
   {
     title: "IsqFactor2",
-    songName: "Atrangi Funkaar",
+    artist: "Atrangi Funkaar",
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL +
@@ -1092,21 +1092,21 @@ export const secretPlaylist = [
   },
   {
     title: "Mora Saiyaan",
-    songName: "H202",
+    artist: "H202",
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Mora-Saiyaan-H202.mp3",
   },
   {
     title: "Paradise",
-    songName: "SHUNYAUM",
+    artist: "SHUNYAUM",
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/PARADISE-SHUNYAUM.mp3",
   },
   {
     title: "Piya Nirmohe",
-    songName: "SSD",
+    artist: "SSD",
     imageUrl: "https://example.com/image1.jpg",
     url:
       process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Piya-Nirmohe-SSD.mp3",

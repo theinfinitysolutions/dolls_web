@@ -68,6 +68,7 @@ const ExlcusiveMusic = () => {
               return (
                 <div
                   key={index}
+                  id="exclusive-music-song"
                   className="flex flex-row items-center justify-between border-[0.5px] px-4 py-2 border-[#c7c7c799] w-full mt-4"
                 >
                   <div className="flex flex-row items-center">
@@ -83,8 +84,12 @@ const ExlcusiveMusic = () => {
                       />
                     </div>
                     <div className="flex flex-col items-start justify-center ml-8">
-                      <p className="text-xl text-white ">{song.title}</p>
-                      <p className="text-xsml text-red-700 ">{song.songName}</p>
+                      <p id="song-title" className="text-xl text-white ">
+                        {song.title}
+                      </p>
+                      <p id="song-artist" className="text-xsml text-red-700 ">
+                        {song.artist}
+                      </p>
                     </div>
                   </div>
                   <a
@@ -97,6 +102,7 @@ const ExlcusiveMusic = () => {
                     onMouseLeave={() => {
                       setCurrentPointer("");
                     }}
+                    id="play-button"
                     className="flex flex-col items-center justify-center mx-4"
                   >
                     {selected == index ? (
@@ -147,8 +153,12 @@ const ExlcusiveMusic = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row justify-center mt-[2.5vh] lg:ml-[11.5vw] w-10/12 lg:w-[30vw] relative items-center z-10">
+            <div
+              id="audio-player-div"
+              className="flex flex-row justify-center mt-[2.5vh] lg:ml-[11.5vw] w-10/12 lg:w-[30vw] relative items-center z-10"
+            >
               <AudioPlayer
+                id="audio-player"
                 className="w-full"
                 style={{
                   width: "100%",
