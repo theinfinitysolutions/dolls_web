@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
   const cursorRef = useRef(null);
   const currentPointer = useStore((state) => state.currentPointer);
   const setCurrentPointer = useStore((state) => state.setCurrentPointer);
-  const { showModal, setShowModal } = useStore();
+  const { showModal, setShowModal, showSongsModal } = useStore();
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -104,7 +104,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${abril.className} relative min-h-screen bg-black/95 ${
-          showModal ? "h-screen overflow-hidden" : ""
+          showModal || showSongsModal.open ? "h-screen overflow-hidden" : ""
         }`}
       >
         {pathname == "/" ? (

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
 import { abril, alfa, calistoga, orbitron } from "./layout";
@@ -75,13 +75,18 @@ const Home = () => {
   let [ref, { width }] = useMeasure();
   const router = useRouter();
   const xTranslation = useMotionValue(0);
-
+  const location = useRef(null);
   const [mustFinish, setMustFinish] = useState(false);
   const [rerender, setRerender] = useState(false);
 
   const [loading, setLoading] = React.useState(false);
 
   const [emailSent, setEmailSent] = React.useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentGroup, setCurrentGroup] = useState(0);
+  const [currentSong, setCurrentSong] = useState({});
+
   const {
     register,
     handleSubmit,
@@ -192,6 +197,24 @@ const Home = () => {
     return controls?.stop;
   }, [rerender, xTranslation, duration, width]);
 
+  const handleMouseMove = (e) => {
+    if (location.current) {
+      location.current.style.left =
+        e.clientX > window.innerWidth / 2
+          ? `${e.clientX - 180}px`
+          : `${e.clientX + 5}px`;
+      location.current.style.top = `${e.clientY + scrollY}px`;
+    }
+  };
+
+  const handleMouseOver = (e) => {
+    location.current.style.display = "block";
+  };
+
+  const handleMouseOut = () => {
+    location.current.style.display = "none";
+  };
+
   const serviceList = [
     {
       title: "Music",
@@ -217,7 +240,7 @@ const Home = () => {
       >
         <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
-            src="/asset1.png"
+            src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
             layout="fill"
             objectFit="contain"
             alt="asset1"
@@ -315,7 +338,7 @@ const Home = () => {
               style={{
                 pointerEvents: "none",
               }}
-              className=" flex lg:hidden lg:-ml-[5%] z-0 w-full lg:w-7/12 overflow-hidden pointer-events-none "
+              className=" flex lg:hidden lg:-ml-[5%] z-0 w-full mt-[5vh] h-[50vh] overflow-hidden pointer-events-none "
             >
               <CarouselComponent eventsDisabled={true} />
             </div>
@@ -392,7 +415,7 @@ const Home = () => {
                     </div>
                     <div className=" w-[60vw] h-[60vw] lg:h-[40vh] lg:w-[40vh] z-10 absolute transition-all group-hover:translate-x-[10vw] group-hover:duration-200  mt-4 ">
                       <Image
-                        src="/asset1.png"
+                        src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
                         layout="fill"
                         objectFit="cover"
                         className="rotate-45"
@@ -465,11 +488,26 @@ const Home = () => {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col w-full lg:w-1/2 items-start mt-8 lg:mt-0 p-8">
+              <div
+                onMouseMove={handleMouseMove}
+                className="flex flex-col w-full lg:w-1/2 items-start mt-8 lg:mt-0 p-8"
+              >
                 {upcoming.slice(1, 5).map((item, index) => {
                   return (
                     <div
                       key={index}
+                      onMouseEnter={() => {
+                        setIsHovered(true);
+                        setCurrentGroup(index);
+                        setCurrentSong(item);
+                      }}
+                      onMouseLeave={() => {
+                        setIsHovered(false);
+                        setCurrentGroup(-1);
+                        setCurrentSong({});
+                      }}
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
                       className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full"
                     >
                       <div className="flex flex-row items-center">
@@ -765,6 +803,77 @@ const Home = () => {
                   </button>
                 )}
               </form>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            // top: `${y}px`,
+            // left: `${x}px`,
+            zIndex: 100,
+          }}
+          className="tooltip bg-white absolute"
+          ref={location}
+        >
+          <div className="flex flex-col items-center px-4 py-2">
+            <div className="h-[7.5vw] w-[7.5vw] relative">
+              {currentSong.imageUrl?.toString().length > 0 ? (
+                <Image
+                  src={currentSong.imageUrl.toString()}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={currentSong.song}
+                />
+              ) : (
+                <Image
+                  onMouseEnter={() => {
+                    setCurrentPointer("i");
+                  }}
+                  onMouseLeave={() => {
+                    setCurrentPointer("");
+                  }}
+                  src={"/song1.jpeg"}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              )}
+            </div>
+            <div className="flex flex-col items-start mt-4 mb-2">
+              <div className="flex flex-col items-start ">
+                <p className=" text-white text-2xl">{currentSong.song}</p>
+              </div>
+              <div className="flex flex-col items-start mb-1">
+                <p className=" text-red-700 text-xs ">Artist</p>
+                <p className=" text-white text-sm -mt-1">
+                  {currentSong.artist}
+                </p>
+              </div>
+              {currentSong.Producer ? (
+                <div className="flex flex-col items-start mb-1">
+                  <p className=" text-red-700 text-xs ">Producer</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Producer}
+                  </p>
+                </div>
+              ) : null}
+              {currentSong.Mix ? (
+                <div className="flex flex-col items-start mb-1">
+                  <p className=" text-red-700 text-xs ">Mix</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Mix}
+                  </p>
+                </div>
+              ) : null}
+
+              {currentSong.Master ? (
+                <div className="flex flex-col items-start">
+                  <p className=" text-red-700 text-xs ">Master</p>
+                  <p className=" text-white text-sm -mt-1">
+                    {currentSong?.Master}
+                  </p>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
