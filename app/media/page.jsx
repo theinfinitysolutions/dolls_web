@@ -273,7 +273,7 @@ const Media = () => {
               }}
               autoplay={{
                 delay: 2500,
-                disableOnInteraction: false,
+                disableOnInteraction: true,
               }}
               modules={[Pagination, Autoplay]}
               className="mySwiper"

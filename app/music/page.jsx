@@ -45,7 +45,10 @@ const Music = () => {
 
   const handleMouseMove = (e) => {
     if (location.current) {
-      location.current.style.left = `${e.clientX + 10}px`;
+      location.current.style.left =
+        e.clientX > window.innerWidth / 2
+          ? `${e.clientX - 200}px`
+          : `${e.clientX + 10}px`;
       location.current.style.top = `${e.clientY + 10 + scrollY}px`;
     }
   };
@@ -73,7 +76,7 @@ const Music = () => {
             {music.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col lg:flex-row w-full h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]"
+                className="flex flex-col lg:flex-row w-full h-full lg:h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
                 <a
                   onMouseEnter={() => {
@@ -123,7 +126,7 @@ const Music = () => {
                 <div
                   onMouseMove={handleMouseMove}
                   className={` flex flex-row items-center w-full animate-infinitescroll ${
-                    isHovered && currentGroup === index
+                    (isHovered && currentGroup === index) || showSongsModal.open
                       ? "[animation-play-state:paused]"
                       : "[animation-play-state:running]"
                   }`}
@@ -144,10 +147,10 @@ const Music = () => {
                       key={songIndex}
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
-                      className="flex flex-col items-center  h-[30vw] w-[20vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
+                      className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
                     >
-                      <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
-                        <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
+                      <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
+                        <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
                           {song.imageUrl.toString().length > 0 ? (
                             <Image
                               src={song.imageUrl.toString()}
@@ -210,17 +213,19 @@ const Music = () => {
                             </div>
                           </div>
                         </div>
-                        <div className=" hidden lg:flex h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
+                        <div className=" hidden lg:flex h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-4vw] group-hover:duration-200  mt-4 ">
                           <Image
-                            src="/asset1.png"
+                            src={
+                              process.env.NEXT_PUBLIC_API_URL + "/asset1.png"
+                            }
                             layout="fill"
                             objectFit="cover"
-                            className="rotate-45"
+                            className="rotate-90"
                             alt="asset1"
                           />
                         </div>
                       </div>
-                      <div className="flex flex-col mt-[12.5vh] lg:mt-8 w-full items-center">
+                      <div className="flex flex-col mt-[3vh] lg:mt-8 w-full items-center">
                         <p className=" text-sm lg:text-md text-center font-semibold">
                           {song.song}
                         </p>
@@ -230,6 +235,19 @@ const Music = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+                <div className=" flex flex-row w-full pb-4 px-2 justify-end items-center">
+                  <a
+                    onClick={() => {
+                      setShowSongsModal({
+                        open: true,
+                        song: index,
+                      });
+                    }}
+                    className=" lg:hidden text-white underline "
+                  >
+                    View All
+                  </a>
                 </div>
               </div>
             ))}

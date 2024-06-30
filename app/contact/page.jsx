@@ -68,7 +68,7 @@ const ContactUs = () => {
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
         <div className="circle -bottom-1/2 left-0 absolute" />
 
-        <div className={"  h-full w-screen overflow-hidden"}>
+        <div className={"  lg:h-full w-screen overflow-hidden"}>
           <div className="flex flex-col w-full h-full items-start relative justify-start  py-[2.5vh] ">
             <RevealOnScroll
               addedClasses={
@@ -178,15 +178,15 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className=" w-3/12 flex flex-row justify-center items-center gap-x-2 my-2 lg:my-8">
+        <div className=" w-3/12 flex flex-row justify-center z-20 items-center gap-x-2 my-2 lg:my-8">
           <div className="h-[1px] bg-white w-[45%]  border-white" />
           <p className=" text-xl text-white">OR</p>
           <div className="h-[1px] bg-white w-[45%]  border-white" />
         </div>
 
-        <div className="flex flex-col items-center w-11/12 lg:w-6/12">
+        <div className="flex flex-col items-center z-20 w-11/12 lg:w-6/12">
           <p>Reach out to us on our Social media</p>
-          <div className=" w-4/12 flex flex-row justify-between mt-8">
+          <div className=" w-4/12 flex flex-row justify-between mt-4 lg:mt-8">
             <a
               onMouseEnter={() => {
                 setCurrentPointer("a");

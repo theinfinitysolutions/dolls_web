@@ -132,7 +132,7 @@ const ExlcusiveMusic = () => {
               </div>
               <div className="h-[30vh] w-[30vh] z-10 absolute transition-all translate-x-[10vw]   mt-4 ">
                 <Image
-                  src="/asset1.png"
+                  src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
                   layout="fill"
                   objectFit="cover"
                   className="rotate-45"
