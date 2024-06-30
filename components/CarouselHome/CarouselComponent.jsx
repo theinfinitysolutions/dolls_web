@@ -40,7 +40,7 @@ const CarouselComponent = ({ eventsDisabled }) => {
       onClick={() => {
         router.push("/media");
       }}
-      className="flex flex-col items-start lg:max-h-[80vh] h-[50vh] lg:h-[80vh] w-[90vw] lg:w-[50vw] "
+      className="flex flex-col items-start lg:max-h-[80vh] h-[45vh] lg:h-[80vh] w-[100vw] lg:w-[50vw] "
     >
       <Canvas
         onMouseEnter={() => {

@@ -77,7 +77,7 @@ export default function ViewProductModal() {
                   <div
                     data-song="Song Name"
                     key={songIndex}
-                    className="flex flex-col items-center overflow-hidden  h-[30vw] w-[20vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
+                    className="flex flex-col items-center overflow-hidden  h-[40vw] w-full lg:h-[17.5vw] lg:w-[10vw]"
                   >
                     <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
                       <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
@@ -143,9 +143,9 @@ export default function ViewProductModal() {
                           </div>
                         </div>
                       </div>
-                      <div className="h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
+                      <div className="h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
                         <Image
-                          src="/asset1.png"
+                          src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
                           layout="fill"
                           objectFit="cover"
                           className="rotate-45"
