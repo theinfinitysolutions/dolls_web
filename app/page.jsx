@@ -391,7 +391,7 @@ const Home = () => {
                   <h2
                     className={`${abril.className} text-white text-[3rem] lg:text-[4rem] leading-[4rem] font-bold `}
                   >
-                    {"WHAT'S NEW"}
+                    {"What's New"}
                   </h2>
                   {/* <p className="text-white text-center lg:text-start text-sm">
                     {
@@ -696,12 +696,10 @@ const Home = () => {
               <h2
                 className={`${abril.className} text-white text-[3rem] lg:text-[4rem] leading-[4rem] font-bold `}
               >
-                CONTACT
+                Contact
               </h2>
               <p className="text-white text-center lg:text-start text-sm">
-                {
-                  " Reach out to us for any collorations or queries. We are always here to help you."
-                }
+                {" Reach out to us for any collaborations or queries."}
               </p>
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-[5vh]">
@@ -803,8 +801,6 @@ const Home = () => {
 
         <div
           style={{
-            // top: `${y}px`,
-            // left: `${x}px`,
             zIndex: 100,
           }}
           className="tooltip bg-white absolute"

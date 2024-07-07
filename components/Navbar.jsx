@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <nav
       className={`flex flex-row max-w-screen w-full h-[5vh] z-50 ${
-        path == "/" ? (path == "media" ? "bg-black" : "") : "fixed"
+        path == "/" ? (path == "media" ? "bg-black" : "fixed") : "fixed"
       } text-white `}
     >
       <div className="w-full flex flex-row justify-between items-center px-2 lg:px-8 py-8">

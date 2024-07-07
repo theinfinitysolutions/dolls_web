@@ -38,8 +38,8 @@ const socialLinks = [
   "https://www.instagram.com/p/Ca4l11jBeGj/",
   "https://www.instagram.com/p/CW0SW7FMa27/",
   "https://www.instagram.com/p/CWlBNSth1W2/",
-  "https://www.instagram.com/p/C0UJQvox27L/?utm_source=ig_embed&utm_campaign=invalid&ig_rid=8db9eac1-8056-49f9-aee2-dc37cee24bc8",
-  "https://www.instagram.com/p/CyYG6_VRJ79/?utm_source=ig_embed&utm_campaign=invalid&ig_rid=60e0903c-5dae-4574-8e31-abef0f017593",
+  "https://www.instagram.com/p/C0UJQvox27L/",
+  "https://www.instagram.com/p/CyYG6_VRJ79/",
 ];
 
 const Media = () => {
@@ -358,11 +358,7 @@ const Media = () => {
           <h2 className="text-white text-[2rem] lg:text-[4rem] lg:leading-[4rem] font-bold ">
             Gallery
           </h2>
-          <p className="text-white text-sm mt-2">
-            {
-              "Discover our vibrant gallery! Immerse yourself in stunning visuals from our shows and performances. Explore the rhythm and experience the magic. Dive in now!"
-            }
-          </p>
+
           <div className=" grid grid-cols-2 lg:grid-cols-4 gap-8 mt-[5vh]">
             {Array(39)
               .fill(1)

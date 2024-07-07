@@ -55,11 +55,6 @@ const ExlcusiveMusic = () => {
             <h2 className="text-white text-[2.5rem] lg:text-[4rem] leading-[4rem] font-bold ">
               EXCLUSIVE MUSIC
             </h2>
-            <p className="text-white text-sm text-center lg:text-start">
-              {
-                " Reach out to us for any collorations or queries. We are always here to help you."
-              }
-            </p>
           </div>
         </div>
         <div className="w-[90vw] flex flex-col-reverse lg:flex-row justify-center lg:justify-between items-center lg:items-start mt-[5vh]">
