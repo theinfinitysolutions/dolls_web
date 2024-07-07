@@ -227,7 +227,7 @@ const Music = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex lg:hidden h-[75vw] my-4">
+                <div className="flex lg:hidden my-4">
                   <Swiper
                     slidesPerView={1.5}
                     spaceBetween={30}
@@ -311,10 +311,10 @@ const Music = () => {
                             </div>
                           </div>
                           <div className="flex flex-col mt-[3vh] lg:mt-4 w-full items-center">
-                            <p className=" text-xl lg:text-md text-center font-semibold">
+                            <p className=" text-lg lg:text-md text-center font-semibold">
                               {song.song}
                             </p>
-                            <p className=" text-base lg:text-xs text-center font-semibold text-red-500 ">
+                            <p className=" text-sm lg:text-xs text-center font-semibold text-red-500 ">
                               {song.artist}
                             </p>
                           </div>
