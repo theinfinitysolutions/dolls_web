@@ -102,6 +102,33 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Dole's Music" />
+      <meta
+        name="keywords"
+        content="Dole's Music, Doleshwar Raj, Doleshwar, Raj, Atrangi Funkaar, Atrangi, Funkaar, Apple Music, Spotify, Doleshwar Apple,Doleshwar Raj Apple Music, Doleshwar Raj Spotify, Doleshwar Raj Music, Doleshwar Raj Songs, Doleshwar Raj Albums, Doleshwar Raj Musician, Doleshwar Raj Music, Doleshwar Raj Musician, MAMA Beats, SSD, Jiya jaye na, Jiya, SSD,Shaunak"
+      />
+      <title>{"Dole's Music"}</title>
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/site.webmanifest" />
       <body
         className={`${abril.className} relative min-h-screen bg-black/95 ${
           showModal || showSongsModal.open ? "h-screen overflow-hidden" : ""

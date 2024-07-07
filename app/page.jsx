@@ -249,9 +249,7 @@ const Home = () => {
         </div>
 
         <a
-          onClick={() => {
-            router.push("/contact");
-          }}
+          href="/contact"
           onMouseEnter={() => {
             setCurrentPointer("a");
           }}
@@ -271,6 +269,7 @@ const Home = () => {
         <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[95vh] lg:h-[95vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
           <a
+            href=""
             onClick={() => {
               window.scrollTo(0, window.innerHeight, {
                 behavior: "smooth",
@@ -441,9 +440,8 @@ const Home = () => {
                           onMouseLeave={() => {
                             setCurrentPointer("");
                           }}
-                          onClick={() => {
-                            window.open(item.AppleMusic, "_blank");
-                          }}
+                          href={upcoming[0].AppleMusic}
+                          target="_blank"
                         >
                           <SiApplemusic className="text-base " />
                         </a>
@@ -456,9 +454,8 @@ const Home = () => {
                           onMouseLeave={() => {
                             setCurrentPointer("");
                           }}
-                          onClick={() => {
-                            window.open(item.Youtube, "_blank");
-                          }}
+                          href={upcoming[0].Youtube}
+                          target="_blank"
                         >
                           <AiFillYoutube className="text-base" />
                         </a>
@@ -471,9 +468,8 @@ const Home = () => {
                           onMouseLeave={() => {
                             setCurrentPointer("");
                           }}
-                          onClick={() => {
-                            window.open(item.Spotify, "_blank");
-                          }}
+                          href={upcoming[0].Spotify}
+                          target="_blank"
                         >
                           <FaSpotify className="text-base" />
                         </a>
@@ -538,9 +534,8 @@ const Home = () => {
                                 onMouseLeave={() => {
                                   setCurrentPointer("");
                                 }}
-                                onClick={() => {
-                                  window.open(item.AppleMusic, "_blank");
-                                }}
+                                href={item.AppleMusic}
+                                target="_blank"
                               >
                                 <SiApplemusic className="text-sm " />
                               </a>
@@ -553,9 +548,8 @@ const Home = () => {
                                 onMouseLeave={() => {
                                   setCurrentPointer("");
                                 }}
-                                onClick={() => {
-                                  window.open(item.Youtube, "_blank");
-                                }}
+                                href={item.Youtube}
+                                target="_blank"
                               >
                                 <AiFillYoutube className="text-sm" />
                               </a>
@@ -568,9 +562,8 @@ const Home = () => {
                                 onMouseLeave={() => {
                                   setCurrentPointer("");
                                 }}
-                                onClick={() => {
-                                  window.open(item.Spotify, "_blank");
-                                }}
+                                href={item.Spotify}
+                                target="_blank"
                               >
                                 <FaSpotify className="text-sm" />
                               </a>
@@ -615,6 +608,7 @@ const Home = () => {
                       setCurrentPointer("");
                     }}
                     className=" text-white hover:underline leading-8 text-sm lg:text-base"
+                    href="/music"
                   >
                     Check out our comlpete music catalog
                   </a>
@@ -664,7 +658,7 @@ const Home = () => {
               {Array(20)
                 .fill(1)
                 .map((item, idx) => (
-                  <a key={idx} onClick={() => router.push("/media")}>
+                  <a key={idx} href="/media">
                     <motion.div
                       className=" w-[20vh] h-[20vh] lg:w-[30vh] lg:h-[30vh] relative"
                       whileHover={{ scale: 1.1 }}

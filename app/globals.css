@@ -21,6 +21,14 @@ html {
   background: #FF0000;
 }
 
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
