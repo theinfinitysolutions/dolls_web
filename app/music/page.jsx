@@ -9,7 +9,10 @@ import { FaSpotify } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 import { SiYoutubemusic } from "react-icons/si";
 import Transition from "@/components/Transition";
+import { Swiper, SwiperSlide } from "swiper/react";
 import useStore from "@/utils/store";
+
+import "swiper/css";
 
 const music = [
   {
@@ -124,13 +127,13 @@ const Music = () => {
                 </div>
                 <div
                   onMouseMove={handleMouseMove}
-                  className={` flex flex-row items-center w-full animate-infinitescroll ${
+                  className={` hidden lg:flex flex-row items-center w-full animate-infinitescroll ${
                     (isHovered && currentGroup === index) || showSongsModal.open
                       ? "[animation-play-state:paused]"
                       : "[animation-play-state:running]"
                   }`}
                 >
-                  {item.songs.map((song, songIndex) => (
+                  {[...item.songs, ...item.songs].map((song, songIndex) => (
                     <div
                       data-song="Song Name"
                       onMouseEnter={() => {
@@ -148,7 +151,7 @@ const Music = () => {
                       onMouseOut={handleMouseOut}
                       className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
                     >
-                      <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
+                      <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw] group mt-4 overflow-hidden relative">
                         <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
                           {song.imageUrl.toString().length > 0 ? (
                             <Image
@@ -212,19 +215,8 @@ const Music = () => {
                             </div>
                           </div>
                         </div>
-                        <div className=" hidden lg:flex h-[10vw] w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-4vw] group-hover:duration-200  mt-4 ">
-                          <Image
-                            src={
-                              process.env.NEXT_PUBLIC_API_URL + "/asset1.png"
-                            }
-                            layout="fill"
-                            objectFit="cover"
-                            className="rotate-90"
-                            alt="asset1"
-                          />
-                        </div>
                       </div>
-                      <div className="flex flex-col mt-[3vh] lg:mt-8 w-full items-center">
+                      <div className="flex flex-col mt-[3vh] lg:mt-4 w-full items-center">
                         <p className=" text-sm lg:text-md text-center font-semibold">
                           {song.song}
                         </p>
@@ -234,6 +226,102 @@ const Music = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+                <div className="flex h-[75vw] my-4">
+                  <Swiper
+                    slidesPerView={1.5}
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    loop={true}
+                    className="mySwiper"
+                  >
+                    {item.songs.map((song, songIndex) => (
+                      <SwiperSlide>
+                        <div
+                          data-song="Song Name"
+                          key={songIndex}
+                          className="flex flex-col items-center  h-full w-[55vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
+                        >
+                          <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw] group mt-4 overflow-hidden relative">
+                            <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
+                              {song.imageUrl.toString().length > 0 ? (
+                                <Image
+                                  src={song.imageUrl.toString()}
+                                  layout="fill"
+                                  objectFit="cover"
+                                  alt={song.song}
+                                />
+                              ) : (
+                                <Image
+                                  src={"/song1.jpeg"}
+                                  layout="fill"
+                                  objectFit="cover"
+                                  alt="song1"
+                                />
+                              )}
+
+                              <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
+                                <div className="flex flex-col items-center justify-center h-full w-full">
+                                  <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
+                                    <a
+                                      onMouseEnter={() => {
+                                        setCurrentPointer("a");
+                                      }}
+                                      onMouseLeave={() => {
+                                        setCurrentPointer("");
+                                      }}
+                                      href={song.Spotify}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      <FaSpotify size={18} color="#fff" />
+                                    </a>
+                                    <a
+                                      onMouseEnter={() => {
+                                        setCurrentPointer("a");
+                                      }}
+                                      onMouseLeave={() => {
+                                        setCurrentPointer("");
+                                      }}
+                                      href={song.AppleMusic}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      <SiApplemusic size={18} color="#fff" />
+                                    </a>
+                                    <a
+                                      onMouseEnter={() => {
+                                        setCurrentPointer("a");
+                                      }}
+                                      onMouseLeave={() => {
+                                        setCurrentPointer("");
+                                      }}
+                                      href={song.Youtube}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      <SiYoutubemusic size={18} color="#fff" />
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex flex-col mt-[3vh] lg:mt-4 w-full items-center">
+                            <p className=" text-xl lg:text-md text-center font-semibold">
+                              {song.song}
+                            </p>
+                            <p className=" text-base lg:text-xs text-center font-semibold text-red-500 ">
+                              {song.artist}
+                            </p>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
                 <div className=" flex flex-row w-full pb-4 px-2 justify-end items-center">
                   <a

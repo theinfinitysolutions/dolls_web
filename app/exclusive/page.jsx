@@ -95,6 +95,10 @@ const ExlcusiveMusic = () => {
                   <a
                     onClick={() => {
                       setSelected(index);
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
                     }}
                     onMouseEnter={() => {
                       setCurrentPointer("a");

@@ -46,7 +46,7 @@ export default function ViewProductModal() {
     <div>
       {open ? (
         <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center ">
-          <div className="h-[80vh] lg:h-[80vh] w-11/12 lg:w-[80vw] overflow-y-scroll bg-black flex flex-col items-start">
+          <div className="h-[80vh] lg:h-[80vh] w-11/12 lg:w-[80vw] overflow-y-scroll bg-black flex flex-col items-center">
             <div className="flex flex-row w-full justify-between items-center px-[5vw] mt-[5vh]">
               <h3 className=" text-[2rem] lg:text-[4rem] leading-[3rem] text-white font-semibold">
                 {music[currentSong].genre}
@@ -71,7 +71,7 @@ export default function ViewProductModal() {
                 <IoClose className="text-white text-3xl" />
               </a>
             </div>
-            <div className=" w-full overflow-y-scroll bg-black grid grid-cols-2 md:grid-cols-3 mt-8 lg:grid-cols-5 mb-8">
+            <div className=" w-full overflow-y-scroll bg-black grid grid-cols-2 lg:px-[5vw] md:grid-cols-3 mt-8 lg:grid-cols-4 mb-8">
               {music[currentSong]?.songs.map((song, songIndex) => {
                 return (
                   <div
