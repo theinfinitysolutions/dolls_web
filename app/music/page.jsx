@@ -38,7 +38,6 @@ const Music = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [currentGroup, setCurrentGroup] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
-  // const { x, y } = useMousePosition();
   const location = useRef(null);
   const { setCurrentPointer } = useStore();
   const { showSongsModal, setShowSongsModal } = useStore();
@@ -271,9 +270,7 @@ const Music = () => {
           </div>
           <div className="flex flex-col items-center ml-4">
             <a
-              onClick={() => {
-                router.push("/exclusive");
-              }}
+              href="/exclusive"
               id="exclusive-nav"
               className=" doorframe group h-[30vh] w-[17.5vh] relative border-[0.5px] overflow-hidden border-red-100 rounded-md"
               tabindex="0"
@@ -295,18 +292,9 @@ const Music = () => {
             </a>
           </div>
         </div>
-        {/* <Tooltip
-          text={{
-            title: currentSong.song,
-            artist: currentSong.artist,
-          }}
-          ref={location}
-          position={{ x: location.clientX, y: location.clientY }}
-        /> */}
+
         <div
           style={{
-            // top: `${y}px`,
-            // left: `${x}px`,
             zIndex: 100,
           }}
           className="tooltip bg-white absolute"

@@ -54,9 +54,7 @@ const Navbar = () => {
               onMouseLeave={() => {
                 setCurrentPointer("");
               }}
-              onClick={() => {
-                router.push("/");
-              }}
+              href="/"
               className="text-xl  mr-2  text-white "
             >
               <IoMdArrowBack className="text-xl" />
@@ -69,9 +67,7 @@ const Navbar = () => {
             onMouseLeave={() => {
               setCurrentPointer("");
             }}
-            onClick={() => {
-              router.push("/");
-            }}
+            href="/"
             className=" text-lg lg:text-xl text-white "
           >
             {"Dole's Music /"}
@@ -88,12 +84,8 @@ const Navbar = () => {
             onMouseLeave={() => {
               setCurrentPointer("");
             }}
-            onClick={() => {
-              window.open(
-                "https://music.apple.com/in/artist/doleshwar-raj/1747343701",
-                "_blank"
-              );
-            }}
+            href={"https://music.apple.com/in/artist/doleshwar-raj/1747343701"}
+            target="_blank"
           >
             <SiApplemusic className=" text-base lg:text-xl " />
           </a>
@@ -104,9 +96,8 @@ const Navbar = () => {
             onMouseLeave={() => {
               setCurrentPointer("");
             }}
-            onClick={() => {
-              window.open("https://www.youtube.com/c/AtrangiFunkaar", "_blank");
-            }}
+            href="https://www.youtube.com/c/AtrangiFunkaar"
+            target="_blank"
           >
             <AiFillYoutube className=" text-base lg:text-xl " />
           </a>
@@ -118,12 +109,8 @@ const Navbar = () => {
             onMouseLeave={() => {
               setCurrentPointer("");
             }}
-            onClick={() => {
-              window.open(
-                "https://open.spotify.com/playlist/6iehjmMgDPjf9v0NeS3iJW?si=pDWOhU8DToKmfi_1S9Ma0w",
-                "_blank"
-              );
-            }}
+            href="https://open.spotify.com/playlist/6iehjmMgDPjf9v0NeS3iJW?si=pDWOhU8DToKmfi_1S9Ma0w"
+            target="_blank"
           >
             <FaSpotify className=" text-base lg:text-xl " />
           </a>
@@ -135,18 +122,15 @@ const Navbar = () => {
             onMouseLeave={() => {
               setCurrentPointer("");
             }}
-            onClick={() => {
-              window.open(
-                "https://wynk.in/music/artist/doleshwar-raj/wa_5qYTFSKcgg",
-                "_blank"
-              );
-            }}
+            href="https://wynk.in/music/artist/doleshwar-raj/wa_5qYTFSKcgg"
+            target="_blank"
           >
             <Image
               src="/wynk.png"
               height={12}
               width={12}
               className=" h-4 w-4 lg:h-6 lg:w-6 "
+              alt="wynk"
             />
           </a>
         </div>
