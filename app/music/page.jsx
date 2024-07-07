@@ -227,7 +227,7 @@ const Music = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex h-[75vw] my-4">
+                <div className="flex lg:hidden h-[75vw] my-4">
                   <Swiper
                     slidesPerView={1.5}
                     spaceBetween={30}
@@ -239,7 +239,7 @@ const Music = () => {
                     className="mySwiper"
                   >
                     {item.songs.map((song, songIndex) => (
-                      <SwiperSlide>
+                      <SwiperSlide key={songIndex}>
                         <div
                           data-song="Song Name"
                           key={songIndex}
