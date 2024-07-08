@@ -15,7 +15,7 @@ export const pop = [
       "/SmartSelect_20240505_153651_YouTube_Music.jpg",
   },
   {
-    artist: "Akshay Agarwal, Hardik Keshan",
+    artist: "Atrangi Funkaar",
     song: "Chor Do Dheela",
     Producer: "Akshay Agarwal",
     Mix: "Hardik Keshan",
