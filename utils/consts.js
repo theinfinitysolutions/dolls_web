@@ -1,6 +1,6 @@
 export const pop = [
   {
-    artist: "Akshay Agarwal, Hardik Keshan",
+    artist: "Atrangi Funkaar",
     song: "The Alien Song",
     Producer: "Akshay Agarwal",
     Mix: "Hardik Keshan",
@@ -200,13 +200,13 @@ export const pop = [
     Youtube: "",
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
   },
-  {
-    song: "Piya Nirmohe",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
-  },
+  // {
+  //   song: "Piya Nirmohe",
+  //   Spotify: "",
+  //   AppleMusic: "",
+  //   Youtube: "",
+  //   imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
+  // },
   {
     song: "Rozana",
     artist: "Harish Budhwani, SSD",
@@ -271,14 +271,14 @@ export const pop = [
       process.env.NEXT_PUBLIC_API_URL +
       "/SmartSelect_20240505_154106_YouTube_Music.jpg",
   },
-  {
-    song: "Paradise",
-    artist: "Mama Beats",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
-  },
+  // {
+  //   song: "Paradise",
+  //   artist: "Mama Beats",
+  //   Spotify: "",
+  //   AppleMusic: "",
+  //   Youtube: "",
+  //   imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
+  // },
 ];
 
 export const rock = [
@@ -377,28 +377,6 @@ export const rock = [
     Youtube: "",
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/IMG-20240410-WA0001.jpg",
   },
-  {
-    artist: "Mayyank Solanki ,Doleshwar Raj, Param",
-    song: "Gumshuda",
-    Producer: "Mayyank Solanki",
-    Mix: "Mayyank Solanki",
-    Master: "Mayyank Solanki",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
-  },
-  {
-    artist: "Mayyank Solanki ,Doleshwar Raj, Param",
-    song: "Behte Rehte",
-    Producer: "Mayyank Solanki",
-    Mix: "Mayyank Solanki",
-    Master: "Mayyank Solanki",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
-  },
 ];
 
 export const hiphop = [
@@ -489,15 +467,6 @@ export const hiphop = [
     AppleMusic: "",
     Youtube: "",
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
-  },
-  {
-    song: "Game",
-    artist: "Cira",
-    Producer: "Doleshwar Raj",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art1.jpeg",
   },
 ];
 
@@ -1029,7 +998,8 @@ export const secretPlaylist = [
     imageUrl: "https://example.com/image1.jpg",
   },
   {
-    title: "Chor SSD",
+    title: "Chor",
+
     imageUrl: "https://example.com/image1.jpg",
     artist: "SSD",
     url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Chor-SSD.mp3",
