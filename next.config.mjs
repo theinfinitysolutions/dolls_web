@@ -8,6 +8,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "d3rbf9e30ll7p5.cloudfront.net",
+      },
+      {
+        protocol: "https",
         hostname: "mystorage1.blr1.cdn.digitaloceanspaces.com",
       },
     ],
