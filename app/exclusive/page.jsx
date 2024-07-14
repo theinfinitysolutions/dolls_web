@@ -17,12 +17,15 @@ const ExlcusiveMusic = () => {
     useStore();
 
   useEffect(() => {
-    fetch(secretPlaylist[selected].url)
+    fetch(secretPlaylist[selected].url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "audio/mpeg",
+        "X-Forwarded-For": "http://144.24.111.231:7015",
+      },
+    })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.blob();
+        console.log("response", response);
       })
       .then((blob) => {
         const url = URL.createObjectURL(blob);
