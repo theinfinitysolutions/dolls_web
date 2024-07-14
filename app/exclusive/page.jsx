@@ -16,24 +16,6 @@ const ExlcusiveMusic = () => {
   const { showModal, setShowModal, setCurrentPointer, currentPointer } =
     useStore();
 
-  useEffect(() => {
-    fetch(secretPlaylist[selected].url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "audio/mpeg",
-        "X-Forwarded-For": "http://144.24.111.231:7015",
-      },
-    })
-      .then((response) => {
-        console.log("response", response);
-      })
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        console.log(url); // Check if the URL is correctly generated
-      })
-      .catch((error) => console.error("Error fetching audio:", error));
-  }, [selected]);
-
   const checkIfMailSent = () => {
     return new Promise(async (resolve, reject) => {
       let item = localStorage.getItem("email");
@@ -182,10 +164,10 @@ const ExlcusiveMusic = () => {
                 onPlay={(e) => console.log("onPlay")}
               />
             </div>
-            <audio controls>
+            {/* <audio controls>
               <source src={secretPlaylist[selected].url} type="audio/mpeg" />
               Your browser does not support the audio element.
-            </audio>
+            </audio> */}
           </div>
         </div>
       </div>
