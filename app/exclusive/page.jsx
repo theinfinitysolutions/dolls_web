@@ -16,9 +16,20 @@ const ExlcusiveMusic = () => {
   const { showModal, setShowModal, setCurrentPointer, currentPointer } =
     useStore();
 
-  const playAudio = () => {
-    audioRef.current.play();
-  };
+  useEffect(() => {
+    fetch(secretPlaylist[selected].url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.blob();
+      })
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        console.log(url); // Check if the URL is correctly generated
+      })
+      .catch((error) => console.error("Error fetching audio:", error));
+  }, [selected]);
 
   const checkIfMailSent = () => {
     return new Promise(async (resolve, reject) => {
