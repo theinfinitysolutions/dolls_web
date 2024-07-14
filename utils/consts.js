@@ -986,16 +986,14 @@ export const secretPlaylist = [
   {
     title: "Ant Shant",
     artist: "SSD",
-    url:
-      "https://theinfinitysolutions2.s3.amazonaws.com" +
-      "/secretplaylist/Ant-Shant-SSD.mp3",
+    url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Ant-Shant-SSD.mp3",
     imageUrl: "https://example.com/image1.jpg",
   },
   {
     title: "Behte Rehte",
     artist: "Param and Doleshwar Raj",
     url:
-      "https://theinfinitysolutions2.s3.amazonaws.com" +
+      process.env.NEXT_PUBLIC_API_URL +
       "/secretplaylist/Behte-Rehte-Param-and-Doleshwar-Raj.mp3",
     imageUrl: "https://example.com/image1.jpg",
   },
@@ -1004,9 +1002,7 @@ export const secretPlaylist = [
 
     imageUrl: "https://example.com/image1.jpg",
     artist: "SSD",
-    url:
-      "https://theinfinitysolutions2.s3.amazonaws.com" +
-      "/secretplaylist/Chor-SSD.mp3",
+    url: process.env.NEXT_PUBLIC_API_URL + "/secretplaylist/Chor-SSD.mp3",
   },
   {
     title: "Deewar",

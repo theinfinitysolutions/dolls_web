@@ -16,6 +16,19 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/:all*(mp3)",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "audio/mpeg", // Adjust as necessary
+          },
+        ],
+      },
+    ];
+  },
   transpilePackages: ["three"],
 };
 
