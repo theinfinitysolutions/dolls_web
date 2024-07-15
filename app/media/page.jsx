@@ -360,7 +360,7 @@ const Media = () => {
           </h2>
 
           <div className=" grid grid-cols-2 lg:grid-cols-4 gap-8 mt-[5vh]">
-            {Array(39)
+            {Array(43)
               .fill(1)
               .map((item, idx) => {
                 return (

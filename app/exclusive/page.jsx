@@ -164,10 +164,6 @@ const ExlcusiveMusic = () => {
                 onPlay={(e) => console.log("onPlay")}
               />
             </div>
-            {/* <audio controls>
-              <source src={secretPlaylist[selected].url} type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio> */}
           </div>
         </div>
       </div>

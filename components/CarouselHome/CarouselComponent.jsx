@@ -15,6 +15,17 @@ import "./util";
 import useStore from "@/utils/store";
 import { useRouter } from "next/navigation";
 
+let imagesArray = [
+  "dolls1.jpeg",
+  "dolls2.jpeg",
+  "dolls3.jpeg",
+  "dolls5.jpeg",
+  "dolls40.jpeg",
+  "dolls41.jpeg",
+  "dolls42.jpeg",
+  "dolls43.jpeg",
+];
+
 const CarouselComponent = ({ eventsDisabled }) => {
   const router = useRouter();
   const { currentPointer, setCurrentPointer } = useStore();
@@ -103,18 +114,22 @@ function Rig(props) {
 }
 
 function Carousel({ radius = 1.3, count = 8 }) {
-  return Array.from({ length: count }, (_, i) => (
-    <Card
-      key={i}
-      url={`/dolls${Math.floor(i % 5) + 1}.jpeg`}
-      position={[
-        Math.sin((i / count) * Math.PI * 2) * radius,
-        0,
-        Math.cos((i / count) * Math.PI * 2) * radius,
-      ]}
-      rotation={[0, Math.PI + (i / count) * Math.PI * 2, 0]}
-    />
-  ));
+  let array = imagesArray.map((url, i) => {
+    return (
+      <Card
+        key={i}
+        url={`/${url}`}
+        position={[
+          Math.sin((i / count) * Math.PI * 2) * radius,
+          0,
+          Math.cos((i / count) * Math.PI * 2) * radius,
+        ]}
+        rotation={[0, Math.PI + (i / count) * Math.PI * 2, 0]}
+      />
+    );
+  });
+
+  return array;
 }
 
 function Card({ url, ...props }) {
