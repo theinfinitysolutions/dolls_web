@@ -238,7 +238,7 @@ const Home = () => {
         id="home"
         className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between"
       >
-        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[80vh] -left-[70vw] lg:-left-[55vw] z-0 ">
+        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[90vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
             layout="fill"
@@ -504,7 +504,7 @@ const Home = () => {
                       }}
                       onMouseOver={handleMouseOver}
                       onMouseOut={handleMouseOut}
-                      className="flex flex-row justify-between p-2 border-[0.25px] border-[#666666] mb-4 w-full"
+                      className="flex flex-row justify-between p-2 border-[0.25px] overflow-hidden z-20 border-[#666666] mb-4 w-full"
                     >
                       <div className="flex flex-row items-center">
                         <div className=" h-[10vh] w-[10vh] lg:h-[15vh] lg:w-[15vh] relative">
@@ -525,7 +525,7 @@ const Home = () => {
                       </div>
                       <div className="flex flex-row items-center w-5/12 lg:w-3/12">
                         {item.released ? (
-                          <div className="flex flex-row justify-around items-center w-full ">
+                          <div className="flex flex-row justify-end gap-x-6 lg:gap-x-8 mr-4 lg:mr-8 items-center w-full ">
                             {item.AppleMusic.length > 0 && (
                               <a
                                 onMouseEnter={() => {

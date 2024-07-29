@@ -220,11 +220,15 @@ export const pop = [
   },
   {
     song: "2 Lafz",
+    artist: "SSD, Mayyank Solanki, Garvit Soni",
     Producer: "Doleshwar Raj & Mayyank Solanki",
+    Mix: "Shreedhar, TSM Studios",
+    Master: "Shreedhar, TSM Studios",
     Spotify: "",
     AppleMusic: "",
     Youtube: "",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art2.jpeg",
+    released: false,
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
   },
   {
     song: "Guftagoo",
@@ -381,6 +385,20 @@ export const rock = [
 
 export const hiphop = [
   {
+    song: "Zamidaar",
+    artist: "Mama Beats & Meraki",
+    Producer: "Mama Beats",
+    Mix: "Jos Hermes",
+    Master: "Jos Hermes",
+    Spotify:
+      "https://open.spotify.com/track/6QFBS1xAVeK1UBkulqaCYj?si=O8xJ2ZlTQ0Czp9VsEx2PLA&context=spotify%3Aalbum%3A3tmOPDx0eCSb0NY0wYXRZw",
+    AppleMusic: "",
+    Youtube:
+      "https://music.youtube.com/watch?v=c5cqQ__NYa0&si=Wi_w1pEsPndq_CG7",
+
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/zamidar-dolesmusic.webp",
+  },
+  {
     song: "OCD",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
@@ -421,8 +439,11 @@ export const hiphop = [
     Master: "Jos Hermes",
     Spotify:
       "https://open.spotify.com/track/1P1itIFk7FxKvAHn8LrwAe?si=N52LqBzISOicmDfuWAgCwg&context=spotify%3Aalbum%3A0FMCKdK8uD1DsbGQBEsM8R",
-    AppleMusic: "",
-    Youtube: "",
+    AppleMusic:
+      "https://music.apple.com/us/album/hisaab/1751250794?i=1751250795",
+    Youtube:
+      "https://music.youtube.com/watch?v=sJhYqIu-7Bg&si=3P9jVgGBY3Kl-AIW",
+    released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/meraki2-recovered.jpeg",
   },
   {
@@ -472,6 +493,32 @@ export const hiphop = [
 
 export const upcoming = [
   {
+    song: "2 Lafz",
+    artist: "SSD, Mayyank Solanki, Garvit Soni",
+    Producer: "Doleshwar Raj & Mayyank Solanki",
+    Mix: "Shreedhar, TSM Studios",
+    Master: "Shreedhar, TSM Studios",
+    Spotify: "",
+    AppleMusic: "",
+    Youtube: "",
+    released: false,
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
+  },
+  {
+    song: "Zamidaar",
+    artist: "Mama Beats & Meraki",
+    Producer: "Mama Beats",
+    Mix: "Jos Hermes",
+    Master: "Jos Hermes",
+    Spotify:
+      "https://open.spotify.com/track/6QFBS1xAVeK1UBkulqaCYj?si=O8xJ2ZlTQ0Czp9VsEx2PLA&context=spotify%3Aalbum%3A3tmOPDx0eCSb0NY0wYXRZw",
+    AppleMusic: "",
+    Youtube:
+      "https://music.youtube.com/watch?v=c5cqQ__NYa0&si=Wi_w1pEsPndq_CG7",
+    released: true,
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/zamidar-dolesmusic.webp",
+  },
+  {
     song: "Hisaab",
     artist: "Meraki",
     Producer: "Doleshwar Raj",
@@ -479,8 +526,10 @@ export const upcoming = [
     Master: "Jos Hermes",
     Spotify:
       "https://open.spotify.com/track/1P1itIFk7FxKvAHn8LrwAe?si=N52LqBzISOicmDfuWAgCwg&context=spotify%3Aalbum%3A0FMCKdK8uD1DsbGQBEsM8R",
-    AppleMusic: "",
-    Youtube: "",
+    AppleMusic:
+      "https://music.apple.com/us/album/hisaab/1751250794?i=1751250795",
+    Youtube:
+      "https://music.youtube.com/watch?v=sJhYqIu-7Bg&si=3P9jVgGBY3Kl-AIW",
     released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/meraki2-recovered.jpeg",
   },
@@ -488,10 +537,11 @@ export const upcoming = [
     song: "Mera Kaun",
     artist: "Fatt Guy",
     Producer: "Doleshwar Raj",
-    Spotify: "",
-    AppleMusic: "",
-    Youtube: "",
-    released: false,
+    Spotify:
+      "https://open.spotify.com/album/05NLDJ7Wytg8kja9UcODRi?si=Slf1kdxQQ--bbUNfra_d3Q",
+    AppleMusic: "https://music.apple.com/in/album/mera-kaun-single/1749410161",
+    Youtube: "https://youtu.be/9it4R6Fkups?si=f19y5j9PeZZLAjwK",
+    released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/merakaun.jpeg",
   },
   {
@@ -500,42 +550,31 @@ export const upcoming = [
     Producer: "Doleshwar Raj",
     Mix: "Shreedhar Sir, TSM Studios",
     Master: "Shreedhar Sir, TSM Studios",
-    Spotify: "",
-    AppleMusic: "",
+    Spotify:
+      "https://open.spotify.com/track/5CaPgId3s42Etq8gTsSBuN?si=e5994d0d04b24393",
+    AppleMusic: "https://music.apple.com/in/album/rozaana-single/1752645153",
     Youtube: "",
-    released: false,
+    released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/rozana1500w.jpg",
   },
-  {
-    song: "Kiddies",
-    artist: "Fat Guyy",
-    released: true,
-    Spotify:
-      "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
-    Producer: "Doleshwar Raj",
-    Mix: "Gautam Khandelwal",
-    Spotify:
-      "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
-    AppleMusic:
-      "https://music.apple.com/in/album/kiddies/1744394684?i=1744394685",
-    Youtube:
-      "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
-    imageUrl:
-      process.env.NEXT_PUBLIC_API_URL +
-      "/SmartSelect_20240505_154021_YouTube_Music.jpg",
-  },
-  {
-    song: "OCD",
-    artist: "Meraki",
-    Producer: "Doleshwar Raj",
-    Mix: "Jos Hermes",
-    Master: "Jos Hermes",
-    Spotify: "https://open.spotify.com/track/259BXfHJ0yknxcTU1bTeGk",
-    AppleMusic: "https://music.apple.com/md/album/ocd-single/1744311632",
-    Youtube: "https://www.youtube.com/watch?v=cuI-TuWA1lg",
-    released: true,
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/ocd1.jpg",
-  },
+  // {
+  //   song: "Kiddies",
+  //   artist: "Fat Guyy",
+  //   released: true,
+  //   Spotify:
+  //     "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
+  //   Producer: "Doleshwar Raj",
+  //   Mix: "Gautam Khandelwal",
+  //   Spotify:
+  //     "https://open.spotify.com/track/0RuUKK6PciL1af8euocNQD?si=b8b936332a8246a6",
+  //   AppleMusic:
+  //     "https://music.apple.com/in/album/kiddies/1744394684?i=1744394685",
+  //   Youtube:
+  //     "https://music.youtube.com/watch?v=3k7e0HFlWIs&si=IJekO8igcFYXpO_l",
+  //   imageUrl:
+  //     process.env.NEXT_PUBLIC_API_URL +
+  //     "/SmartSelect_20240505_154021_YouTube_Music.jpg",
+  // },
 ];
 
 // export const songsAtrangi = [
