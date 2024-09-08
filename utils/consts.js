@@ -224,8 +224,10 @@ export const pop = [
     Producer: "Doleshwar Raj & Mayyank Solanki",
     Mix: "Shreedhar, TSM Studios",
     Master: "Shreedhar, TSM Studios",
-    Spotify: "",
-    AppleMusic: "",
+    Spotify:
+      "https://open.spotify.com/track/5gOXh5Vw4OxmzMi7ZQLlBd?si=8e4a12403dca48f9",
+    AppleMusic:
+      "https://music.apple.com/in/album/do-lafz/1759150820?i=1759150821",
     Youtube: "",
     released: false,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
@@ -498,8 +500,10 @@ export const upcoming = [
     Producer: "Doleshwar Raj & Mayyank Solanki",
     Mix: "Shreedhar, TSM Studios",
     Master: "Shreedhar, TSM Studios",
-    Spotify: "",
-    AppleMusic: "",
+    Spotify:
+      "https://open.spotify.com/track/5gOXh5Vw4OxmzMi7ZQLlBd?si=8e4a12403dca48f9",
+    AppleMusic:
+      "https://music.apple.com/in/album/do-lafz/1759150820?i=1759150821",
     Youtube: "",
     released: false,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
