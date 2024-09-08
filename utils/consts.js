@@ -229,7 +229,7 @@ export const pop = [
     AppleMusic:
       "https://music.apple.com/in/album/do-lafz/1759150820?i=1759150821",
     Youtube: "",
-    released: false,
+    released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
   },
   {
@@ -505,7 +505,7 @@ export const upcoming = [
     AppleMusic:
       "https://music.apple.com/in/album/do-lafz/1759150820?i=1759150821",
     Youtube: "",
-    released: false,
+    released: true,
     imageUrl: process.env.NEXT_PUBLIC_API_URL + "/dolafz-dolesmusic.webp",
   },
   {
