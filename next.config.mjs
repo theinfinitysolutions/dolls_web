@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {
@@ -12,9 +14,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "d26cxpggxycgjx.cloudfront.net",
+      },
+      {
+        protocol: "https",
         hostname: "mystorage1.blr1.cdn.digitaloceanspaces.com",
       },
     ],
+    unoptimized: true,
   },
   async headers() {
     return [

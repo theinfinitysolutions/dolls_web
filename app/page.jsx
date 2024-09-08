@@ -238,7 +238,7 @@ const Home = () => {
         id="home"
         className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between"
       >
-        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[12.5vh] w-full h-[90vh] -left-[70vw] lg:-left-[55vw] z-0 ">
+        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[10vh] w-full h-[90vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
             layout="fill"
@@ -266,7 +266,7 @@ const Home = () => {
           />
         </a>
 
-        <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[95vh] lg:h-[95vh] overflow-hidden">
+        <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[95vh] lg:h-[100vh] overflow-hidden">
           {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
           <a
             href=""
