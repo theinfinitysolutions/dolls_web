@@ -73,7 +73,7 @@ const Navbar = () => {
             {"Dole's Music /"}
           </a>
           <p className=" text-sm text-red-500 ml-1 mt-1">
-            {navbarItems.find((item) => item.link == path)?.title}
+            {navbarItems.find((item) => `${item.link}/` == path)?.title}
           </p>
         </div>
         <div className="flex flex-row justify-around items-center w-5/12 lg:w-2/12">

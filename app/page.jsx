@@ -431,7 +431,7 @@ const Home = () => {
                     </p>
                   </div>
                   {upcoming[0].released ? (
-                    <div className="flex flex-row justify-around items-center mt-4 w-full ">
+                    <div className="flex flex-row justify-center gap-x-4 items-center mt-4 w-full ">
                       {upcoming[0].AppleMusic.length > 0 && (
                         <a
                           onMouseEnter={() => {
