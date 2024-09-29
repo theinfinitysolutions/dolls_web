@@ -48,27 +48,27 @@ const Navbar = () => {
         <div className="flex flex-row items-center">
           {path != "/" ? (
             <a
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               href="/"
-              className="text-xl  mr-2  text-white "
+              className="text-xl  mr-2  text-white cursor-pointer "
             >
-              <IoMdArrowBack className="text-xl" />
+              <IoMdArrowBack className="text-xl cursor-pointer" />
             </a>
           ) : null}
           <a
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
             href="/"
-            className=" text-lg lg:text-xl text-white "
+            className=" text-lg lg:text-xl text-white cursor-pointer"
           >
             {"Dole's Music /"}
           </a>
@@ -78,52 +78,57 @@ const Navbar = () => {
         </div>
         <div className="flex flex-row justify-around items-center w-5/12 lg:w-2/12">
           <a
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
             href={"https://music.apple.com/in/artist/doleshwar-raj/1747343701"}
             target="_blank"
+            className="cursor-pointer"
           >
             <SiApplemusic className=" text-base lg:text-xl " />
           </a>
           <a
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
             href="https://www.youtube.com/c/AtrangiFunkaar"
             target="_blank"
+            className=" cursor-pointer"
           >
-            <AiFillYoutube className=" text-base lg:text-xl " />
+            <AiFillYoutube className=" text-base lg:text-xl cursor-pointer " />
           </a>
 
           <a
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
             href="https://open.spotify.com/playlist/6iehjmMgDPjf9v0NeS3iJW?si=pDWOhU8DToKmfi_1S9Ma0w"
             target="_blank"
+            className=" cursor-pointer"
           >
             <FaSpotify className=" text-base lg:text-xl " />
           </a>
 
           <a
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
             href="https://wynk.in/music/artist/doleshwar-raj/wa_5qYTFSKcgg"
             target="_blank"
+            className=" cursor-pointer"
+            x
           >
             <Image
               src="/wynk.png"

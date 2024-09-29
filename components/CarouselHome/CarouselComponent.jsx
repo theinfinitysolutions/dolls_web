@@ -54,17 +54,17 @@ const CarouselComponent = ({ eventsDisabled }) => {
       className="flex flex-col items-start lg:max-h-[80vh] h-[45vh] lg:h-[80vh] w-[100vw] lg:w-[50vw] "
     >
       <Canvas
-        onMouseEnter={() => {
-          setCurrentPointer("i");
-        }}
-        onMouseLeave={() => {
-          setCurrentPointer("");
-        }}
+        // onMouseEnter={() => {
+        //   setCurrentPointer("i");
+        // }}
+        // onMouseLeave={() => {
+        //   setCurrentPointer("");
+        // }}
         camera={{
           position: [0, 0, 100],
           fov: isHeightGreaterThanWidth ? 17 : 15,
         }}
-        className="w-10/12 lg:w-[50vw] h-[50vh] lg:h-[80vh] bg-transparent items-start "
+        className="w-10/12 lg:w-[50vw] h-[50vh] lg:h-[80vh] bg-transparent items-start cursor-pointer "
       >
         <fog attach="fog" args={["#a79", 8.5, 12]} />
 

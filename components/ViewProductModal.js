@@ -52,12 +52,12 @@ export default function ViewProductModal() {
                 {music[currentSong].genre}
               </h3>
               <a
-                onMouseEnter={() => {
-                  setCurrentPointer("a");
-                }}
-                onMouseLeave={() => {
-                  setCurrentPointer("");
-                }}
+                // onMouseEnter={() => {
+                //   setCurrentPointer("a");
+                // }}
+                // onMouseLeave={() => {
+                //   setCurrentPointer("");
+                // }}
                 onClick={() => {
                   setShowSongsModal({
                     open: false,
@@ -66,7 +66,7 @@ export default function ViewProductModal() {
                   setOpen(false);
                   setCurrentPointer("");
                 }}
-                className=""
+                className=" cursor-pointer"
               >
                 <IoClose className="text-white text-3xl" />
               </a>
@@ -101,41 +101,44 @@ export default function ViewProductModal() {
                           <div className="flex flex-col items-center justify-center h-full w-full">
                             <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={song.Spotify}
                                 target="_blank"
                                 rel="noreferrer"
+                                className="cursor-pointer"
                               >
                                 <FaSpotify size={18} color="#fff" />
                               </a>
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={song.AppleMusic}
                                 target="_blank"
                                 rel="noreferrer"
+                                className="cursor-pointer"
                               >
                                 <SiApplemusic size={18} color="#fff" />
                               </a>
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={song.Youtube}
                                 target="_blank"
                                 rel="noreferrer"
+                                className="cursor-pointer"
                               >
                                 <SiYoutubemusic size={18} color="#fff" />
                               </a>

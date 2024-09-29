@@ -51,12 +51,12 @@ export const CardStack = () => {
             >
               <div className="relative h-full w-full">
                 <Image
-                  onMouseEnter={() => {
-                    setCurrentPointer("i");
-                  }}
-                  onMouseLeave={() => {
-                    setCurrentPointer("");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setCurrentPointer("i");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setCurrentPointer("");
+                  // }}
                   src={`/dolls${color}.jpeg`}
                   className=""
                   layout="fill"
