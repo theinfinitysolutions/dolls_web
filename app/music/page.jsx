@@ -146,9 +146,9 @@ const Music = () => {
                       //   setCurrentGroup(-1);
                       //   setCurrentSong({});
                       // }}
-                      // key={songIndex}
                       // onMouseOver={handleMouseOver}
                       // onMouseOut={handleMouseOut}
+                      key={songIndex}
                       className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw] "
                     >
                       <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw] group mt-4 overflow-hidden relative">
