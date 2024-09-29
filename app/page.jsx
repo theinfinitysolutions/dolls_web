@@ -36,7 +36,7 @@ const FAST_DURATION = 50;
 const SLOW_DURATION = 10000;
 
 let navbarClass =
-  "relative text-white text-base lg:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-none";
+  "relative text-white text-base lg:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-pointer";
 
 function debounce(func, timeout = 300) {
   let timer;
