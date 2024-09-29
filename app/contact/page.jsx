@@ -161,14 +161,14 @@ const ContactUs = () => {
                   <button
                     disabled={errors.name || errors.email || errors.message}
                     type="submit"
-                    onMouseEnter={() => {
-                      setCurrentPointer("a");
-                    }}
-                    onMouseLeave={() => {
-                      setCurrentPointer("");
-                    }}
+                    // onMouseEnter={() => {
+                    //   setCurrentPointer("a");
+                    // }}
+                    // onMouseLeave={() => {
+                    //   setCurrentPointer("");
+                    // }}
                     id="submit-button"
-                    className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-20 lg:mt-8 "
+                    className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-20 lg:mt-8 cursor-pointer "
                   >
                     {loading ? "..." : "Submit"}
                   </button>
@@ -188,41 +188,44 @@ const ContactUs = () => {
           <p>Reach out to us on our Social media</p>
           <div className=" w-4/12 flex flex-row justify-between mt-4 lg:mt-8">
             <a
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               href="https://www.instagram.com/doleshwar_raj/"
               target="_blank"
               rel="noreferrer"
+              className="cursor-pointer"
             >
               <FaInstagram size={24} color="#fff" />
             </a>
             <a
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               href="https://www.facebook.com"
               target="_blank"
               rel="noreferrer"
+              className="cursor-pointer"
             >
               <FaFacebook size={24} color="#fff" />
             </a>
             <a
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               href="https://www.twitter.com"
               target="_blank"
               rel="noreferrer"
+              className="cursor-pointer"
             >
               <FaTwitter size={24} color="#fff" />
             </a>

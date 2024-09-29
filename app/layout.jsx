@@ -21,6 +21,7 @@ import RandomCursor from "@/components/RandomCursor";
 import { usePathname } from "next/navigation";
 import localFont from "next/font/local";
 import ViewProductModal from "@/components/ViewProductModal";
+import Script from "next/script";
 
 export const gazpacho_black = localFont({
   src: "../public/gazpacho_black.ttf",
@@ -70,27 +71,27 @@ let title = "DOLE'S MUSIC";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const cursorRef = useRef(null);
-  const currentPointer = useStore((state) => state.currentPointer);
-  const setCurrentPointer = useStore((state) => state.setCurrentPointer);
+  // const cursorRef = useRef(null);
+  // const currentPointer = useStore((state) => state.currentPointer);
+  // const setCurrentPointer = useStore((state) => state.setCurrentPointer);
   const { showModal, setShowModal, showSongsModal } = useStore();
 
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      const cursor = cursorRef.current;
-      if (cursor) {
-        cursor.style.left = `${event.clientX}px`;
-        cursor.style.top = `${event.clientY + window.scrollY}px`;
-      }
-    };
+  // useEffect(() => {
+  //   const handleMouseMove = (event) => {
+  //     const cursor = cursorRef.current;
+  //     if (cursor) {
+  //       cursor.style.left = `${event.clientX}px`;
+  //       cursor.style.top = `${event.clientY + window.scrollY}px`;
+  //     }
+  //   };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("scroll", handleMouseMove);
+  //   document.addEventListener("mousemove", handleMouseMove);
+  //   document.addEventListener("scroll", handleMouseMove);
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (showModal) {
@@ -141,7 +142,7 @@ export default function RootLayout({ children }) {
           </div>
         ) : null}
 
-        <div
+        {/* <div
           ref={cursorRef}
           style={{ zIndex: 100, pointerEvents: "none" }}
           className={`hidden lg:flex cursor-alt absolute  ${
@@ -157,7 +158,7 @@ export default function RootLayout({ children }) {
           ) : (
             <RandomCursor />
           )}
-        </div>
+        </div> */}
         <div className=" hidden md:block fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
             src={"/bgimg.jpeg"}
@@ -183,6 +184,34 @@ export default function RootLayout({ children }) {
         <Footer />
         <JoinUsModal />
         <ViewProductModal />
+        {/* Facebook pixel */}
+        <Script
+          id="facebook-pixel"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1561896404682590');
+          fbq('track', 'PageView');
+        `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=1561896404682590&ev=PageView&noscript=1`}
+            alt="Facebook Pixel"
+          />
+        </noscript>
       </body>
     </html>
   );

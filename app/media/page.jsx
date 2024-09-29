@@ -108,12 +108,12 @@ const Media = () => {
         <div className="flex flex-col items-start w-[90vw] mt-8">
           <div className="flex flex-col lg:flex-row w-full justify-between items-center">
             <div
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               className=" w-full lg:w-[57.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
               <div className="circle -bottom-1/2 -right-1/2 absolute" />
@@ -144,12 +144,12 @@ const Media = () => {
               </div>
             </div>
             <div
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               className=" w-full  mt-8 lg:mt-0  lg:w-[40%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
               <div className="circle -bottom-1/2 -right-1/2 absolute" />
@@ -182,12 +182,12 @@ const Media = () => {
           </div>
           <div className="flex flex-col lg:flex-row w-full justify-between items-center mt-8">
             <div
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               className="w-full lg:w-[48.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
               <div className="circle -bottom-1/2 -right-1/2 absolute" />
@@ -218,12 +218,12 @@ const Media = () => {
               </div>
             </div>
             <div
-              onMouseEnter={() => {
-                setCurrentPointer("a");
-              }}
-              onMouseLeave={() => {
-                setCurrentPointer("");
-              }}
+              // onMouseEnter={() => {
+              //   setCurrentPointer("a");
+              // }}
+              // onMouseLeave={() => {
+              //   setCurrentPointer("");
+              // }}
               className=" w-full  mt-8 lg:mt-0  lg:w-[48.5%] flex flex-row justify-between overflow-hidden relative items-center border-[1px] border-[#c7c7c7]/40"
             >
               <div className="circle -bottom-1/2 -right-1/2 absolute" />
@@ -287,12 +287,12 @@ const Media = () => {
                         justifyContent: "center",
                         zIndex: 10,
                       }}
-                      onMouseEnter={() => {
-                        setCurrentPointer("a");
-                      }}
-                      onMouseLeave={() => {
-                        setCurrentPointer("");
-                      }}
+                      // onMouseEnter={() => {
+                      //   setCurrentPointer("a");
+                      // }}
+                      // onMouseLeave={() => {
+                      //   setCurrentPointer("");
+                      // }}
                     >
                       <InstagramEmbed height={600} width={330} url={item} />
                     </div>
@@ -324,12 +324,12 @@ const Media = () => {
                         justifyContent: "center",
                         zIndex: 10,
                       }}
-                      onMouseEnter={() => {
-                        setCurrentPointer("a");
-                      }}
-                      onMouseLeave={() => {
-                        setCurrentPointer("");
-                      }}
+                      // onMouseEnter={() => {
+                      //   setCurrentPointer("a");
+                      // }}
+                      // onMouseLeave={() => {
+                      //   setCurrentPointer("");
+                      // }}
                     >
                       <InstagramEmbed height={600} width={330} url={item} />
                     </div>
@@ -368,12 +368,12 @@ const Media = () => {
                     {[30, 35, 37].includes(idx + 1) ? null : (
                       <div
                         key={idx}
-                        onMouseEnter={() => {
-                          setCurrentPointer("i");
-                        }}
-                        onMouseLeave={() => {
-                          setCurrentPointer("");
-                        }}
+                        // onMouseEnter={() => {
+                        //   setCurrentPointer("i");
+                        // }}
+                        // onMouseLeave={() => {
+                        //   setCurrentPointer("");
+                        // }}
                         className=" w-[40vw] h-[40vw] border-[0.15px] border-[#c7c7c7]/30 lg:h-[20vw] lg:w-[20vw] relative bg-black/80"
                       >
                         <Image

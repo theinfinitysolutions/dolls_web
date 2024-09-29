@@ -91,14 +91,14 @@ const ExlcusiveMusic = () => {
                         behavior: "smooth",
                       });
                     }}
-                    onMouseEnter={() => {
-                      setCurrentPointer("a");
-                    }}
-                    onMouseLeave={() => {
-                      setCurrentPointer("");
-                    }}
+                    // onMouseEnter={() => {
+                    //   setCurrentPointer("a");
+                    // }}
+                    // onMouseLeave={() => {
+                    //   setCurrentPointer("");
+                    // }}
                     id="play-button"
-                    className="flex flex-col items-center justify-center mx-4"
+                    className="flex flex-col items-center justify-center mx-4 cursor-pointer"
                   >
                     {selected == index ? (
                       <LuPause className="text-white  text-2xl" />
@@ -114,12 +114,12 @@ const ExlcusiveMusic = () => {
             <div className="h-[30vh] w-[30vh] group mt-4 relative">
               <div className="h-[30vh] w-[30vh]  mt-4 absolute z-20">
                 <Image
-                  onMouseEnter={() => {
-                    setCurrentPointer("i");
-                  }}
-                  onMouseLeave={() => {
-                    setCurrentPointer("");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setCurrentPointer("i");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setCurrentPointer("");
+                  // }}
                   src={process.env.NEXT_PUBLIC_API_URL + `/exclusive${2}.jpeg`}
                   layout="fill"
                   objectFit="cover"

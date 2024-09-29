@@ -32,25 +32,6 @@ const images = [
   "/dolls5.jpeg",
 ];
 
-let songlist = [
-  {
-    title: "OCD",
-    artist: "Meraki",
-  },
-  {
-    title: "Tere Aankhon Se",
-    artist: "Abhisehk Nirwan",
-  },
-  {
-    title: "Kya Karu",
-    artist: "Param",
-  },
-  {
-    title: "Maula",
-    artist: "Ajay Tewari",
-  },
-];
-
 const FAST_DURATION = 50;
 const SLOW_DURATION = 10000;
 
@@ -129,47 +110,6 @@ const Home = () => {
       }, 2000);
     }
   }, [emailSent]);
-
-  const TextEffect = (id) => {
-    let interval = null;
-    let doc = document.getElementById(id);
-    let iteration = 0;
-
-    clearInterval(interval);
-
-    interval = setInterval(() => {
-      if (!doc) {
-        clearInterval(interval);
-        return;
-      }
-      if (doc.inertText) {
-        doc.innerText = doc.innerText
-          .split("")
-          .map((letter, index) => {
-            if (index < iteration) {
-              return doc.dataset.value[index];
-            }
-
-            return letters[Math.floor(Math.random() * 16)];
-          })
-          .join("");
-
-        if (iteration >= doc.dataset.value.length) {
-          clearInterval(interval);
-        }
-
-        iteration += 1 / 3;
-      }
-    }, 30);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      list.forEach((item) => {
-        TextEffect(item);
-      });
-    }, [2000]);
-  }, []);
 
   useEffect(() => {
     let controls;
@@ -250,13 +190,13 @@ const Home = () => {
 
         <a
           href="/contact"
-          onMouseEnter={() => {
-            setCurrentPointer("a");
-          }}
-          onMouseLeave={() => {
-            setCurrentPointer("");
-          }}
-          className=" fixed animate-rotate2 right-4 z-50 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] "
+          // onMouseEnter={() => {
+          //   setCurrentPointer("a");
+          // }}
+          // onMouseLeave={() => {
+          //   setCurrentPointer("");
+          // }}
+          className=" fixed animate-rotate2 right-4 z-50 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] cursor-pointer "
         >
           <Image
             src={"/asset2.png"}
@@ -267,7 +207,6 @@ const Home = () => {
         </a>
 
         <div className="flex flex-col w-screen items-center relative justify-center lg:max-h-screen min-h-[95vh] lg:h-[100vh] overflow-hidden">
-          {/* <div className="circle2 absolute right-[40vw] top-1/2 -z-10" /> */}
           <a
             href=""
             onClick={() => {
@@ -276,13 +215,13 @@ const Home = () => {
                 duration: 1000,
               });
             }}
-            onMouseEnter={() => {
-              setCurrentPointer("a");
-            }}
-            onMouseLeave={() => {
-              setCurrentPointer("");
-            }}
-            className="  absolute left-[40%] lg:left-[47.5%] flex flex-row items-center bottom-4 lg:bottom-8 animate-bounce z-50"
+            // onMouseEnter={() => {
+            //   setCurrentPointer("a");
+            // }}
+            // onMouseLeave={() => {
+            //   setCurrentPointer("");
+            // }}
+            className="  absolute left-[40%] lg:left-[47.5%] flex flex-row items-center bottom-4 lg:bottom-8 animate-bounce z-50 cursor-pointer"
           >
             <p className={`text-sm ${orbitron.className}`}>Scroll Down</p>
             <RiArrowRightDownLine className="text-white" />
@@ -311,12 +250,12 @@ const Home = () => {
                 <div className="flex flex-row justify-between w-9/12 lg:w-[17.5vw] mt-4">
                   {list.map((item, index) => (
                     <Link
-                      onMouseEnter={() => {
-                        setCurrentPointer("a");
-                      }}
-                      onMouseLeave={() => {
-                        setCurrentPointer("");
-                      }}
+                      // onMouseEnter={() => {
+                      //   setCurrentPointer("a");
+                      // }}
+                      // onMouseLeave={() => {
+                      //   setCurrentPointer("");
+                      // }}
                       href={"/" + item.toLowerCase()}
                       key={index}
                       id={item.toLowerCase()}
@@ -434,42 +373,45 @@ const Home = () => {
                     <div className="flex flex-row justify-center gap-x-4 items-center mt-4 w-full ">
                       {upcoming[0].AppleMusic.length > 0 && (
                         <a
-                          onMouseEnter={() => {
-                            setCurrentPointer("a");
-                          }}
-                          onMouseLeave={() => {
-                            setCurrentPointer("");
-                          }}
+                          // onMouseEnter={() => {
+                          //   setCurrentPointer("a");
+                          // }}
+                          // onMouseLeave={() => {
+                          //   setCurrentPointer("");
+                          // }}
                           href={upcoming[0].AppleMusic}
                           target="_blank"
+                          className="cursor-pointer"
                         >
                           <SiApplemusic className="text-base " />
                         </a>
                       )}
                       {upcoming[0].Youtube.length > 0 && (
                         <a
-                          onMouseEnter={() => {
-                            setCurrentPointer("a");
-                          }}
-                          onMouseLeave={() => {
-                            setCurrentPointer("");
-                          }}
+                          // onMouseEnter={() => {
+                          //   setCurrentPointer("a");
+                          // }}
+                          // onMouseLeave={() => {
+                          //   setCurrentPointer("");
+                          // }}
                           href={upcoming[0].Youtube}
                           target="_blank"
+                          className="cursor-pointer"
                         >
                           <AiFillYoutube className="text-base" />
                         </a>
                       )}
                       {upcoming[0].Spotify.length > 0 && (
                         <a
-                          onMouseEnter={() => {
-                            setCurrentPointer("a");
-                          }}
-                          onMouseLeave={() => {
-                            setCurrentPointer("");
-                          }}
+                          // onMouseEnter={() => {
+                          //   setCurrentPointer("a");
+                          // }}
+                          // onMouseLeave={() => {
+                          //   setCurrentPointer("");
+                          // }}
                           href={upcoming[0].Spotify}
                           target="_blank"
+                          className="cursor-pointer"
                         >
                           <FaSpotify className="text-base" />
                         </a>
@@ -492,18 +434,18 @@ const Home = () => {
                   return (
                     <div
                       key={index}
-                      onMouseEnter={() => {
-                        setIsHovered(true);
-                        setCurrentGroup(index);
-                        setCurrentSong(item);
-                      }}
-                      onMouseLeave={() => {
-                        setIsHovered(false);
-                        setCurrentGroup(-1);
-                        setCurrentSong({});
-                      }}
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
+                      // onMouseEnter={() => {
+                      //   setIsHovered(true);
+                      //   setCurrentGroup(index);
+                      //   setCurrentSong(item);
+                      // }}
+                      // onMouseLeave={() => {
+                      //   setIsHovered(false);
+                      //   setCurrentGroup(-1);
+                      //   setCurrentSong({});
+                      // }}
+                      // onMouseOver={handleMouseOver}
+                      // onMouseOut={handleMouseOut}
                       className="flex flex-row justify-between p-2 border-[0.25px] overflow-hidden z-20 border-[#666666] mb-4 w-full"
                     >
                       <div className="flex flex-row items-center">
@@ -528,42 +470,45 @@ const Home = () => {
                           <div className="flex flex-row justify-end gap-x-6 lg:gap-x-8 mr-4 lg:mr-8 items-center w-full ">
                             {item.AppleMusic.length > 0 && (
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={item.AppleMusic}
                                 target="_blank"
+                                className="cursor-pointer"
                               >
                                 <SiApplemusic className="text-sm " />
                               </a>
                             )}
                             {item.Youtube.length > 0 && (
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={item.Youtube}
                                 target="_blank"
+                                className="cursor-pointer"
                               >
                                 <AiFillYoutube className="text-sm" />
                               </a>
                             )}
                             {item.Spotify.length > 0 && (
                               <a
-                                onMouseEnter={() => {
-                                  setCurrentPointer("a");
-                                }}
-                                onMouseLeave={() => {
-                                  setCurrentPointer("");
-                                }}
+                                // onMouseEnter={() => {
+                                //   setCurrentPointer("a");
+                                // }}
+                                // onMouseLeave={() => {
+                                //   setCurrentPointer("");
+                                // }}
                                 href={item.Spotify}
                                 target="_blank"
+                                className="cursor-pointer"
                               >
                                 <FaSpotify className="text-sm" />
                               </a>
@@ -601,13 +546,13 @@ const Home = () => {
                 })}
                 <div className=" w-full flex mt-4 flex-row justify-end items-center">
                   <a
-                    onMouseEnter={() => {
-                      setCurrentPointer("a");
-                    }}
-                    onMouseLeave={() => {
-                      setCurrentPointer("");
-                    }}
-                    className=" text-white hover:underline leading-8 text-sm lg:text-base"
+                    // onMouseEnter={() => {
+                    //   setCurrentPointer("a");
+                    // }}
+                    // onMouseLeave={() => {
+                    //   setCurrentPointer("");
+                    // }}
+                    className=" text-white hover:underline leading-8 text-sm lg:text-base cursor-pointer"
                     href="/music"
                   >
                     Check out our comlpete music catalog
@@ -664,12 +609,12 @@ const Home = () => {
                       whileHover={{ scale: 1.1 }}
                     >
                       <Image
-                        onMouseEnter={() => {
-                          setCurrentPointer("i");
-                        }}
-                        onMouseLeave={() => {
-                          setCurrentPointer("");
-                        }}
+                        // onMouseEnter={() => {
+                        //   setCurrentPointer("i");
+                        // }}
+                        // onMouseLeave={() => {
+                        //   setCurrentPointer("");
+                        // }}
                         src={
                           process.env.NEXT_PUBLIC_API_URL +
                           `/dolls${idx + 10}.jpeg`
@@ -782,14 +727,14 @@ const Home = () => {
                       errors.phoneNumber
                     }
                     type="submit"
-                    onMouseEnter={() => {
-                      setCurrentPointer("a");
-                    }}
+                    // onMouseEnter={() => {
+                    //   setCurrentPointer("a");
+                    // }}
+                    // onMouseLeave={() => {
+                    //   setCurrentPointer("");
+                    // }}
                     id="submit-button"
-                    onMouseLeave={() => {
-                      setCurrentPointer("");
-                    }}
-                    className="bg-red-800 z-20 disabled:bg-gray-700 text-white px-8 py-2 mt-8 "
+                    className="bg-red-800 z-20 disabled:bg-gray-700 text-white px-8 py-2 mt-8 cursor-pointer "
                   >
                     {loading ? "..." : "Submit"}
                   </button>
@@ -817,12 +762,12 @@ const Home = () => {
                 />
               ) : (
                 <Image
-                  onMouseEnter={() => {
-                    setCurrentPointer("i");
-                  }}
-                  onMouseLeave={() => {
-                    setCurrentPointer("");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setCurrentPointer("i");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setCurrentPointer("");
+                  // }}
                   src={"/song1.jpeg"}
                   layout="fill"
                   objectFit="cover"

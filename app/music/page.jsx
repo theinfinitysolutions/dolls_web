@@ -81,12 +81,12 @@ const Music = () => {
                 className="flex flex-col lg:flex-row w-full h-full lg:h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
                 <a
-                  onMouseEnter={() => {
-                    setCurrentPointer("a");
-                  }}
-                  onMouseLeave={() => {
-                    setCurrentPointer("");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setCurrentPointer("a");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setCurrentPointer("");
+                  // }}
                   onClick={() => {
                     setShowSongsModal({
                       open: true,
@@ -94,7 +94,7 @@ const Music = () => {
                     });
                     console.log("showSongsModal");
                   }}
-                  className="px-4 py-2 absolute right-0 top-0 z-40 bg-white"
+                  className="px-4 py-2 absolute right-0 top-0 z-40 bg-white cursor-pointer"
                 >
                   <p className="text-black text-sm">View All</p>
                 </a>
@@ -136,20 +136,20 @@ const Music = () => {
                   {[...item.songs, ...item.songs].map((song, songIndex) => (
                     <div
                       data-song="Song Name"
-                      onMouseEnter={() => {
-                        setIsHovered(true);
-                        setCurrentGroup(index);
-                        setCurrentSong(song);
-                      }}
-                      onMouseLeave={() => {
-                        setIsHovered(false);
-                        setCurrentGroup(-1);
-                        setCurrentSong({});
-                      }}
-                      key={songIndex}
-                      onMouseOver={handleMouseOver}
-                      onMouseOut={handleMouseOut}
-                      className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
+                      // onMouseEnter={() => {
+                      //   setIsHovered(true);
+                      //   setCurrentGroup(index);
+                      //   setCurrentSong(song);
+                      // }}
+                      // onMouseLeave={() => {
+                      //   setIsHovered(false);
+                      //   setCurrentGroup(-1);
+                      //   setCurrentSong({});
+                      // }}
+                      // key={songIndex}
+                      // onMouseOver={handleMouseOver}
+                      // onMouseOut={handleMouseOut}
+                      className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw] "
                     >
                       <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw] group mt-4 overflow-hidden relative">
                         <div className=" h-[25vw] w-[25vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
@@ -173,41 +173,44 @@ const Music = () => {
                             <div className="flex flex-col items-center justify-center h-full w-full">
                               <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                                 <a
-                                  onMouseEnter={() => {
-                                    setCurrentPointer("a");
-                                  }}
-                                  onMouseLeave={() => {
-                                    setCurrentPointer("");
-                                  }}
+                                  // onMouseEnter={() => {
+                                  //   setCurrentPointer("a");
+                                  // }}
+                                  // onMouseLeave={() => {
+                                  //   setCurrentPointer("");
+                                  // }}
                                   href={song.Spotify}
                                   target="_blank"
                                   rel="noreferrer"
+                                  className=" cursor-pointer"
                                 >
                                   <FaSpotify size={18} color="#fff" />
                                 </a>
                                 <a
-                                  onMouseEnter={() => {
-                                    setCurrentPointer("a");
-                                  }}
-                                  onMouseLeave={() => {
-                                    setCurrentPointer("");
-                                  }}
+                                  // onMouseEnter={() => {
+                                  //   setCurrentPointer("a");
+                                  // }}
+                                  // onMouseLeave={() => {
+                                  //   setCurrentPointer("");
+                                  // }}
                                   href={song.AppleMusic}
                                   target="_blank"
                                   rel="noreferrer"
+                                  className=" cursor-pointer"
                                 >
                                   <SiApplemusic size={18} color="#fff" />
                                 </a>
                                 <a
-                                  onMouseEnter={() => {
-                                    setCurrentPointer("a");
-                                  }}
-                                  onMouseLeave={() => {
-                                    setCurrentPointer("");
-                                  }}
+                                  // onMouseEnter={() => {
+                                  //   setCurrentPointer("a");
+                                  // }}
+                                  // onMouseLeave={() => {
+                                  //   setCurrentPointer("");
+                                  // }}
                                   href={song.Youtube}
                                   target="_blank"
                                   rel="noreferrer"
+                                  className=" cursor-pointer"
                                 >
                                   <SiYoutubemusic size={18} color="#fff" />
                                 </a>
@@ -267,41 +270,44 @@ const Music = () => {
                                 <div className="flex flex-col items-center justify-center h-full w-full">
                                   <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                                     <a
-                                      onMouseEnter={() => {
-                                        setCurrentPointer("a");
-                                      }}
-                                      onMouseLeave={() => {
-                                        setCurrentPointer("");
-                                      }}
+                                      // onMouseEnter={() => {
+                                      //   setCurrentPointer("a");
+                                      // }}
+                                      // onMouseLeave={() => {
+                                      //   setCurrentPointer("");
+                                      // }}
                                       href={song.Spotify}
                                       target="_blank"
                                       rel="noreferrer"
+                                      className=" cursor-pointer"
                                     >
                                       <FaSpotify size={18} color="#fff" />
                                     </a>
                                     <a
-                                      onMouseEnter={() => {
-                                        setCurrentPointer("a");
-                                      }}
-                                      onMouseLeave={() => {
-                                        setCurrentPointer("");
-                                      }}
+                                      // onMouseEnter={() => {
+                                      //   setCurrentPointer("a");
+                                      // }}
+                                      // onMouseLeave={() => {
+                                      //   setCurrentPointer("");
+                                      // }}
                                       href={song.AppleMusic}
                                       target="_blank"
                                       rel="noreferrer"
+                                      className=" cursor-pointer"
                                     >
                                       <SiApplemusic size={18} color="#fff" />
                                     </a>
                                     <a
-                                      onMouseEnter={() => {
-                                        setCurrentPointer("a");
-                                      }}
-                                      onMouseLeave={() => {
-                                        setCurrentPointer("");
-                                      }}
+                                      // onMouseEnter={() => {
+                                      //   setCurrentPointer("a");
+                                      // }}
+                                      // onMouseLeave={() => {
+                                      //   setCurrentPointer("");
+                                      // }}
                                       href={song.Youtube}
                                       target="_blank"
                                       rel="noreferrer"
+                                      className=" cursor-pointer"
                                     >
                                       <SiYoutubemusic size={18} color="#fff" />
                                     </a>
@@ -331,7 +337,7 @@ const Music = () => {
                         song: index,
                       });
                     }}
-                    className=" lg:hidden text-white underline "
+                    className=" lg:hidden text-white underline cursor-pointer "
                   >
                     View All
                   </a>
@@ -399,12 +405,12 @@ const Music = () => {
                 />
               ) : (
                 <Image
-                  onMouseEnter={() => {
-                    setCurrentPointer("i");
-                  }}
-                  onMouseLeave={() => {
-                    setCurrentPointer("");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setCurrentPointer("i");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setCurrentPointer("");
+                  // }}
                   src={"/song1.jpeg"}
                   layout="fill"
                   objectFit="cover"
