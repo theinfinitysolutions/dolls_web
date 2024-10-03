@@ -11,37 +11,63 @@ import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 
+const services = [
+  "Music Production",
+  "Mix-Master",
+  "AD Jingle",
+  "Callertunes/Ringtones",
+  "Voice Over",
+  "Post Production",
+  "Others",
+];
+
 const ContactUs = () => {
   const [loading, setLoading] = React.useState(false);
-
+  const [messageRequired, setMessageRequired] = React.useState(false);
   const [emailSent, setEmailSent] = React.useState(false);
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      purpose: "",
+      message: "",
+    },
+  });
+
   const { currentPointer, setCurrentPointer } = useStore();
 
   const onSubmit = (data) => {
     setLoading(true);
-    emailjs
-      .send(
-        "service_vyc3aph",
-        "template_vw3o9zp",
-        {
-          from_name: data.name,
-          from_email: data.email,
-          from_phoneNumber: data.phoneNumber,
-          from_message: data.message,
-        },
-        {
-          publicKey: "VV1JBQAmRXz7mALR7",
-        }
-      )
-      .then((res) => {
-        setEmailSent(true);
+    fetch(`https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              Name: data.name,
+              Email: data.email,
+              "Phone Number": data.phoneNumber,
+              "Purpose of Enquiry": data.purpose,
+              Message: data.message,
+            },
+          },
+        ],
+      }),
+    })
+      .then(() => {
         setLoading(false);
+        setEmailSent(true);
         reset();
       })
       .catch((err) => {
@@ -62,7 +88,7 @@ const ContactUs = () => {
     <Transition>
       <div
         id="contact"
-        className="flex flex-col max-w-screen max-h-[100vh] h-screen w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden"
+        className="flex flex-col max-w-screen h-full w-screen bg-black overflow-y-hidden relative items-center justify-center py-[5vh] overflow-hidden"
       >
         <div className="circle absolute  right-0 bottom-0" />
         <div className="circle -bottom-1/2 -right-1/2 absolute" />
@@ -86,7 +112,7 @@ const ContactUs = () => {
                 }
               </p>
             </RevealOnScroll>
-            <div className=" flex flex-col items-center w-full mt-4 lg:mt-[5vh]">
+            <div className=" flex flex-col items-center w-full mt-4 lg:mt-[2.5vh]">
               <form
                 id="contact-form"
                 onSubmit={handleSubmit(onSubmit)}
@@ -106,7 +132,7 @@ const ContactUs = () => {
                     </p>
                   ) : null}
                 </div>
-                <div className="flex flex-col items-center w-full mt-4">
+                <div className="flex flex-col items-center w-full mt-2">
                   <input
                     id="email"
                     type="email"
@@ -127,7 +153,7 @@ const ContactUs = () => {
                     </p>
                   ) : null}
                 </div>
-                <div className="flex flex-col items-center w-full mt-4">
+                <div className="flex flex-col items-center w-full mt-2">
                   <input
                     id="phoneNumber"
                     type="phoneNumber"
@@ -136,11 +162,47 @@ const ContactUs = () => {
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
-                <div className="flex flex-col items-center w-full mt-4">
+                <div className="flex flex-col items-center w-full mt-2">
+                  <select
+                    id="purpose"
+                    {...register("purpose", { required: true })}
+                    placeholder="Purpose of Enquiry*"
+                    onChange={(e) => {
+                      if (e.target.value == "Others") setMessageRequired(true);
+                      else setMessageRequired(false);
+                    }}
+                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                  >
+                    <option
+                      style={{
+                        color: "rgb(255 255 255 / 0.7)",
+                      }}
+                      value=""
+                      disabled
+                      selected
+                    >
+                      Purpose of Enquiry*
+                    </option>
+                    {services.map((service, index) => (
+                      <option key={index} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.purpose?.message ? (
+                    <p className=" text-xs text-red-500">
+                      {errors.purpose.message}
+                    </p>
+                  ) : null}
+                </div>
+
+                <div className="flex flex-col items-center w-full mt-2">
                   <textarea
                     id="message"
-                    placeholder="Message*"
-                    {...register("message", { required: true })}
+                    placeholder={`Message ${messageRequired ? "*" : ""}`}
+                    {...register("message", {
+                      required: messageRequired,
+                    })}
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (
@@ -153,7 +215,7 @@ const ContactUs = () => {
                   <button
                     type="submit"
                     disabled
-                    className="bg-green-400 text-white px-8 py-2 mt-8 "
+                    className="bg-green-400 text-white px-8 py-2 mt-4 "
                   >
                     Email Sent
                   </button>

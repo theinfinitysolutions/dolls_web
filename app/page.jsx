@@ -32,6 +32,16 @@ const images = [
   "/dolls5.jpeg",
 ];
 
+const services = [
+  "Music Production",
+  "Mix-Master",
+  "AD Jingle",
+  "Callertunes/Ringtones",
+  "Voice Over",
+  "Post Production",
+  "Others",
+];
+
 const FAST_DURATION = 50;
 const SLOW_DURATION = 10000;
 
@@ -59,7 +69,7 @@ const Home = () => {
   const location = useRef(null);
   const [mustFinish, setMustFinish] = useState(false);
   const [rerender, setRerender] = useState(false);
-
+  const [messageRequired, setMessageRequired] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   const [emailSent, setEmailSent] = React.useState(false);
@@ -78,23 +88,29 @@ const Home = () => {
 
   const onSubmit = (data) => {
     setLoading(true);
-    emailjs
-      .send(
-        "service_vyc3aph",
-        "template_vw3o9zp",
-        {
-          from_name: data.name,
-          from_email: data.email,
-          from_phoneNumber: data.phoneNumber,
-          from_message: data.message,
-        },
-        {
-          publicKey: "VV1JBQAmRXz7mALR7",
-        }
-      )
-      .then((res) => {
-        setEmailSent(true);
+    fetch(`https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              Name: data.name,
+              Email: data.email,
+              "Phone Number": data.phoneNumber,
+              "Purpose of Enquiry": data.purpose,
+              Message: data.message,
+            },
+          },
+        ],
+      }),
+    })
+      .then(() => {
         setLoading(false);
+        setEmailSent(true);
         reset();
       })
       .catch((err) => {
@@ -697,11 +713,46 @@ const Home = () => {
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
-                <div className="flex flex-col items-center w-full mt-4">
+                <div className="flex flex-col items-center w-full mt-2">
+                  <select
+                    id="purpose"
+                    {...register("purpose", { required: true })}
+                    placeholder="Purpose of Enquiry*"
+                    onChange={(e) => {
+                      if (e.target.value == "Others") setMessageRequired(true);
+                      else setMessageRequired(false);
+                    }}
+                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                  >
+                    <option
+                      style={{
+                        color: "rgb(255 255 255 / 0.7)",
+                      }}
+                      value=""
+                      disabled
+                      selected
+                    >
+                      Purpose of Enquiry*
+                    </option>
+                    {services.map((service, index) => (
+                      <option key={index} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.purpose?.message ? (
+                    <p className=" text-xs text-red-500">
+                      {errors.purpose.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="flex flex-col items-center w-full mt-2">
                   <textarea
-                    placeholder="Message*"
                     id="message"
-                    {...register("message", { required: true })}
+                    placeholder={`Message ${messageRequired ? "*" : ""}`}
+                    {...register("message", {
+                      required: messageRequired,
+                    })}
                     className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (

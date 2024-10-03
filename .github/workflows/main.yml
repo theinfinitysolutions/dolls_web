@@ -21,6 +21,7 @@ jobs:
           npm run build  # Ensure you have this script in your package.json
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_AIRTABLE_API_KEY: ${{ secrets.NEXT_PUBLIC_AIRTABLE_API_KEY }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2

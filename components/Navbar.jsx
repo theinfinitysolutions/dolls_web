@@ -70,7 +70,7 @@ const Navbar = () => {
             href="/"
             className=" text-lg lg:text-xl text-white cursor-pointer"
           >
-            {"Dole's Music /"}
+            {"Dole's Music"} {path == "/" ? "" : " / "}
           </a>
           <p className=" text-sm text-red-500 ml-1 mt-1">
             {navbarItems.find((item) => `${item.link}/` == path)?.title}
