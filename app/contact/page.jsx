@@ -107,9 +107,7 @@ const ContactUs = () => {
                 CONTACT
               </h2>
               <p className="text-white text-center text-sm">
-                {
-                  " Reach out to us for any collaborations or queries. We are always here to help you."
-                }
+                {" Apply here to work with us"}
               </p>
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-4 lg:mt-[2.5vh]">

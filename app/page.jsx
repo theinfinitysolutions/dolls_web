@@ -660,7 +660,7 @@ const Home = () => {
                 Contact
               </h2>
               <p className="text-white text-center lg:text-start text-sm">
-                {" Reach out to us for any collaborations or queries."}
+                {" Apply here to work with us"}
               </p>
             </RevealOnScroll>
             <div className=" flex flex-col items-center w-full mt-[5vh]">
