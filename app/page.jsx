@@ -102,6 +102,7 @@ const Home = () => {
               Email: data.email,
               "Phone Number": data.phoneNumber,
               "Purpose of Enquiry": data.purpose,
+              Budget: parseFloat(data.budget),
               Message: data.message,
             },
           },
@@ -645,8 +646,8 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-        <div className={"  h-[90vh] lg:h-[80vh] w-screen overflow-hidden z-20"}>
-          <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[5vh] ">
+        <div className={" h-[90vh] lg:h-full w-screen overflow-hidden z-20"}>
+          <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[2.5vh] ">
             <div className="circle absolute  right-0 bottom-0 z-0" />
             <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
             <RevealOnScroll
@@ -675,7 +676,7 @@ const Home = () => {
                     id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   />
                   {errors.name?.message ? (
                     <p className=" text-xs text-red-500">
@@ -696,7 +697,7 @@ const Home = () => {
                         message: "invalid email address",
                       },
                     })}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.email?.message ? (
                     <p className=" text-xs text-red-500">
@@ -710,7 +711,16 @@ const Home = () => {
                     id="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                  />
+                </div>
+                <div className="flex flex-col items-start w-full mt-2">
+                  <input
+                    id="budget"
+                    type={"number"}
+                    placeholder="Budget"
+                    {...register("budget")}
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-center w-full mt-2">
@@ -722,7 +732,7 @@ const Home = () => {
                       if (e.target.value == "Others") setMessageRequired(true);
                       else setMessageRequired(false);
                     }}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   >
                     <option
                       style={{
@@ -753,7 +763,7 @@ const Home = () => {
                     {...register("message", {
                       required: messageRequired,
                     })}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (
                     <p className=" text-xs text-red-500">

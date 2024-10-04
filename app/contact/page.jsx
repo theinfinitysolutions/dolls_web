@@ -37,6 +37,7 @@ const ContactUs = () => {
       email: "",
       phoneNumber: "",
       purpose: "",
+      budget: "",
       message: "",
     },
   });
@@ -59,13 +60,19 @@ const ContactUs = () => {
               Email: data.email,
               "Phone Number": data.phoneNumber,
               "Purpose of Enquiry": data.purpose,
+              Budget: parseFloat(data.budget),
               Message: data.message,
             },
           },
         ],
       }),
     })
-      .then(() => {
+      .then((res) => {
+        if (res.status.toString()[0] !== "2") {
+          throw new Error(res);
+        }
+
+        console.log("resres", res);
         setLoading(false);
         setEmailSent(true);
         reset();
@@ -116,13 +123,13 @@ const ContactUs = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className=" w-[80vw] lg:w-[40%] flex flex-col items-center justify-center"
               >
-                <div className="flex flex-col items-center w-full">
+                <div className="flex flex-col items-start w-full">
                   <input
                     type="text"
                     id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   />
                   {errors.name?.message ? (
                     <p className=" text-xs text-red-500">
@@ -130,7 +137,7 @@ const ContactUs = () => {
                     </p>
                   ) : null}
                 </div>
-                <div className="flex flex-col items-center w-full mt-2">
+                <div className="flex flex-col items-start w-full mt-2">
                   <input
                     id="email"
                     type="email"
@@ -143,7 +150,7 @@ const ContactUs = () => {
                         message: "invalid email address",
                       },
                     })}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.email?.message ? (
                     <p className=" text-xs text-red-500">
@@ -151,16 +158,25 @@ const ContactUs = () => {
                     </p>
                   ) : null}
                 </div>
-                <div className="flex flex-col items-center w-full mt-2">
+                <div className="flex flex-col items-start w-full mt-2">
                   <input
                     id="phoneNumber"
                     type="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
-                <div className="flex flex-col items-center w-full mt-2">
+                <div className="flex flex-col items-start w-full mt-2">
+                  <input
+                    id="budget"
+                    type={"number"}
+                    placeholder="Budget"
+                    {...register("budget")}
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                  />
+                </div>
+                <div className="flex flex-col items-start w-full mt-2">
                   <select
                     id="purpose"
                     {...register("purpose", { required: true })}
@@ -169,7 +185,7 @@ const ContactUs = () => {
                       if (e.target.value == "Others") setMessageRequired(true);
                       else setMessageRequired(false);
                     }}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   >
                     <option
                       style={{
@@ -194,14 +210,14 @@ const ContactUs = () => {
                   ) : null}
                 </div>
 
-                <div className="flex flex-col items-center w-full mt-2">
+                <div className="flex flex-col items-start w-full mt-2">
                   <textarea
                     id="message"
                     placeholder={`Message ${messageRequired ? "*" : ""}`}
                     {...register("message", {
                       required: messageRequired,
                     })}
-                    className="mb-4 w-full placeholder:text-white/70 focus:bg-transparent text-white  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (
                     <p className=" text-xs text-red-500">
@@ -219,7 +235,7 @@ const ContactUs = () => {
                   </button>
                 ) : (
                   <button
-                    disabled={errors.name || errors.email || errors.message}
+                    // disabled={!errors.name || !errors.email}
                     type="submit"
                     // onMouseEnter={() => {
                     //   setCurrentPointer("a");
@@ -227,7 +243,7 @@ const ContactUs = () => {
                     // onMouseLeave={() => {
                     //   setCurrentPointer("");
                     // }}
-                    id="submit-button"
+
                     className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-20 lg:mt-8 cursor-pointer "
                   >
                     {loading ? "..." : "Submit"}
