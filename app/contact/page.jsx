@@ -10,6 +10,8 @@ import useStore from "@/utils/store";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import MultiSelectDropdown from "@/components/MultiSelectDropdown";
+import { formatDate } from "../page";
 
 const services = [
   "Music Production",
@@ -31,12 +33,13 @@ const ContactUs = () => {
     getValues,
     formState: { errors },
     reset,
+    control,
   } = useForm({
     defaultValues: {
       name: "",
       email: "",
       phoneNumber: "",
-      purpose: "",
+      purpose: [],
       budget: "",
       message: "",
     },
@@ -59,9 +62,10 @@ const ContactUs = () => {
               Name: data.name,
               Email: data.email,
               "Phone Number": data.phoneNumber,
-              "Purpose of Enquiry": data.purpose,
+              "Purpose of Enquiry": data.purpose.toString(),
               Budget: parseFloat(data.budget),
               Message: data.message,
+              CreatedOn: formatDate(new Date()),
             },
           },
         ],
@@ -129,7 +133,7 @@ const ContactUs = () => {
                     id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   />
                   {errors.name?.message ? (
                     <p className=" text-xs text-red-500">
@@ -150,7 +154,7 @@ const ContactUs = () => {
                         message: "invalid email address",
                       },
                     })}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.email?.message ? (
                     <p className=" text-xs text-red-500">
@@ -164,7 +168,7 @@ const ContactUs = () => {
                     type="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-start w-full mt-2">
@@ -173,36 +177,11 @@ const ContactUs = () => {
                     type={"number"}
                     placeholder="Budget"
                     {...register("budget")}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-start w-full mt-2">
-                  <select
-                    id="purpose"
-                    {...register("purpose", { required: true })}
-                    placeholder="Purpose of Enquiry*"
-                    onChange={(e) => {
-                      if (e.target.value == "Others") setMessageRequired(true);
-                      else setMessageRequired(false);
-                    }}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
-                  >
-                    <option
-                      style={{
-                        color: "rgb(255 255 255 / 0.7)",
-                      }}
-                      value=""
-                      disabled
-                      selected
-                    >
-                      Purpose of Enquiry*
-                    </option>
-                    {services.map((service, index) => (
-                      <option key={index} value={service}>
-                        {service}
-                      </option>
-                    ))}
-                  </select>
+                  <MultiSelectDropdown name={"purpose"} control={control} />
                   {errors.purpose?.message ? (
                     <p className=" text-xs text-red-500">
                       {errors.purpose.message}
@@ -217,7 +196,7 @@ const ContactUs = () => {
                     {...register("message", {
                       required: messageRequired,
                     })}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (
                     <p className=" text-xs text-red-500">

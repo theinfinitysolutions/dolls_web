@@ -21,8 +21,17 @@ import emailjs from "@emailjs/browser";
 import { gazpacho_black } from "./layout";
 import { upcoming } from "@/utils/consts";
 import { useRouter } from "next/navigation";
+import MultiSelectDropdown from "@/components/MultiSelectDropdown";
 
 let list = ["Music", "Media", "Contact"];
+
+export function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // January is 0!
+  const year = date.getFullYear();
+
+  return `${month}-${day}-${year}`;
+}
 
 const images = [
   "/dolls1.jpeg",
@@ -83,7 +92,17 @@ const Home = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+    control,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      purpose: [],
+      budget: "",
+      message: "",
+    },
+  });
   const { currentPointer, setCurrentPointer } = useStore();
 
   const onSubmit = (data) => {
@@ -101,9 +120,10 @@ const Home = () => {
               Name: data.name,
               Email: data.email,
               "Phone Number": data.phoneNumber,
-              "Purpose of Enquiry": data.purpose,
+              "Purpose of Enquiry": data.purpose.toString(),
               Budget: parseFloat(data.budget),
               Message: data.message,
+              CreatedOn: formatDate(new Date()),
             },
           },
         ],
@@ -676,7 +696,7 @@ const Home = () => {
                     id="name"
                     placeholder="Name*"
                     {...register("name", { required: true, minLength: 5 })}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   />
                   {errors.name?.message ? (
                     <p className=" text-xs text-red-500">
@@ -697,7 +717,7 @@ const Home = () => {
                         message: "invalid email address",
                       },
                     })}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.email?.message ? (
                     <p className=" text-xs text-red-500">
@@ -711,7 +731,7 @@ const Home = () => {
                     id="phoneNumber"
                     placeholder="Phone Number"
                     {...register("phoneNumber")}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-start w-full mt-2">
@@ -720,11 +740,11 @@ const Home = () => {
                     type={"number"}
                     placeholder="Budget"
                     {...register("budget")}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                 </div>
                 <div className="flex flex-col items-center w-full mt-2">
-                  <select
+                  {/* <select
                     id="purpose"
                     {...register("purpose", { required: true })}
                     placeholder="Purpose of Enquiry*"
@@ -732,7 +752,7 @@ const Home = () => {
                       if (e.target.value == "Others") setMessageRequired(true);
                       else setMessageRequired(false);
                     }}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/90 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
                   >
                     <option
                       style={{
@@ -749,7 +769,8 @@ const Home = () => {
                         {service}
                       </option>
                     ))}
-                  </select>
+                  </select> */}
+                  <MultiSelectDropdown name="purpose" control={control} />
                   {errors.purpose?.message ? (
                     <p className=" text-xs text-red-500">
                       {errors.purpose.message}
@@ -763,7 +784,7 @@ const Home = () => {
                     {...register("message", {
                       required: messageRequired,
                     })}
-                    className="mb-4 w-full placeholder:text-white/90 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
+                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
                   />
                   {errors.message?.message ? (
                     <p className=" text-xs text-red-500">
