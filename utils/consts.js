@@ -243,7 +243,8 @@ export const pop = [
     AppleMusic:
       "https://music.apple.com/in/album/guftagoo/1762876206?i=1762876207",
     Youtube: "https://youtu.be/9Tg7xxVV0F4?si=QR8VWGPy0tEaTw5L",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/guftagoo.png",
+    released: true,
   },
   {
     song: "Zindagi",
@@ -524,7 +525,8 @@ export const upcoming = [
     AppleMusic:
       "https://music.apple.com/in/album/gumshuda/1770334934?i=1770334935",
     Youtube: "https://youtu.be/xUXW4VvRYPw?si=t1Y_d2rfKfO5DRFD",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/gumshuda.jpg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/gumshuda.jpeg",
+    released: true,
   },
   {
     artist: "SSD & Ajay Tiwari",
@@ -537,7 +539,8 @@ export const upcoming = [
     AppleMusic:
       "https://music.apple.com/in/album/guftagoo/1762876206?i=1762876207",
     Youtube: "https://youtu.be/9Tg7xxVV0F4?si=QR8VWGPy0tEaTw5L",
-    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/art3.jpeg",
+    imageUrl: process.env.NEXT_PUBLIC_API_URL + "/guftagoo.png",
+    released: true,
   },
   {
     song: "2 Lafz",
