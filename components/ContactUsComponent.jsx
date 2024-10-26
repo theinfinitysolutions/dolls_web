@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { alfa } from "../layout";
-import { RevealOnScroll } from "./RevealOnScroll";
+import { alfa } from "@/app/layout";
+import RevealOnScroll from "./RevealOnScroll";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/app/page";
 import MultiSelectDropdown from "./MultiSelectDropdown";
 
-const services = [
-  "Music Production",
-  "Mix-Master",
-  "AD Jingle",
-  "Callertunes/Ringtones",
-  "Voice Over",
-  "Post Production",
-  "Others",
-];
-
-const ContactUs = () => {
+const ContactUsComponent = () => {
   const [loading, setLoading] = React.useState(false);
   const [messageRequired, setMessageRequired] = React.useState(false);
   const [emailSent, setEmailSent] = React.useState(false);
@@ -214,4 +204,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsComponent;
