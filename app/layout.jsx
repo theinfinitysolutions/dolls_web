@@ -27,11 +27,6 @@ export const gazpacho_black = localFont({
   src: "../public/gazpacho_black.ttf",
 });
 
-const inter = Cutive_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
 export const alfa = Alfa_Slab_One({
   subsets: ["latin"],
   weight: ["400"],

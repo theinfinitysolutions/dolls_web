@@ -239,7 +239,9 @@ const Home = () => {
             // }}
             className="  absolute left-[40%] lg:left-[47.5%] flex flex-row items-center bottom-4 lg:bottom-8 animate-bounce z-50 cursor-pointer"
           >
-            <p className={`text-sm ${orbitron.className}`}>Scroll Down</p>
+            <p className={`text-sm text-white ${orbitron.className}`}>
+              Scroll Down
+            </p>
             <RiArrowRightDownLine className="text-white" />
           </a>
           <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between w-[90vw] h-full relative overflow-y-hidden  z-1">
@@ -450,18 +452,6 @@ const Home = () => {
                   return (
                     <div
                       key={index}
-                      // onMouseEnter={() => {
-                      //   setIsHovered(true);
-                      //   setCurrentGroup(index);
-                      //   setCurrentSong(item);
-                      // }}
-                      // onMouseLeave={() => {
-                      //   setIsHovered(false);
-                      //   setCurrentGroup(-1);
-                      //   setCurrentSong({});
-                      // }}
-                      // onMouseOver={handleMouseOver}
-                      // onMouseOut={handleMouseOut}
                       className="flex flex-row justify-between p-2 border-[0.25px] overflow-hidden z-20 border-[#666666] mb-4 w-full"
                     >
                       <div className="flex flex-row items-center">
@@ -496,7 +486,7 @@ const Home = () => {
                                 target="_blank"
                                 className="cursor-pointer"
                               >
-                                <SiApplemusic className="text-sm " />
+                                <SiApplemusic className="text-sm text-white" />
                               </a>
                             )}
                             {item.Youtube.length > 0 && (
@@ -511,7 +501,7 @@ const Home = () => {
                                 target="_blank"
                                 className="cursor-pointer"
                               >
-                                <AiFillYoutube className="text-sm" />
+                                <AiFillYoutube className="text-sm text-white" />
                               </a>
                             )}
                             {item.Spotify.length > 0 && (
@@ -526,7 +516,7 @@ const Home = () => {
                                 target="_blank"
                                 className="cursor-pointer"
                               >
-                                <FaSpotify className="text-sm" />
+                                <FaSpotify className="text-sm text-white" />
                               </a>
                             )}
 
@@ -789,12 +779,6 @@ const Home = () => {
                       errors.phoneNumber
                     }
                     type="submit"
-                    // onMouseEnter={() => {
-                    //   setCurrentPointer("a");
-                    // }}
-                    // onMouseLeave={() => {
-                    //   setCurrentPointer("");
-                    // }}
                     id="submit-button"
                     className="bg-red-800 z-20 disabled:bg-gray-700 text-white px-8 py-2 mt-8 cursor-pointer "
                   >
