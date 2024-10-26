@@ -131,8 +131,10 @@ export default function RootLayout({ children }) {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <body
-        className={`${abril.className} relative min-h-screen bg-black/95 ${
-          showModal || showSongsModal.open ? "h-screen overflow-hidden" : ""
+        className={`${
+          abril.className
+        } w-screen flex flex-col  relative bg-black/95 ${
+          showModal || showSongsModal.open ? "overflow-hidden" : ""
         }`}
       >
         {pathname == "/" ? (
@@ -159,7 +161,7 @@ export default function RootLayout({ children }) {
             <RandomCursor />
           )}
         </div> */}
-        <div className=" hidden md:block fixed top-0 left-0 h-screen w-screen -z-10">
+        <div className=" hidden md:block fixed top-0 left-0 h-screen w-screen z-0">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + "/bgimg.webp"}
             unoptimized
@@ -168,7 +170,7 @@ export default function RootLayout({ children }) {
             className=" opacity-20"
           />
         </div>
-        <div className="block md:hidden fixed top-0 left-0 h-screen w-screen -z-10">
+        <div className="block md:hidden fixed top-0 left-0 h-screen w-screen z-0">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + "/dolls3.jpeg"}
             unoptimized
@@ -180,7 +182,7 @@ export default function RootLayout({ children }) {
           />
         </div>
         <Navbar />
-        <div className="z-0 min-h-screen max-w-screen">{children}</div>
+        <div className="h-full max-w-screen w-full z-10">{children}</div>
         <Footer />
         <JoinUsModal />
         <ViewProductModal />
