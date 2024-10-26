@@ -130,6 +130,14 @@ const Music = () => {
                   {[...item.songs, ...item.songs].map((song, songIndex) => {
                     return (
                       <SongCard
+                        onMouseOver={() => {
+                          setIsHovered(true);
+                          setCurrentGroup(index);
+                        }}
+                        onMouseOut={() => {
+                          setIsHovered(false);
+                          setCurrentGroup(0);
+                        }}
                         key={songIndex}
                         song={song.song}
                         artist={song.artist}

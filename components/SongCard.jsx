@@ -12,9 +12,13 @@ const SongCard = ({
   Spotify,
   AppleMusic,
   Youtube,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   return (
     <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       data-song="Song Name"
       className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw] "
     >
