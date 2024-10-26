@@ -131,7 +131,7 @@ const Navbar = () => {
             x
           >
             <Image
-              src="/wynk.png"
+              src={process.env.NEXT_PUBLIC_API_URL + "/wynk.png"}
               height={12}
               width={12}
               className=" h-4 w-4 lg:h-6 lg:w-6 "

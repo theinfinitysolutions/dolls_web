@@ -90,7 +90,10 @@ export default function ViewProductModal() {
                           />
                         ) : (
                           <Image
-                            src={"/song1.jpeg"}
+                            src={
+                              process.env.NEXT_PUBLIC_API_URL +
+                              `/exclusive2.jpeg`
+                            }
                             layout="fill"
                             alt={"alt"}
                             objectFit="cover"
