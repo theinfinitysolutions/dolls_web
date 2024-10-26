@@ -221,7 +221,7 @@ const Home = () => {
                     </span>
                   ))}
                 </h1>
-                <div className="flex flex-row justify-between w-9/12 lg:w-[17.5vw] mt-4">
+                <div className="flex flex-row justify-start items-start gap-x-4 w-9/12 lg:w-full mt-4">
                   {list.map((item, index) => (
                     <Link
                       // onMouseEnter={() => {
@@ -505,12 +505,20 @@ const Home = () => {
               {Array(15)
                 .fill(1)
                 .map((item, idx) => (
-                  <ImageCard key={idx} imageUrl={`/gallery/${idx + 1}.jpg`} />
+                  <ImageCard
+                    key={idx}
+                    idx={idx}
+                    imageUrl={`/gallery/${idx + 1}.jpg`}
+                  />
                 ))}
             </motion.div>
           </div>
         </div>
-        <div className={" h-[90vh] lg:h-full w-screen overflow-hidden z-20"}>
+        <div
+          className={
+            " h-[90vh] lg:h-full w-screen overflow-hidden bg-black z-20"
+          }
+        >
           <div className="circle absolute right-0 bottom-0 z-20" />
           <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
           <ContactUsComponent />

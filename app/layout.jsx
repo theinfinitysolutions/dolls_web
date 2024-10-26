@@ -161,7 +161,7 @@ export default function RootLayout({ children }) {
         </div> */}
         <div className=" hidden md:block fixed top-0 left-0 h-screen w-screen -z-10">
           <Image
-            src={process.env.NEXT_PUBLIC_API_URL + "/bgimg.jpeg"}
+            src={process.env.NEXT_PUBLIC_API_URL + "/bgimg.webp"}
             unoptimized
             layout="fill"
             alt="bg image"
