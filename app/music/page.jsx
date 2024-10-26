@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import useStore from "@/utils/store";
 
 import "swiper/css";
+import SongCard from "@/components/SongCard";
 
 const music = [
   {
@@ -71,7 +72,7 @@ const Music = () => {
     <Transition>
       <div
         id="music"
-        className="flex flex-col max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden"
+        className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden"
       >
         <div className="flex flex-col items-center w-[90vw] ">
           <div className="flex flex-col items-center w-full mt-[2.5vh] lg:mt-[5vh] relative">
@@ -81,18 +82,11 @@ const Music = () => {
                 className="flex flex-col lg:flex-row w-full h-full lg:h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]"
               >
                 <a
-                  // onMouseEnter={() => {
-                  //   setCurrentPointer("a");
-                  // }}
-                  // onMouseLeave={() => {
-                  //   setCurrentPointer("");
-                  // }}
                   onClick={() => {
                     setShowSongsModal({
                       open: true,
                       song: index,
                     });
-                    console.log("showSongsModal");
                   }}
                   className="px-4 py-2 absolute right-0 top-0 z-40 bg-white cursor-pointer"
                 >
@@ -133,21 +127,22 @@ const Music = () => {
                       : "[animation-play-state:running]"
                   }`}
                 >
-                  {[...item.songs, ...item.songs].map((song, songIndex) => (
-                    <div
+                  {[...item.songs, ...item.songs].map((song, songIndex) => {
+                    return (
+                      <SongCard
+                        key={songIndex}
+                        song={song.song}
+                        artist={song.artist}
+                        groupIndex={index}
+                        imageUrl={song.imageUrl}
+                        Spotify={song.Spotify}
+                        AppleMusic={song.AppleMusic}
+                        Youtube={song.Youtube}
+                      />
+                    );
+                  })}
+                  {/* <div
                       data-song="Song Name"
-                      // onMouseEnter={() => {
-                      //   setIsHovered(true);
-                      //   setCurrentGroup(index);
-                      //   setCurrentSong(song);
-                      // }}
-                      // onMouseLeave={() => {
-                      //   setIsHovered(false);
-                      //   setCurrentGroup(-1);
-                      //   setCurrentSong({});
-                      // }}
-                      // onMouseOver={handleMouseOver}
-                      // onMouseOut={handleMouseOut}
                       key={songIndex}
                       className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw] "
                     >
@@ -176,12 +171,6 @@ const Music = () => {
                             <div className="flex flex-col items-center justify-center h-full w-full">
                               <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
                                 <a
-                                  // onMouseEnter={() => {
-                                  //   setCurrentPointer("a");
-                                  // }}
-                                  // onMouseLeave={() => {
-                                  //   setCurrentPointer("");
-                                  // }}
                                   href={song.Spotify}
                                   target="_blank"
                                   rel="noreferrer"
@@ -190,12 +179,6 @@ const Music = () => {
                                   <FaSpotify size={18} color="#fff" />
                                 </a>
                                 <a
-                                  // onMouseEnter={() => {
-                                  //   setCurrentPointer("a");
-                                  // }}
-                                  // onMouseLeave={() => {
-                                  //   setCurrentPointer("");
-                                  // }}
                                   href={song.AppleMusic}
                                   target="_blank"
                                   rel="noreferrer"
@@ -204,12 +187,6 @@ const Music = () => {
                                   <SiApplemusic size={18} color="#fff" />
                                 </a>
                                 <a
-                                  // onMouseEnter={() => {
-                                  //   setCurrentPointer("a");
-                                  // }}
-                                  // onMouseLeave={() => {
-                                  //   setCurrentPointer("");
-                                  // }}
                                   href={song.Youtube}
                                   target="_blank"
                                   rel="noreferrer"
@@ -231,7 +208,7 @@ const Music = () => {
                         </p>
                       </div>
                     </div>
-                  ))}
+                  ))} */}
                 </div>
                 <div className="flex lg:hidden my-4">
                   <Swiper
@@ -246,91 +223,16 @@ const Music = () => {
                   >
                     {item.songs.map((song, songIndex) => (
                       <SwiperSlide key={songIndex}>
-                        <div
-                          data-song="Song Name"
+                        <SongCard
                           key={songIndex}
-                          className="flex flex-col items-center  h-full w-[55vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw]"
-                        >
-                          <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw] group mt-4 overflow-hidden relative">
-                            <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
-                              {song.imageUrl.toString().length > 0 ? (
-                                <Image
-                                  src={song.imageUrl.toString()}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  alt={song.song}
-                                />
-                              ) : (
-                                <Image
-                                  src={
-                                    process.env.NEXT_PUBLIC_API_URL +
-                                    `/exclusive2.jpeg`
-                                  }
-                                  layout="fill"
-                                  objectFit="cover"
-                                  alt="song1"
-                                />
-                              )}
-
-                              <div className=" h-[55vw] w-[55vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
-                                <div className="flex flex-col items-center justify-center h-full w-full">
-                                  <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
-                                    <a
-                                      // onMouseEnter={() => {
-                                      //   setCurrentPointer("a");
-                                      // }}
-                                      // onMouseLeave={() => {
-                                      //   setCurrentPointer("");
-                                      // }}
-                                      href={song.Spotify}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className=" cursor-pointer"
-                                    >
-                                      <FaSpotify size={18} color="#fff" />
-                                    </a>
-                                    <a
-                                      // onMouseEnter={() => {
-                                      //   setCurrentPointer("a");
-                                      // }}
-                                      // onMouseLeave={() => {
-                                      //   setCurrentPointer("");
-                                      // }}
-                                      href={song.AppleMusic}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className=" cursor-pointer"
-                                    >
-                                      <SiApplemusic size={18} color="#fff" />
-                                    </a>
-                                    <a
-                                      // onMouseEnter={() => {
-                                      //   setCurrentPointer("a");
-                                      // }}
-                                      // onMouseLeave={() => {
-                                      //   setCurrentPointer("");
-                                      // }}
-                                      href={song.Youtube}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className=" cursor-pointer"
-                                    >
-                                      <SiYoutubemusic size={18} color="#fff" />
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex flex-col mt-[3vh] lg:mt-4 w-full items-center">
-                            <p className=" text-lg lg:text-md text-center font-semibold">
-                              {song.song}
-                            </p>
-                            <p className=" text-sm lg:text-xs text-center font-semibold text-red-500 ">
-                              {song.artist}
-                            </p>
-                          </div>
-                        </div>
+                          song={song.song}
+                          artist={song.artist}
+                          groupIndex={index}
+                          imageUrl={song.imageUrl}
+                          Spotify={song.Spotify}
+                          AppleMusic={song.AppleMusic}
+                          Youtube={song.Youtube}
+                        />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -397,7 +299,7 @@ const Music = () => {
           </div>
         </div>
 
-        <div
+        {/* <div
           style={{
             zIndex: 100,
           }}
@@ -464,7 +366,7 @@ const Music = () => {
               ) : null}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Transition>
   );
