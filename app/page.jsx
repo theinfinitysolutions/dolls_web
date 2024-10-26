@@ -8,6 +8,8 @@ import Link from "next/link";
 import Transition from "@/components/Transition";
 import { animate, motion, useMotionValue } from "framer-motion";
 import useMeasure from "react-use-measure";
+import ContactUsComponent from "@/components/ContactUsComponent";
+import ImageCard from "@/components/ImageCard";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { SiApplemusic } from "react-icons/si";
 import { AiFillYoutube } from "react-icons/ai";
@@ -15,14 +17,32 @@ import { FaSpotify } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
 import { RiArrowRightDownLine } from "react-icons/ri";
 import useStore from "@/utils/store";
-import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 import { gazpacho_black } from "./layout";
 import { upcoming } from "@/utils/consts";
 import { useRouter } from "next/navigation";
-import ContactUs from "./contact/page";
 
-let list = ["Music", "Media", "Contact"];
+let list = [
+  {
+    title: "Music",
+    link: "/music",
+  },
+  {
+    title: "Media",
+    link: "/media",
+  },
+  {
+    title: "Contact",
+    link: "/contact",
+  },
+  {
+    title: "About Us",
+    link: "/about",
+  },
+  {
+    title: "What we offer",
+    link: "/services",
+  },
+];
 
 export function formatDate(date) {
   const day = String(date.getDate()).padStart(2, "0");
@@ -210,13 +230,13 @@ const Home = () => {
                       // onMouseLeave={() => {
                       //   setCurrentPointer("");
                       // }}
-                      href={"/" + item.toLowerCase()}
+                      href={item.link}
                       key={index}
-                      id={item.toLowerCase()}
-                      data-value={item}
+                      id={item.title}
+                      data-value={item.title}
                       className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
                     >
-                      <h2 className={navbarClass}>{item}</h2>
+                      <h2 className={navbarClass}>{item.title}</h2>
                     </Link>
                   ))}
                 </div>
@@ -327,12 +347,6 @@ const Home = () => {
                     <div className="flex flex-row justify-center gap-x-4 items-center mt-4 w-full ">
                       {upcoming[0].AppleMusic.length > 0 && (
                         <a
-                          // onMouseEnter={() => {
-                          //   setCurrentPointer("a");
-                          // }}
-                          // onMouseLeave={() => {
-                          //   setCurrentPointer("");
-                          // }}
                           href={upcoming[0].AppleMusic}
                           target="_blank"
                           className="cursor-pointer"
@@ -342,12 +356,6 @@ const Home = () => {
                       )}
                       {upcoming[0].Youtube.length > 0 && (
                         <a
-                          // onMouseEnter={() => {
-                          //   setCurrentPointer("a");
-                          // }}
-                          // onMouseLeave={() => {
-                          //   setCurrentPointer("");
-                          // }}
                           href={upcoming[0].Youtube}
                           target="_blank"
                           className="cursor-pointer"
@@ -412,12 +420,6 @@ const Home = () => {
                           <div className="flex flex-row justify-end gap-x-6 lg:gap-x-8 mr-4 lg:mr-8 items-center w-full ">
                             {item.AppleMusic.length > 0 && (
                               <a
-                                // onMouseEnter={() => {
-                                //   setCurrentPointer("a");
-                                // }}
-                                // onMouseLeave={() => {
-                                //   setCurrentPointer("");
-                                // }}
                                 href={item.AppleMusic}
                                 target="_blank"
                                 className="cursor-pointer"
@@ -427,12 +429,6 @@ const Home = () => {
                             )}
                             {item.Youtube.length > 0 && (
                               <a
-                                // onMouseEnter={() => {
-                                //   setCurrentPointer("a");
-                                // }}
-                                // onMouseLeave={() => {
-                                //   setCurrentPointer("");
-                                // }}
                                 href={item.Youtube}
                                 target="_blank"
                                 className="cursor-pointer"
@@ -442,12 +438,6 @@ const Home = () => {
                             )}
                             {item.Spotify.length > 0 && (
                               <a
-                                // onMouseEnter={() => {
-                                //   setCurrentPointer("a");
-                                // }}
-                                // onMouseLeave={() => {
-                                //   setCurrentPointer("");
-                                // }}
                                 href={item.Spotify}
                                 target="_blank"
                                 className="cursor-pointer"
@@ -455,25 +445,6 @@ const Home = () => {
                                 <FaSpotify className="text-sm text-white" />
                               </a>
                             )}
-
-                            {/* <a
-                              onMouseEnter={() => {
-                                setCurrentPointer("a");
-                              }}
-                              onMouseLeave={() => {
-                                setCurrentPointer("");
-                              }}
-                              onClick={() => {
-                                window.open(item.Soundcloud, "_blank");
-                              }}
-                            >
-                              <Image
-                                src="/wynk.png"
-                                alt="wynk"
-                                width={12}
-                                height={12}
-                              />
-                            </a> */}
                           </div>
                         ) : (
                           <div className="flex flex-row justify-around items-center  w-full ">
@@ -534,23 +505,7 @@ const Home = () => {
               {Array(15)
                 .fill(1)
                 .map((item, idx) => (
-                  <a key={idx} href="/media">
-                    <motion.div
-                      className=" w-[20vh] h-[20vh] lg:w-[30vh] lg:h-[30vh] relative"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <Image
-                        src={
-                          process.env.NEXT_PUBLIC_API_URL +
-                          `/dolls${idx + 10}.jpeg`
-                        }
-                        layout="fill"
-                        loading={"lazy"}
-                        alt={`gallery dolls${idx}`}
-                        objectFit="cover"
-                      />
-                    </motion.div>
-                  </a>
+                  <ImageCard key={idx} imageUrl={`/gallery/${idx + 1}.jpg`} />
                 ))}
             </motion.div>
           </div>
@@ -558,7 +513,7 @@ const Home = () => {
         <div className={" h-[90vh] lg:h-full w-screen overflow-hidden z-20"}>
           <div className="circle absolute right-0 bottom-0 z-20" />
           <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
-          <ContactUs />
+          <ContactUsComponent />
         </div>
 
         {/* <div

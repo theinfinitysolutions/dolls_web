@@ -6,7 +6,8 @@ import useStore from "@/utils/store";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-import ContactUs from "@/components/ContactUs";
+import Transition from "@/components/Transition";
+import ContactUsComponent from "@/components/ContactUsComponent";
 
 const ContactUs = () => {
   return (
@@ -20,7 +21,7 @@ const ContactUs = () => {
         <div className="circle -bottom-1/2 left-0 absolute" />
 
         <div className={"  lg:h-full w-screen overflow-hidden"}>
-          <ContactUs />
+          <ContactUsComponent />
         </div>
 
         <div className=" w-3/12 flex flex-row justify-center z-20 items-center gap-x-2 my-2 lg:my-8">
