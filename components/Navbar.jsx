@@ -44,32 +44,14 @@ const Navbar = () => {
         path == "/" ? (path == "media" ? "bg-black" : "fixed") : "fixed"
       } text-white `}
     >
-      <div className="w-full flex flex-row justify-between items-center px-2 lg:px-8 py-8">
+      <div className="w-full flex flex-row justify-between items-center z-0 px-2 lg:px-8 py-8">
         <div className="flex flex-row items-center">
           {path != "/" ? (
-            <a
-              // onMouseEnter={() => {
-              //   setCurrentPointer("a");
-              // }}
-              // onMouseLeave={() => {
-              //   setCurrentPointer("");
-              // }}
-              href="/"
-              className="text-xl  mr-2  text-white cursor-pointer "
-            >
+            <a href="/" className="text-xl  mr-2  text-white cursor-pointer ">
               <IoMdArrowBack className="text-xl cursor-pointer" />
             </a>
           ) : null}
-          <a
-            // onMouseEnter={() => {
-            //   setCurrentPointer("a");
-            // }}
-            // onMouseLeave={() => {
-            //   setCurrentPointer("");
-            // }}
-            href="/"
-            className=" text-lg lg:text-xl text-white cursor-pointer"
-          >
+          <a href="/" className=" text-lg lg:text-xl text-white cursor-pointer">
             {"Dole's Music"} {path == "/" ? "" : " / "}
           </a>
           <p className=" text-sm text-red-500 ml-1 mt-1">

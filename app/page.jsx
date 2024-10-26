@@ -151,9 +151,9 @@ const Home = () => {
 
   return (
     <Transition>
-      <main
+      <div
         id="home"
-        className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between"
+        className="flex flex-col z-30 max-w-screen min-h-screen w-screen h-full relative items-center justify-between overflow-hidden"
       >
         <div className="flex flex-col absolute items-center justify-center animate-slideInLeft   w-full h-[100vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
@@ -508,7 +508,7 @@ const Home = () => {
                   <ImageCard
                     key={idx}
                     idx={idx}
-                    imageUrl={`/gallery/${idx + 1}.jpg`}
+                    imageUrl={`/dolls${idx + 15}.jpg`}
                   />
                 ))}
             </motion.div>
@@ -516,7 +516,7 @@ const Home = () => {
         </div>
         <div
           className={
-            " h-[90vh] lg:h-full w-screen overflow-hidden bg-black z-20"
+            " h-[90vh] lg:h-screen flex flex-col items-center w-screen overflow-hidden bg-black z-20"
           }
         >
           <div className="circle absolute right-0 bottom-0 z-20" />
@@ -592,7 +592,7 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-      </main>
+      </div>
     </Transition>
   );
 };
