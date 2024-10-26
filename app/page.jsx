@@ -243,7 +243,7 @@ const Home = () => {
               </RevealOnScroll>
             </div>
             <div className=" hidden lg:flex lg:-ml-[5%] w-full lg:w-7/12 overflow-hidden ">
-              {/* <CarouselComponent eventsDisabled={false} /> */}
+              <CarouselComponent eventsDisabled={false} />
             </div>
             <div
               disabled={true}
@@ -252,7 +252,7 @@ const Home = () => {
               }}
               className=" flex lg:hidden lg:-ml-[5%] z-0 w-full mt-[5vh] h-[50vh] overflow-hidden pointer-events-none "
             >
-              {/* <CarouselComponent eventsDisabled={true} /> */}
+              <CarouselComponent eventsDisabled={true} />
             </div>
             {/* <div className="flex flex-col items-start  w-4/12">
               <div
