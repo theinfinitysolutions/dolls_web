@@ -1,13 +1,12 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import RevealOnScroll from "../components/RevealOnScroll";
-import { abril, alfa, calistoga, orbitron } from "./layout";
+import { abril, orbitron } from "./layout";
 import CarouselComponent from "@/components/CarouselHome/CarouselComponent";
 import Link from "next/link";
 import Transition from "@/components/Transition";
 import { animate, motion, useMotionValue } from "framer-motion";
-import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { SiApplemusic } from "react-icons/si";
@@ -57,17 +56,22 @@ const SLOW_DURATION = 10000;
 let navbarClass =
   "relative text-white text-base lg:text-[0.75rem] lg:text-md xl:text-lg block after:block after:content-[''] after:absolute after:h-[2px] after:bg-red-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center cursor-pointer";
 
-function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-}
+const serviceList = [
+  {
+    title: "Music",
+  },
+  {
+    title: "Gallery",
+  },
+  {
+    title: "Media",
+  },
+  {
+    title: "Contact",
+  },
+];
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let text1 = "Dole's Music";
 
 const Home = () => {
   const [duration, setDuration] = useState(FAST_DURATION);
@@ -82,9 +86,6 @@ const Home = () => {
   const [loading, setLoading] = React.useState(false);
 
   const [emailSent, setEmailSent] = React.useState(false);
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [currentGroup, setCurrentGroup] = useState(0);
   const [currentSong, setCurrentSong] = useState({});
 
   const {
@@ -103,7 +104,7 @@ const Home = () => {
       message: "",
     },
   });
-  const { currentPointer, setCurrentPointer } = useStore();
+  // const { currentPointer, setCurrentPointer } = useStore();
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -192,30 +193,13 @@ const Home = () => {
     location.current.style.display = "none";
   };
 
-  const serviceList = [
-    {
-      title: "Music",
-    },
-    {
-      title: "Gallery",
-    },
-    {
-      title: "Media",
-    },
-    {
-      title: "Contact",
-    },
-  ];
-
-  let text1 = "Dole's Music";
-
   return (
     <Transition>
       <main
         id="home"
         className="flex flex-col min-h-screen overflow-y-scroll relative items-center justify-between"
       >
-        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft  top-[10vh] w-full h-[90vh] -left-[70vw] lg:-left-[55vw] z-0 ">
+        <div className="flex flex-col absolute items-center justify-center animate-slideInLeft   w-full h-[100vh] -left-[70vw] lg:-left-[55vw] z-0 ">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
             layout="fill"
@@ -227,16 +211,11 @@ const Home = () => {
 
         <a
           href="/contact"
-          // onMouseEnter={() => {
-          //   setCurrentPointer("a");
-          // }}
-          // onMouseLeave={() => {
-          //   setCurrentPointer("");
-          // }}
+          target="_blank"
           className=" fixed animate-rotate2 right-4 z-50 bottom-4 w-[7.5vh] h-[7.5vh] lg:w-[15vh] lg:h-[15vh] cursor-pointer "
         >
           <Image
-            src={"/asset2.png"}
+            src={process.env.NEXT_PUBLIC_API_URL + "/asset2.png"}
             alt={"asset2"}
             objectFit="contain"
             layout="fill"
@@ -637,7 +616,7 @@ const Home = () => {
                 setDuration(FAST_DURATION);
               }}
             >
-              {Array(20)
+              {Array(15)
                 .fill(1)
                 .map((item, idx) => (
                   <a key={idx} href="/media">
@@ -657,6 +636,7 @@ const Home = () => {
                           `/dolls${idx + 10}.jpeg`
                         }
                         layout="fill"
+                        loading={"lazy"}
                         alt={`gallery dolls${idx}`}
                         objectFit="cover"
                       />
@@ -850,7 +830,7 @@ const Home = () => {
                   // onMouseLeave={() => {
                   //   setCurrentPointer("");
                   // }}
-                  src={"/song1.jpeg"}
+                  src={process.env.NEXT_PUBLIC_API_URL + `/exclusive2.jpeg`}
                   layout="fill"
                   objectFit="cover"
                 />
