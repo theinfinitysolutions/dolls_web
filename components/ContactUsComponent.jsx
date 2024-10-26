@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/app/page";
 import MultiSelectDropdown from "./MultiSelectDropdown";
+import axios from "axios";
 
 const ContactUsComponent = () => {
   const [loading, setLoading] = React.useState(false);
@@ -31,28 +32,32 @@ const ContactUsComponent = () => {
 
   const onSubmit = (data) => {
     setLoading(true);
-    fetch(`https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              Name: data.name,
-              Email: data.email,
-              "Phone Number": data.phoneNumber,
-              "Purpose of Enquiry": data.purpose.toString(),
-              Budget: parseFloat(data.budget),
-              Message: data.message,
-              CreatedOn: formatDate(new Date()),
+
+    axios
+      .post(
+        `https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`,
+        {
+          records: [
+            {
+              fields: {
+                Name: data.name,
+                Email: data.email,
+                "Phone Number": data.phoneNumber,
+                "Purpose of Enquiry": data.purpose.toString(),
+                Budget: parseFloat(data.budget),
+                Message: data.message,
+                CreatedOn: formatDate(new Date()),
+              },
             },
+          ],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
           },
-        ],
-      }),
-    })
+        }
+      )
       .then((res) => {
         if (res.status.toString()[0] !== "2") {
           throw new Error(res);
@@ -78,10 +83,10 @@ const ContactUsComponent = () => {
   }, [emailSent]);
 
   return (
-    <div className="flex flex-col w-full h-full items-start relative justify-start  py-[2.5vh] ">
-      <RevealOnScroll
-        addedClasses={
-          "flex flex-col items-center justify-center w-full p-8 animate-animateSlideUp"
+    <div className="flex flex-col w-full h-full items-center relative justify-center py-[2.5vh] ">
+      <div
+        className={
+          "flex flex-col  items-center justify-center w-full p-4 animate-animateSlideUp"
         }
       >
         <h2
@@ -92,8 +97,8 @@ const ContactUsComponent = () => {
         <p className="text-white text-center text-sm">
           {" Apply here to work with us"}
         </p>
-      </RevealOnScroll>
-      <div className=" flex flex-col items-center w-full mt-4 lg:mt-[2.5vh]">
+      </div>
+      <div className=" flex flex-col items-center w-full mt-4 lg:mt-[5vh]">
         <form
           id="contact-form"
           onSubmit={handleSubmit(onSubmit)}

@@ -35,35 +35,37 @@ const Transition = ({ children }) => {
   }, []);
 
   return (
-    <main id="main-div" className="min-h-screen w-full flex">
+    <>
       {showContent ? children : <div></div>}
-      <motion.div
-        style={{
-          zIndex: 1000,
-          height: "100vh",
-        }}
-      >
+      {showContent ? null : (
         <motion.div
-          className="slide-in w-full h-full bg-black fixed top-0 left-0 z-50"
-          animate={{ y: ["100vh", 0, 0, "-100vh"] }}
-          transition={{
-            duration: 2,
-            times: [0, 0.3, 0.7, 1],
-            ease: [0.6, 1, 0.2, 1],
+          style={{
+            zIndex: 2000,
+            height: "100vh",
           }}
         >
-          <div className="flex flex-col w-full h-full bg-black justify-center items-center">
-            <motion.div className="overflow-hidden relative  ">
-              <h1
-                className={` text-[2.5rem] lg:text-[5rem] text-white ${fonts[currentIndex].className}`}
-              >
-                {title}
-              </h1>
-            </motion.div>
-          </div>
+          <motion.div
+            className="slide-in w-full h-full bg-black fixed top-0 left-0 z-50"
+            animate={{ y: ["100vh", 0, 0, "-100vh"] }}
+            transition={{
+              duration: 2,
+              times: [0, 0.3, 0.7, 1],
+              ease: [0.6, 1, 0.2, 1],
+            }}
+          >
+            <div className="flex flex-col w-full h-full bg-black justify-center items-center">
+              <motion.div className="overflow-hidden relative  ">
+                <h1
+                  className={` text-[2.5rem] lg:text-[5rem] text-white ${fonts[currentIndex].className}`}
+                >
+                  {title}
+                </h1>
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </main>
+      )}
+    </>
   );
 };
 

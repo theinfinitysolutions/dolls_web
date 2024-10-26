@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import * as THREE from "three";
 import { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -80,7 +80,7 @@ const CarouselComponent = ({ eventsDisabled }) => {
   );
 };
 
-export default CarouselComponent;
+export default memo(CarouselComponent);
 
 function Rig(props) {
   const ref = useRef();
