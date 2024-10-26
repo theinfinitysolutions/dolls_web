@@ -20,7 +20,7 @@ import emailjs from "@emailjs/browser";
 import { gazpacho_black } from "./layout";
 import { upcoming } from "@/utils/consts";
 import { useRouter } from "next/navigation";
-import MultiSelectDropdown from "@/components/MultiSelectDropdown";
+import ContactUs from "./contact/page";
 
 let list = ["Music", "Media", "Contact"];
 
@@ -83,71 +83,7 @@ const Home = () => {
   const [mustFinish, setMustFinish] = useState(false);
   const [rerender, setRerender] = useState(false);
   const [messageRequired, setMessageRequired] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
-
-  const [emailSent, setEmailSent] = React.useState(false);
   const [currentSong, setCurrentSong] = useState({});
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    control,
-  } = useForm({
-    defaultValues: {
-      name: "",
-      email: "",
-      phoneNumber: "",
-      purpose: [],
-      budget: "",
-      message: "",
-    },
-  });
-  // const { currentPointer, setCurrentPointer } = useStore();
-
-  const onSubmit = (data) => {
-    setLoading(true);
-    fetch(`https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              Name: data.name,
-              Email: data.email,
-              "Phone Number": data.phoneNumber,
-              "Purpose of Enquiry": data.purpose.toString(),
-              Budget: parseFloat(data.budget),
-              Message: data.message,
-              CreatedOn: formatDate(new Date()),
-            },
-          },
-        ],
-      }),
-    })
-      .then(() => {
-        setLoading(false);
-        setEmailSent(true);
-        reset();
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log("error", err);
-      });
-  };
-
-  useEffect(() => {
-    if (emailSent) {
-      setTimeout(() => {
-        setEmailSent(false);
-      }, 2000);
-    }
-  }, [emailSent]);
 
   useEffect(() => {
     let controls;
@@ -552,12 +488,6 @@ const Home = () => {
                 })}
                 <div className=" w-full flex mt-4 flex-row justify-end items-center">
                   <a
-                    // onMouseEnter={() => {
-                    //   setCurrentPointer("a");
-                    // }}
-                    // onMouseLeave={() => {
-                    //   setCurrentPointer("");
-                    // }}
                     className=" text-white hover:underline leading-8 text-sm lg:text-base cursor-pointer"
                     href="/music"
                   >
@@ -587,11 +517,6 @@ const Home = () => {
               >
                 Gallery
               </h2>
-              {/* <p className="text-white text-center lg:text-start text-sm">
-                {
-                  " Showcase your music collection and explore different genres with Dole's Music. From classical to rock, we have it all."
-                }
-              </p> */}
             </RevealOnScroll>
             <motion.div
               className="h-[25vh] lg:h-[35vh] mt-[5vh] left-0 flex gap-4"
@@ -615,12 +540,6 @@ const Home = () => {
                       whileHover={{ scale: 1.1 }}
                     >
                       <Image
-                        // onMouseEnter={() => {
-                        //   setCurrentPointer("i");
-                        // }}
-                        // onMouseLeave={() => {
-                        //   setCurrentPointer("");
-                        // }}
                         src={
                           process.env.NEXT_PUBLIC_API_URL +
                           `/dolls${idx + 10}.jpeg`
@@ -637,160 +556,12 @@ const Home = () => {
           </div>
         </div>
         <div className={" h-[90vh] lg:h-full w-screen overflow-hidden z-20"}>
-          <div className="flex flex-col w-full h-full items-start relative justify-start bg-black py-[2.5vh] ">
-            <div className="circle absolute  right-0 bottom-0 z-0" />
-            <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
-            <RevealOnScroll
-              addedClasses={
-                "flex flex-col items-center lg:items-center justify-center w-full p-8 animate-animateSlideUp"
-              }
-            >
-              <h2
-                className={`${abril.className} text-white text-[3rem] lg:text-[4rem] leading-[4rem] font-bold `}
-              >
-                Contact
-              </h2>
-              <p className="text-white text-center lg:text-start text-sm">
-                {" Apply here to work with us"}
-              </p>
-            </RevealOnScroll>
-            <div className=" flex flex-col items-center w-full mt-[5vh]">
-              <form
-                id="contact-form-home"
-                onSubmit={handleSubmit(onSubmit)}
-                className=" w-[80vw] lg:w-[40%] flex flex-col items-center justify-center"
-              >
-                <div className="flex flex-col items-center w-full">
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Name*"
-                    {...register("name", { required: true, minLength: 5 })}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
-                  />
-                  {errors.name?.message ? (
-                    <p className=" text-xs text-red-500">
-                      {errors.name.message}
-                    </p>
-                  ) : null}
-                </div>
-                <div className="flex flex-col items-center w-full mt-4">
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Email*"
-                    {...register("email", {
-                      required: true,
-                      minLength: 5,
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "invalid email address",
-                      },
-                    })}
-                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
-                  />
-                  {errors.email?.message ? (
-                    <p className=" text-xs text-red-500">
-                      {errors.email.message}
-                    </p>
-                  ) : null}
-                </div>
-                <div className="flex flex-col items-center w-full mt-4">
-                  <input
-                    type="phoneNumber"
-                    id="phoneNumber"
-                    placeholder="Phone Number"
-                    {...register("phoneNumber")}
-                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
-                  />
-                </div>
-                <div className="flex flex-col items-start w-full mt-2">
-                  <input
-                    id="budget"
-                    type={"number"}
-                    placeholder="Budget"
-                    {...register("budget")}
-                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
-                  />
-                </div>
-                <div className="flex flex-col items-center w-full mt-2">
-                  {/* <select
-                    id="purpose"
-                    {...register("purpose", { required: true })}
-                    placeholder="Purpose of Enquiry*"
-                    onChange={(e) => {
-                      if (e.target.value == "Others") setMessageRequired(true);
-                      else setMessageRequired(false);
-                    }}
-                    className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
-                  >
-                    <option
-                      style={{
-                        color: "rgb(255 255 255 / 0.7)",
-                      }}
-                      value=""
-                      disabled
-                      selected
-                    >
-                      Purpose of Enquiry*
-                    </option>
-                    {services.map((service, index) => (
-                      <option key={index} value={service}>
-                        {service}
-                      </option>
-                    ))}
-                  </select> */}
-                  <MultiSelectDropdown name="purpose" control={control} />
-                  {errors.purpose?.message ? (
-                    <p className=" text-xs text-red-500">
-                      {errors.purpose.message}
-                    </p>
-                  ) : null}
-                </div>
-                <div className="flex flex-col items-center w-full mt-2">
-                  <textarea
-                    id="message"
-                    placeholder={`Message ${messageRequired ? "*" : ""}`}
-                    {...register("message", {
-                      required: messageRequired,
-                    })}
-                    className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800"
-                  />
-                  {errors.message?.message ? (
-                    <p className=" text-xs text-red-500">
-                      {errors.message.message}
-                    </p>
-                  ) : null}
-                </div>
-                {emailSent ? (
-                  <button
-                    type="submit"
-                    disabled
-                    className="bg-green-400 text-white px-8 py-2 mt-8 "
-                  >
-                    Email Sent
-                  </button>
-                ) : (
-                  <button
-                    disabled={
-                      errors.name ||
-                      errors.email ||
-                      errors.message ||
-                      errors.phoneNumber
-                    }
-                    type="submit"
-                    id="submit-button"
-                    className="bg-red-800 z-20 disabled:bg-gray-700 text-white px-8 py-2 mt-8 cursor-pointer "
-                  >
-                    {loading ? "..." : "Submit"}
-                  </button>
-                )}
-              </form>
-            </div>
-          </div>
+          <div className="circle absolute right-0 bottom-0 z-20" />
+          <div className="circle -bottom-1/2 -right-1/2 absolute z-0" />
+          <ContactUs />
         </div>
 
-        <div
+        {/* <div
           style={{
             zIndex: 100,
           }}
@@ -857,7 +628,7 @@ const Home = () => {
               ) : null}
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </Transition>
   );
