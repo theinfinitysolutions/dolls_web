@@ -61,6 +61,13 @@ const MultiSelectDropdown = ({ name, control }) => {
             },
           };
         },
+        menu: (baseStyles, state) => {
+          return {
+            ...baseStyles,
+            backgroundColor: "black",
+            zIndex: 1000,
+          };
+        },
         valueContainer: (baseStyles, state) => {
           return {
             ...baseStyles,

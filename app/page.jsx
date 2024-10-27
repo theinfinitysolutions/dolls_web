@@ -508,7 +508,7 @@ const Home = () => {
                   <ImageCard
                     key={idx}
                     idx={idx}
-                    imageUrl={`/dolls${idx + 15}.jpg`}
+                    imageUrl={`/dolls${idx + 15}.jpeg`}
                   />
                 ))}
             </motion.div>
