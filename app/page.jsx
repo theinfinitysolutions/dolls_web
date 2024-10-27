@@ -34,14 +34,14 @@ let list = [
     title: "Contact",
     link: "/contact",
   },
-  {
-    title: "About Us",
-    link: "/about",
-  },
-  {
-    title: "What we offer",
-    link: "/services",
-  },
+  // {
+  //   title: "About Us",
+  //   link: "/about",
+  // },
+  // {
+  //   title: "What we offer",
+  //   link: "/services",
+  // },
 ];
 
 export function formatDate(date) {
@@ -508,7 +508,7 @@ const Home = () => {
                   <ImageCard
                     key={idx}
                     idx={idx}
-                    imageUrl={`/dolls${idx + 15}.jpg`}
+                    imageUrl={`/dolls${idx + 15}.jpeg`}
                   />
                 ))}
             </motion.div>
