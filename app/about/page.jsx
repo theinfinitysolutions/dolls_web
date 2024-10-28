@@ -85,7 +85,7 @@ export default function Component() {
       <div
         id="music"
         ref={mainDivRef}
-        className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll bg-black relative items-center justify-between py-[5vh] overflow-hidden"
+        className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden"
       >
         <div className=" h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
           <h1 className=" text-white text-[3rem]  lg:text-[7rem]">ABOUT US</h1>

@@ -30,6 +30,10 @@ const navbarItems = [
     title: "Contact",
     link: "/contact",
   },
+  {
+    title : "About",
+    link : "/about"
+  }
 ];
 
 const Navbar = () => {
