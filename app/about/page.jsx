@@ -65,11 +65,11 @@ export default function Component() {
       console.log("scroll", scrollPercentage.toFixed(0));
 
       if (scrollY > 250) {
-        if (scrollPercentage > 50) {
-          containerRef.current.style.position = "sticky";
-        } else {
+        // if (scrollPercentage > 50) {
+        //   containerRef.current.style.position = "sticky";
+        // } else {
           containerRef.current.style.position = "fixed";
-        }
+        // }
       } else {
         containerRef.current.style.position = "sticky";
       }
