@@ -329,6 +329,7 @@ const Home = () => {
                       <Image
                         src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
                         layout="fill"
+                        alt="music"
                         objectFit="cover"
                         className="rotate-45"
                       />

@@ -65,11 +65,11 @@ export default function Component() {
       console.log("scroll", scrollPercentage.toFixed(0));
 
       if (scrollY > 250) {
-        // if (scrollPercentage > 50) {
-        //   containerRef.current.style.position = "sticky";
-        // } else {
-        containerRef.current.style.position = "fixed";
-        // }
+        if (scrollPercentage > 50) {
+          containerRef.current.style.position = "sticky";
+        } else {
+          containerRef.current.style.position = "fixed";
+        }
       } else {
         containerRef.current.style.position = "sticky";
       }
@@ -85,7 +85,7 @@ export default function Component() {
       <div
         id="music"
         ref={mainDivRef}
-        className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden"
+        className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between pt-[5vh] overflow-hidden"
       >
         <div className=" h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
           <h1 className=" text-white text-[3rem]  lg:text-[7rem]">ABOUT US</h1>
@@ -119,11 +119,13 @@ export default function Component() {
           </motion.div>
         </div>
 
-        <div className=" h-[50vh] relative flex flex-col items-center mt-8 justify-end w-[80vw]">
+        <div className=" h-[30vh] relative overflow-hidden flex flex-col bg-black items-center mt-[10vh] justify-center w-full">
+          <div className="circle -bottom-[80%] -right-[20%] absolute z-30" />
+          <div className="circle -bottom-[80%] left-0 absolute z-30" />
           <h1 className=" text-white text-[2rem]  lg:text-[3rem]">
             We are <span className="text-red-700">{"Dole's"}</span> Music
           </h1>
-          <p className=" text-xl text-white w-full lg:w-9/12 text-center">
+          <p className=" text-base text-white w-full lg:w-9/12 -mt-1 text-center">
             {
               "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
             }
@@ -146,18 +148,24 @@ function Card({ title, color, progress, index, description, image }) {
   const yOffset = 500;
   const initialY = index * yOffset;
 
+  let altObj = {
+    0: [0, 0, 0, 0],
+    1: [initialY * 2 + 100, initialY, 50, 50],
+    2: [initialY + 100, initialY, initialY / 2, 100],
+  };
+
   let obj = {
     0: [0, 0, 0, initialY - 100],
     1: [50, 50, initialY * 2, initialY * 2 + 100],
     2: [100, initialY, initialY, initialY + 100],
   };
 
-  const y = useTransform(progress, [0.15, 0.35, 0.75, 1], [...obj[index]]);
+  const y = useTransform(progress, [0.15, 0.2, 0.4, 0.6], [...altObj[index]]);
 
   const scale = useTransform(
     progress,
     [0, 0.5, 0.75, 1],
-    [1, 0.95, 0.85 - 0.025 * (index + 1), 0.8 + 0.025 - (index + 1)]
+    [1, 0.95, 0.85 - 0.025 * (index + 1), 0.8 + 0.04 - (index + 1)]
   );
 
   return (
@@ -176,12 +184,12 @@ function Card({ title, color, progress, index, description, image }) {
             : index == 1
             ? "left-[7.5vw]"
             : "left-[12.5vw]"
-        }  h-[50px] px-8 rounded-lg border-[1px]   border-primary`}
+        }  h-[50px] px-8 rounded-lg border-[1px] bg-black border-primary`}
         style={{
           zIndex: -1,
         }}
       >
-        <p className="text-white text-2xl font-bold">{title}</p>
+        <p className="text-white text-2xl font-bold mt-1">{title}</p>
       </div>
       <div
         className={`bg-black z-10 border-[1px] border-primary rounded-2xl w-full h-full flex flex-col lg:flex-row items-center justify-center`}
@@ -190,7 +198,7 @@ function Card({ title, color, progress, index, description, image }) {
           <h2 className="text-white text-[3rem] font-bold text-start">
             {title}
           </h2>
-          <p className="text-white text-lg text-start ">{description}</p>
+          <p className="text-white text-lg  text-start ">{description}</p>
         </div>
         <div className=" w-full lg:w-1/2 h-1/2 lg:h-full bg-cover bg-center relative overflow-hidden">
           <Image
