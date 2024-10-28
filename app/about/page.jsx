@@ -31,19 +31,19 @@ export default function Component() {
       title: "Who we are?",
       description:
         "We are a dynamic team offering end-toend audio services across independent music, films, and ads. ",
-      image: "/dolls10.jpeg",
+      image: "/dolls21.jpeg",
     },
     {
       title: "Our Work",
       description:
         "With over 100 completed projects, we specialize in Fast High-Quality composition, production, and lyric writing with swift revisions and genre-fluid creativity",
-      image: "/dolls11.jpeg",
+      image: "/dolls20.jpeg",
     },
     {
       title: "Our Mission",
       description:
         "Our Philosophy is simple: the best music comes from collaboration, where each member’s unique energy contributes to something deeply resonant.",
-      image: "/dolls12.jpeg",
+      image: "/dolls28.jpeg",
     },
   ];
 
@@ -102,7 +102,7 @@ export default function Component() {
               y: mainScroll,
               position: "sticky",
             }}
-            className={` top-[15vh] h-[500px] w-[80vw]  flex items-center justify-center`}
+            className={` top-[15vh] h-[500px] w-11/12 lg:w-[80vw]  flex items-center justify-center`}
             ref={containerRef}
           >
             {cards.map((card, index) => (
@@ -186,13 +186,13 @@ function Card({ title, color, progress, index, description, image }) {
       <div
         className={`bg-black z-10 border-[1px] border-primary rounded-2xl w-full h-full flex flex-col lg:flex-row items-center justify-center`}
       >
-        <div className="w-1/2 h-full flex flex-col items-start pl-8 justify-center">
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-start pl-8 justify-center">
           <h2 className="text-white text-[3rem] font-bold text-start">
             {title}
           </h2>
           <p className="text-white text-lg text-start ">{description}</p>
         </div>
-        <div className="w-1/2 h-full bg-cover bg-center relative overflow-hidden">
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full bg-cover bg-center relative overflow-hidden">
           <Image
             src={process.env.NEXT_PUBLIC_API_URL + image}
             alt="image"
