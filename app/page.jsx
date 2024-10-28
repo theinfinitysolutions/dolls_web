@@ -221,7 +221,7 @@ const Home = () => {
                     </span>
                   ))}
                 </h1>
-                <div className="flex flex-row justify-between items-start  w-9/12 lg:w-full mt-4">
+                <div className="flex flex-row justify-center lg:justify-start gap-x-8 items-start  w-9/12 lg:w-full mt-4">
                   {list.map((item, index) => (
                     <Link
                       // onMouseEnter={() => {
