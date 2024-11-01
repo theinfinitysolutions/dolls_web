@@ -11,11 +11,31 @@ import Transition from "@/components/Transition";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+const cards = [
+  {
+    title: "Who we are?",
+    description:
+      "We are a dynamic team offering end-toend audio services across independent music, films, and ads. ",
+    image: "/dolls21.jpeg",
+  },
+  {
+    title: null,
+    description:
+      "With over 100 completed projects, we specialize in Fast High-Quality composition, production, and lyric writing with swift revisions and genre-fluid creativity",
+    image: "/dolls20.jpeg",
+  },
+  {
+    title: null,
+    description:
+      "Our Philosophy is simple: the best music comes from collaboration, where each member’s unique energy contributes to something deeply resonant.",
+    image: "/dolls28.jpeg",
+  },
+];
+
 export default function Component() {
   const router = useRouter();
   const containerRef = useRef(null);
   const mainDivRef = useRef(null);
-  const scrollProgress = useRef(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -25,27 +45,6 @@ export default function Component() {
     target: mainDivRef,
     offset: ["start start", "end start"],
   });
-
-  const cards = [
-    {
-      title: "Who we are?",
-      description:
-        "We are a dynamic team offering end-toend audio services across independent music, films, and ads. ",
-      image: "/dolls21.jpeg",
-    },
-    {
-      title: null,
-      description:
-        "With over 100 completed projects, we specialize in Fast High-Quality composition, production, and lyric writing with swift revisions and genre-fluid creativity",
-      image: "/dolls20.jpeg",
-    },
-    {
-      title: null,
-      description:
-        "Our Philosophy is simple: the best music comes from collaboration, where each member’s unique energy contributes to something deeply resonant.",
-      image: "/dolls28.jpeg",
-    },
-  ];
 
   const mainScroll = useTransform(
     scrollYA,
@@ -77,7 +76,7 @@ export default function Component() {
   return (
     <Transition>
       <div
-        id="music"
+        id="about"
         className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between pt-[5vh] overflow-hidden"
       >
         <div className=" h-[30vh] lg:h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">

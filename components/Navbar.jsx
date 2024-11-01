@@ -31,9 +31,13 @@ const navbarItems = [
     link: "/contact",
   },
   {
-    title : "About",
-    link : "/about"
-  }
+    title: "About",
+    link: "/about",
+  },
+  {
+    title: "Services",
+    link: "/services",
+  },
 ];
 
 const Navbar = () => {
