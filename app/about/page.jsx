@@ -34,13 +34,13 @@ export default function Component() {
       image: "/dolls21.jpeg",
     },
     {
-      title: "Our Work",
+      title: null,
       description:
         "With over 100 completed projects, we specialize in Fast High-Quality composition, production, and lyric writing with swift revisions and genre-fluid creativity",
       image: "/dolls20.jpeg",
     },
     {
-      title: "Our Mission",
+      title: null,
       description:
         "Our Philosophy is simple: the best music comes from collaboration, where each member’s unique energy contributes to something deeply resonant.",
       image: "/dolls28.jpeg",
@@ -55,20 +55,14 @@ export default function Component() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const { scrollHeight, clientHeight } = mainDivRef.current;
+      const { clientHeight } = mainDivRef.current;
+      let top = mainDivRef.current.getBoundingClientRect().top;
       let scrollY = window.scrollY;
 
-      console.log("Heights", scrollY, scrollHeight);
+      // console.log("Heights", scrollY, top);
 
-      const scrollPercentage = (scrollY / scrollHeight) * 100;
-
-      console.log("scroll", scrollPercentage.toFixed(0));
-
-      if (scrollY > 250) {
-        // if (scrollPercentage > 50) {
-        //   containerRef.current.style.position = "sticky";
-        // } else {
-          containerRef.current.style.position = "fixed";
+      if (top <= 0) {
+        containerRef.current.style.position = "fixed";
         // }
       } else {
         containerRef.current.style.position = "sticky";
@@ -84,11 +78,12 @@ export default function Component() {
     <Transition>
       <div
         id="music"
-        ref={mainDivRef}
         className="flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between pt-[5vh] overflow-hidden"
       >
-        <div className=" h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
-          <h1 className=" text-white text-[3rem]  lg:text-[7rem]">ABOUT US</h1>
+        <div className=" h-[30vh] lg:h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
+          <h1 className=" text-white text-[2.5rem]  lg:text-[6rem]">
+            ABOUT US
+          </h1>
           <p className=" text-xl text-white w-full lg:w-9/12 text-center">
             {
               "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
@@ -96,13 +91,16 @@ export default function Component() {
           </p>
         </div>
 
-        <div className="h-[200vh] flex relative flex-col overflow-hidden items-center ">
+        <div
+          ref={mainDivRef}
+          className="h-[200vh] w-full flex relative flex-col overflow-hidden items-center "
+        >
           <motion.div
             style={{
               y: mainScroll,
               position: "sticky",
             }}
-            className={` top-[15vh] h-[500px] w-11/12 lg:w-[80vw]  flex items-center justify-center`}
+            className={` top-[10vh] h-[500px] w-11/12 lg:w-[80vw] flex items-center justify-center`}
             ref={containerRef}
           >
             {cards.map((card, index) => (
@@ -120,8 +118,8 @@ export default function Component() {
         </div>
 
         <div className=" h-[30vh] relative overflow-hidden flex flex-col bg-black items-center mt-[10vh] justify-center w-full">
-          <div className="circle -bottom-[80%] -right-[20%] absolute z-30" />
-          <div className="circle -bottom-[80%] left-0 absolute z-30" />
+          <div className="circle -bottom-[80%] -right-[30%] absolute z-30" />
+          <div className="circle -bottom-[80%] -left-[10%] absolute z-30" />
           <h1 className=" text-white text-[2rem]  lg:text-[3rem]">
             We are <span className="text-red-700">{"Dole's"}</span> Music
           </h1>
@@ -150,8 +148,8 @@ function Card({ title, color, progress, index, description, image }) {
 
   let altObj = {
     0: [0, 0, 0, 0],
-    1: [initialY * 2 + 100, initialY, 50, 50],
-    2: [initialY + 100, initialY, initialY / 2, 100],
+    1: [initialY * 2 + 100, initialY, 0, 0],
+    2: [initialY + 100, initialY, initialY / 2, 0],
   };
 
   let obj = {
@@ -178,27 +176,19 @@ function Card({ title, color, progress, index, description, image }) {
       }}
     >
       <div
-        className={` absolute -top-[45px] ${
-          index == 0
-            ? "left-[2.5vw]"
-            : index == 1
-            ? "left-[7.5vw]"
-            : "left-[12.5vw]"
-        }  h-[50px] px-8 rounded-lg border-[1px] bg-black border-primary`}
-        style={{
-          zIndex: -1,
-        }}
+        className={`bg-black z-10  w-full h-full flex flex-col relative lg:flex-row items-center overflow-hidden justify-center`}
       >
-        <p className="text-white text-2xl font-bold mt-1">{title}</p>
-      </div>
-      <div
-        className={`bg-black z-10 border-[1px] border-primary rounded-2xl w-full h-full flex flex-col lg:flex-row items-center justify-center`}
-      >
-        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-start pl-8 justify-center">
-          <h2 className="text-white text-[3rem] font-bold text-start">
-            {title}
-          </h2>
-          <p className="text-white text-lg  text-start ">{description}</p>
+        <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
+
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-start pl-8 pr-8 justify-center">
+          {title ? (
+            <h2 className="text-white text-[3rem] font-bold text-start">
+              {title}
+            </h2>
+          ) : null}
+          <p className="text-white text-lg lg:text-xl  text-center lg:text-start ">
+            {description}
+          </p>
         </div>
         <div className=" w-full lg:w-1/2 h-1/2 lg:h-full bg-cover bg-center relative overflow-hidden">
           <Image
