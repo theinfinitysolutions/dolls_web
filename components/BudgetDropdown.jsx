@@ -3,17 +3,13 @@ import { useController, useForm } from "react-hook-form";
 import Select from "react-select";
 
 const services = [
-  { label: "Music Production", value: "Music Production" },
-  { label: "Mix-Master", value: "Mix-Master" },
-  { label: "AD Jingle", value: "AD Jingle" },
-  { label: "Callertunes/Ringtones", value: "Callertunes/Ringtones" },
-  { label: "Voice Over", value: "Voice Over" },
-  { label: "Post Production", value: "Post Production" },
-  { label: "Multilingual AD Jingles", value: "Multilingual AD Jingles" },
-  { label: "Others", value: "Others" },
+  { label: "0 - 10,000", value: "0 - 10,000" },
+  { label: "10,000 - 30,000", value: "10,000 - 30,000" },
+  { label: "30,000 - 50,000", value: "30,000 - 50,000" },
+  { label: "50,000+ ", value: "50,000+" },
 ];
 
-const MultiSelectDropdown = ({ name, control }) => {
+const BudgetDropdown = ({ name, control }) => {
   const {
     field: { onChange, value, ref },
   } = useController({
@@ -21,8 +17,8 @@ const MultiSelectDropdown = ({ name, control }) => {
     control,
   });
 
-  const handleChange = (selectedOptions) => {
-    onChange(selectedOptions.map((option) => option.value));
+  const handleChange = (selectedOption) => {
+    onChange(selectedOption.value);
   };
 
   const selectedValues = services.filter((option) =>
@@ -31,12 +27,11 @@ const MultiSelectDropdown = ({ name, control }) => {
 
   return (
     <Select
-      isMulti
       name={name}
       ref={ref}
       options={services}
       value={selectedValues}
-      placeholder="Purpose of Enquiry"
+      placeholder="Budget"
       onChange={handleChange}
       styles={{
         placeholder: (defaultStyles) => {
@@ -73,7 +68,12 @@ const MultiSelectDropdown = ({ name, control }) => {
             ...baseStyles,
             backgroundColor: "transparent",
             paddingLeft: "0px",
-            zIndex: 10,
+          };
+        },
+        singleValue: (baseStyles, state) => {
+          return {
+            ...baseStyles,
+            color: "white",
           };
         },
         control: (baseStyles, state) => ({
@@ -91,9 +91,9 @@ const MultiSelectDropdown = ({ name, control }) => {
           fontSize: "1rem",
         }),
       }}
-      className=" react-select mb-4 z-20 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+      className=" react-select mb-4 z-50 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
     />
   );
 };
 
-export default MultiSelectDropdown;
+export default BudgetDropdown;

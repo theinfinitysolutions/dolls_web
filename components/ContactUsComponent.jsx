@@ -7,11 +7,14 @@ import { useRouter } from "next/navigation";
 import { formatDate } from "@/app/page";
 import MultiSelectDropdown from "./MultiSelectDropdown";
 import axios from "axios";
+import BudgetDropdown from "./BudgetDropdown";
 
 const ContactUsComponent = () => {
   const [loading, setLoading] = React.useState(false);
   const [messageRequired, setMessageRequired] = React.useState(false);
+  const [isBudgetDropdown, setIsBudgetDropdown] = React.useState(false);
   const [emailSent, setEmailSent] = React.useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,6 +22,8 @@ const ContactUsComponent = () => {
     formState: { errors },
     reset,
     control,
+    watch,
+    setValue,
   } = useForm({
     defaultValues: {
       name: "",
@@ -29,6 +34,20 @@ const ContactUsComponent = () => {
       message: "",
     },
   });
+
+  const purpose = watch("purpose");
+  const budget = watch("budget");
+
+  useEffect(() => {
+    console.log("bidget", budget);
+    if (purpose.length > 1 || purpose.includes("Music Production")) {
+      setIsBudgetDropdown(true);
+      // setValue("budget", "");
+    } else {
+      setIsBudgetDropdown(false);
+      // setValue("budget", "");
+    }
+  }, [purpose, budget]);
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -44,7 +63,7 @@ const ContactUsComponent = () => {
                 Email: data.email,
                 "Phone Number": data.phoneNumber,
                 "Purpose of Enquiry": data.purpose.toString(),
-                Budget: parseFloat(data.budget),
+                Budget: "₹" + data.budget,
                 Message: data.message,
                 CreatedOn: formatDate(new Date()),
               },
@@ -145,19 +164,23 @@ const ContactUsComponent = () => {
             />
           </div>
           <div className="flex flex-col items-start w-full mt-2">
-            <input
-              id="budget"
-              type={"number"}
-              placeholder="Budget"
-              {...register("budget")}
-              className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
-            />
-          </div>
-          <div className="flex flex-col items-start w-full mt-2">
             <MultiSelectDropdown name={"purpose"} control={control} />
             {errors.purpose?.message ? (
               <p className=" text-xs text-red-500">{errors.purpose.message}</p>
             ) : null}
+          </div>
+          <div className="flex flex-col items-start w-full mt-2">
+            {isBudgetDropdown ? (
+              <BudgetDropdown name={"budget"} control={control} />
+            ) : (
+              <input
+                id="budget"
+                type={"number"}
+                placeholder="Budget"
+                {...register("budget")}
+                className="mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800"
+              />
+            )}
           </div>
 
           <div className="flex flex-col items-start w-full mt-2">
