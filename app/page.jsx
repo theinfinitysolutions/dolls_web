@@ -264,7 +264,7 @@ const Home = () => {
                   {listAlt.map((item, index) => (
                     <>
                       {item.link == "/more" ? (
-                        <Link
+                        <a
                           onClick={() => {
                             setShow({
                               show: true,
@@ -276,7 +276,7 @@ const Home = () => {
                           className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
                         >
                           <h2 className={navbarClass}>{item.title}</h2>
-                        </Link>
+                        </a>
                       ) : (
                         <Link
                           // onMouseEnter={() => {
