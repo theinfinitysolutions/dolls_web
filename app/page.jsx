@@ -44,6 +44,25 @@ let list = [
   },
 ];
 
+let listAlt = [
+  {
+    title: "Music",
+    link: "/music",
+  },
+  {
+    title: "Media",
+    link: "/media",
+  },
+  {
+    title: "Contact",
+    link: "/contact",
+  },
+  {
+    title: "More",
+    link: "/more",
+  },
+];
+
 export function formatDate(date) {
   const day = String(date.getDate()).padStart(2, "0");
   const month = String(date.getMonth() + 1).padStart(2, "0"); // January is 0!
@@ -94,6 +113,7 @@ const serviceList = [
 let text1 = "Dole's Music";
 
 const Home = () => {
+  const { show, setShow } = useStore();
   const [duration, setDuration] = useState(FAST_DURATION);
   const [selectedHover, setSelectedHover] = React.useState(0);
   let [ref, { width }] = useMeasure();
@@ -221,7 +241,7 @@ const Home = () => {
                     </span>
                   ))}
                 </h1>
-                <div className="flex flex-row justify-center lg:justify-start gap-x-8 items-start  w-9/12 lg:w-full mt-4">
+                <div className=" hidden lg:flex flex-row justify-center lg:justify-start gap-x-8 items-start  w-9/12 lg:w-full mt-4">
                   {list.map((item, index) => (
                     <Link
                       // onMouseEnter={() => {
@@ -238,6 +258,43 @@ const Home = () => {
                     >
                       <h2 className={navbarClass}>{item.title}</h2>
                     </Link>
+                  ))}
+                </div>
+                <div className="flex lg:hidden flex-row justify-center lg:justify-start gap-x-8 items-start  w-9/12 lg:w-full mt-4">
+                  {listAlt.map((item, index) => (
+                    <>
+                      {item.link == "/more" ? (
+                        <Link
+                          onClick={() => {
+                            setShow({
+                              show: true,
+                            });
+                          }}
+                          key={index}
+                          id={item.title}
+                          data-value={item.title}
+                          className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
+                        >
+                          <h2 className={navbarClass}>{item.title}</h2>
+                        </Link>
+                      ) : (
+                        <Link
+                          // onMouseEnter={() => {
+                          //   setCurrentPointer("a");
+                          // }}
+                          // onMouseLeave={() => {
+                          //   setCurrentPointer("");
+                          // }}
+                          href={item.link}
+                          key={index}
+                          id={item.title}
+                          data-value={item.title}
+                          className="flex flex-col items-start justify-center  transition-colors duration-300 hover:text-[#7a180f] "
+                        >
+                          <h2 className={navbarClass}>{item.title}</h2>
+                        </Link>
+                      )}
+                    </>
                   ))}
                 </div>
               </RevealOnScroll>

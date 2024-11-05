@@ -12,6 +12,10 @@ export const useStore = create((set) => ({
   setShowSongsModal: (modal) => set({ showSongsModal: modal }),
   hoverCarousel: false,
   setHoverCarousel: (hover) => set(hover),
+  sidebar: {
+    show: false,
+  },
+  setShow: (sidebar) => set((state) => (state.sidebar = sidebar)),
 }));
 
 export default useStore;
