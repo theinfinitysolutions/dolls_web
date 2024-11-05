@@ -35,8 +35,8 @@ const navbarItems = [
     link: "/about",
   },
   {
-    title: "Services",
-    link: "/services",
+    title: "Our Solutions",
+    link: "/our-solutions",
   },
 ];
 

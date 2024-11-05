@@ -159,18 +159,17 @@ function Card({ title, color, progress, index, description, image }) {
 
   const y = useTransform(progress, [0.15, 0.2, 0.4, 0.6], [...altObj[index]]);
 
-  const scale = useTransform(
-    progress,
-    [0, 0.5, 0.75, 1],
-    [1, 0.95, 0.85 - 0.025 * (index + 1), 0.8 + 0.04 - (index + 1)]
-  );
+  // const scale = useTransform(
+  //   progress,
+  //   [0, 0.5, 0.75, 1],
+  //   [1, 0.95, 0.85 - 0.025 * (index + 1), 0.8 + 0.04 - (index + 1)]
+  // );
 
   return (
     <motion.div
       className={`absolute w-11/12 lg:w-[70vw] h-[450px] z-10`}
       style={{
         y,
-        scale,
         zIndex: index,
       }}
     >
@@ -181,11 +180,11 @@ function Card({ title, color, progress, index, description, image }) {
 
         <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-start pl-8 pr-8 justify-center">
           {title ? (
-            <h2 className="text-white text-[3rem] font-bold text-start">
+            <h2 className="text-white text-[2rem] z-20 lg:text-[3rem] font-bold text-center lg:text-start">
               {title}
             </h2>
           ) : null}
-          <p className="text-white text-lg lg:text-xl  text-center lg:text-start ">
+          <p className="text-white text-lg lg:text-xl z-20 text-center lg:text-start ">
             {description}
           </p>
         </div>
