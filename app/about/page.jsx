@@ -178,7 +178,7 @@ function Card({ title, color, progress, index, description, image }) {
       >
         <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
 
-        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-start pl-8 pr-8 justify-center">
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-center lg:items-start pl-8 pr-8 justify-center">
           {title ? (
             <h2 className="text-white text-[2rem] z-20 lg:text-[3rem] font-bold text-center lg:text-start">
               {title}

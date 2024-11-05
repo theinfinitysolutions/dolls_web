@@ -34,14 +34,14 @@ let list = [
     title: "Contact",
     link: "/contact",
   },
-  // {
-  //   title: "About Us",
-  //   link: "/about",
-  // },
-  // {
-  //   title: "What we offer",
-  //   link: "/services",
-  // },
+  {
+    title: "About",
+    link: "/about",
+  },
+  {
+    title: "Our Solutions",
+    link: "/our-solutions",
+  },
 ];
 
 export function formatDate(date) {

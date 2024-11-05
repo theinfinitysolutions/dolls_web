@@ -161,7 +161,7 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className={` h-[50vh]  w-[90vw] lg:w-[55vw] mt-[10vh] bg-black shadow-lg  flex flex-col lg:flex-row items-center relative overflow-hidden justify-center`}
+                className={` h-[50vh]  w-[90vw] lg:w-[55vw] mt-[7.5vh] bg-black shadow-lg  flex flex-col lg:flex-row items-center relative overflow-hidden justify-center`}
               >
                 <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
 
@@ -185,7 +185,7 @@ const Services = () => {
             );
           })}
           <div
-            className={` h-[45vh] w-[90vw] lg:w-[55vw] mt-[10vh] bg-black shadow-lg relative overflow-hidden  flex flex-col items-center justify-center`}
+            className={` h-[45vh] w-[90vw] lg:w-[55vw] mt-[7.5vh] bg-black shadow-lg relative overflow-hidden  flex flex-col items-center justify-center`}
           >
             <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
             <div className="circle top-[-7.5vh] right-[-47.5vh] absolute z-30" />
