@@ -22,6 +22,7 @@ import { usePathname } from "next/navigation";
 import localFont from "next/font/local";
 import ViewProductModal from "@/components/ViewProductModal";
 import Script from "next/script";
+import Sidebar from "@/components/MobileSidebar";
 
 export const gazpacho_black = localFont({
   src: "../public/gazpacho_black.ttf",
@@ -186,6 +187,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <JoinUsModal />
         <ViewProductModal />
+        <Sidebar />
         {/* Facebook pixel */}
         <Script
           id="facebook-pixel"
