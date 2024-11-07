@@ -120,12 +120,12 @@ const Services = () => {
                       {item.description}
                     </p>
                   </div>
-                  <div className=" w-full lg:w-1/2 h-full relative flex-col items-center justify-start px-4">
+                  <div className=" w-full lg:w-1/2 h-full relative bg-gray-600 flex-col items-center justify-start px-4">
                     <Image
                       src={process.env.NEXT_PUBLIC_API_URL + item.image}
                       alt="dolls"
                       layout="fill"
-                      className="object-cover"
+                      className="object-cover opacity-75"
                     />
                   </div>
                 </div>
@@ -173,12 +173,12 @@ const Services = () => {
                     {item.description}
                   </p>
                 </div>
-                <div className=" w-full lg:w-1/2 h-full relative flex-col items-center justify-start px-4">
+                <div className=" w-full lg:w-1/2 h-full relative bg-gray-600  flex-col items-center justify-start px-4">
                   <Image
                     src={process.env.NEXT_PUBLIC_API_URL + item.image}
                     alt="dolls"
                     layout="fill"
-                    className="object-cover"
+                    className="object-cover opacity-75"
                   />
                 </div>
               </div>

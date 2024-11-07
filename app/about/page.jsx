@@ -92,7 +92,7 @@ export default function Component() {
 
         <div
           ref={mainDivRef}
-          className="h-[200vh] w-full flex relative flex-col overflow-hidden items-center "
+          className="h-[200vh] w-full hidden lg:flex relative flex-col overflow-hidden items-center "
         >
           <motion.div
             style={{
@@ -114,6 +114,17 @@ export default function Component() {
               />
             ))}
           </motion.div>
+        </div>
+
+        <div className=" flex lg:hidden flex-col items-center w-full mt-8">
+          {cards.map((card, index) => (
+            <NormalCard
+              key={index}
+              title={card.title}
+              description={card.description}
+              image={card.image}
+            />
+          ))}
         </div>
 
         <div className=" h-[30vh] relative overflow-hidden flex flex-col bg-black items-center mt-[10vh] justify-center w-full">
@@ -138,6 +149,37 @@ export default function Component() {
         </div>
       </div>
     </Transition>
+  );
+}
+
+function NormalCard({ title, description, image }) {
+  return (
+    <div className=" w-11/12 lg:w-[70vw] h-[450px] mb-[5vh] z-10">
+      <div
+        className={`bg-black z-10  w-full h-full flex flex-col relative lg:flex-row items-center overflow-hidden justify-center`}
+      >
+        <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
+
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-center lg:items-start pl-8 pr-8 justify-center">
+          {title ? (
+            <h2 className="text-white text-[2rem] z-20 lg:text-[3rem] font-bold text-center lg:text-start">
+              {title}
+            </h2>
+          ) : null}
+          <p className="text-white text-lg lg:text-xl z-20 text-center lg:text-start ">
+            {description}
+          </p>
+        </div>
+        <div className=" w-full lg:w-1/2 h-1/2 lg:h-full bg-cover bg-center relative overflow-hidden">
+          <Image
+            src={process.env.NEXT_PUBLIC_API_URL + image}
+            alt="image"
+            layout="fill"
+            className=" transition-all duration-200 scale-110 object-cover"
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
