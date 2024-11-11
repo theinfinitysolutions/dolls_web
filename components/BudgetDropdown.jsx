@@ -3,7 +3,6 @@ import { useController, useForm } from "react-hook-form";
 import Select from "react-select";
 
 const services = [
-  { label: "0 - 10,000", value: "0 - 10,000" },
   { label: "10,000 - 30,000", value: "10,000 - 30,000" },
   { label: "30,000 - 50,000", value: "30,000 - 50,000" },
   { label: "50,000+ ", value: "50,000+" },

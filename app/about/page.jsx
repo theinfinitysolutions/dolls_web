@@ -28,7 +28,7 @@ const cards = [
     title: null,
     description:
       "Our Philosophy is simple: the best music comes from collaboration, where each member’s unique energy contributes to something deeply resonant.",
-    image: "/dolls28.jpeg",
+    image: "/dolls45.jpeg",
   },
 ];
 
@@ -81,13 +81,13 @@ export default function Component() {
       >
         <div className=" h-[30vh] lg:h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
           <h1 className=" text-white text-[2.5rem]  lg:text-[6rem]">
-            ABOUT US
+            ABOUT <span className="text-red-500">US</span>
           </h1>
-          <p className=" text-xl text-white w-full lg:w-9/12 text-center">
+          {/* <p className=" text-xl text-white w-full lg:w-9/12 text-center">
             {
               "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
             }
-          </p>
+          </p> */}
         </div>
 
         <div
@@ -128,16 +128,16 @@ export default function Component() {
         </div>
 
         <div className=" h-[30vh] relative overflow-hidden flex flex-col bg-black items-center mt-[10vh] justify-center w-full">
-          <div className="circle -bottom-[80%] -right-[30%] absolute z-30" />
-          <div className="circle -bottom-[80%] -left-[10%] absolute z-30" />
+          <div className={`circle -bottom-[80%] -right-[30%] absolute z-30`} />
+          <div className={`circle -bottom-[80%] -left-[10%] absolute z-30`} />
           <h1 className=" text-white text-[2rem]  lg:text-[3rem]">
-            We are <span className="text-red-700">{"Dole's"}</span> Music
+            We are <span className="text-red-500">{"Dole's"}</span> Music
           </h1>
-          <p className=" text-base text-white w-full lg:w-9/12 -mt-1 text-center">
+          {/* <p className=" text-base text-white w-full lg:w-9/12 -mt-1 text-center">
             {
               "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
             }
-          </p>
+          </p> */}
           <button
             onClick={() => {
               router.push("/contact");
@@ -222,11 +222,11 @@ function Card({ title, color, progress, index, description, image }) {
 
         <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col items-center lg:items-start pl-8 pr-8 justify-center">
           {title ? (
-            <h2 className="text-white text-[2rem] z-20 lg:text-[3rem] font-bold text-center lg:text-start">
+            <h2 className="text-white text-[2.5rem] z-20 lg:text-[3.5rem] font-bold text-center lg:text-start">
               {title}
             </h2>
           ) : null}
-          <p className="text-white text-lg lg:text-xl z-20 text-center lg:text-start ">
+          <p className="text-white text-xl lg:text-2xl z-20 text-center lg:text-start ">
             {description}
           </p>
         </div>

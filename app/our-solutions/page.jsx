@@ -81,7 +81,7 @@ const Services = () => {
       >
         <div className="  h-[30vh] lg:h-[40vh] relative flex flex-col items-center justify-end w-11/12 lg:w-[80vw]">
           <h1 className=" text-white text-[2.5rem]  lg:text-[6rem]">
-            WHAT WE OFFER?
+            WHAT <span className=" text-red-600">WE</span> OFFER?
           </h1>
           <p className=" text-xl text-white w-full lg:w-6/12 text-center">
             {
@@ -112,13 +112,21 @@ const Services = () => {
                 >
                   <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
 
-                  <div className=" w-full lg:w-1/2  h-full flex flex-col items-center justify-center px-8">
-                    <h1 className=" text-white text-[1.5rem] text-center lg:text-start lg:text-[2.5rem] lg:leading-[2.25rem]">
+                  <div className=" w-full lg:w-1/2  h-full flex flex-col items-center lg:items-start justify-center px-8">
+                    <h1 className=" text-white text-[2rem] text-center z-20 lg:text-start lg:text-[2.75rem] lg:leading-[2.5rem]">
                       {item.name}
                     </h1>
-                    <p className=" text-xl text-white w-full text-center lg:text-start mt-4">
+                    <p className=" text-xl text-white w-full text-center z-20 lg:text-start mt-4">
                       {item.description}
                     </p>
+                    <button
+                      onClick={() => {
+                        router.push("/contact");
+                      }}
+                      className=" bg-red-700 text-white text-sm lg:text-base px-8 py-2 rounded-md mt-4"
+                    >
+                      {"Get Started"}
+                    </button>
                   </div>
                   <div className=" w-full lg:w-1/2 h-full relative bg-gray-600 flex-col items-center justify-start px-4">
                     <Image
@@ -140,11 +148,11 @@ const Services = () => {
               <h1 className=" text-white text-[2rem] text-center  lg:text-[3rem]">
                 We are <span className="text-red-700">{"Dole's"}</span> Music
               </h1>
-              <p className=" text-base text-white w-full lg:w-9/12 -mt-1 text-center">
+              {/* <p className=" text-base text-white w-full lg:w-9/12 -mt-1 text-center">
                 {
                   "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
                 }
-              </p>
+              </p> */}
               <button
                 onClick={() => {
                   router.push("/contact");
@@ -161,17 +169,25 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className={` h-[50vh]  w-[90vw] lg:w-[55vw] mt-[7.5vh] bg-black shadow-lg  flex flex-col lg:flex-row items-center relative overflow-hidden justify-center`}
+                className={` h-[60vh]  w-[90vw] lg:w-[55vw] mt-[7.5vh] bg-black shadow-lg  flex flex-col lg:flex-row items-center relative overflow-hidden justify-center`}
               >
                 <div className="circle top-[-7.5vh] left-[-7.5vh] absolute z-30" />
 
                 <div className=" w-full lg:w-1/2  h-full flex flex-col items-center justify-center px-8">
-                  <h1 className=" text-white text-[1.5rem] text-center lg:text-start lg:text-[2.5rem] lg:leading-[2.25rem]">
+                  <h1 className=" text-white text-[1.75rem] leading-[1.5rem] text-center lg:text-start lg:text-[3rem] lg:leading-[2.5rem]">
                     {item.name}
                   </h1>
-                  <p className=" text-base lg:text-xl text-white w-full text-center lg:text-start mt-2 lg:mt-4">
+                  <p className=" text-base lg:text-2xl text-white w-full text-center lg:text-start mt-4">
                     {item.description}
                   </p>
+                  <button
+                    onClick={() => {
+                      router.push("/contact");
+                    }}
+                    className=" bg-red-700 text-white text-sm lg:text-base px-8 py-2 rounded-md mt-4"
+                  >
+                    {"Get Started"}
+                  </button>
                 </div>
                 <div className=" w-full lg:w-1/2 h-full relative bg-gray-600  flex-col items-center justify-start px-4">
                   <Image
@@ -193,11 +209,11 @@ const Services = () => {
             <h1 className=" text-white text-[2rem] text-center mt-2 lg:text-[3rem]">
               We are <span className="text-red-700">{"Dole's"}</span> Music
             </h1>
-            <p className=" text-base text-white w-11/12 lg:w-9/12 -mt-1 text-center">
+            {/* <p className=" text-base text-white w-11/12 lg:w-9/12 -mt-1 text-center">
               {
                 "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
               }
-            </p>
+            </p> */}
             <button
               onClick={() => {
                 router.push("/contact");
