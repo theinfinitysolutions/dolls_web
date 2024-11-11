@@ -83,11 +83,11 @@ export default function Component() {
           <h1 className=" text-white text-[2.5rem]  lg:text-[6rem]">
             ABOUT <span className="text-red-500">US</span>
           </h1>
-          {/* <p className=" text-xl text-white w-full lg:w-9/12 text-center">
+          <p className=" text-xl text-white w-full lg:w-9/12 text-center">
             {
               "A creative music collective driven by the synergy of artists, merging diverse skills and experiences to craft powerful audio solutions."
             }
-          </p> */}
+          </p>
         </div>
 
         <div
