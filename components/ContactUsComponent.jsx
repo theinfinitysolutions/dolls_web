@@ -85,7 +85,7 @@ const ContactUsComponent = () => {
         console.log("resres", res);
         setLoading(false);
         setEmailSent(true);
-        window.fbq("track", "Doles Lead", {
+        window.fbq("trackCustom", "Doles Lead", {
           event: "Lead",
         });
         reset();
