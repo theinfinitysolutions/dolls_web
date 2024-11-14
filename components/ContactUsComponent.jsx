@@ -85,6 +85,9 @@ const ContactUsComponent = () => {
         console.log("resres", res);
         setLoading(false);
         setEmailSent(true);
+        window.fbq("track", "Doles Lead", {
+          event: "Lead",
+        });
         reset();
       })
       .catch((err) => {
@@ -197,13 +200,13 @@ const ContactUsComponent = () => {
             ) : null}
           </div>
           {emailSent ? (
-            <button
+            <div
               type="submit"
               disabled
-              className="bg-green-400 text-white px-8 py-2 mt-4 "
+              className="bg-green-400 z-0 text-white px-8 py-2 mt-4 "
             >
               Email Sent
-            </button>
+            </div>
           ) : (
             <button
               // disabled={!errors.name || !errors.email}
@@ -215,7 +218,7 @@ const ContactUsComponent = () => {
               //   setCurrentPointer("");
               // }}
 
-              className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-20 lg:mt-8 cursor-pointer "
+              className="bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-10 lg:mt-8 cursor-pointer "
             >
               {loading ? "..." : "Submit"}
             </button>

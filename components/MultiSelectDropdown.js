@@ -65,7 +65,7 @@ const MultiSelectDropdown = ({ name, control }) => {
           return {
             ...baseStyles,
             backgroundColor: "black",
-            zIndex: 100,
+            zIndex: 102,
           };
         },
         valueContainer: (baseStyles, state) => {
@@ -91,7 +91,7 @@ const MultiSelectDropdown = ({ name, control }) => {
           fontSize: "1rem",
         }),
       }}
-      className=" react-select mb-4 z-20 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+      className=" react-select mb-4 z-30 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
     />
   );
 };

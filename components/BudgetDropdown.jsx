@@ -59,7 +59,7 @@ const BudgetDropdown = ({ name, control }) => {
           return {
             ...baseStyles,
             backgroundColor: "black",
-            zIndex: 100,
+            zIndex: 80,
           };
         },
         valueContainer: (baseStyles, state) => {
@@ -86,11 +86,11 @@ const BudgetDropdown = ({ name, control }) => {
           ...baseStyles,
           backgroundColor: "black",
           color: "white",
-          zIndex: 10,
+          zIndex: 8,
           fontSize: "1rem",
         }),
       }}
-      className=" react-select mb-4 z-50 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+      className=" react-select mb-4 z-10 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
     />
   );
 };
