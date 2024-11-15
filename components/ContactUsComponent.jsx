@@ -131,7 +131,7 @@ const ContactUsComponent = () => {
               type="text"
               id="name"
               placeholder="Name*"
-              {...register("name", { required: true, minLength: 5 })}
+              {...register("name", { required: true })}
               className="mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
             />
             {errors.name?.message ? (
