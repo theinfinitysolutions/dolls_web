@@ -12,12 +12,15 @@ import TimeSlotTabs from './TimeSlotTabs';
 import ExperienceDropdown from './ExperienceDropdown';
 import useGeolocation from '@/hooks/useGeolocation';
 import CountryStateSelector from './CountryStateSelector';
+import PhoneNumberInput from './PhoneNumberInput';
 
 const ContactUsComponent = () => {
   const [loading, setLoading] = React.useState(false);
+  const [countries, setCountries] = useState([]);
   const [messageRequired, setMessageRequired] = React.useState(false);
   const [isBudgetDropdown, setIsBudgetDropdown] = React.useState(false);
   const [emailSent, setEmailSent] = React.useState(false);
+  const [selectedCountry, setSelectedCountry] = useState('');
 
   const location = useGeolocation();
 
@@ -34,6 +37,7 @@ const ContactUsComponent = () => {
     defaultValues: {
       name: '',
       email: '',
+      countryCode: '91',
       phoneNumber: '',
       purpose: [],
       budget: '',
@@ -50,6 +54,30 @@ const ContactUsComponent = () => {
 
   const searchParams = useSearchParams();
 
+  const fetchCountries = async () => {
+    try {
+      const options = {
+        method: 'GET',
+        url: 'https://country-state-city-search-rest-api.p.rapidapi.com/allcountries',
+        headers: {
+          'x-rapidapi-key': '3d365a9107mshc7b4c65833366b9p19e38fjsn944f9247c9df',
+          'x-rapidapi-host': 'country-state-city-search-rest-api.p.rapidapi.com',
+        },
+      };
+      const response = await axios.request(options);
+      setCountries(response.data);
+      setLoading(false);
+    } catch (error) {
+      setError('Failed to load countries. Please try again.');
+      console.error('Error:', error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
   useEffect(() => {
     console.log('bidget', budget);
     if (purpose.length > 1 || purpose.includes('Music Production')) {
@@ -65,80 +93,65 @@ const ContactUsComponent = () => {
     if (location.loaded && !location.error) {
       setValue('state', location.address.state);
       setValue('country', location.address.country);
+      const country = countries.find((country) => country.name === location.address.country);
+      if (country) {
+        console.log('country', country);
+        setSelectedCountry(country.name);
+      }
     }
-  }, [location.loaded, location.address, setValue]);
+  }, [location.loaded, location.address, setValue, countries]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setLoading(true);
+
+    const formattedData = {
+      ...data,
+      phoneNumber: data.phoneNumber ? `+${data.countryCode}${data.phoneNumber}` : '',
+    };
+
+    console.log('formattedData', formattedData);
 
     const campaign = searchParams.get('campaign'); // will get 'campaign_id'
     const adset = searchParams.get('adset'); // will get 'Badset_i'
     const placement = searchParams.get('placement'); // will get 'placement'
     const ad = searchParams.get('ad'); // will get 'ad'
 
-    console.log({
-      ...data,
-      location: {
-        coordinates: location.coordinates,
-        state: location.address.state,
-        country: location.address.country,
-      },
-      campaign,
-      adset,
-      placement,
-      ad,
-    });
-    console.log('data', data);
+    let formData = {
+      Name: formattedData.name,
+      Email: formattedData.email,
+      Phone: formattedData.phoneNumber,
+      Country: formattedData.country,
+      State: formattedData.state,
+      Purpose: formattedData.purpose,
+      Budget: formattedData.budget,
+      'Preferred Slot': formattedData.timeSlot,
+      Experience: formattedData.experience,
+    };
 
-    // axios
-    //   .post(
-    //     `https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`,
-    //     {
-    //       records: [
-    //         {
-    //           fields: {
-    //             Name: data.name,
-    //             Email: data.email,
-    //             'Phone Number': data.phoneNumber,
-    //             'Purpose of Enquiry': data.purpose.toString(),
-    //             Budget: '₹' + data.budget,
-    //             Message: data.message,
-    //             'Preferred Time': data.timeSlot || '',
-    //             'Experience Level': data.experience || '',
-    //             CreatedOn: formatDate(new Date()),
-    //             Campaign: campaign || '',
-    //             Adset: adset || '',
-    //             Placement: placement || '',
-    //             Ad: ad || '',
-    //           },
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     if (res.status.toString()[0] !== '2') {
-    //       throw new Error(res);
-    //     }
+    const payload = {
+      ...formData,
+      xnQsjsdp: '24ab8f02c11b990d8d7e799ac0a56c17d2ef59b6a414e6fb9f7a9cc663319507',
+      xmIwtLD: '36dffdeb8bb954d4367e97c96ebaee1ebf1ad81ff88a7da5bc0b06044a469a38e413ed3e63dfab878d2732e829c1b363',
+      actionType: 'TGVhZHM=',
+      returnURL: 'null',
+    };
 
-    //     console.log('resres', res);
-    //     setLoading(false);
-    //     setEmailSent(true);
-    //     window.fbq('trackCustom', 'Doles Lead', {
-    //       event: 'Lead',
-    //     });
-    //     reset();
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     console.log('error', err);
-    //   });
-    setLoading(false);
+    try {
+      const response = await axios.post('https://crm.zoho.in/crm/WebToLeadForm', new URLSearchParams(payload), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+      alert('Form submitted successfully!');
+      console.log(response.data);
+      setEmailSent(true);
+      reset();
+      setLoading(false);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error submitting form. Please try again.');
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -148,6 +161,10 @@ const ContactUsComponent = () => {
       }, 2000);
     }
   }, [emailSent]);
+
+  useEffect(() => {
+    console.log('errors', errors);
+  }, [errors]);
 
   return (
     <div className='flex flex-col w-full h-full items-center relative justify-center py-[2.5vh] '>
@@ -168,9 +185,19 @@ const ContactUsComponent = () => {
               type='text'
               id='name'
               placeholder='Name*'
-              {...register('name', { required: true })}
+              {...register('name', {
+                required: {
+                  value: true,
+                  message: 'Name is required',
+                },
+                minLength: {
+                  value: 3,
+                  message: 'Name must be at least 3 characters',
+                },
+              })}
               className='mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800'
             />
+
             {errors.name?.message ? <p className=' text-xs text-red-500'>{errors.name.message}</p> : null}
           </div>
           <div className='flex flex-col items-start w-full mt-2'>
@@ -179,8 +206,11 @@ const ContactUsComponent = () => {
               type='email'
               placeholder='Email*'
               {...register('email', {
-                required: true,
-                minLength: 5,
+                required: {
+                  value: true,
+                  message: 'Email is required',
+                },
+
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: 'invalid email address',
@@ -188,16 +218,11 @@ const ContactUsComponent = () => {
               })}
               className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800'
             />
-            {errors.email?.message ? <p className=' text-xs text-red-500'>{errors.email.message}</p> : null}
+            {errors.email ? <p className=' text-xs text-red-500'>{errors.email.message}</p> : null}
           </div>
           <div className='flex flex-col items-start w-full mt-2'>
-            <input
-              id='phoneNumber'
-              type='phoneNumber'
-              placeholder='Phone Number'
-              {...register('phoneNumber')}
-              className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800'
-            />
+            <PhoneNumberInput control={control} countries={countries} />
+            {errors.phoneNumber?.message ? <p className=' text-xs text-red-500'>{errors.phoneNumber.message}</p> : null}
           </div>
           <div className='flex flex-col items-start w-full mt-2'>
             <MultiSelectDropdown name={'purpose'} control={control} />
@@ -220,6 +245,9 @@ const ContactUsComponent = () => {
             control={control}
             defaultCountry={location.address.country}
             defaultState={location.address.state}
+            countries={countries}
+            selectedCountry={selectedCountry}
+            setSelectedCountry={setSelectedCountry}
           />
           <div className='flex flex-col items-start w-full mt-2'>
             <TimeSlotTabs name={'timeSlot'} control={control} />

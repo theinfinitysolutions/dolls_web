@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import axios from 'axios';
 
-const CountryStateSelector = ({ control, defaultCountry, defaultState }) => {
-  const [countries, setCountries] = useState([]);
+const CountryStateSelector = ({
+  control,
+  defaultCountry,
+  defaultState,
+  countries,
+  selectedCountry,
+  setSelectedCountry,
+}) => {
   const [states, setStates] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(defaultCountry || '');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchCountries();
-  }, []);
 
   useEffect(() => {
     if (selectedCountry) {
@@ -20,36 +21,6 @@ const CountryStateSelector = ({ control, defaultCountry, defaultState }) => {
       fetchStates(isoCode);
     }
   }, [selectedCountry]);
-
-  useEffect(() => {
-    if (defaultCountry) {
-      const country = countries.find((country) => country.name === defaultCountry);
-      if (country) {
-        console.log('country', country);
-        setSelectedCountry(country.name);
-      }
-    }
-  }, [defaultCountry]);
-
-  const fetchCountries = async () => {
-    try {
-      const options = {
-        method: 'GET',
-        url: 'https://country-state-city-search-rest-api.p.rapidapi.com/allcountries',
-        headers: {
-          'x-rapidapi-key': '3d365a9107mshc7b4c65833366b9p19e38fjsn944f9247c9df',
-          'x-rapidapi-host': 'country-state-city-search-rest-api.p.rapidapi.com',
-        },
-      };
-      const response = await axios.request(options);
-      setCountries(response.data);
-      setLoading(false);
-    } catch (error) {
-      setError('Failed to load countries. Please try again.');
-      console.error('Error:', error);
-      setLoading(false);
-    }
-  };
 
   const fetchStates = async (countryCode) => {
     try {
