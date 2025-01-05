@@ -174,6 +174,7 @@ const Home = () => {
             layout='fill'
             objectFit='contain'
             alt='asset1'
+            loading='lazy'
             className='rounded-3xl animate-rotate2 opacity-70'
           />
         </div>
@@ -188,6 +189,7 @@ const Home = () => {
             alt={'asset2'}
             objectFit='contain'
             layout='fill'
+            loading='lazy'
           />
         </a>
 
@@ -291,7 +293,7 @@ const Home = () => {
               </RevealOnScroll>
             </div>
             <div className=' hidden lg:flex lg:-ml-[5%] w-full lg:w-7/12 overflow-hidden '>
-              <CarouselComponent eventsDisabled={false} />
+              {/* <CarouselComponent eventsDisabled={false} /> */}
             </div>
             <div
               disabled={true}
@@ -300,7 +302,7 @@ const Home = () => {
               }}
               className=' flex lg:hidden lg:-ml-[5%] z-0 w-full mt-[5vh] h-[50vh] overflow-hidden pointer-events-none '
             >
-              <CarouselComponent eventsDisabled={true} />
+              {/* <CarouselComponent eventsDisabled={true} /> */}
             </div>
             {/* <div className="flex flex-col items-start  w-4/12">
               <div
@@ -366,6 +368,7 @@ const Home = () => {
                         src={upcoming[0].imageUrl}
                         layout='fill'
                         objectFit='cover'
+                        loading='lazy'
                         alt={upcoming[0].song + 'music'}
                       />
                     </div>
@@ -375,6 +378,7 @@ const Home = () => {
                         layout='fill'
                         alt='music'
                         objectFit='cover'
+                        loading='lazy'
                         className='rotate-45'
                       />
                     </div>
@@ -428,7 +432,7 @@ const Home = () => {
                     >
                       <div className='flex flex-row items-center'>
                         <div className=' h-[10vh] w-[10vh] lg:h-[15vh] lg:w-[15vh] relative'>
-                          <Image src={item.imageUrl} layout='fill' alt={`song ${item.song}`} />
+                          <Image src={item.imageUrl} layout='fill' alt={`song ${item.song}`} loading='lazy' />
                         </div>
                         <div className='flex flex-col items-start justify-center ml-8'>
                           <h3 className='text-white text-sm lg:text-xl'>{item.song}</h3>
@@ -503,7 +507,7 @@ const Home = () => {
               {Array(15)
                 .fill(1)
                 .map((item, idx) => (
-                  <ImageCard key={idx} idx={idx} imageUrl={`/dolls${idx + 15}.jpeg`} />
+                  <ImageCard key={idx} idx={idx} loading='lazy' imageUrl={`/dolls${idx + 15}.jpeg`} />
                 ))}
             </motion.div>
           </div>
