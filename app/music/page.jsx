@@ -66,7 +66,7 @@ const Music = () => {
   }, [showSongsModal]);
 
   return (
-    // <Transition>
+    <Transition>
     <div
       id='music'
       className='flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden'
@@ -359,7 +359,7 @@ const Music = () => {
           </div>
         </div> */}
     </div>
-    // </Transition>
+    {/* // </Transition> */}
   );
 };
 
