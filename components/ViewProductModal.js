@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
-import useStore from "@/utils/store";
-import { pop, rock, hiphop } from "@/utils/consts";
-import Image from "next/image";
-import { FaSpotify } from "react-icons/fa";
-import { SiApplemusic } from "react-icons/si";
-import { SiYoutubemusic } from "react-icons/si";
-import { IoClose } from "react-icons/io5";
+import React, { useState, useEffect } from 'react';
+import useStore from '@/utils/store';
+import { pop, rock, hiphop } from '@/utils/consts';
+import Image from 'next/image';
+import { FaSpotify } from 'react-icons/fa';
+import { SiApplemusic } from 'react-icons/si';
+import { SiYoutubemusic } from 'react-icons/si';
+import { IoClose } from 'react-icons/io5';
 
 const music = [
   {
-    genre: "POP",
-    streams: "7M +",
-    artists: "10",
+    genre: 'POP',
+    streams: '7M +',
+    artists: '10',
     songs: pop,
   },
   {
-    genre: "ROCK",
-    streams: "13M +",
-    artists: "6",
+    genre: 'ROCK',
+    streams: '13M +',
+    artists: '6',
     songs: rock,
   },
 
   {
-    genre: "HIP HOP",
-    streams: "1M +",
-    artists: "2",
+    genre: 'HIP HOP',
+    streams: '1M +',
+    artists: '2',
     songs: hiphop,
   },
 ];
@@ -35,7 +35,7 @@ export default function ViewProductModal() {
   const { showSongsModal, setShowSongsModal, setCurrentPointer } = useStore();
 
   useEffect(() => {
-    console.log("esaing", showSongsModal);
+    console.log('esaing', showSongsModal);
     if (showSongsModal) {
       setOpen(showSongsModal.open);
       setCurrentSong(showSongsModal.song);
@@ -45,10 +45,10 @@ export default function ViewProductModal() {
   return (
     <div>
       {open ? (
-        <div className=" fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center ">
-          <div className="h-[80vh] lg:h-[80vh] w-11/12 lg:w-[80vw] overflow-y-scroll bg-black flex flex-col items-center">
-            <div className="flex flex-row w-full justify-between items-center px-[5vw] mt-[5vh]">
-              <h3 className=" text-[2rem] lg:text-[4rem] leading-[3rem] text-white font-semibold">
+        <div className=' fixed left-0 top-0 z-50 w-screen h-screen bg-[#121212]/80 flex flex-col items-center justify-center '>
+          <div className='h-[80vh] lg:h-[80vh] w-11/12 lg:w-[80vw] overflow-y-scroll bg-black flex flex-col items-center'>
+            <div className='flex flex-row w-full justify-between items-center px-[5vw] mt-[5vh]'>
+              <h3 className=' text-[2rem] lg:text-[4rem] leading-[3rem] text-white font-semibold'>
                 {music[currentSong].genre}
               </h3>
               <a
@@ -64,45 +64,44 @@ export default function ViewProductModal() {
                     song: 0,
                   });
                   setOpen(false);
-                  setCurrentPointer("");
+                  setCurrentPointer('');
                 }}
-                className=" cursor-pointer"
+                className=' cursor-pointer'
               >
-                <IoClose className="text-white text-3xl" />
+                <IoClose className='text-white text-3xl' />
               </a>
             </div>
-            <div className=" w-full overflow-y-scroll bg-black grid grid-cols-2 lg:px-[5vw] md:grid-cols-3 mt-8 lg:grid-cols-4 mb-8">
+            <div className=' w-full overflow-y-scroll bg-black grid grid-cols-2 lg:px-[5vw] md:grid-cols-3 mt-8 lg:grid-cols-4 mb-8'>
               {music[currentSong]?.songs.map((song, songIndex) => {
                 return (
                   <div
-                    data-song="Song Name"
+                    data-song='Song Name'
                     key={songIndex}
-                    className="flex flex-col items-center overflow-hidden  h-[40vw] w-full lg:h-[17.5vw] lg:w-[10vw]"
+                    className='flex flex-col items-center overflow-hidden  h-[40vw] w-full lg:h-[17.5vw] lg:w-[10vw]'
                   >
-                    <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative">
-                      <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20">
+                    <div className=' h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] group mt-4 relative'>
+                      <div className=' h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw]  mt-4 absolute z-20'>
                         {song.imageUrl.toString().length > 0 ? (
                           <Image
                             src={song.imageUrl.toString()}
-                            layout="fill"
+                            layout='fill'
                             alt={`song ${song.song}`}
-                            objectFit="cover"
+                            objectFit='cover'
+                            loading='lazy'
                           />
                         ) : (
                           <Image
-                            src={
-                              process.env.NEXT_PUBLIC_API_URL +
-                              `/exclusive2.jpeg`
-                            }
-                            layout="fill"
-                            alt={"alt"}
-                            objectFit="cover"
+                            src={process.env.NEXT_PUBLIC_API_URL + `/exclusive2.jpeg`}
+                            layout='fill'
+                            alt={'alt'}
+                            objectFit='cover'
+                            loading='lazy'
                           />
                         )}
 
-                        <div className=" h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover">
-                          <div className="flex flex-col items-center justify-center h-full w-full">
-                            <div className="flex flex-row items-center pointer-events-auto justify-around w-full">
+                        <div className=' h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] pointer-events-none -z-20 group-hover:z-10 absolute bg-[#00000077] transition-all opacity-0 translate-y-[-10vw] group-hover:opacity-100 group-hover:translate-y-0 group-hover'>
+                          <div className='flex flex-col items-center justify-center h-full w-full'>
+                            <div className='flex flex-row items-center pointer-events-auto justify-around w-full'>
                               <a
                                 // onMouseEnter={() => {
                                 //   setCurrentPointer("a");
@@ -111,11 +110,11 @@ export default function ViewProductModal() {
                                 //   setCurrentPointer("");
                                 // }}
                                 href={song.Spotify}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="cursor-pointer"
+                                target='_blank'
+                                rel='noreferrer'
+                                className='cursor-pointer'
                               >
-                                <FaSpotify size={18} color="#fff" />
+                                <FaSpotify size={18} color='#fff' />
                               </a>
                               <a
                                 // onMouseEnter={() => {
@@ -125,11 +124,11 @@ export default function ViewProductModal() {
                                 //   setCurrentPointer("");
                                 // }}
                                 href={song.AppleMusic}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="cursor-pointer"
+                                target='_blank'
+                                rel='noreferrer'
+                                className='cursor-pointer'
                               >
-                                <SiApplemusic size={18} color="#fff" />
+                                <SiApplemusic size={18} color='#fff' />
                               </a>
                               <a
                                 // onMouseEnter={() => {
@@ -139,32 +138,29 @@ export default function ViewProductModal() {
                                 //   setCurrentPointer("");
                                 // }}
                                 href={song.Youtube}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="cursor-pointer"
+                                target='_blank'
+                                rel='noreferrer'
+                                className='cursor-pointer'
                               >
-                                <SiYoutubemusic size={18} color="#fff" />
+                                <SiYoutubemusic size={18} color='#fff' />
                               </a>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 ">
+                      <div className='h-[20vw] w-[20vw] lg:h-[10vw] lg:w-[10vw] z-10 absolute transition-all group-hover:translate-x-[-5vw] group-hover:duration-200  mt-4 '>
                         <Image
-                          src={process.env.NEXT_PUBLIC_API_URL + "/asset1.png"}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rotate-45"
+                          src={process.env.NEXT_PUBLIC_API_URL + '/asset1.png'}
+                          layout='fill'
+                          objectFit='cover'
+                          className='rotate-45'
+                          loading='lazy'
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col mt-[12.5vh] lg:mt-8 w-full items-center">
-                      <p className=" text-sm lg:text-md text-center font-semibold">
-                        {song.song}
-                      </p>
-                      <p className=" text-xs lg:text-xs text-center font-semibold text-red-500 ">
-                        {song.artist}
-                      </p>
+                    <div className='flex flex-col mt-[12.5vh] lg:mt-8 w-full items-center'>
+                      <p className=' text-sm lg:text-md text-center font-semibold'>{song.song}</p>
+                      <p className=' text-xs lg:text-xs text-center font-semibold text-red-500 '>{song.artist}</p>
                     </div>
                   </div>
                 );
