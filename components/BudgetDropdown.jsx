@@ -1,11 +1,11 @@
-import React from "react";
-import { useController, useForm } from "react-hook-form";
-import Select from "react-select";
+import React from 'react';
+import { useController, useForm } from 'react-hook-form';
+import Select from 'react-select';
 
 const services = [
-  { label: "10,000 - 30,000", value: "10,000 - 30,000" },
-  { label: "30,000 - 50,000", value: "30,000 - 50,000" },
-  { label: "50,000+ ", value: "50,000+" },
+  { label: '10,000 - 30,000', value: '10,000 - 30,000' },
+  { label: '30,000 - 50,000', value: '30,000 - 50,000' },
+  { label: '50,000+ ', value: '50,000+' },
 ];
 
 const BudgetDropdown = ({ name, control }) => {
@@ -20,9 +20,7 @@ const BudgetDropdown = ({ name, control }) => {
     onChange(selectedOption.value);
   };
 
-  const selectedValues = services.filter((option) =>
-    value?.includes(option.value)
-  );
+  const selectedValues = services.filter((option) => value?.includes(option.value));
 
   return (
     <Select
@@ -30,13 +28,13 @@ const BudgetDropdown = ({ name, control }) => {
       ref={ref}
       options={services}
       value={selectedValues}
-      placeholder="Budget"
+      placeholder='Budget'
       onChange={handleChange}
       styles={{
         placeholder: (defaultStyles) => {
           return {
             ...defaultStyles,
-            color: "rgb(255 255 255 / 0.8)",
+            color: 'rgb(255 255 255 / 0.8)',
           };
         },
         // container: (defaultStyles) => {
@@ -49,48 +47,48 @@ const BudgetDropdown = ({ name, control }) => {
         multiValueRemove: (baseStyles, state) => {
           return {
             ...baseStyles,
-            color: "#121212",
-            ":hover": {
-              color: "black",
+            color: '#121212',
+            ':hover': {
+              color: 'black',
             },
           };
         },
         menu: (baseStyles, state) => {
           return {
             ...baseStyles,
-            backgroundColor: "black",
+            backgroundColor: 'black',
             zIndex: 80,
           };
         },
         valueContainer: (baseStyles, state) => {
           return {
             ...baseStyles,
-            backgroundColor: "transparent",
-            paddingLeft: "0px",
+            backgroundColor: 'transparent',
+            paddingLeft: '0px',
           };
         },
         singleValue: (baseStyles, state) => {
           return {
             ...baseStyles,
-            color: "white",
+            color: 'white',
           };
         },
         control: (baseStyles, state) => ({
           ...baseStyles,
-          backgroundColor: "transparent",
-          border: "none",
-          fontSize: "1.25rem",
-          paddingLeft: "0",
+          backgroundColor: 'transparent',
+          border: 'none',
+          fontSize: '1.25rem',
+          paddingLeft: '0',
         }),
         option: (baseStyles, state) => ({
           ...baseStyles,
-          backgroundColor: "black",
-          color: "white",
+          backgroundColor: 'black',
+          color: 'white',
           zIndex: 8,
-          fontSize: "1rem",
+          fontSize: '1rem',
         }),
       }}
-      className=" react-select mb-4 z-10 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800"
+      className=' react-select mb-4 z-20 w-full bg-transparent placeholder:text-white/70 focus:bg-transparent text-white/90  text-xl border-b-[1px] border-red-800'
     />
   );
 };

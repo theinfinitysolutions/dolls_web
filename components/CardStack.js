@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import move from "lodash-move";
-import Image from "next/image";
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import move from 'lodash-move';
+import Image from 'next/image';
 
 const CARD_OFFSET = 10;
 const SCALE_FACTOR = 0.06;
@@ -30,11 +30,11 @@ export const CardStack = () => {
           return (
             <motion.li
               key={color}
-              className="shadow-[0_8px_3200px_1px_rgba(256,256,256,0.1)]"
+              className='shadow-[0_8px_3200px_1px_rgba(256,256,256,0.1)]'
               style={{
                 ...cardStyle,
                 backgroundColor: color,
-                cursor: canDrag ? "grab" : "auto",
+                cursor: canDrag ? 'grab' : 'auto',
               }}
               animate={{
                 left: index * CARD_OFFSET * 4,
@@ -42,14 +42,14 @@ export const CardStack = () => {
                 scale: 1 - index * SCALE_FACTOR,
                 zIndex: 4 - index,
               }}
-              drag={canDrag ? "y" : false}
+              drag={canDrag ? 'y' : false}
               dragConstraints={{
                 top: 0,
                 bottom: 0,
               }}
               onDragEnd={() => moveToEnd(index)}
             >
-              <div className="relative h-full w-full">
+              <div className='relative h-full w-full'>
                 <Image
                   // onMouseEnter={() => {
                   //   setCurrentPointer("i");
@@ -58,8 +58,9 @@ export const CardStack = () => {
                   //   setCurrentPointer("");
                   // }}
                   src={`/dolls${color}.jpeg`}
-                  className=""
-                  layout="fill"
+                  className=''
+                  loading='lazy'
+                  layout='fill'
                 />
               </div>
             </motion.li>
@@ -70,24 +71,24 @@ export const CardStack = () => {
   );
 };
 const wrapperStyle = {
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "40vh",
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '40vh',
 };
 
 const cardWrapStyle = {
-  position: "relative",
-  width: "350px",
-  height: "220px",
+  position: 'relative',
+  width: '350px',
+  height: '220px',
 };
 
 const cardStyle = {
-  position: "absolute",
-  width: "30vw",
-  height: "70vh",
-  borderRadius: "8px",
-  transformOrigin: "top center",
-  listStyle: "none",
+  position: 'absolute',
+  width: '30vw',
+  height: '70vh',
+  borderRadius: '8px',
+  transformOrigin: 'top center',
+  listStyle: 'none',
 };
