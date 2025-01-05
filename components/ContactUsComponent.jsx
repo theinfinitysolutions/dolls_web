@@ -82,10 +82,8 @@ const ContactUsComponent = () => {
     console.log('bidget', budget);
     if (purpose.length > 1 || purpose.includes('Music Production')) {
       setIsBudgetDropdown(true);
-      // setValue("budget", "");
     } else {
       setIsBudgetDropdown(false);
-      // setValue("budget", "");
     }
   }, [purpose, budget]);
 
@@ -109,49 +107,60 @@ const ContactUsComponent = () => {
       phoneNumber: data.phoneNumber ? `+${data.countryCode}${data.phoneNumber}` : '',
     };
 
-    console.log('formattedData', formattedData);
-
     const campaign = searchParams.get('campaign'); // will get 'campaign_id'
     const adset = searchParams.get('adset'); // will get 'Badset_i'
     const placement = searchParams.get('placement'); // will get 'placement'
     const ad = searchParams.get('ad'); // will get 'ad'
 
-    let formData = {
-      Name: formattedData.name,
-      Email: formattedData.email,
-      Phone: formattedData.phoneNumber,
-      Country: formattedData.country,
-      State: formattedData.state,
-      Purpose: formattedData.purpose,
-      Budget: formattedData.budget,
-      'Preferred Slot': formattedData.timeSlot,
-      Experience: formattedData.experience,
-    };
-
-    const payload = {
-      ...formData,
-      xnQsjsdp: '24ab8f02c11b990d8d7e799ac0a56c17d2ef59b6a414e6fb9f7a9cc663319507',
-      xmIwtLD: '36dffdeb8bb954d4367e97c96ebaee1ebf1ad81ff88a7da5bc0b06044a469a38e413ed3e63dfab878d2732e829c1b363',
-      actionType: 'TGVhZHM=',
-      returnURL: 'null',
-    };
-
-    try {
-      const response = await axios.post('https://crm.zoho.in/crm/WebToLeadForm', new URLSearchParams(payload), {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+    axios
+      .post(
+        `https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`,
+        {
+          records: [
+            {
+              fields: {
+                Name: formattedData.name,
+                Email: formattedData.email,
+                'Phone Number': formattedData.phoneNumber,
+                'Purpose of Enquiry': formattedData.purpose.toString(),
+                Budget: '₹' + formattedData.budget,
+                Message: formattedData.message,
+                CreatedOn: formatDate(new Date()),
+                'Preferred time slot': formattedData.timeSlot || '',
+                'Experience level': formattedData.experience || '',
+                Country: formattedData.country || '',
+                State: formattedData.state || '',
+                'Campaign ID': campaign || '',
+                Adset: adset || '',
+                Placement: placement || '',
+                'Ad ID': ad || '',
+              },
+            },
+          ],
         },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status.toString()[0] !== '2') {
+          throw new Error(res);
+        }
+        console.log('resres', res);
+        setLoading(false);
+        setEmailSent(true);
+        window.fbq('trackCustom', 'Doles Lead', {
+          event: 'Lead',
+        });
+        reset();
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log('error', err);
       });
-      alert('Form submitted successfully!');
-      console.log(response.data);
-      setEmailSent(true);
-      reset();
-      setLoading(false);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error submitting form. Please try again.');
-      setLoading(false);
-    }
   };
 
   useEffect(() => {
@@ -258,21 +267,23 @@ const ContactUsComponent = () => {
             {errors.experience?.message ? <p className=' text-xs text-red-500'>{errors.experience.message}</p> : null}
           </div>
 
-          {/* <div className='flex flex-col items-start w-full mt-2'>
+          <div className='flex flex-col items-start w-full mt-2'>
             <textarea
               id='message'
               placeholder={`Message ${messageRequired ? '*' : ''}`}
               {...register('message', {
                 required: messageRequired,
               })}
-              className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[10vh] bg-transparent text-xl border-b-[1px] border-red-800'
+              className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[5vh] bg-transparent text-xl border-b-[1px] border-red-800'
             />
             {errors.message?.message ? <p className=' text-xs text-red-500'>{errors.message.message}</p> : null}
-          </div> */}
+          </div>
           {emailSent ? (
             <div type='submit' disabled className='bg-green-400 z-0 text-white px-8 py-2 mt-4 '>
               Email Sent
             </div>
+          ) : loading ? (
+            <div className='bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-0 lg:mt-8  '>...</div>
           ) : (
             <button
               // disabled={!errors.name || !errors.email}
@@ -286,7 +297,7 @@ const ContactUsComponent = () => {
 
               className='bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-0 lg:mt-8 cursor-pointer '
             >
-              {loading ? '...' : 'Submit'}
+              {'Submit'}
             </button>
           )}
         </form>

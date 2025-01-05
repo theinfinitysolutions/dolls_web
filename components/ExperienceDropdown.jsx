@@ -4,10 +4,8 @@ import { Controller } from 'react-hook-form';
 const ExperienceDropdown = ({ control, name }) => {
   const options = [
     { value: 'hobby', label: 'Hobby' },
-    { value: 'beginner', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
     { value: 'professional', label: 'Professional' },
-    { value: 'expert', label: 'Expert' },
+    { value: 'others', label: 'Others' },
   ];
 
   return (
