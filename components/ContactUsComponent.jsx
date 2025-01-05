@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { alfa } from '@/app/layout';
@@ -13,7 +14,6 @@ import ExperienceDropdown from './ExperienceDropdown';
 import useGeolocation from '@/hooks/useGeolocation';
 import CountryStateSelector from './CountryStateSelector';
 import PhoneNumberInput from './PhoneNumberInput';
-
 
 const ContactUsComponent = () => {
   const [loading, setLoading] = React.useState(false);
@@ -150,7 +150,7 @@ const ContactUsComponent = () => {
         if (res.status.toString()[0] !== '2') {
           throw new Error(res);
         }
-      
+
         console.log('resres', res);
         setLoading(false);
         setEmailSent(true);
@@ -186,7 +186,6 @@ const ContactUsComponent = () => {
         <p className='text-white text-center text-sm'>{' Apply here to work with us'}</p>
       </div>
       <div className=' flex flex-col items-center w-full mt-4 lg:mt-[2.5vh]'>
-
         <form
           id='contact-form'
           onSubmit={handleSubmit(onSubmit)}

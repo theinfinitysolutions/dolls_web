@@ -1,17 +1,11 @@
-'use client';
-import React, { useEffect } from 'react';
-import Image from 'next/image';
-import { alfa } from '../layout';
-import useStore from '@/utils/store';
+import React from 'react';
 import { FaInstagram } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import Transition from '@/components/Transition';
 import ContactUsComponent from '@/components/ContactUsComponent';
-import { useSearchParams } from 'next/navigation';
 
 const ContactUs = () => {
-  const params = useSearchParams();
   return (
     <Transition>
       <div

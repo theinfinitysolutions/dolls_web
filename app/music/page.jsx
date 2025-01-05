@@ -61,82 +61,80 @@ const Music = () => {
     location.current.style.display = 'none';
   };
 
-  useEffect(() => {
-    console.log('location 1', location, showSongsModal);
-  }, [showSongsModal]);
-
   return (
     <Transition>
-    <div
-      id='music'
-      className='flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden'
-    >
-      <div className='flex flex-col items-center w-[90vw] '>
-        <div className='flex flex-col items-center w-full mt-[2.5vh] lg:mt-[5vh] relative'>
-          {music.map((item, index) => (
-            <div
-              key={index}
-              className='flex flex-col lg:flex-row w-full h-full lg:h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]'
-            >
-              <a
-                onClick={() => {
-                  setShowSongsModal({
-                    open: true,
-                    song: index,
-                  });
-                }}
-                className='px-4 py-2 absolute right-0 top-0 z-40 bg-white cursor-pointer'
-              >
-                <p className='text-black text-sm'>View All</p>
-              </a>
-              <div className=' lg:w-[40vh] lg:h-[40vh] z-50 lg:absolute bg-white flex flex-col justify-between items-center px-4 pt-4'>
-                <div className='flex flex-row  w-full justify-between items-center border-t-[1px] border-black'></div>
-                <div className='flex flex-col items-start'>
-                  <p className='text-start text-red-700 text-sm'>Genre</p>
-                  <h3 className=' text-[2rem] lg:text-[4rem] leading-[3rem] text-black font-semibold'>{item.genre}</h3>
-                </div>
-                <div className='flex flex-row  w-full justify-between items-center border-t-[1px] border-black'>
-                  <div className='flex flex-col items-center py-2 w-1/2 border-r-[1px] border-black'>
-                    <p className='text-start text-red-700 text-xs lg:text-sm'>Streams</p>
-                    <p className='text-start text-base lg:text-xl text-black'>{item.streams}</p>
-                  </div>
-                  <div className='flex flex-col items-center py-2 w-1/2'>
-                    <p className='text-start text-red-700 text-xs lg:text-sm'>Artists</p>
-                    <p className='text-start text-base lg:text-xl text-black'>{item.artists}</p>
-                  </div>
-                </div>
-              </div>
+      <div
+        id='music'
+        className='flex flex-col z-30 max-w-screen min-h-screen w-screen overflow-y-scroll relative items-center justify-between py-[5vh] overflow-hidden'
+      >
+        <div className='flex flex-col items-center w-[90vw] '>
+          <div className='flex flex-col items-center w-full mt-[2.5vh] lg:mt-[5vh] relative'>
+            {music.map((item, index) => (
               <div
-                onMouseMove={handleMouseMove}
-                className={` hidden lg:flex flex-row items-center w-full animate-infinitescroll ${
-                  (isHovered && currentGroup === index) || showSongsModal.open
-                    ? '[animation-play-state:paused]'
-                    : '[animation-play-state:running]'
-                }`}
+                key={index}
+                className='flex flex-col lg:flex-row w-full h-full lg:h-[40vh] mt-[5vh] lg:mt-[10vh] relative overflow-hidden bg-[#00000055]'
               >
-                {[...item.songs, ...item.songs].map((song, songIndex) => {
-                  return (
-                    <SongCard
-                      onMouseOver={() => {
-                        setIsHovered(true);
-                        setCurrentGroup(index);
-                      }}
-                      onMouseOut={() => {
-                        setIsHovered(false);
-                        setCurrentGroup(0);
-                      }}
-                      key={songIndex}
-                      song={song.song}
-                      artist={song.artist}
-                      groupIndex={index}
-                      imageUrl={song.imageUrl}
-                      Spotify={song.Spotify}
-                      AppleMusic={song.AppleMusic}
-                      Youtube={song.Youtube}
-                    />
-                  );
-                })}
-                {/* <div
+                <a
+                  onClick={() => {
+                    setShowSongsModal({
+                      open: true,
+                      song: index,
+                    });
+                  }}
+                  className='px-4 py-2 absolute right-0 top-0 z-40 bg-white cursor-pointer'
+                >
+                  <p className='text-black text-sm'>View All</p>
+                </a>
+                <div className=' lg:w-[40vh] lg:h-[40vh] z-50 lg:absolute bg-white flex flex-col justify-between items-center px-4 pt-4'>
+                  <div className='flex flex-row  w-full justify-between items-center border-t-[1px] border-black'></div>
+                  <div className='flex flex-col items-start'>
+                    <p className='text-start text-red-700 text-sm'>Genre</p>
+                    <h3 className=' text-[2rem] lg:text-[4rem] leading-[3rem] text-black font-semibold'>
+                      {item.genre}
+                    </h3>
+                  </div>
+                  <div className='flex flex-row  w-full justify-between items-center border-t-[1px] border-black'>
+                    <div className='flex flex-col items-center py-2 w-1/2 border-r-[1px] border-black'>
+                      <p className='text-start text-red-700 text-xs lg:text-sm'>Streams</p>
+                      <p className='text-start text-base lg:text-xl text-black'>{item.streams}</p>
+                    </div>
+                    <div className='flex flex-col items-center py-2 w-1/2'>
+                      <p className='text-start text-red-700 text-xs lg:text-sm'>Artists</p>
+                      <p className='text-start text-base lg:text-xl text-black'>{item.artists}</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  onMouseMove={handleMouseMove}
+                  className={` hidden lg:flex flex-row items-center w-full animate-infinitescroll ${
+                    (isHovered && currentGroup === index) || showSongsModal.open
+                      ? '[animation-play-state:paused]'
+                      : '[animation-play-state:running]'
+                  }`}
+                >
+                  {[...item.songs, ...item.songs].map((song, songIndex) => {
+                    return (
+                      <SongCard
+                        onMouseOver={() => {
+                          setIsHovered(true);
+                          setCurrentGroup(index);
+                        }}
+                        onMouseOut={() => {
+                          setIsHovered(false);
+                          setCurrentGroup(0);
+                        }}
+                        key={songIndex}
+                        song={song.song}
+                        artist={song.artist}
+                        groupIndex={index}
+                        imageUrl={song.imageUrl}
+                        Spotify={song.Spotify}
+                        AppleMusic={song.AppleMusic}
+                        Youtube={song.Youtube}
+                      />
+                    );
+                  })}
+                  {/* <div
                       data-song="Song Name"
                       key={songIndex}
                       className="flex flex-col items-center  h-full w-[25vw] lg:h-[17.5vw] lg:w-[10vw] ml-[5vw] "
@@ -204,93 +202,95 @@ const Music = () => {
                       </div>
                     </div>
                   ))} */}
+                </div>
+                <div className='flex lg:hidden my-4'>
+                  <Swiper
+                    slidesPerView={1.5}
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    loop={true}
+                    className='mySwiper'
+                  >
+                    {item.songs.map((song, songIndex) => (
+                      <SwiperSlide key={songIndex}>
+                        <SongCard
+                          key={songIndex}
+                          song={song.song}
+                          artist={song.artist}
+                          groupIndex={index}
+                          imageUrl={song.imageUrl}
+                          Spotify={song.Spotify}
+                          AppleMusic={song.AppleMusic}
+                          Youtube={song.Youtube}
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+                <div className=' flex flex-row w-full pb-4 px-2 justify-end items-center'>
+                  <a
+                    onClick={() => {
+                      setShowSongsModal({
+                        open: true,
+                        song: index,
+                      });
+                    }}
+                    className=' lg:hidden text-white underline cursor-pointer '
+                  >
+                    View All
+                  </a>
+                </div>
               </div>
-              <div className='flex lg:hidden my-4'>
-                <Swiper
-                  slidesPerView={1.5}
-                  spaceBetween={30}
-                  centeredSlides={true}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  loop={true}
-                  className='mySwiper'
-                >
-                  {item.songs.map((song, songIndex) => (
-                    <SwiperSlide key={songIndex}>
-                      <SongCard
-                        key={songIndex}
-                        song={song.song}
-                        artist={song.artist}
-                        groupIndex={index}
-                        imageUrl={song.imageUrl}
-                        Spotify={song.Spotify}
-                        AppleMusic={song.AppleMusic}
-                        Youtube={song.Youtube}
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-              <div className=' flex flex-row w-full pb-4 px-2 justify-end items-center'>
-                <a
-                  onClick={() => {
-                    setShowSongsModal({
-                      open: true,
-                      song: index,
-                    });
-                  }}
-                  className=' lg:hidden text-white underline cursor-pointer '
-                >
-                  View All
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className='flex flex-row w-[90vw] h-[40vh] relative  mt-[5vh] justify-end items-center'>
-        <div className='flex flex-col items-end w-6/12'>
-          <p className='text-white text-xl lg:text-3xl text-right'>{' Like our music? Try our exclusive playlist. '}</p>
-
-          <div className=' w-[10vw] h-[3vw] mt-4 z-10  rotate-12 rounded-md'>
-            <Image
-              src={process.env.NEXT_PUBLIC_API_URL + '/arrow.png'}
-              layout='fill'
-              alt='arrow'
-              objectFit='contain'
-              className='opacity-80'
-              loading='lazy'
-            />
+            ))}
           </div>
         </div>
-        <div className='flex flex-col items-center ml-4'>
-          <a
-            href='/exclusive'
-            id='exclusive-nav'
-            className=' doorframe group h-[30vh] w-[17.5vh] relative border-[0.5px] overflow-hidden border-red-100 rounded-md'
-            tabindex='0'
-          >
-            <div className='door w-full h-full z-10 rounded-md'>
-              <Image src={process.env.NEXT_PUBLIC_API_URL + '/door.png'} alt='door' layout='fill' />
-            </div>
-            <div className=' w-full h-full bg-black absolute flex flex-col items-end justify-center z-0'>
-              <div className='circle -z-10'></div>
-              <div className='w-[10vh] h-[15vh] mb-[10vh]  relative rotate-45 translate-x-[15vw] group-hover:translate-x-6 group-hover:rotate-[-30deg]  duration-150 rounded-md'>
-                <Image
-                  src={process.env.NEXT_PUBLIC_API_URL + '/arm.png'}
-                  alt={'arm'}
-                  layout='fill'
-                  objectFit='contain'
-                  loading='lazy'
-                />
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+        <div className='flex flex-row w-[90vw] h-[40vh] relative  mt-[5vh] justify-end items-center'>
+          <div className='flex flex-col items-end w-6/12'>
+            <p className='text-white text-xl lg:text-3xl text-right'>
+              {' Like our music? Try our exclusive playlist. '}
+            </p>
 
-      {/* <div
+            <div className=' w-[10vw] h-[3vw] mt-4 z-10  rotate-12 rounded-md'>
+              <Image
+                src={process.env.NEXT_PUBLIC_API_URL + '/arrow.png'}
+                layout='fill'
+                alt='arrow'
+                objectFit='contain'
+                className='opacity-80'
+                loading='lazy'
+              />
+            </div>
+          </div>
+          <div className='flex flex-col items-center ml-4'>
+            <a
+              href='/exclusive'
+              id='exclusive-nav'
+              className=' doorframe group h-[30vh] w-[17.5vh] relative border-[0.5px] overflow-hidden border-red-100 rounded-md'
+              tabindex='0'
+            >
+              <div className='door w-full h-full z-10 rounded-md'>
+                <Image src={process.env.NEXT_PUBLIC_API_URL + '/door.png'} alt='door' layout='fill' />
+              </div>
+              <div className=' w-full h-full bg-black absolute flex flex-col items-end justify-center z-0'>
+                <div className='circle -z-10'></div>
+                <div className='w-[10vh] h-[15vh] mb-[10vh]  relative rotate-45 translate-x-[15vw] group-hover:translate-x-6 group-hover:rotate-[-30deg]  duration-150 rounded-md'>
+                  <Image
+                    src={process.env.NEXT_PUBLIC_API_URL + '/arm.png'}
+                    alt={'arm'}
+                    layout='fill'
+                    objectFit='contain'
+                    loading='lazy'
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* <div
           style={{
             zIndex: 100,
           }}
@@ -358,8 +358,8 @@ const Music = () => {
             </div>
           </div>
         </div> */}
-    </div>
-    {/* // </Transition> */}
+      </div>
+    </Transition>
   );
 };
 
