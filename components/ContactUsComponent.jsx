@@ -90,6 +90,7 @@ const ContactUsComponent = () => {
 
   useEffect(() => {
     if (location.loaded && !location.error) {
+      console.log('location', location.address.state, location.address.country);
       setValue('state', location.address.state);
       setValue('country', location.address.country);
       const country = countries.find((country) => country.name === location.address.country);

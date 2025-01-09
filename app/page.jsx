@@ -512,7 +512,7 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-        <div className={' h-[90vh] lg:h-screen flex flex-col items-center w-screen overflow-hidden bg-black z-20'}>
+        <div className={' h-full lg:h-screen flex flex-col items-center w-screen overflow-hidden bg-black z-20'}>
           <div className='circle absolute right-0 bottom-0 z-20' />
           <div className='circle -bottom-1/2 -right-1/2 absolute z-0' />
           <ContactUsComponent />
