@@ -17,6 +17,12 @@ const PhoneNumberInput = ({ control, defaultCountryCode = '91', countries }) => 
           name='countryCode'
           control={control}
           defaultValue={defaultCountryCode}
+          rules={{
+            required: {
+              value: true,
+              message: 'Country is required',
+            },
+          }}
           render={({ field: { onChange, value } }) => (
             <select
               onChange={(e) => {
@@ -29,7 +35,7 @@ const PhoneNumberInput = ({ control, defaultCountryCode = '91', countries }) => 
             >
               {countries.map((country) => (
                 <option key={country.code} value={country.phonecode} className='bg-black'>
-                  {country.flag} +{country.phonecode}
+                  {country.emoji} +{country.phonecode}
                 </option>
               ))}
             </select>

@@ -16,24 +16,26 @@ const CountryStateSelector = ({
 
   useEffect(() => {
     if (selectedCountry) {
-      const isoCode = countries.find((country) => country.name === selectedCountry).isoCode;
-      console.log('isoCode', isoCode);
+      const isoCode = countries.find((country) => country.name === selectedCountry).iso2;
+      console.log(
+        'isoCode',
+        isoCode,
+        countries.find((country) => country.name === selectedCountry)
+      );
       fetchStates(isoCode);
     }
   }, [selectedCountry]);
 
   const fetchStates = async (countryCode) => {
     try {
-      const options = {
-        method: 'GET',
-        url: 'https://country-state-city-search-rest-api.p.rapidapi.com/states-by-countrycode',
-        params: { countrycode: countryCode.toLowerCase() },
+      var config = {
+        method: 'get',
+        url: `https://api.countrystatecity.in/v1/countries/${countryCode}/states`,
         headers: {
-          'x-rapidapi-key': '3d365a9107mshc7b4c65833366b9p19e38fjsn944f9247c9df',
-          'x-rapidapi-host': 'country-state-city-search-rest-api.p.rapidapi.com',
+          'X-CSCAPI-KEY': 'Q25PTlc4bU5UZWFQcTRrWEJpT0l4SEUyUVZ6aVBoT1JwZlRrSnI4Ug==',
         },
       };
-      const response = await axios.request(options);
+      const response = await axios.request(config);
       setStates(response.data);
       if (defaultState) {
         const state = response.data.find((state) => state.name === defaultState);
@@ -58,7 +60,10 @@ const CountryStateSelector = ({
             control={control}
             defaultValue={selectedCountry}
             rules={{
-              required: true,
+              required: {
+                value: true,
+                message: 'Country is required',
+              },
             }}
             render={({ field: { onChange, value } }) => (
               <select
@@ -87,6 +92,12 @@ const CountryStateSelector = ({
             name='state'
             control={control}
             defaultValue={defaultState}
+            rules={{
+              required: {
+                value: true,
+                message: 'State is required',
+              },
+            }}
             render={({ field: { onChange, value } }) => (
               <select
                 onChange={onChange}

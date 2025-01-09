@@ -15,7 +15,10 @@ const TimeSlotTabs = ({ control, name }) => {
       name={name}
       control={control}
       rules={{
-        required: true,
+        required: {
+          value: true,
+          message: 'Time slot is required',
+        },
       }}
       render={({ field: { value, onChange } }) => (
         <div className='w-full mb-4'>

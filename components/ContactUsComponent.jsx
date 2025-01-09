@@ -57,15 +57,15 @@ const ContactUsComponent = () => {
 
   const fetchCountries = async () => {
     try {
-      const options = {
-        method: 'GET',
-        url: 'https://country-state-city-search-rest-api.p.rapidapi.com/allcountries',
+      var config = {
+        method: 'get',
+        url: 'https://api.countrystatecity.in/v1/countries',
         headers: {
-          'x-rapidapi-key': '3d365a9107mshc7b4c65833366b9p19e38fjsn944f9247c9df',
-          'x-rapidapi-host': 'country-state-city-search-rest-api.p.rapidapi.com',
+          'X-CSCAPI-KEY': 'Q25PTlc4bU5UZWFQcTRrWEJpT0l4SEUyUVZ6aVBoT1JwZlRrSnI4Ug==',
         },
       };
-      const response = await axios.request(options);
+      const response = await axios.request(config);
+      console.log('response', response);
       setCountries(response.data);
       setLoading(false);
     } catch (error) {
@@ -276,7 +276,10 @@ const ContactUsComponent = () => {
               id='message'
               placeholder='Message*'
               {...register('message', {
-                required: true,
+                required: {
+                  value: true,
+                  message: 'Message is required',
+                },
               })}
               className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[5vh] bg-transparent text-xl border-b-[1px] border-red-800'
             />

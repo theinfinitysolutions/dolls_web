@@ -20,7 +20,10 @@ const MultiSelectDropdown = ({ name, control }) => {
     name,
     control,
     rules: {
-      required: true,
+      required: {
+        value: true,
+        message: 'Purpose is required',
+      },
     },
   });
 

@@ -15,7 +15,10 @@ const BudgetDropdown = ({ name, control }) => {
     name,
     control,
     rules: {
-      required: true,
+      required: {
+        value: true,
+        message: 'Budget is required',
+      },
     },
   });
 

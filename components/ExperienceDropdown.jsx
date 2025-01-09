@@ -13,7 +13,10 @@ const ExperienceDropdown = ({ control, name }) => {
       name={name}
       control={control}
       rules={{
-        required: true,
+        required: {
+          value: true,
+          message: 'Experience is required',
+        },
       }}
       render={({ field: { value, onChange } }) => (
         <div className='w-full mb-4'>
