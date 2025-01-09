@@ -246,8 +246,10 @@ const ContactUsComponent = () => {
               <input
                 id='budget'
                 type={'number'}
-                placeholder='Budget'
-                {...register('budget')}
+                placeholder='Budget*'
+                {...register('budget', {
+                  required: true,
+                })}
                 className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  bg-transparent text-xl border-b-[1px] border-red-800'
               />
             )}
@@ -272,9 +274,9 @@ const ContactUsComponent = () => {
           <div className='flex flex-col items-start w-full mt-2'>
             <textarea
               id='message'
-              placeholder={`Message ${messageRequired ? '*' : ''}`}
+              placeholder='Message*'
               {...register('message', {
-                required: messageRequired,
+                required: true,
               })}
               className='mb-4 w-full placeholder:text-white/80 focus:bg-transparent text-white/90  h-[5vh] bg-transparent text-xl border-b-[1px] border-red-800'
             />
@@ -282,7 +284,7 @@ const ContactUsComponent = () => {
           </div>
           {emailSent ? (
             <div type='submit' disabled className='bg-green-400 z-0 text-white px-8 py-2 mt-4 '>
-              Email Sent
+              Sent
             </div>
           ) : loading ? (
             <div className='bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-0 lg:mt-8  '>...</div>

@@ -14,6 +14,9 @@ const BudgetDropdown = ({ name, control }) => {
   } = useController({
     name,
     control,
+    rules: {
+      required: true,
+    },
   });
 
   const handleChange = (selectedOption) => {
@@ -28,7 +31,7 @@ const BudgetDropdown = ({ name, control }) => {
       ref={ref}
       options={services}
       value={selectedValues}
-      placeholder='Budget'
+      placeholder='Budget*'
       onChange={handleChange}
       styles={{
         placeholder: (defaultStyles) => {

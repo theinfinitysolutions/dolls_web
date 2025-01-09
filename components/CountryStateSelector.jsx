@@ -57,6 +57,9 @@ const CountryStateSelector = ({
             name='country'
             control={control}
             defaultValue={selectedCountry}
+            rules={{
+              required: true,
+            }}
             render={({ field: { onChange, value } }) => (
               <select
                 onChange={(e) => {
@@ -67,7 +70,7 @@ const CountryStateSelector = ({
                 className='mb-4 w-full bg-transparent placeholder:text-white/80 focus:bg-transparent text-white/90 text-xl border-b-[1px] border-red-800 outline-none'
               >
                 <option value='' className='bg-black'>
-                  Select Country
+                  Select Country*
                 </option>
                 {countries.map((country) => (
                   <option key={country.code} value={country.name} className='bg-black'>

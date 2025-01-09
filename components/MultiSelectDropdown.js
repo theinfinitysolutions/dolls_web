@@ -19,6 +19,9 @@ const MultiSelectDropdown = ({ name, control }) => {
   } = useController({
     name,
     control,
+    rules: {
+      required: true,
+    },
   });
 
   const handleChange = (selectedOptions) => {
@@ -34,7 +37,7 @@ const MultiSelectDropdown = ({ name, control }) => {
       ref={ref}
       options={services}
       value={selectedValues}
-      placeholder='Purpose of Enquiry'
+      placeholder='Purpose of Enquiry*'
       onChange={handleChange}
       styles={{
         placeholder: (defaultStyles) => {

@@ -12,9 +12,12 @@ const ExperienceDropdown = ({ control, name }) => {
     <Controller
       name={name}
       control={control}
+      rules={{
+        required: true,
+      }}
       render={({ field: { value, onChange } }) => (
         <div className='w-full mb-4'>
-          <p className='text-white/80 mb-2 text-xl'>Experience Level</p>
+          <p className='text-white/80 mb-2 text-xl'>Experience Level*</p>
           <div className='flex flex-wrap gap-2'>
             {options.map((option) => (
               <button
