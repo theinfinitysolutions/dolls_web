@@ -29,12 +29,13 @@ const ContactUsComponent = () => {
     register,
     handleSubmit,
     getValues,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
     control,
     watch,
     setValue,
   } = useForm({
+    mode: 'onChange',
     defaultValues: {
       name: '',
       email: '',
@@ -294,16 +295,11 @@ const ContactUsComponent = () => {
             <div className='bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-0 lg:mt-8  '>...</div>
           ) : (
             <button
-              // disabled={!errors.name || !errors.email}
               type='submit'
-              // onMouseEnter={() => {
-              //   setCurrentPointer("a");
-              // }}
-              // onMouseLeave={() => {
-              //   setCurrentPointer("");
-              // }}
-
-              className='bg-red-800 disabled:bg-gray-700 text-white px-8 py-2 mt-2 z-0 lg:mt-8 cursor-pointer '
+              disabled={!isValid}
+              className={`bg-red-800 text-white px-8 py-2 mt-2 z-0 lg:mt-8 cursor-pointer ${
+                !isValid ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
               {'Submit'}
             </button>
