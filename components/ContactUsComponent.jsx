@@ -119,26 +119,20 @@ const ContactUsComponent = () => {
       .post(
         `https://api.dolesmusic.com/api/leads/create-lead/`,
         {
-          records: [
-            {
-              fields: {
-                name: formattedData.name,
-                email: formattedData.email,
-                phone: formattedData.phoneNumber,
-                purpose: formattedData.purpose.toString(),
-                budget: '₹' + formattedData.budget,
-                message: formattedData.message,
-                time_slot: formattedData.timeSlot || '',
-                experience: formattedData.experience || '',
-                country: formattedData.country || '',
-                state: formattedData.state || '',
-                campaign: campaign || '',
-                adset: adset || '',
-                placement: placement || '',
-                ad: ad || '',
-              },
-            },
-          ],
+          name: formattedData.name,
+          email: formattedData.email,
+          phone: formattedData.phoneNumber,
+          purpose: formattedData.purpose.toString(),
+          budget: '₹' + formattedData.budget,
+          message: formattedData.message,
+          time_slot: formattedData.timeSlot || '',
+          experience: formattedData.experience || '',
+          country: formattedData.country || '',
+          state: formattedData.state || '',
+          campaign: campaign || '',
+          adset: adset || '',
+          placement: placement || '',
+          ad: ad || '',
         },
         {
           headers: {
