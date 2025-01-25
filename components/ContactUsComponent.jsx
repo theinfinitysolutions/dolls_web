@@ -117,26 +117,25 @@ const ContactUsComponent = () => {
 
     axios
       .post(
-        `https://api.airtable.com/v0/appd6P4Bu9eyKGgCo/Doles%20Leads`,
+        `https://api.dolesmusic.com/api/leads/create-lead/`,
         {
           records: [
             {
               fields: {
-                Name: formattedData.name,
-                Email: formattedData.email,
-                'Phone Number': formattedData.phoneNumber,
-                'Purpose of Enquiry': formattedData.purpose.toString(),
-                Budget: '₹' + formattedData.budget,
-                Message: formattedData.message,
-                CreatedOn: formatDate(new Date()),
-                'Preferred time slot': formattedData.timeSlot || '',
-                'Experience level': formattedData.experience || '',
-                Country: formattedData.country || '',
-                State: formattedData.state || '',
-                'Campaign ID': campaign || '',
-                Adset: adset || '',
-                Placement: placement || '',
-                'Ad ID': ad || '',
+                name: formattedData.name,
+                email: formattedData.email,
+                phone: formattedData.phoneNumber,
+                purpose: formattedData.purpose.toString(),
+                budget: '₹' + formattedData.budget,
+                message: formattedData.message,
+                time_slot: formattedData.timeSlot || '',
+                experience: formattedData.experience || '',
+                country: formattedData.country || '',
+                state: formattedData.state || '',
+                campaign: campaign || '',
+                adset: adset || '',
+                placement: placement || '',
+                ad: ad || '',
               },
             },
           ],
@@ -144,7 +143,6 @@ const ContactUsComponent = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
           },
         }
       )
