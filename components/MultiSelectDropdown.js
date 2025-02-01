@@ -10,6 +10,7 @@ const services = [
   { label: 'Voice Over', value: 'Voice Over' },
   { label: 'Post Production', value: 'Post Production' },
   { label: 'Multilingual AD Jingles', value: 'Multilingual AD Jingles' },
+  { label: 'Gift A Song', value: 'Gift A Song' },
   { label: 'Others', value: 'Others' },
 ];
 
