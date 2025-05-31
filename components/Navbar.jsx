@@ -38,6 +38,14 @@ const navbarItems = [
     title: 'Our Solutions',
     link: '/our-solutions',
   },
+  {
+    title: 'Terms & Conditions',
+    link: '/terms-and-conditions',
+  },
+  {
+    title: 'Privacy Policy',
+    link: '/privacy-policy',
+  },
 ];
 
 const Navbar = () => {
