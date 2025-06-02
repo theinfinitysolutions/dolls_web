@@ -151,6 +151,11 @@ const ContactUsComponent = () => {
         window.fbq('trackCustom', 'Doles Lead', {
           event: 'Lead',
         });
+        window.rdt('init', 'a2_gyk6ih5ganfe', {
+          email: formattedData.email,
+          phoneNumber: formattedData.phoneNumber,
+          externalId: res.data?.[0].details?.id,
+        });
         reset();
       })
       .catch((err) => {

@@ -87,6 +87,7 @@ export default function RootLayout({ children }) {
         content="Dole's Music, Doleshwar Raj, Doleshwar, Raj, Atrangi Funkaar, Atrangi, Funkaar, Apple Music, Spotify, Doleshwar Apple,Doleshwar Raj Apple Music, Doleshwar Raj Spotify, Doleshwar Raj Music, Doleshwar Raj Songs, Doleshwar Raj Albums, Doleshwar Raj Musician, Doleshwar Raj Music, Doleshwar Raj Musician, MAMA Beats, SSD, Jiya jaye na, Jiya, SSD,Shaunak"
       />
       <title>{"Dole's Music"}</title>
+      <head>a2_gyk6ih5ganfe</head>
       <link rel='icon' href='/favicon.ico' type='image/x-icon' />
       <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
       <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
@@ -179,6 +180,17 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         {/* </ZohoAuth> */}
+
+        {/* Reddit */}
+        <Script
+          id='reddit-pixel'
+          strategy='lazyOnload'
+          dangerouslySetInnerHTML={{
+            __html: `
+            !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_gyk6ih5ganfe');rdt('track', 'PageVisit');
+          `,
+          }}
+        />
       </body>
     </html>
   );
