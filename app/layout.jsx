@@ -17,6 +17,7 @@ import localFont from 'next/font/local';
 import ViewProductModal from '@/components/ViewProductModal';
 import Script from 'next/script';
 import Sidebar from '@/components/MobileSidebar';
+import RedditPixel from '@/components/RedditPixel';
 // import ZohoAuth from '@/components/ZohoAuth';
 
 export const gazpacho_black = localFont({
@@ -181,16 +182,8 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* </ZohoAuth> */}
 
-        {/* Reddit */}
-        <Script
-          id='reddit-pixel'
-          strategy='lazyOnload'
-          dangerouslySetInnerHTML={{
-            __html: `
-            !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_gyk6ih5ganfe');rdt('track', 'PageVisit');
-          `,
-          }}
-        />
+        {/* Reddit Pixel - Conditional based on URL params */}
+        <RedditPixel />
       </body>
     </html>
   );

@@ -156,6 +156,11 @@ const ContactUsComponent = () => {
           phoneNumber: formattedData.phoneNumber,
           externalId: res.data?.[0].details?.id,
         });
+        window.rdt('track', 'a2_gyk6ih5ganfe', {
+          email: formattedData.email,
+          phoneNumber: formattedData.phoneNumber,
+          externalId: res.data?.[0].details?.id,
+        });
         reset();
       })
       .catch((err) => {
