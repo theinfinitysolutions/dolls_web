@@ -117,7 +117,7 @@ const ContactUsComponent = () => {
 
     axios
       .post(
-        `https://api.dolesmusic.com/api/leads/create-lead/`,
+        `https://api.dolesmusic.com/api/leads/old-leads/`,
         {
           name: formattedData.name,
           email: formattedData.email,
