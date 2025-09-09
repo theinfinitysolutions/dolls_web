@@ -91,12 +91,10 @@ const ContactUsComponent = () => {
 
   useEffect(() => {
     if (location.loaded && !location.error) {
-      console.log('location', location.address.state, location.address.country);
       setValue('state', location.address.state);
       setValue('country', location.address.country);
       const country = countries.find((country) => country.name === location.address.country);
       if (country) {
-        console.log('country', country);
         setSelectedCountry(country.name);
       }
     }
@@ -145,7 +143,6 @@ const ContactUsComponent = () => {
           throw new Error(res);
         }
 
-        console.log('resres', res);
         setLoading(false);
         setEmailSent(true);
         window.fbq('trackCustom', 'Doles Lead', {
@@ -165,7 +162,6 @@ const ContactUsComponent = () => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log('error', err);
       });
   };
 
@@ -176,10 +172,6 @@ const ContactUsComponent = () => {
       }, 2000);
     }
   }, [emailSent]);
-
-  useEffect(() => {
-    console.log('errors', errors);
-  }, [errors]);
 
   return (
     <div className='flex flex-col w-full h-full items-center relative justify-center py-[2.5vh] '>
