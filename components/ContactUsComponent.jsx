@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { alfa } from '@/app/layout';
 import RevealOnScroll from './RevealOnScroll';
@@ -15,7 +15,7 @@ import useGeolocation from '@/hooks/useGeolocation';
 import CountryStateSelector from './CountryStateSelector';
 import PhoneNumberInput from './PhoneNumberInput';
 
-const ContactUsComponent = () => {
+const ContactUsComponentInner = () => {
   const [loading, setLoading] = React.useState(false);
   const [countries, setCountries] = useState([]);
   const [messageRequired, setMessageRequired] = React.useState(false);
@@ -301,6 +301,14 @@ const ContactUsComponent = () => {
         </form>
       </div>
     </div>
+  );
+};
+
+const ContactUsComponent = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactUsComponentInner />
+    </Suspense>
   );
 };
 

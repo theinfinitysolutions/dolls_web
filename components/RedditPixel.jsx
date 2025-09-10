@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Script from 'next/script';
 import { useSearchParams } from 'next/navigation';
 
-export default function RedditPixel() {
+function RedditPixelInner() {
   const [shouldRender, setShouldRender] = useState(false);
   const searchParams = useSearchParams();
 
@@ -41,5 +41,13 @@ export default function RedditPixel() {
         `,
       }}
     />
+  );
+}
+
+export default function RedditPixel() {
+  return (
+    <Suspense fallback={null}>
+      <RedditPixelInner />
+    </Suspense>
   );
 }
